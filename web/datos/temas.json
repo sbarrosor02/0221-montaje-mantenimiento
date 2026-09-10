@@ -1,0 +1,25 @@
+{
+  "modulo": "0221",
+  "titulo": "Montaje y mantenimiento de equipo",
+  "curso": "2026/2027",
+  "temas": [
+    {
+      "ut": 0,
+      "titulo": "Presentación del módulo y evaluación inicial",
+      "ra": "",
+      "evaluacion": 0,
+      "horas": 2,
+      "estado": "publicado",
+      "actualizado": "2026-09-10"
+    },
+    {
+      "ut": 1,
+      "titulo": "Selección de componentes de equipos microinformáticos",
+      "ra": "RA1",
+      "evaluacion": 1,
+      "horas": 14,
+      "estado": "borrador",
+      "actualizado": "2026-09-10"
+    }
+  ]
+}

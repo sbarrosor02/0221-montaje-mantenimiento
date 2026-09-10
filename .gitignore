@@ -1,0 +1,8 @@
+# Los exámenes no se publican (MODULOS.md). Se guarda la carpeta, no su contenido.
+examenes/*
+!examenes/.gitkeep
+
+# Temporales del sistema
+.DS_Store
+Thumbs.db
+*~

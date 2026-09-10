@@ -1,0 +1,255 @@
+/* Cuaderno FP · hoja de estilos compartida de los sitios de módulo
+   HTML/CSS plano, sin frameworks. Responsive (móvil primero).
+   Copia idéntica en 0221 y 0223: si se cambia, cambiar en los dos. */
+
+:root {
+  --tinta: #1b1f24;
+  --tinta-suave: #556070;
+  --fondo: #ffffff;
+  --fondo-suave: #f4f6f8;
+  --linea: #d9dee4;
+  --acento: #1f5c8f;
+  --acento-claro: #e8f1f9;
+  --ok: #1a7f43;
+  --mal: #b4232c;
+  --aviso: #8a5a00;
+  --aviso-fondo: #fff6e0;
+  --radio: 10px;
+  --ancho: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--tinta);
+  background: var(--fondo-suave);
+}
+
+.envoltura {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding: 1.5rem 1.1rem 4rem;
+}
+
+/* Cabecera */
+.cab {
+  border-bottom: 3px solid var(--acento);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.6rem;
+}
+.cab .modulo {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin: 0 0 0.2rem;
+}
+.cab h1 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin: 0.1rem 0 0.3rem;
+}
+.cab .meta {
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+  margin: 0;
+}
+
+/* Navegación entre temas */
+.nav-temas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin: 2.5rem 0 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--linea);
+}
+.nav-temas a,
+.nav-temas span {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radio);
+  text-decoration: none;
+}
+.nav-temas a {
+  color: var(--acento);
+  background: var(--fondo);
+  border: 1px solid var(--linea);
+}
+.nav-temas a:hover { background: var(--acento-claro); }
+.nav-temas span {
+  color: var(--tinta-suave);
+  border: 1px solid transparent;
+}
+
+/* Bloques de contenido */
+.tarjeta {
+  background: var(--fondo);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 1.1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.aviso {
+  background: var(--aviso-fondo);
+  border: 1px solid #f0d48a;
+  border-left: 4px solid var(--aviso);
+  border-radius: var(--radio);
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+.aviso strong { color: var(--aviso); }
+
+.ra-ce {
+  background: var(--acento-claro);
+  border: 1px solid #bcd6ec;
+  border-radius: var(--radio);
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+.ra-ce h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+  color: var(--acento);
+}
+
+h2 { font-size: 1.2rem; margin: 2rem 0 0.6rem; }
+h3 { font-size: 1.03rem; margin: 1.5rem 0 0.4rem; }
+
+/* Preguntas */
+.pregunta {
+  margin: 1.4rem 0;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dashed var(--linea);
+}
+.pregunta:last-child { border-bottom: none; }
+.pregunta .enunciado {
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+.pregunta .enunciado .num {
+  color: var(--acento);
+  margin-right: 0.35rem;
+}
+.opciones { list-style: none; margin: 0; padding: 0; }
+.opciones li { margin: 0.3rem 0; }
+.opciones label {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--fondo);
+}
+.opciones label:hover { background: var(--fondo-suave); }
+.opciones input { margin-top: 0.35rem; flex: none; }
+
+.pregunta.acierto .opciones label { border-color: var(--linea); }
+.pregunta.acierto .marca { color: var(--ok); }
+.pregunta.fallo .marca { color: var(--mal); }
+.marca { font-weight: 700; margin-left: 0.4rem; }
+
+textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  font: inherit;
+  padding: 0.6rem;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.acciones { margin: 1.8rem 0 0; }
+button {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--acento);
+  border: none;
+  border-radius: var(--radio);
+  padding: 0.6rem 1.3rem;
+  cursor: pointer;
+}
+button:hover { background: #17466c; }
+button.sec {
+  color: var(--acento);
+  background: var(--fondo);
+  border: 1px solid var(--acento);
+  margin-left: 0.5rem;
+}
+
+.resultado {
+  margin-top: 1.2rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radio);
+  background: var(--acento-claro);
+  border: 1px solid #bcd6ec;
+  font-weight: 600;
+}
+.resultado.oculto { display: none; }
+
+/* Autoevaluación (casillas) */
+.checklist { list-style: none; margin: 0.5rem 0; padding: 0; }
+.checklist li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  margin: 0.35rem 0;
+}
+.checklist input { margin-top: 0.35rem; flex: none; }
+
+/* Índice de temas (portada) */
+.lista-temas { list-style: none; margin: 0; padding: 0; }
+.lista-temas li {
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background: var(--fondo);
+  margin: 0.6rem 0;
+}
+.lista-temas a,
+.lista-temas .no-enlace {
+  display: block;
+  padding: 0.9rem 1.1rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+.lista-temas a:hover { background: var(--acento-claro); }
+.lista-temas .ut {
+  font-weight: 700;
+  color: var(--acento);
+  margin-right: 0.5rem;
+}
+.lista-temas .etq {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+  margin-top: 0.2rem;
+}
+.lista-temas li.borrador { opacity: 0.5; }
+.lista-temas li.borrador .no-enlace { cursor: default; }
+
+footer.pie {
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--linea);
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+}
+
+@media (min-width: 40rem) {
+  .cab h1 { font-size: 1.8rem; }
+  .envoltura { padding-top: 2.5rem; }
+}
