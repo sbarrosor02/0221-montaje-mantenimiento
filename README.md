@@ -37,7 +37,10 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   y no cuenta para la nota.
 - Resto de temas: pendientes.
 
-## Publicar la web
+## Web publicada
 
-Es HTML/CSS plano, sin dependencias ni build. Se abre con doble clic o se sube
-tal cual a cualquier hosting estático (GitHub Pages: `web/` como carpeta raíz).
+<https://sbarrosor02.github.io/0221-montaje-mantenimiento/>
+
+Se despliega sola: el workflow `.github/workflows/pages.yml` publica la carpeta
+`web/` en GitHub Pages con cada `push` a `main` que la toque. Es HTML/CSS plano,
+sin dependencias ni build; también se abre con doble clic desde el disco.
