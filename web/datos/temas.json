@@ -16,12 +16,16 @@
       "ut": 1,
       "titulo": "Elementos básicos eléctricos y electrónicos",
       "ra": "RA3, RA8",
-      "nota": "UT1 del módulo. Estos apuntes cubren electricidad, electrónica e instrumentos de medida (RA3); la parte de PRL y residuos (RA8) queda pendiente",
+      "nota": "UT1 del módulo, en dos páginas: electricidad, electrónica e instrumentos (RA3) y seguridad/PRL/medio ambiente (RA8)",
       "evaluacion": 1,
       "horas": 16,
       "estado": "publicado",
       "actualizado": "2026-09-16",
       "recursos": [
+        {
+          "titulo": "Seguridad, PRL y medio ambiente (RA8)",
+          "url": "temas/ut01-prl.html"
+        },
         {
           "titulo": "Ejercicios de circuitos (Ley de Ohm: serie, paralelo y mixto)",
           "url": "temas/ut01-ejercicios.html",
