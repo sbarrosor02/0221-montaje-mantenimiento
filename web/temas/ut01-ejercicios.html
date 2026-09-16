@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Ejercicios de circuitos · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 340px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Ejercicios de circuitos: Ley de Ohm</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+
+  <div class="aviso">
+    Ejercicios de análisis de circuitos (serie, paralelo y mixto) para practicar
+    la <strong>Ley de Ohm</strong>. Repasa la teoría en el
+    <a href="ut01.html">Tema 1</a>. Los tres primeros van resueltos; el resto son
+    para que los resuelvas tú.
+  </div>
+
+  <section>
+    <h2>Resueltos</h2>
+
+    <div class="ejercicio">
+      <h3><span class="num">R1.</span> Circuito en serie</h3>
+      <p>Con V = 9 V y R₁ = 1 Ω, R₂ = 2 Ω, R₃ = 3 Ω, calcula la resistencia
+      total, la intensidad y el voltaje en cada resistencia.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 350 240" role="img" aria-label="Circuito en serie de 9 V con tres resistencias">
+          <path class="hilo" d="M50,30 L50,105 M50,135 L50,210 L250,210 L250,30 L50,30"/>
+          <circle class="comp" cx="50" cy="120" r="15"/>
+          <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
+          <path class="comp" d="M250,40 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,96 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <text class="et" x="40" y="124" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="62">R₁ = 1 Ω</text>
+          <text class="et" x="264" y="118">R₂ = 2 Ω</text>
+          <text class="et" x="264" y="174">R₃ = 3 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>R = 1 + 2 + 3 = <strong>6 Ω</strong></li>
+          <li>I = 9 / 6 = <strong>1,5 A</strong> (igual en todo el circuito)</li>
+          <li>V₁ = 1,5 V · V₂ = 3 V · V₃ = 4,5 V (suman 9 V ✔)</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R2.</span> Circuito en paralelo</h3>
+      <p>Con V = 9 V y R₁ = 3 Ω, R₂ = 4 Ω, R₃ = 12 Ω, calcula la resistencia
+      total, la intensidad de cada rama y el voltaje en cada resistencia.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 340 200" role="img" aria-label="Circuito en paralelo de 9 V con tres ramas">
+          <path class="hilo" d="M40,40 L40,90 M40,120 L40,170 L300,170 M40,40 L300,40 M300,40 L300,170"/>
+          <circle class="comp" cx="40" cy="105" r="15"/>
+          <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
+          <path class="hilo" d="M130,40 L130,75 M130,111 L130,170"/>
+          <path class="hilo" d="M200,40 L200,75 M200,111 L200,170"/>
+          <path class="hilo" d="M270,40 L270,75 M270,111 L270,170"/>
+          <path class="comp" d="M130,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M200,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M270,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="130" cy="40" r="3"/><circle class="nodo" cx="200" cy="40" r="3"/><circle class="nodo" cx="270" cy="40" r="3"/>
+          <circle class="nodo" cx="130" cy="170" r="3"/><circle class="nodo" cx="200" cy="170" r="3"/><circle class="nodo" cx="270" cy="170" r="3"/>
+          <text class="et" x="30" y="109" text-anchor="end">9 V</text>
+          <text class="et" x="116" y="97" text-anchor="middle">3 Ω</text>
+          <text class="et" x="186" y="97" text-anchor="middle">4 Ω</text>
+          <text class="et" x="286" y="97">12 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>1/R = 1/3 + 1/4 + 1/12 = 8/12 → R = <strong>1,5 Ω</strong></li>
+          <li>V en cada rama = <strong>9 V</strong></li>
+          <li>I₁ = 3 A · I₂ = 2,25 A · I₃ = 0,75 A (suman 6 A ✔)</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R3.</span> Circuito mixto</h3>
+      <p>Con V = 9 V, R₁ = 3 Ω en serie con el paralelo de R₂ = 4 Ω y R₃ = 12 Ω,
+      calcula la resistencia del paralelo, la total, la intensidad total y los
+      voltajes en R₁ y en R₂/R₃.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 340 220" role="img" aria-label="Circuito mixto de 9 V">
+          <path class="hilo" d="M40,40 L40,100 M40,130 L40,190 L190,190 M40,40 L250,40"/>
+          <circle class="comp" cx="40" cy="115" r="15"/>
+          <path class="comp" d="M40,126 L40,104 M35,110 L40,103 L45,110"/>
+          <path class="comp" d="M250,50 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="hilo" d="M250,86 L250,110 L190,110"/>
+          <path class="hilo" d="M190,110 L190,120 M190,156 L190,190"/>
+          <path class="hilo" d="M250,110 L250,120 M250,156 L250,175 L190,175"/>
+          <path class="comp" d="M190,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="250" cy="110" r="3"/><circle class="nodo" cx="190" cy="110" r="3"/>
+          <circle class="nodo" cx="190" cy="175" r="3"/><circle class="nodo" cx="250" cy="175" r="3"/>
+          <text class="et" x="30" y="119" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="72">R₁ = 3 Ω</text>
+          <text class="et" x="176" y="142" text-anchor="end">R₂ = 4 Ω</text>
+          <text class="et" x="264" y="142">R₃ = 12 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>R₂∥R₃ = (4·12)/(4+12) = <strong>3 Ω</strong></li>
+          <li>R total = 3 + 3 = <strong>6 Ω</strong> → I = 9/6 = <strong>1,5 A</strong></li>
+          <li>V(R₁) = 4,5 V · V(paralelo) = 4,5 V</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>Boletín 1 · Serie, paralelo y mixto</h2>
+    <p>Circuitos redibujados del boletín del curso 2023/24. Resuélvelos con la
+    Ley de Ohm.</p>
+
+    <div class="ejercicio">
+      <h3><span class="num">1.</span> ¿Cuánta corriente produce la fuente a través de la resistencia?</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 180" role="img" aria-label="Circuito en serie con fuente de 10 V y resistencia de 5 ohmios">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,150 L50,150 L50,110 M50,80 L50,40"/>
+          <circle class="comp" cx="50" cy="95" r="15"/>
+          <path class="comp" d="M50,106 L50,84 M45,90 L50,83 L55,90"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="99" text-anchor="end">10 V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">5 Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">2.</span> ¿Qué valor debe tener la resistencia para que la corriente sea de 3 A?</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 180" role="img" aria-label="Circuito en serie con fuente de 60 V y resistencia desconocida">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,150 L50,150 L50,110 M50,80 L50,40"/>
+          <circle class="comp" cx="50" cy="95" r="15"/>
+          <path class="comp" d="M50,106 L50,84 M45,90 L50,83 L55,90"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="99" text-anchor="end">60 V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">? Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">3.</span> ¿Qué valor debe tener la fuente para que la corriente sea de 1 A con una resistencia de 100 Ω?</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 180" role="img" aria-label="Circuito en serie con fuente desconocida y resistencia de 100 ohmios">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,150 L50,150 L50,110 M50,80 L50,40"/>
+          <circle class="comp" cx="50" cy="95" r="15"/>
+          <path class="comp" d="M50,106 L50,84 M45,90 L50,83 L55,90"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="99" text-anchor="end">? V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">100 Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">4.</span> Calcula la corriente total.</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 340 220" role="img" aria-label="Circuito en serie de 90 V con cinco resistencias en el lazo">
+          <path class="hilo" d="M50,45 L78,45 M134,45 L182,45 M238,45 L290,45 M290,45 L290,92 M290,128 L290,175 M290,175 L238,175 M182,175 L134,175 M78,175 L50,175 M50,175 L50,125 M50,95 L50,45"/>
+          <circle class="comp" cx="50" cy="110" r="15"/>
+          <path class="comp" d="M50,121 L50,99 M45,105 L50,98 L55,105"/>
+          <path class="comp" d="M78,45 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <path class="comp" d="M182,45 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <path class="comp" d="M290,92 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M182,175 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <path class="comp" d="M78,175 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="114" text-anchor="end">90 V</text>
+          <text class="et" x="106" y="29" text-anchor="middle">10 Ω</text>
+          <text class="et" x="210" y="29" text-anchor="middle">5 Ω</text>
+          <text class="et" x="302" y="115">2 Ω</text>
+          <text class="et" x="210" y="199" text-anchor="middle">8 Ω</text>
+          <text class="et" x="106" y="199" text-anchor="middle">20 Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">5.</span> Calcula la corriente provocada por las dos fuentes colocadas en serie.</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 200" role="img" aria-label="Circuito con dos fuentes en serie (5 V y 12 V) y resistencia de 1 kilohmio">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,160 L50,160 L50,135 M50,105 L50,93 M50,63 L50,40"/>
+          <circle class="comp" cx="50" cy="78" r="15"/>
+          <path class="comp" d="M50,89 L50,67 M45,73 L50,66 L55,73"/>
+          <circle class="comp" cx="50" cy="120" r="15"/>
+          <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="82" text-anchor="end">5 V</text>
+          <text class="et" x="34" y="124" text-anchor="end">12 V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">1,0 kΩ</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">6.</span> Calcula el valor de la resistencia para que la corriente sea de 2,5 A.</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 200" role="img" aria-label="Circuito con dos fuentes en serie (5 V y 25 V) y resistencia desconocida">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,160 L50,160 L50,135 M50,105 L50,93 M50,63 L50,40"/>
+          <circle class="comp" cx="50" cy="78" r="15"/>
+          <path class="comp" d="M50,89 L50,67 M45,73 L50,66 L55,73"/>
+          <circle class="comp" cx="50" cy="120" r="15"/>
+          <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="82" text-anchor="end">5 V</text>
+          <text class="et" x="34" y="124" text-anchor="end">25 V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">? Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">7.</span> Calcula la corriente que circula por el circuito.</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 300 190" role="img" aria-label="Circuito con dos fuentes de 6 V y resistencia de 1 ohmio">
+          <path class="hilo" d="M50,40 L122,40 M178,40 L250,40 L250,80 M250,110 L250,150 L50,150 L50,110 M50,80 L50,40"/>
+          <circle class="comp" cx="50" cy="95" r="15"/>
+          <path class="comp" d="M50,106 L50,84 M45,90 L50,83 L55,90"/>
+          <circle class="comp" cx="250" cy="95" r="15"/>
+          <path class="comp" d="M250,106 L250,84 M245,90 L250,83 L255,90"/>
+          <path class="comp" d="M122,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <text class="et" x="34" y="99" text-anchor="end">6 V</text>
+          <text class="et" x="266" y="99">6 V</text>
+          <text class="et" x="150" y="24" text-anchor="middle">1 Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">8.</span> Calcula la corriente que circula por el circuito (resistencias en paralelo).</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 200" role="img" aria-label="Circuito en paralelo de 6 V con cuatro resistencias">
+          <path class="hilo" d="M40,40 L350,40 M40,170 L350,170 M40,40 L40,90 M40,120 L40,170"/>
+          <circle class="comp" cx="40" cy="105" r="15"/>
+          <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
+          <path class="hilo" d="M110,40 L110,74 M110,110 L110,170 M180,40 L180,74 M180,110 L180,170 M250,40 L250,74 M250,110 L250,170 M320,40 L320,74 M320,110 L320,170"/>
+          <path class="comp" d="M110,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M180,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M320,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="110" cy="40" r="3"/><circle class="nodo" cx="180" cy="40" r="3"/><circle class="nodo" cx="250" cy="40" r="3"/><circle class="nodo" cx="320" cy="40" r="3"/>
+          <circle class="nodo" cx="110" cy="170" r="3"/><circle class="nodo" cx="180" cy="170" r="3"/><circle class="nodo" cx="250" cy="170" r="3"/><circle class="nodo" cx="320" cy="170" r="3"/>
+          <text class="et" x="24" y="109" text-anchor="end">6 V</text>
+          <text class="et" x="110" y="192" text-anchor="middle">1,5 kΩ</text>
+          <text class="et" x="180" y="192" text-anchor="middle">10 kΩ</text>
+          <text class="et" x="250" y="192" text-anchor="middle">4,7 kΩ</text>
+          <text class="et" x="320" y="192" text-anchor="middle">100 kΩ</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">9.</span> Calcula el voltaje de la fuente para que exista una corriente de 6 A.</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 420 200" role="img" aria-label="Circuito en paralelo con fuente desconocida y cinco resistencias">
+          <path class="hilo" d="M40,40 L390,40 M40,170 L390,170 M40,40 L40,90 M40,120 L40,170"/>
+          <circle class="comp" cx="40" cy="105" r="15"/>
+          <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
+          <path class="hilo" d="M110,40 L110,74 M110,110 L110,170 M180,40 L180,74 M180,110 L180,170 M250,40 L250,74 M250,110 L250,170 M320,40 L320,74 M320,110 L320,170 M390,74 L390,110"/>
+          <path class="comp" d="M110,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M180,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M320,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M390,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <text class="et" x="24" y="109" text-anchor="end">? V</text>
+          <text class="et" x="110" y="192" text-anchor="middle">3,0 kΩ</text>
+          <text class="et" x="180" y="192" text-anchor="middle">3,0 kΩ</text>
+          <text class="et" x="250" y="192" text-anchor="middle">3,0 kΩ</text>
+          <text class="et" x="320" y="192" text-anchor="middle">1,0 kΩ</text>
+          <text class="et" x="390" y="192" text-anchor="middle">1,0 kΩ</text>
+        </svg>
+      </div>
+      <p class="pie-fig">Nota: la fuente está intercalada entre las ramas del
+      paralelo; revisa la disposición con el original antes de resolver.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pendientes de redibujar</h2>
+    <div class="aviso">
+      Estos circuitos venían <strong>dibujados a mano</strong> en los boletines y
+      algunos nodos son ambiguos. Antes de redibujarlos como esquema (para no
+      cambiar sin querer la topología y, con ella, la solución), conviene
+      confirmarlos contigo. Se listan sus enunciados.
+    </div>
+    <ul>
+      <li><strong>Boletín 1 · Ej. 9 (mixto)</strong>: calcula la corriente
+      suministrada por la fuente de 45 V con las resistencias 820 Ω, 3,3 Ω,
+      1,5 Ω, 430 Ω, 6,2 Ω y 120 Ω.</li>
+      <li><strong>Boletín 2 · Ej. 1</strong>: determina el voltaje de la fuente
+      sabiendo que la corriente es de 60 mA (resistencias 1 kΩ, 3 kΩ, 16 Ω,
+      8,2 Ω, 75 Ω, 160 Ω, 82 Ω, 150 Ω, 51 Ω, 130 Ω).</li>
+      <li><strong>Boletín 2 · Ej. 2</strong>: calcula la corriente (fuente 110 V;
+      1 Ω, 12,5 Ω ∥ 50 Ω, 1 Ω, 20 Ω ∥ 20 Ω).</li>
+      <li><strong>Boletín 2 · Ej. 3</strong>: calcula la corriente (fuente 24 V;
+      16 Ω, 10 Ω, 20 Ω, 18 Ω, 24 Ω, 12 Ω, 4 Ω, 3 Ω).</li>
+      <li><strong>Boletín 2 · Ej. 4</strong>: calcula la intensidad (fuente 21 V;
+      12 Ω ∥ 12 Ω, 20 Ω, 4 Ω, 8 Ω, 6 Ω).</li>
+      <li><strong>Boletín 2 · Ej. 5</strong>: calcula la intensidad (fuente 35 V;
+      4 Ω, 4 Ω, 20 Ω, 16 Ω, 3 Ω, 12 Ω, 4 Ω, 6 Ω).</li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut01.html">&laquo; Tema 1 (teoría)</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>&nbsp;</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura). Circuitos redibujados como SVG
+    originales a partir de los boletines del curso 2023/24.</p>
+  </footer>
+
+</div>
+</body>
+</html>

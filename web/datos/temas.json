@@ -14,12 +14,20 @@
     },
     {
       "ut": 1,
-      "titulo": "Selección de componentes de equipos microinformáticos",
-      "ra": "RA1",
+      "titulo": "Elementos básicos eléctricos y electrónicos",
+      "ra": "RA3, RA8",
+      "nota": "UT1 del módulo. Estos apuntes cubren electricidad, electrónica e instrumentos de medida (RA3); la parte de PRL y residuos (RA8) queda pendiente",
       "evaluacion": 1,
-      "horas": 14,
-      "estado": "borrador",
-      "actualizado": "2026-09-10"
+      "horas": 16,
+      "estado": "publicado",
+      "actualizado": "2026-09-16",
+      "recursos": [
+        {
+          "titulo": "Ejercicios de circuitos (Ley de Ohm: serie, paralelo y mixto)",
+          "url": "temas/ut01-ejercicios.html",
+          "nota": "3 resueltos publicados; boletines de 9 y 5 circuitos pendientes de redibujar"
+        }
+      ]
     }
   ]
 }
