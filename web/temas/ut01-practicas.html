@@ -416,8 +416,14 @@
 
     <!-- ============ PARTE 7 ============ -->
     <div class="paso-bloque">
-      <h3><span class="num">Parte 7.</span> Reto opcional: circuito MIXTO</h3>
-      <p>Solo si has terminado lo anterior. Sube nota.</p>
+      <h3><span class="num">Parte 7.</span> Puntos extra (voluntario)</h3>
+      <p>Solo si has terminado todo lo anterior. Los tres retos siguientes suman
+      hasta <strong>2 puntos extra</strong> sobre la nota de la práctica. Puedes
+      hacer los que quieras: no hace falta hacerlos todos.</p>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Extra 1.</span> Circuito mixto (+0,5)</h3>
 
       <div class="figura">
         <svg class="circuito" viewBox="-20 0 360 220" role="img" aria-label="Circuito mixto: una resistencia en serie con dos en paralelo">
@@ -465,6 +471,165 @@
       </details>
     </div>
 
+    <!-- ============ EXTRA 2 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Extra 2.</span> Circuito mixto avanzado (+0,75)</h3>
+      <p>Un escalón más: aquí hay <strong>una resistencia en serie, dos en
+      paralelo y otra en serie</strong>, y además la fuente es de
+      <strong>12 V</strong>. Tendrás que ir por partes: primero resuelve el
+      paralelo, y luego trátalo como si fuese una sola resistencia.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="-10 0 410 260" role="img" aria-label="Circuito mixto avanzado: R1 en serie, R2 y R3 en paralelo y R4 en serie">
+          <path class="hilo" d="M50,30 L300,30 L300,40 M300,76 L300,100 L240,100 M240,100 L240,112 M240,148 L240,170 L300,170 M300,100 L300,112 M300,148 L300,170 M300,170 L300,190 M300,226 L300,240 L50,240 L50,145 M50,115 L50,30"/>
+          <circle class="comp" cx="50" cy="130" r="15"/>
+          <path class="comp" d="M50,141 L50,119 M45,125 L50,118 L55,125"/>
+          <path class="comp" d="M300,40 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M240,112 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M300,112 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M300,190 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="300" cy="100" r="3"/><circle class="nodo" cx="240" cy="100" r="3"/>
+          <circle class="nodo" cx="300" cy="170" r="3"/><circle class="nodo" cx="240" cy="170" r="3"/>
+          <text class="et" x="32" y="134" text-anchor="end">12 V</text>
+          <text class="et" x="316" y="62">R₁ = 200 Ω</text>
+          <text class="et" x="226" y="134" text-anchor="end">R₂ = 600 Ω</text>
+          <text class="et" x="316" y="134">R₃ = 300 Ω</text>
+          <text class="et" x="316" y="212">R₄ = 100 Ω</text>
+        </svg>
+        <p class="pie-fig">Circuito 5: R₁ y R₄ en serie, con R₂ y R₃ en paralelo
+        entre medias. Fuente de 12 V.</p>
+      </div>
+
+      <ol>
+        <li>Crea un diseño nuevo, <code>P1_tuapellido_avanzado</code>, y pon la
+        fuente a <strong>12 V</strong>.</li>
+        <li>Coloca las cuatro resistencias: <strong>200 Ω</strong>,
+        <strong>600 Ω</strong>, <strong>300 Ω</strong> y <strong>100 Ω</strong>, y
+        cablea como en el esquema.</li>
+        <li><strong>Calcula primero</strong>, por este orden: la resistencia
+        equivalente del paralelo (R₂ ∥ R₃), la resistencia total, la intensidad
+        que sale de la fuente y la tensión en R₁, en el bloque paralelo y en
+        R₄.</li>
+        <li>Mide con el <strong>voltímetro</strong> la tensión en R₁, en el bloque
+        paralelo y en R₄. Comprueba que las tres suman los 12 V de la fuente.</li>
+        <li>Mide con el <strong>amperímetro</strong> la corriente total y la de
+        cada rama del paralelo. Comprueba que las dos ramas suman la total.</li>
+        <li>Responde: ¿por qué rama del paralelo pasa más corriente, por la de
+        600 Ω o por la de 300 Ω? ¿Por qué?</li>
+      </ol>
+
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>R₂ ∥ R₃ = (600 · 300) / (600 + 300) = <strong>200 Ω</strong><br>
+        R<sub>t</sub> = 200 + 200 + 100 = <strong>500 Ω</strong><br>
+        I = 12 / 500 = <strong>0,024 A = 24 mA</strong><br>
+        V en R₁ = 0,024 · 200 = <strong>4,8 V</strong><br>
+        V en el paralelo = 0,024 · 200 = <strong>4,8 V</strong><br>
+        V en R₄ = 0,024 · 100 = <strong>2,4 V</strong><br>
+        Suma: 4,8 + 4,8 + 2,4 = <strong>12 V</strong> ✔<br>
+        Ramas: I₂ = 4,8 / 600 = <strong>8 mA</strong>;
+        I₃ = 4,8 / 300 = <strong>16 mA</strong>; suman los 24 mA ✔<br>
+        Por la de <strong>300 Ω</strong> pasa el doble de corriente: a igual
+        tensión, menos resistencia significa más corriente.</p>
+      </details>
+    </div>
+
+    <!-- ============ EXTRA 3: LED ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Extra 3.</span> Tu primer LED (+0,75)</h3>
+      <p>Un <strong>LED</strong> es un diodo que emite luz. Se comporta de forma
+      muy distinta a una resistencia, y por eso merece la pena montarlo:</p>
+      <ul>
+        <li>Tiene <strong>polaridad</strong>: solo deja pasar la corriente en un
+        sentido. Al revés, simplemente no luce.</li>
+        <li><strong>No cumple la Ley de Ohm.</strong> Un LED «se queda» siempre
+        con una tensión casi fija (un LED rojo, unos <strong>2 V</strong>), pase
+        la corriente que pase.</li>
+        <li>Por eso <strong>necesita siempre una resistencia limitadora</strong>
+        en serie: es ella la que fija cuánta corriente circula. Sin ella, el LED
+        se quema.</li>
+      </ul>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 200" role="img" aria-label="Circuito con una resistencia limitadora y un LED en serie">
+          <path class="hilo" d="M50,40 L130,40 M186,40 L280,40 L280,85 M280,110 L280,160 L50,160 L50,115 M50,85 L50,40"/>
+          <circle class="comp" cx="50" cy="100" r="15"/>
+          <path class="comp" d="M50,111 L50,89 M45,95 L50,88 L55,95"/>
+          <path class="comp" d="M130,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+          <path class="hilo" d="M280,85 L280,88"/>
+          <path class="comp" d="M268,88 L292,88 L280,110 Z"/>
+          <path class="comp" d="M268,110 L292,110"/>
+          <path class="comp" d="M297,93 L307,83 M302,83 L307,83 L307,88"/>
+          <path class="comp" d="M299,102 L309,92 M304,92 L309,92 L309,97"/>
+          <text class="et" x="30" y="104" text-anchor="end">9 V</text>
+          <text class="et" x="158" y="26" text-anchor="middle">R = 330 Ω</text>
+          <text class="et" x="316" y="104">LED</text>
+        </svg>
+        <p class="pie-fig">Circuito 6: resistencia limitadora y LED en serie. El
+        triángulo apunta en el sentido en que circula la corriente.</p>
+      </div>
+
+      <p><strong>Calcula antes la resistencia limitadora.</strong> Si el LED se
+      queda con 2 V, a la resistencia le sobran 9 − 2 = 7 V. Y si queremos que por
+      el LED pasen unos 20 mA (lo normal), la fórmula es:</p>
+      <div class="tarjeta">
+        <p style="text-align:center"><strong>R = (V<sub>fuente</sub> −
+        V<sub>LED</sub>) / I<sub>LED</sub></strong></p>
+        <p>En nuestro caso: R = (9 − 2) / 0,02 = <strong>350 Ω</strong>. Como
+        350 Ω no es un valor comercial, se usa el más cercano:
+        <strong>330 Ω</strong> (pasará un poquito más de corriente) o 390 Ω
+        (un poco menos, más conservador).</p>
+      </div>
+
+      <ol>
+        <li>Crea un diseño nuevo, <code>P1_tuapellido_led</code>, con la fuente a
+        <strong>9 V</strong>.</li>
+        <li>Busca <strong>LED</strong> en el panel de componentes y arrástralo. En
+        sus propiedades elige el color <strong>rojo</strong>.</li>
+        <li>Identifica sus dos patillas: el <strong>ánodo</strong> (la patilla
+        larga, va al <strong>+</strong>) y el <strong>cátodo</strong> (la corta,
+        del lado plano, va al <strong>−</strong>). En Tinkercad, si pasas el ratón
+        por encima de cada patilla te indica cuál es.</li>
+        <li>Coloca una resistencia de <strong>330 Ω</strong>.</li>
+        <li>Cablea <strong>en serie</strong>: del <strong>+</strong> de la fuente a
+        la resistencia; de la resistencia al <strong>ánodo</strong> del LED; del
+        <strong>cátodo</strong> del LED al <strong>−</strong> de la fuente.</li>
+        <li>Pulsa <strong>Iniciar simulación</strong>: el LED debe encenderse.</li>
+        <li>Mide y anota tres cosas: la <strong>tensión en el LED</strong>, la
+        <strong>tensión en la resistencia</strong> y la <strong>corriente</strong>
+        del circuito. Comprueba que las dos tensiones suman los 9 V.</li>
+      </ol>
+
+      <p><strong>Ahora los dos experimentos interesantes:</strong></p>
+      <ol>
+        <li><strong>Dale la vuelta al LED</strong> (cátodo al +, ánodo al −) y
+        simula. ¿Qué ocurre? Anótalo y explica por qué.</li>
+        <li><strong>Quita la resistencia</strong> y conecta el LED directamente a
+        los 9 V. Simula y observa lo que pasa. Anótalo: es exactamente lo que
+        ocurriría en el taller si te olvidas de la resistencia.</li>
+      </ol>
+
+      <div class="aviso">
+        <strong>Tranquilo, no rompes nada.</strong> Estás en un simulador: si el
+        LED «se quema», solo hay que borrarlo y poner otro. Precisamente por eso
+        merece la pena probarlo aquí y no con un componente real.
+      </div>
+
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>Con R = 330 Ω: I = (9 − 2) / 330 = <strong>0,0212 A ≈ 21 mA</strong><br>
+        V en la resistencia = 0,0212 · 330 ≈ <strong>7 V</strong><br>
+        V en el LED ≈ <strong>2 V</strong> (puede variar un poco según el color;
+        los azules y blancos se quedan con más de 3 V)<br>
+        Suma: 7 + 2 = <strong>9 V</strong> ✔</p>
+        <p><strong>Experimento 1:</strong> al revés el LED no luce, porque un
+        diodo solo conduce en un sentido.<br>
+        <strong>Experimento 2:</strong> sin resistencia, nada limita la corriente:
+        se dispara y el LED se quema (Tinkercad te avisa). Conclusión: un LED
+        <strong>siempre</strong> lleva su resistencia limitadora.</p>
+      </details>
+    </div>
+
     <!-- ============ CONCLUSIONES ============ -->
     <div class="paso-bloque">
       <h3><span class="num">Parte 8.</span> Conclusiones</h3>
@@ -480,6 +645,8 @@
         ¿a qué crees que se deben?</li>
         <li>¿Qué pasaría si conectases el multímetro en modo Corriente
         directamente entre el + y el − de la fuente?</li>
+        <li><em>(Si has hecho el Extra 3)</em> ¿Por qué un LED necesita siempre
+        una resistencia en serie, y cómo se calcula su valor?</li>
       </ol>
     </div>
 
@@ -508,8 +675,9 @@
         <li><strong>Circuito paralelo: tabla completa y comprobación de que I₁+I₂ = I total (2,0)</strong></li>
         <li><strong>Conclusiones y comparación entre lo medido y lo calculado (1,0)</strong></li>
       </ul>
-      <p class="meta">El circuito mixto (Parte 7) es voluntario y suma hasta
-      <strong>1 punto extra</strong>.</p>
+      <p class="meta">Los retos de la Parte 7 son voluntarios y suman hasta
+      <strong>2 puntos extra</strong>: circuito mixto (+0,5), circuito mixto
+      avanzado (+0,75) y LED (+0,75).</p>
     </div>
   </section>
 
