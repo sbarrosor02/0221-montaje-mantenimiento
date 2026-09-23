@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 410" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 2, ejercicio 2: fuente de 110 V</title>
+<desc id="desc">En un único lazo: 1 ohmio, el paralelo de 12,5 y 50 ohmios, 1 ohmio y el paralelo de dos resistencias de 20 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="90,150 240,150"/>
+<path class="wire" transform="translate(90.0,220.0) rotate(90.0)" d="M-70.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H70.0"/>
+<text x="110.0" y="226.0" text-anchor="start">1 Ω</text>
+<polyline class="wire" points="240,90 240,210"/>
+<polyline class="wire" points="410,90 410,210"/>
+<path class="wire" transform="translate(325.0,90.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="325.0" y="70.0" text-anchor="middle">12,5 Ω</text>
+<path class="wire" transform="translate(325.0,210.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="325.0" y="190.0" text-anchor="middle">50 Ω</text>
+<path class="wire" transform="translate(530.0,150.0) rotate(0.0)" d="M-120.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H120.0"/>
+<text x="530.0" y="130.0" text-anchor="middle">1 Ω</text>
+<g transform="translate(650.0,220.0) rotate(90.0)"><path class="wire" d="M-70.0,0 H-24 M24,0 H70.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M645.0,210.0 h10 M650.0,205.0 v10 M645.0,230.0 h10"/>
+<text x="616.0" y="226.0" text-anchor="end">110 V</text>
+<polyline class="wire" points="90,290 220,290"/>
+<polyline class="wire" points="220,260 220,360"/>
+<polyline class="wire" points="400,260 400,360"/>
+<path class="wire" transform="translate(310.0,260.0) rotate(0.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="310.0" y="240.0" text-anchor="middle">20 Ω</text>
+<path class="wire" transform="translate(310.0,360.0) rotate(0.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="310.0" y="340.0" text-anchor="middle">20 Ω</text>
+<polyline class="wire" points="400,290 650,290"/>
+<circle class="node" cx="240" cy="150" r="3.5"/>
+<circle class="node" cx="410" cy="150" r="3.5"/>
+<circle class="node" cx="220" cy="290" r="3.5"/>
+<circle class="node" cx="400" cy="290" r="3.5"/>
+</svg>

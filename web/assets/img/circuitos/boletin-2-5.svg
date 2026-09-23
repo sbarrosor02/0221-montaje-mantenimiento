@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 510" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 2, ejercicio 5: fuente de 35 V</title>
+<desc id="desc">4 ohmios en serie con dos ramas: otra resistencia de 4 ohmios; y 3 ohmios en serie con el paralelo de 20 más 16 ohmios y la asociación del paralelo de 12 y 4 ohmios seguido de 6 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="70,210 70,440 350,440"/>
+<polyline class="wire" points="500,440 800,440 800,90"/>
+<g transform="translate(425.0,440.0) rotate(0.0)"><path class="wire" d="M-75.0,0 H-24 M24,0 H75.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M410.0,440.0 h10 M415.0,435.0 v10 M430.0,440.0 h10"/>
+<text x="425.0" y="489.0" text-anchor="middle">35 V</text>
+<path class="wire" transform="translate(155.0,210.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="155.0" y="190.0" text-anchor="middle">4 Ω</text>
+<polyline class="wire" points="240,90 240,330 300,330"/>
+<path class="wire" transform="translate(520.0,90.0) rotate(0.0)" d="M-280.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H280.0"/>
+<text x="520.0" y="70.0" text-anchor="middle">4 Ω</text>
+<path class="wire" transform="translate(335.0,210.0) rotate(0.0)" d="M-95.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H95.0"/>
+<text x="335.0" y="190.0" text-anchor="middle">20 Ω</text>
+<path class="wire" transform="translate(525.0,210.0) rotate(0.0)" d="M-95.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H95.0"/>
+<text x="525.0" y="190.0" text-anchor="middle">16 Ω</text>
+<path class="wire" transform="translate(710.0,210.0) rotate(0.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="710.0" y="190.0" text-anchor="middle">3 Ω</text>
+<polyline class="wire" points="300,280 300,380"/>
+<polyline class="wire" points="470,280 470,380"/>
+<path class="wire" transform="translate(385.0,280.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="385.0" y="260.0" text-anchor="middle">12 Ω</text>
+<path class="wire" transform="translate(385.0,380.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="385.0" y="360.0" text-anchor="middle">4 Ω</text>
+<path class="wire" transform="translate(545.0,330.0) rotate(0.0)" d="M-75.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H75.0"/>
+<text x="545.0" y="310.0" text-anchor="middle">6 Ω</text>
+<polyline class="wire" points="620,330 620,210"/>
+<circle class="node" cx="240" cy="210" r="3.5"/>
+<circle class="node" cx="620" cy="210" r="3.5"/>
+<circle class="node" cx="800" cy="210" r="3.5"/>
+<circle class="node" cx="300" cy="330" r="3.5"/>
+<circle class="node" cx="470" cy="330" r="3.5"/>
+</svg>

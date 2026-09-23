@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 520" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 2, ejercicio 3: fuente de 24 V</title>
+<desc id="desc">Dos ramas en paralelo: 4 ohmios en serie con el paralelo de 16, 24 y la serie 10 más 20 más 18 ohmios; y el paralelo de 12 y 4 ohmios en serie con 3 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="80,160 80,440 350,440"/>
+<polyline class="wire" points="500,440 760,440 760,160 710,160"/>
+<g transform="translate(425.0,440.0) rotate(0.0)"><path class="wire" d="M-75.0,0 H-24 M24,0 H75.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M410.0,440.0 h10 M415.0,435.0 v10 M430.0,440.0 h10"/>
+<text x="425.0" y="489.0" text-anchor="middle">24 V</text>
+<path class="wire" transform="translate(200.0,160.0) rotate(0.0)" d="M-120.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H120.0"/>
+<text x="200.0" y="140.0" text-anchor="middle">4 Ω</text>
+<polyline class="wire" points="320,70 320,240"/>
+<polyline class="wire" points="710,70 710,240"/>
+<path class="wire" transform="translate(515.0,70.0) rotate(0.0)" d="M-195.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H195.0"/>
+<text x="515.0" y="50.0" text-anchor="middle">16 Ω</text>
+<path class="wire" transform="translate(385.0,160.0) rotate(0.0)" d="M-65.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H65.0"/>
+<text x="385.0" y="140.0" text-anchor="middle">10 Ω</text>
+<path class="wire" transform="translate(515.0,160.0) rotate(0.0)" d="M-65.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H65.0"/>
+<text x="515.0" y="140.0" text-anchor="middle">20 Ω</text>
+<path class="wire" transform="translate(645.0,160.0) rotate(0.0)" d="M-65.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H65.0"/>
+<text x="645.0" y="140.0" text-anchor="middle">18 Ω</text>
+<path class="wire" transform="translate(515.0,240.0) rotate(0.0)" d="M-195.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H195.0"/>
+<text x="515.0" y="220.0" text-anchor="middle">24 Ω</text>
+<polyline class="wire" points="80,350 200,350"/>
+<polyline class="wire" points="200,300 200,400"/>
+<polyline class="wire" points="390,300 390,400"/>
+<path class="wire" transform="translate(295.0,300.0) rotate(0.0)" d="M-95.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H95.0"/>
+<text x="295.0" y="280.0" text-anchor="middle">12 Ω</text>
+<path class="wire" transform="translate(295.0,400.0) rotate(0.0)" d="M-95.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H95.0"/>
+<text x="295.0" y="380.0" text-anchor="middle">4 Ω</text>
+<path class="wire" transform="translate(575.0,350.0) rotate(0.0)" d="M-185.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H185.0"/>
+<text x="575.0" y="330.0" text-anchor="middle">3 Ω</text>
+<circle class="node" cx="80" cy="350" r="3.5"/>
+<circle class="node" cx="760" cy="350" r="3.5"/>
+<circle class="node" cx="320" cy="160" r="3.5"/>
+<circle class="node" cx="710" cy="160" r="3.5"/>
+<circle class="node" cx="200" cy="350" r="3.5"/>
+<circle class="node" cx="390" cy="350" r="3.5"/>
+</svg>

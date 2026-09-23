@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 2, ejercicio 1: intensidad de 60 mA</title>
+<desc id="desc">1 kiloohmio y 3 kiloohmios en serie con dos ramas: 8,2 más 160 ohmios, y 16 más 75 ohmios más el paralelo de 82 y 150 ohmios. El retorno incluye el paralelo de 51 y 130 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<path class="wire" transform="translate(240.0,70.0) rotate(0.0)" d="M-140.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H140.0"/>
+<text x="240.0" y="50.0" text-anchor="middle">3 kΩ</text>
+<path class="wire" transform="translate(100.0,150.0) rotate(90.0)" d="M-80.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H80.0"/>
+<text x="120.0" y="156.0" text-anchor="start">1 kΩ</text>
+<g transform="translate(100.0,305.0) rotate(90.0)"><path class="wire" d="M-75.0,0 H-24 M24,0 H75.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M95.0,295.0 h10 M100.0,290.0 v10 M95.0,315.0 h10"/>
+<text x="66.0" y="311.0" text-anchor="end">? V</text>
+<polyline class="wire" points="100,380 100,480 170,480"/>
+<path class="wire" transform="translate(380.0,160.0) rotate(90.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="400.0" y="166.0" text-anchor="start">8,2 Ω</text>
+<path class="wire" transform="translate(380.0,340.0) rotate(90.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="400.0" y="346.0" text-anchor="start">160 Ω</text>
+<polyline class="wire" points="380,430 380,480 650,480 650,430"/>
+<path class="wire" transform="translate(515.0,70.0) rotate(0.0)" d="M-135.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H135.0"/>
+<text x="515.0" y="50.0" text-anchor="middle">16 Ω</text>
+<path class="wire" transform="translate(650.0,160.0) rotate(90.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="670.0" y="166.0" text-anchor="start">75 Ω</text>
+<polyline class="wire" points="570,250 750,250"/>
+<path class="wire" transform="translate(570.0,340.0) rotate(90.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="590.0" y="346.0" text-anchor="start">82 Ω</text>
+<path class="wire" transform="translate(750.0,340.0) rotate(90.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="770.0" y="346.0" text-anchor="start">150 Ω</text>
+<polyline class="wire" points="570,430 750,430"/>
+<polyline class="wire" points="170,430 170,530"/>
+<polyline class="wire" points="340,430 340,530"/>
+<path class="wire" transform="translate(255.0,430.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="255.0" y="410.0" text-anchor="middle">51 Ω</text>
+<path class="wire" transform="translate(255.0,530.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="255.0" y="510.0" text-anchor="middle">130 Ω</text>
+<polyline class="wire" points="340,480 380,480"/>
+<circle class="node" cx="380" cy="70" r="3.5"/>
+<circle class="node" cx="380" cy="480" r="3.5"/>
+<circle class="node" cx="650" cy="250" r="3.5"/>
+<circle class="node" cx="650" cy="430" r="3.5"/>
+<circle class="node" cx="170" cy="480" r="3.5"/>
+<circle class="node" cx="340" cy="480" r="3.5"/>
+<text x="450" y="570" text-anchor="middle">I total = 60 mA</text>
+</svg>

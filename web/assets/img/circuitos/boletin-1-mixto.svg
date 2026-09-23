@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 410" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 1, ejercicio 10: fuente de 45 V</title>
+<desc id="desc">La resistencia de 1,5 ohmios está en serie con tres ramas: 6,2 ohmios; 120 ohmios; y 3,3 ohmios en serie con el paralelo de 820 y 430 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="90,70 250,70"/>
+<path class="wire" transform="translate(335.0,70.0) rotate(0.0)" d="M-85.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H85.0"/>
+<text x="335.0" y="50.0" text-anchor="middle">3,3 Ω</text>
+<polyline class="wire" points="420,70 690,70"/>
+<polyline class="wire" points="90,340 690,340"/>
+<path class="wire" transform="translate(90.0,205.0) rotate(90.0)" d="M-135.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H135.0"/>
+<text x="110.0" y="211.0" text-anchor="start">820 Ω</text>
+<path class="wire" transform="translate(250.0,205.0) rotate(90.0)" d="M-135.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H135.0"/>
+<text x="270.0" y="211.0" text-anchor="start">430 Ω</text>
+<path class="wire" transform="translate(420.0,140.0) rotate(90.0)" d="M-70.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H70.0"/>
+<text x="440.0" y="146.0" text-anchor="start">1,5 Ω</text>
+<g transform="translate(420.0,275.0) rotate(90.0)"><path class="wire" d="M-65.0,0 H-24 M24,0 H65.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M415.0,265.0 h10 M420.0,260.0 v10 M415.0,285.0 h10"/>
+<text x="386.0" y="281.0" text-anchor="end">45 V</text>
+<path class="wire" transform="translate(560.0,205.0) rotate(90.0)" d="M-135.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H135.0"/>
+<text x="580.0" y="211.0" text-anchor="start">6,2 Ω</text>
+<path class="wire" transform="translate(690.0,205.0) rotate(90.0)" d="M-135.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H135.0"/>
+<text x="710.0" y="211.0" text-anchor="start">120 Ω</text>
+<circle class="node" cx="250" cy="70" r="3.5"/>
+<circle class="node" cx="420" cy="70" r="3.5"/>
+<circle class="node" cx="560" cy="70" r="3.5"/>
+<circle class="node" cx="250" cy="340" r="3.5"/>
+<circle class="node" cx="420" cy="340" r="3.5"/>
+<circle class="node" cx="560" cy="340" r="3.5"/>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 420" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 2, ejercicio 4: fuente de 21 V</title>
+<desc id="desc">El paralelo de dos resistencias de 12 ohmios está en serie con tres ramas en paralelo: 20 más 4 ohmios; 8 ohmios; y 6 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.5}.node{fill:#24364a}text{font:18px sans-serif;fill:#24364a}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="80,190 180,190"/>
+<polyline class="wire" points="180,130 180,250"/>
+<polyline class="wire" points="360,130 360,250"/>
+<path class="wire" transform="translate(270.0,130.0) rotate(0.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="270.0" y="110.0" text-anchor="middle">12 Ω</text>
+<path class="wire" transform="translate(270.0,250.0) rotate(0.0)" d="M-90.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H90.0"/>
+<text x="270.0" y="230.0" text-anchor="middle">12 Ω</text>
+<polyline class="wire" points="360,190 450,190"/>
+<polyline class="wire" points="450,90 450,290"/>
+<polyline class="wire" points="750,90 750,290"/>
+<path class="wire" transform="translate(525.0,90.0) rotate(0.0)" d="M-75.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H75.0"/>
+<text x="525.0" y="70.0" text-anchor="middle">20 Ω</text>
+<path class="wire" transform="translate(675.0,90.0) rotate(0.0)" d="M-75.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H75.0"/>
+<text x="675.0" y="70.0" text-anchor="middle">4 Ω</text>
+<path class="wire" transform="translate(600.0,190.0) rotate(0.0)" d="M-150.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H150.0"/>
+<text x="600.0" y="170.0" text-anchor="middle">8 Ω</text>
+<path class="wire" transform="translate(600.0,290.0) rotate(0.0)" d="M-150.0,0 H-30 L-25,-9 L-15,9 L-5,-9 L5,9 L15,-9 L25,9 L30,0 H150.0"/>
+<text x="600.0" y="270.0" text-anchor="middle">6 Ω</text>
+<polyline class="wire" points="750,190 800,190 800,350 500,350"/>
+<polyline class="wire" points="80,190 80,350 350,350"/>
+<g transform="translate(425.0,350.0) rotate(0.0)"><path class="wire" d="M-75.0,0 H-24 M24,0 H75.0"/><circle class="source" r="24"/></g>
+<path class="wire" d="M410.0,350.0 h10 M415.0,345.0 v10 M430.0,350.0 h10"/>
+<text x="425.0" y="399.0" text-anchor="middle">21 V</text>
+<circle class="node" cx="180" cy="190" r="3.5"/>
+<circle class="node" cx="360" cy="190" r="3.5"/>
+<circle class="node" cx="450" cy="190" r="3.5"/>
+<circle class="node" cx="750" cy="190" r="3.5"/>
+</svg>

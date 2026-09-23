@@ -21,13 +21,22 @@
   .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
   .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
   .solucion[open] summary { margin-bottom: 0.3rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
+  @media print {
+    .ejercicio { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+    .figura { break-inside: avoid; }
+  }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
 </head>
 <body data-modulo="0221">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-pendientes-de-redibujar">Pendientes de redibujar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
@@ -88,7 +97,7 @@
       total, la intensidad de cada rama y el voltaje en cada resistencia.</p>
       <div class="figura">
         <svg class="circuito" viewBox="0 0 340 200" role="img" aria-label="Circuito en paralelo de 9 V con tres ramas">
-          <path class="hilo" d="M40,40 L40,90 M40,120 L40,170 L300,170 M40,40 L300,40 M300,40 L300,170"/>
+          <path class="hilo" d="M40,40 L40,90 M40,120 L40,170 L270,170 M40,40 L270,40"/>
           <circle class="comp" cx="40" cy="105" r="15"/>
           <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
           <path class="hilo" d="M130,40 L130,75 M130,111 L130,170"/>
@@ -121,7 +130,7 @@
       calcula la resistencia del paralelo, la total, la intensidad total y los
       voltajes en R₁ y en R₂/R₃.</p>
       <div class="figura">
-        <svg class="circuito" viewBox="0 0 340 220" role="img" aria-label="Circuito mixto de 9 V">
+        <svg class="circuito" viewBox="0 0 380 220" role="img" aria-label="Circuito mixto de 9 V">
           <path class="hilo" d="M40,40 L40,100 M40,130 L40,190 L190,190 M40,40 L250,40 L250,50"/>
           <circle class="comp" cx="40" cy="115" r="15"/>
           <path class="comp" d="M40,126 L40,104 M35,110 L40,103 L45,110"/>
@@ -154,6 +163,8 @@
     <h2 id="apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</h2>
     <p>Circuitos redibujados del boletín del curso 2023/24. Resuélvelos con la
     Ley de Ohm.</p>
+    <p>En esta web se numeran del 1 al 10: el PDF original repite el número 4.
+    Por eso, el ejercicio 10 de aquí corresponde al ejercicio 9 del PDF.</p>
 
     <div class="ejercicio">
       <h3><span class="num">1.</span> ¿Cuánta corriente produce la fuente a través de la resistencia?</h3>
@@ -296,11 +307,11 @@
     <div class="ejercicio">
       <h3><span class="num">9.</span> Calcula el voltaje de la fuente para que exista una corriente de 6 A.</h3>
       <div class="figura">
-        <svg class="circuito" viewBox="0 0 420 200" role="img" aria-label="Circuito en paralelo con fuente desconocida y cinco resistencias">
+        <svg class="circuito" viewBox="0 0 435 210" role="img" aria-label="Cinco resistencias en paralelo: tres de 3 kiloohmios y dos de 1 kiloohmio, alimentadas por una fuente de tensión desconocida">
           <path class="hilo" d="M40,40 L390,40 M40,170 L390,170 M40,40 L40,90 M40,120 L40,170"/>
           <circle class="comp" cx="40" cy="105" r="15"/>
           <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
-          <path class="hilo" d="M110,40 L110,74 M110,110 L110,170 M180,40 L180,74 M180,110 L180,170 M250,40 L250,74 M250,110 L250,170 M320,40 L320,74 M320,110 L320,170 M390,74 L390,110"/>
+          <path class="hilo" d="M110,40 L110,74 M110,110 L110,170 M180,40 L180,74 M180,110 L180,170 M250,40 L250,74 M250,110 L250,170 M320,40 L320,74 M320,110 L320,170 M390,40 L390,74 M390,110 L390,170"/>
           <path class="comp" d="M110,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
           <path class="comp" d="M180,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
           <path class="comp" d="M250,74 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
@@ -314,35 +325,85 @@
           <text class="et" x="390" y="192" text-anchor="middle">1,0 kΩ</text>
         </svg>
       </div>
-      <p class="pie-fig">Nota: la fuente está intercalada entre las ramas del
-      paralelo; revisa la disposición con el original antes de resolver.</p>
+      <p class="pie-fig">La fuente se ha desplazado a la izquierda para facilitar
+      la lectura. Conserva las mismas conexiones: las cinco resistencias están
+      en paralelo entre sus dos terminales. Los 6 A son la intensidad total.</p>
+    </div>
+
+    <div class="ejercicio" id="b1-10">
+      <h3><span class="num">10.</span> Calcula la corriente suministrada por la fuente de 45 V.</h3>
+      <p>Ejercicio 9 del PDF original. Identifica los nodos antes de decidir
+      qué resistencias están en serie y cuáles en paralelo.</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto de 45 V; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-1-mixto.svg" width="800" height="410" alt="Fuente de 45 V en serie con 1,5 Ω. Después hay tres ramas en paralelo: 6,2 Ω; 120 Ω; y 3,3 Ω en serie con el paralelo de 820 Ω y 430 Ω.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-1-mixto.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-1-mixto.svg" download>Descargar SVG</a></figcaption>
+      </figure>
     </div>
   </section>
 
   <section>
-    <h2 id="apartado-pendientes-de-redibujar">Pendientes de redibujar</h2>
-    <div class="aviso">
-      Estos circuitos venían <strong>dibujados a mano</strong> en los boletines y
-      algunos nodos son ambiguos. Antes de redibujarlos como esquema (para no
-      cambiar sin querer la topología y, con ella, la solución), conviene
-      confirmarlos contigo. Se listan sus enunciados.
+    <span id="apartado-pendientes-de-redibujar" aria-hidden="true"></span>
+    <h2 id="apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</h2>
+    <p>Los cinco circuitos del boletín manuscrito, redibujados conservando
+    los valores y las conexiones. Calcula la resistencia equivalente antes
+    de aplicar la Ley de Ohm a la fuente.</p>
+    <p class="ayuda-esquema">En móvil puedes desplazar los esquemas
+    horizontalmente. Ábrelos ampliados para verlos a mayor tamaño o descarga
+    el SVG para imprimirlo sin pérdida de calidad.</p>
+
+    <div class="ejercicio" id="b2-1">
+      <h3><span class="num">1.</span> Determina el voltaje de la fuente.</h3>
+      <p>La corriente total suministrada por la fuente es de <strong>60 mA</strong>.
+      Ten en cuenta que dos resistencias están expresadas en kiloohmios.</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-1.svg" width="860" height="580" alt="1 kΩ y 3 kΩ en serie con dos ramas: 8,2 Ω más 160 Ω; y 16 Ω más 75 Ω más el paralelo de 82 Ω y 150 Ω. En el retorno está el paralelo de 51 Ω y 130 Ω. Corriente total: 60 mA.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
     </div>
-    <ul>
-      <li><strong>Boletín 1 · Ej. 9 (mixto)</strong>: calcula la corriente
-      suministrada por la fuente de 45 V con las resistencias 820 Ω, 3,3 Ω,
-      1,5 Ω, 430 Ω, 6,2 Ω y 120 Ω.</li>
-      <li><strong>Boletín 2 · Ej. 1</strong>: determina el voltaje de la fuente
-      sabiendo que la corriente es de 60 mA (resistencias 1 kΩ, 3 kΩ, 16 Ω,
-      8,2 Ω, 75 Ω, 160 Ω, 82 Ω, 150 Ω, 51 Ω, 130 Ω).</li>
-      <li><strong>Boletín 2 · Ej. 2</strong>: calcula la corriente (fuente 110 V;
-      1 Ω, 12,5 Ω ∥ 50 Ω, 1 Ω, 20 Ω ∥ 20 Ω).</li>
-      <li><strong>Boletín 2 · Ej. 3</strong>: calcula la corriente (fuente 24 V;
-      16 Ω, 10 Ω, 20 Ω, 18 Ω, 24 Ω, 12 Ω, 4 Ω, 3 Ω).</li>
-      <li><strong>Boletín 2 · Ej. 4</strong>: calcula la intensidad (fuente 21 V;
-      12 Ω ∥ 12 Ω, 20 Ω, 4 Ω, 8 Ω, 6 Ω).</li>
-      <li><strong>Boletín 2 · Ej. 5</strong>: calcula la intensidad (fuente 35 V;
-      4 Ω, 4 Ω, 20 Ω, 16 Ω, 3 Ω, 12 Ω, 4 Ω, 6 Ω).</li>
-    </ul>
+
+    <div class="ejercicio" id="b2-2">
+      <h3><span class="num">2.</span> Calcula la corriente suministrada por la fuente de 110 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-2.svg" width="760" height="410" alt="Un lazo con 1 Ω, el paralelo de 12,5 Ω y 50 Ω, otra resistencia de 1 Ω y el paralelo de dos resistencias de 20 Ω, alimentado por una fuente de 110 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-3">
+      <h3><span class="num">3.</span> Calcula la corriente suministrada por la fuente de 24 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-3.svg" width="850" height="520" alt="Dos ramas en paralelo: 4 Ω en serie con el paralelo de 16 Ω, 24 Ω y la serie 10 Ω más 20 Ω más 18 Ω; y el paralelo de 12 Ω y 4 Ω en serie con 3 Ω. Fuente de 24 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-4">
+      <h3><span class="num">4.</span> Calcula la intensidad suministrada por la fuente de 21 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-4.svg" width="850" height="420" alt="El paralelo de dos resistencias de 12 Ω está en serie con tres ramas en paralelo: 20 Ω más 4 Ω; 8 Ω; y 6 Ω. Fuente de 21 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-5">
+      <h3><span class="num">5.</span> Calcula la intensidad suministrada por la fuente de 35 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-5.svg" width="880" height="510" alt="4 Ω en serie con dos ramas: otra resistencia de 4 Ω; y 3 Ω en serie con el paralelo de 20 Ω más 16 Ω y la asociación del paralelo de 12 Ω y 4 Ω seguido de 6 Ω. Fuente de 35 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
   </section>
 
   <nav class="nav-temas">

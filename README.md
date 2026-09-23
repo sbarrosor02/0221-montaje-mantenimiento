@@ -36,8 +36,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   Prueba diagnóstica autocorregible en `web/temas/ut00.html`. No evalúa RA ni CE
   y no cuenta para la nota.
 - **Tema 1 — Electricidad y electrónica**: portada, teoría, seguridad y PRL,
-  ejercicios y prácticas P1–P3 disponibles. Algunos circuitos están pendientes
-  de redibujar, tal como indica la página de ejercicios.
+  ejercicios y prácticas P1–P3 disponibles. Los boletines de circuitos están
+  completos: 10 ejercicios del primero y 5 del segundo, además de 3 resueltos.
+  Los seis esquemas incorporados desde los PDF se pueden ampliar y descargar.
 - Resto de temas: pendientes.
 
 ## Navegación del aula
