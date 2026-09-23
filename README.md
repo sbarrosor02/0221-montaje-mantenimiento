@@ -35,9 +35,22 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 - **Tema 0 — Presentación y evaluación inicial**: publicado.
   Prueba diagnóstica autocorregible en `web/temas/ut00.html`. No evalúa RA ni CE
   y no cuenta para la nota.
+- **Tema 1 — Electricidad y electrónica**: portada, teoría, seguridad y PRL,
+  ejercicios y prácticas P1–P3 disponibles. Algunos circuitos están pendientes
+  de redibujar, tal como indica la página de ejercicios.
 - Resto de temas: pendientes.
 
-## Web publicada
+## Navegación del aula
+
+La portada ofrece accesos a apuntes, ejercicios y prácticas. El catálogo
+`web/recursos.html` reúne el material y las descargas con filtros y búsqueda.
+Las lecciones incluyen un índice de apartados adaptable a móvil.
+
+Después de añadir o modificar páginas, ejecutar
+`python scripts/actualizar_aula.py` para actualizar portada, catálogo e índices.
+Consulta [la organización y el mantenimiento](docs/organizacion-aula.md).
+
+### Dirección publicada
 
 <https://sbarrosor02.github.io/0221-montaje-mantenimiento/>
 

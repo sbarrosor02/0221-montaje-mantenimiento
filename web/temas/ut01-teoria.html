@@ -28,15 +28,19 @@
   .solucion[open] summary { margin-bottom: 0.4rem; }
   .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; }
 </style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
 </head>
-<body>
-<div class="envoltura">
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-1-1-introduccion">1.1 Introducción</a></li><li><a href="#apartado-1-2-conceptos-de-electricidad">1.2 Conceptos de electricidad</a></li><li><a href="#apartado-1-3-componentes-electricos-y-electronicos">1.3 Componentes eléctricos y electrónicos</a></li><li><a href="#apartado-1-4-resistencias">1.4 Resistencias</a></li><li><a href="#apartado-1-5-aparatos-de-medicion">1.5 Aparatos de medición</a></li><li><a href="#apartado-ejercicios">Ejercicios</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1 (UT1) · Teoría</p>
     <h1>Teoría — Elementos básicos eléctricos y electrónicos</h1>
     <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT1 · RA3</p>
   </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
 
   <nav class="subnav" aria-label="Apartados del tema 1">
     <a href="ut01.html" class="inicio-tema">Portada del tema</a>
@@ -46,8 +50,8 @@
     <a href="ut01-practicas.html">Prácticas</a>
   </nav>
 
-  <div class="ra-ce">
-    <h2>Qué criterios cubre esta página</h2>
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-que-criterios-cubre-esta-pagina">Qué criterios cubre esta página</h2>
     <p><strong>RA3.</strong> Mide parámetros eléctricos, identificando el tipo de
     señal, relacionándola con sus unidades características e interpretando los
     resultados.</p>
@@ -63,7 +67,7 @@
     <p style="margin-bottom:0"><em>Los criterios completos de la UT1, incluido el
     RA8 de seguridad y medio ambiente, están en la
     <a href="ut01.html">portada del tema</a>.</em></p>
-  </div>
+  </details>
 
   <div class="aviso">
     <strong>Es la base eléctrica de todo el módulo.</strong> Sin dominar voltaje,
@@ -73,7 +77,7 @@
   </div>
 
   <section>
-    <h2>1.1 Introducción</h2>
+    <h2 id="apartado-1-1-introduccion">1.1 Introducción</h2>
     <p>Vivimos rodeados de aparatos que funcionan con electricidad. Su
     funcionamiento se basa en leyes (Ley de Ohm, Leyes de Kirchhoff) que
     relacionan tres magnitudes básicas: <strong>resistencia</strong>,
@@ -85,7 +89,7 @@
   </section>
 
   <section>
-    <h2>1.2 Conceptos de electricidad</h2>
+    <h2 id="apartado-1-2-conceptos-de-electricidad">1.2 Conceptos de electricidad</h2>
     <p>La electricidad es una forma de energía que se genera por el movimiento de
     partículas cargadas —los electrones— a través de un conductor (por ejemplo,
     un cable). La materia está formada por átomos, y estos por
@@ -167,7 +171,7 @@
     <p>Dos propiedades intrínsecas del material (no dependen de su geometría):
     la <strong>resistividad (ρ)</strong>, en Ω·m, alta en aislantes; y la
     <strong>conductividad (σ = 1/ρ)</strong>, en S/m, alta en conductores.</p>
-    <table class="tabla-datos">
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
       <thead><tr><th>Material</th><th>Resistividad (Ω·m)</th><th>Como conductor</th></tr></thead>
       <tbody>
         <tr><td>Plata</td><td>1,59×10⁻⁸</td><td>Mejor conductor</td></tr>
@@ -175,7 +179,7 @@
         <tr><td>Aluminio</td><td>2,82×10⁻⁸</td><td>Muy buen conductor</td></tr>
         <tr><td>Hierro</td><td>9,71×10⁻⁸</td><td>Buen conductor</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <h3>1.2.4 Circuito eléctrico</h3>
     <p>Un circuito eléctrico es un sistema cerrado por el que fluye la corriente.
@@ -323,7 +327,7 @@
   </section>
 
   <section>
-    <h2>1.3 Componentes eléctricos y electrónicos</h2>
+    <h2 id="apartado-1-3-componentes-electricos-y-electronicos">1.3 Componentes eléctricos y electrónicos</h2>
     <p>Estos son los símbolos normalizados de los componentes que se estudian en
     el tema. Reconocerlos es imprescindible para leer un esquema.</p>
 
@@ -382,7 +386,7 @@
   </section>
 
   <section>
-    <h2>1.4 Resistencias</h2>
+    <h2 id="apartado-1-4-resistencias">1.4 Resistencias</h2>
     <p>Componente diseñado para introducir una resistencia concreta al paso de la
     corriente; disipa energía en forma de calor y regula la corriente.
     Características: <strong>valor nominal</strong> (Ω), <strong>tolerancia</strong>
@@ -407,7 +411,7 @@
       <em>Esquema original.</em></p>
     </div>
 
-    <table class="tabla-datos">
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
       <thead><tr><th>Color</th><th>Dígito</th><th>Multiplicador</th></tr></thead>
       <tbody>
         <tr><td><span class="sw" style="background:#1b1f24"></span>Negro</td><td>0</td><td>10⁰</td></tr>
@@ -421,7 +425,7 @@
         <tr><td><span class="sw" style="background:#8a94a6"></span>Gris</td><td>8</td><td>10⁸</td></tr>
         <tr><td><span class="sw" style="background:#f4f6f8"></span>Blanco</td><td>9</td><td>10⁹</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p><strong>Tolerancia:</strong> <span class="sw" style="background:#c9a227"></span>Oro ±5 %,
     <span class="sw" style="background:#b8b8bd"></span>Plata ±10 %. Hay resistencias
     de 4, 5 y 6 bandas (a más bandas, más precisión y datos como el coeficiente
@@ -470,7 +474,7 @@
     soldados a la placa. En los equipos: microprocesadores, memorias RAM/ROM,
     tarjetas gráficas y controladores. Escalas de integración por número de
     transistores:</p>
-    <table class="tabla-datos">
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
       <thead><tr><th>Escala</th><th>Transistores</th></tr></thead>
       <tbody>
         <tr><td>SSI (pequeña)</td><td>10 – 100</td></tr>
@@ -480,14 +484,14 @@
         <tr><td>ULSI (ultra grande)</td><td>100.001 – 1.000.000</td></tr>
         <tr><td>GLSI (giga grande)</td><td>más de 1.000.000</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <p>La <strong>Ley de Moore</strong> observó que el número de transistores de
     un chip se duplica aproximadamente cada dos años; no es una ley física sino
     una tendencia empírica, muy precisa durante décadas y hoy en desaceleración.</p>
   </section>
 
   <section>
-    <h2>1.5 Aparatos de medición</h2>
+    <h2 id="apartado-1-5-aparatos-de-medicion">1.5 Aparatos de medición</h2>
     <ul>
       <li><strong>Voltímetro</strong>: mide el voltaje entre dos puntos. Dos tomas
       (roja = positivo, negra = negativo). Analógico (aguja) o digital.</li>
@@ -505,7 +509,7 @@
   </section>
 
   <section>
-    <h2>Ejercicios</h2>
+    <h2 id="apartado-ejercicios">Ejercicios</h2>
     <p>Los tres ejercicios resueltos de arriba, más dos boletines de circuitos
     (9 de repaso y 5 mixtos), están en la
     <a href="ut01-ejercicios.html">página de ejercicios del tema</a>, con cada
@@ -527,6 +531,6 @@
     2023/24; esquemas de circuitos y componentes redibujados como SVG originales.</p>
   </footer>
 
-</div>
+</main></div>
 </body>
 </html>

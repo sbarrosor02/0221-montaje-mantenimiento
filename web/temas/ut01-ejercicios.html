@@ -22,15 +22,19 @@
   .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
   .solucion[open] summary { margin-bottom: 0.3rem; }
 </style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
 </head>
-<body>
-<div class="envoltura">
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-pendientes-de-redibujar">Pendientes de redibujar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
     <h1>Ejercicios de circuitos: Ley de Ohm</h1>
     <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
   </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
 
   <nav class="subnav" aria-label="Apartados del tema 1">
     <a href="ut01.html" class="inicio-tema">Portada del tema</a>
@@ -48,7 +52,7 @@
   </div>
 
   <section>
-    <h2>Resueltos</h2>
+    <h2 id="apartado-resueltos">Resueltos</h2>
 
     <div class="ejercicio">
       <h3><span class="num">R1.</span> Circuito en serie</h3>
@@ -147,7 +151,7 @@
   </section>
 
   <section>
-    <h2>Boletín 1 · Serie, paralelo y mixto</h2>
+    <h2 id="apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</h2>
     <p>Circuitos redibujados del boletín del curso 2023/24. Resuélvelos con la
     Ley de Ohm.</p>
 
@@ -316,7 +320,7 @@
   </section>
 
   <section>
-    <h2>Pendientes de redibujar</h2>
+    <h2 id="apartado-pendientes-de-redibujar">Pendientes de redibujar</h2>
     <div class="aviso">
       Estos circuitos venían <strong>dibujados a mano</strong> en los boletines y
       algunos nodos son ambiguos. Antes de redibujarlos como esquema (para no
@@ -353,6 +357,6 @@
     originales a partir de los boletines del curso 2023/24.</p>
   </footer>
 
-</div>
+</main></div>
 </body>
 </html>

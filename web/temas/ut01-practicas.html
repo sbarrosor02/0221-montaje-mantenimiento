@@ -35,15 +35,19 @@
   .paso-bloque h3 { margin: 0 0 0.3rem; }
   .paso-bloque h3 .num { color: var(--acento); margin-right: 0.35rem; }
 </style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
 </head>
-<body>
-<div class="envoltura">
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-en-esta-pagina">En esta página</a></li><li><a href="#apartado-p1-tinkercad-y-medidas-con-el-multimetro">P1 · Tinkercad y medidas con el multímetro</a></li><li><a href="#apartado-p2-montaje-real-en-protoboard-y-medidas-con-el-polimetro">P2 · Montaje real en protoboard y medidas con el polímetro</a></li><li><a href="#apartado-p3-identificacion-de-componentes-y-codigo-de-colores">P3 · Identificación de componentes y código de colores</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
     <h1>Prácticas de circuitos eléctricos</h1>
     <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA3</p>
   </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
 
   <nav class="subnav" aria-label="Apartados del tema 1">
     <a href="ut01.html" class="inicio-tema">Portada del tema</a>
@@ -62,7 +66,7 @@
   </div>
 
 
-  <h2>En esta página</h2>
+  <h2 id="apartado-en-esta-pagina">En esta página</h2>
   <ul class="lista-temas">
     <li><a href="#p1"><span class="ut">P1</span>Tinkercad y medidas con el multímetro<br><span class="etq">Simulador · 2 sesiones · con puntos extra</span></a></li>
     <li><a href="#p2"><span class="ut">P2</span>Montaje real en protoboard y polímetro<br><span class="etq">Taller · 2 sesiones</span></a></li>
@@ -70,7 +74,7 @@
   </ul>
 
   <section id="p1">
-    <h2>P1 · Tinkercad y medidas con el multímetro</h2>
+    <h2 id="apartado-p1-tinkercad-y-medidas-con-el-multimetro">P1 · Tinkercad y medidas con el multímetro</h2>
     <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
     acredita RA3 (b, c, d, e) · se entrega en el portafolio</p>
 
@@ -347,7 +351,7 @@
         circuito serie.</li>
       </ol>
 
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Magnitud</th><th>Calculado</th><th>Medido en Tinkercad</th></tr>
         </thead>
@@ -359,7 +363,7 @@
           <tr><td>V en R₃ (680 Ω)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
           <tr><td>V₁ + V₂ + V₃</td><td class="rellenar"></td><td class="rellenar"></td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <details class="solucion">
         <summary>Comprobación (ábrelo solo después de medir)</summary>
@@ -413,7 +417,7 @@
         antes de que el circuito se bifurque).</li>
       </ol>
 
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Magnitud</th><th>Calculado</th><th>Medido en Tinkercad</th></tr>
         </thead>
@@ -425,7 +429,7 @@
           <tr><td>I total (a la salida de la fuente)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
           <tr><td>I₁ + I₂</td><td class="rellenar"></td><td class="rellenar"></td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <details class="solucion">
         <summary>Comprobación (ábrelo solo después de medir)</summary>
@@ -708,7 +712,7 @@
 
   <!-- ==================== P2 ==================== -->
   <section id="p2">
-    <h2>P2 · Montaje real en protoboard y medidas con el polímetro</h2>
+    <h2 id="apartado-p2-montaje-real-en-protoboard-y-medidas-con-el-polimetro">P2 · Montaje real en protoboard y medidas con el polímetro</h2>
     <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
     acredita RA3 (b, c, d, e) y RA8 · se entrega en el portafolio</p>
 
@@ -853,7 +857,7 @@
         punta roja en VΩmA.</li>
       </ol>
 
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Magnitud</th><th>Calculado</th><th>Simulado (P1)</th><th>Medido real</th></tr>
         </thead>
@@ -866,7 +870,7 @@
           <tr><td>V en R₂</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
           <tr><td>V en R₃</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="paso-bloque">
@@ -881,7 +885,7 @@
         <li>Recalcula usando los valores <strong>reales</strong> que mediste de
         las resistencias y compara.</li>
       </ol>
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Magnitud</th><th>Calculado</th><th>Medido real</th></tr>
         </thead>
@@ -892,7 +896,7 @@
           <tr><td>I por R₂</td><td class="rellenar"></td><td class="rellenar"></td></tr>
           <tr><td>I total</td><td class="rellenar"></td><td class="rellenar"></td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="paso-bloque">
@@ -959,7 +963,7 @@
 
   <!-- ==================== P3 ==================== -->
   <section id="p3">
-    <h2>P3 · Identificación de componentes y código de colores</h2>
+    <h2 id="apartado-p3-identificacion-de-componentes-y-codigo-de-colores">P3 · Identificación de componentes y código de colores</h2>
     <p class="meta"><strong>Duración:</strong> 1-2 sesiones · <strong>Evaluable</strong> ·
     acredita RA3 (a, b) · se entrega en el portafolio</p>
 
@@ -992,7 +996,7 @@
         (×100) y dorado (±5 %) dan <strong>4,7 kΩ ±5 %</strong>.</p>
       </div>
 
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Color</th><th>Cifra</th><th>Multiplicador</th><th>Tolerancia</th></tr>
         </thead>
@@ -1010,7 +1014,7 @@
           <tr><td><span class="muestra" style="background:#c9a227"></span>Dorado</td><td>—</td><td>×0,1</td><td>±5 %</td></tr>
           <tr><td><span class="muestra" style="background:#b8bcc2"></span>Plateado</td><td>—</td><td>×0,01</td><td>±10 %</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <div class="tarjeta">
         <p><strong>¿Y las de cinco bandas?</strong> Son las de precisión: las
@@ -1058,7 +1062,7 @@
         <li>Calcula el margen que permite la tolerancia y comprueba si el valor
         medido <strong>está dentro</strong>.</li>
       </ol>
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Bandas</th><th>Nominal</th><th>Tolerancia</th><th>Margen (mín – máx)</th><th>Medido</th><th>¿Dentro?</th></tr>
         </thead>
@@ -1070,7 +1074,7 @@
           <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
           <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <div class="tarjeta">
         <p><strong>Ejemplo.</strong> Una de 680 Ω ±5 % admite 680 − 34 =
         <strong>646 Ω</strong> como mínimo y 680 + 34 = <strong>714 Ω</strong>
@@ -1101,7 +1105,7 @@
       <h3><span class="num">Parte 6.</span> Identifica otros componentes</h3>
       <p>En la caja del taller hay más cosas además de resistencias. Localiza
       <strong>una de cada</strong>, hazle una foto y explica para qué sirve:</p>
-      <table class="tabla-datos">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
         <thead>
           <tr><th>Componente</th><th>Cómo reconocerlo</th></tr>
         </thead>
@@ -1113,7 +1117,7 @@
           <tr><td>Transistor</td><td>Encapsulado negro con <strong>tres patillas</strong> y un código impreso.</td></tr>
           <tr><td>Fusible</td><td>Tubo de cristal con un hilo fino dentro; si el hilo está partido, está fundido.</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="paso-bloque">
@@ -1146,6 +1150,6 @@
     Currículo: Decreto 272/2009 (Extremadura).</p>
   </footer>
 
-</div>
+</main></div>
 </body>
 </html>
