@@ -22,6 +22,15 @@
   .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; }
   .tabla-datos th { background: var(--fondo-suave); font-weight: 600; }
   .tabla-datos td.rellenar { background: #fffdf3; }
+  svg .et-peq { fill: var(--tinta-suave); font: 600 11px system-ui, sans-serif; }
+  svg .placa { fill: var(--fondo-suave); stroke: var(--tinta); stroke-width: 2; }
+  svg .bus-mas { fill: #f6dcde; stroke: var(--mal); stroke-width: 1.4; }
+  svg .bus-menos { fill: #dce8f4; stroke: var(--acento); stroke-width: 1.4; }
+  svg .col-pb { fill: #e3e8ee; stroke: var(--tinta-suave); stroke-width: 1.2; }
+  svg .cuerpo-r { fill: #e6d8bd; stroke: var(--tinta); stroke-width: 2; }
+  svg .banda { stroke: var(--tinta); stroke-width: 1; }
+  .muestra { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--tinta);
+    border-radius: 3px; vertical-align: -2px; margin-right: 0.4rem; }
   .paso-bloque { margin: 1.4rem 0 0; }
   .paso-bloque h3 { margin: 0 0 0.3rem; }
   .paso-bloque h3 .num { color: var(--acento); margin-right: 0.35rem; }
@@ -44,7 +53,15 @@
     equivocarnos sin romper nada, y más adelante pasaremos al taller.
   </div>
 
-  <section>
+
+  <h2>En esta página</h2>
+  <ul class="lista-temas">
+    <li><a href="#p1"><span class="ut">P1</span>Tinkercad y medidas con el multímetro<br><span class="etq">Simulador · 2 sesiones · con puntos extra</span></a></li>
+    <li><a href="#p2"><span class="ut">P2</span>Montaje real en protoboard y polímetro<br><span class="etq">Taller · 2 sesiones</span></a></li>
+    <li><a href="#p3"><span class="ut">P3</span>Identificación de componentes y código de colores<br><span class="etq">Taller · 1-2 sesiones</span></a></li>
+  </ul>
+
+  <section id="p1">
     <h2>P1 · Tinkercad y medidas con el multímetro</h2>
     <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
     acredita RA3 (b, c, d, e) · se entrega en el portafolio</p>
@@ -681,15 +698,433 @@
     </div>
   </section>
 
-  <section>
-    <h2>Próximas prácticas</h2>
-    <p>Se irán publicando conforme avance el tema:</p>
+  <!-- ==================== P2 ==================== -->
+  <section id="p2">
+    <h2>P2 · Montaje real en protoboard y medidas con el polímetro</h2>
+    <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
+    acredita RA3 (b, c, d, e) y RA8 · se entrega en el portafolio</p>
+
+    <p>Ahora vas a montar <strong>de verdad</strong> los mismos circuitos que
+    simulaste en la P1. Aparecerán cosas que el simulador no tiene: las
+    resistencias no valen exactamente lo que pone, el polímetro tiene rangos y
+    fusible, y un cable mal metido lo estropea todo. Justo por eso se hace.</p>
+
+    <div class="aviso">
+      <strong>Seguridad primero.</strong> Monta y desmonta <strong>siempre con la
+      fuente apagada o desconectada</strong>. No superes los 12 V en estas
+      prácticas. Repasa las normas en
+      <a href="ut01-prl.html">Seguridad, PRL y medio ambiente</a>.
+    </div>
+
+    <h3>Material</h3>
     <ul>
-      <li><strong>P2</strong> — Montaje real en placa protoboard y medidas con el
-      polímetro del taller.</li>
-      <li><strong>P3</strong> — Identificación de componentes y código de colores
-      de resistencias.</li>
+      <li>Una <strong>placa protoboard</strong>.</li>
+      <li><strong>Fuente de alimentación</strong> de laboratorio (o una pila de
+      9 V con portapilas).</li>
+      <li><strong>Resistencias</strong>: 100 Ω, 220 Ω, 680 Ω, 330 Ω, 1 kΩ y
+      2,2 kΩ.</li>
+      <li>Un <strong>LED</strong> rojo.</li>
+      <li><strong>Cables puente</strong> (jumpers).</li>
+      <li>Un <strong>polímetro</strong> (multímetro digital).</li>
     </ul>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 1.</span> Cómo funciona una protoboard</h3>
+      <p>Una protoboard permite montar circuitos <strong>sin soldar</strong>: por
+      dentro tiene láminas metálicas que unen ciertos agujeros entre sí. Entender
+      qué está unido con qué es la mitad de la práctica.</p>
+
+      <div class="figura">
+        <svg viewBox="0 0 420 260" role="img" aria-label="Esquema de las conexiones internas de una placa protoboard">
+          <rect class="placa" x="10" y="10" width="400" height="240" rx="8"/>
+          <rect class="bus-mas" x="34" y="26" width="352" height="12" rx="3"/>
+          <rect class="bus-menos" x="34" y="42" width="352" height="12" rx="3"/>
+          <text class="et" x="28" y="37" text-anchor="end">+</text>
+          <text class="et" x="28" y="53" text-anchor="end">−</text>
+          <rect class="col-pb" x="40" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="74" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="108" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="142" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="176" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="210" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="244" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="278" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="312" y="70" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="346" y="70" width="12" height="48" rx="3"/>
+          <text class="et-peq" x="210" y="136" text-anchor="middle">canal central</text>
+          <rect class="col-pb" x="40" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="74" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="108" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="142" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="176" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="210" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="244" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="278" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="312" y="146" width="12" height="48" rx="3"/>
+          <rect class="col-pb" x="346" y="146" width="12" height="48" rx="3"/>
+          <rect class="bus-menos" x="34" y="210" width="352" height="12" rx="3"/>
+          <rect class="bus-mas" x="34" y="226" width="352" height="12" rx="3"/>
+          <text class="et" x="28" y="221" text-anchor="end">−</text>
+          <text class="et" x="28" y="237" text-anchor="end">+</text>
+        </svg>
+        <p class="pie-fig">Cada franja es un grupo de agujeros unidos entre sí.
+        Las <strong>franjas largas</strong> (arriba y abajo) son los
+        <strong>buses de alimentación</strong> y recorren toda la placa. Las
+        <strong>franjas cortas</strong> son las <strong>columnas</strong>: 5
+        agujeros unidos en vertical. El <strong>canal central</strong> separa las
+        dos mitades.</p>
+      </div>
+
+      <p>Compruébalo tú mismo con el polímetro, sin montar nada todavía:</p>
+      <ol>
+        <li>Pon el polímetro en modo <strong>continuidad</strong> (el símbolo del
+        pitido). Junta las dos puntas: debe <strong>pitar</strong>.</li>
+        <li>Mete una punta en un agujero cualquiera de una columna y la otra en
+        <strong>otro agujero de la misma columna</strong>. ¿Pita?</li>
+        <li>Ahora una punta en una columna y la otra en la <strong>columna de al
+        lado</strong>. ¿Pita?</li>
+        <li>Prueba entre un agujero de la mitad de arriba y el que tiene
+        <strong>enfrente</strong>, al otro lado del canal central. ¿Pita?</li>
+        <li>Por último, dos agujeros cualesquiera del <strong>mismo bus de
+        alimentación</strong>, uno en cada extremo de la placa. ¿Pita?</li>
+        <li>Anota las cinco respuestas y dibuja en tu cuaderno qué está unido con
+        qué.</li>
+      </ol>
+      <div class="tarjeta">
+        <p><strong>El modo continuidad es tu mejor amigo.</strong> Sirve para
+        saber si dos puntos están conectados, para encontrar un cable roto o para
+        detectar un cortocircuito. Úsalo <strong>siempre sin tensión</strong>.</p>
+      </div>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 2.</span> Conocer el polímetro</h3>
+      <p>El polímetro real tiene dos cosas que el simulador no tiene:
+      <strong>bornes</strong> donde enchufar las puntas y un <strong>selector de
+      rango</strong>.</p>
+      <ul>
+        <li><strong>Borne COM</strong>: ahí va <strong>siempre</strong> la punta
+        negra.</li>
+        <li><strong>Borne VΩmA</strong>: la punta roja, para medir tensión,
+        resistencia y corrientes pequeñas.</li>
+        <li><strong>Borne 10A</strong>: solo para corrientes grandes. En estas
+        prácticas no lo vas a necesitar.</li>
+        <li><strong>Selector</strong>: zonas de tensión continua, tensión alterna,
+        resistencia, corriente y continuidad.</li>
+      </ul>
+      <div class="aviso">
+        <strong>Dos reglas de oro.</strong> 1) Si tu polímetro no es de autorango,
+        empieza siempre por el <strong>rango más alto</strong> y ve bajando hasta
+        que la lectura tenga precisión. 2) Después de medir corriente,
+        <strong>vuelve a poner la punta roja en el borne VΩmA</strong>: si la
+        dejas en el de corriente y mides tensión, fundes el fusible.
+      </div>
+      <ol>
+        <li>Identifica en tu polímetro los tres bornes y las zonas del selector.
+        Dibújalo en tu cuaderno y etiquétalo.</li>
+        <li>Mide la tensión de la fuente (o de la pila) antes de montar nada.
+        ¿Da exactamente 9,00 V? Anótalo.</li>
+      </ol>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 3.</span> Circuito en serie real</h3>
+      <p>El mismo de la P1: 100 Ω, 220 Ω y 680 Ω en serie a 9 V.</p>
+      <ol>
+        <li><strong>Antes de montar</strong>, mide cada resistencia por separado
+        con el óhmetro y anota su <strong>valor real</strong>. Casi seguro que no
+        es exactamente el nominal.</li>
+        <li>Monta las tres en serie en la protoboard: el final de una y el
+        principio de la siguiente, <strong>en la misma columna</strong>.</li>
+        <li>Lleva la alimentación a los buses y de ahí al circuito con cables
+        puente. <strong>Revisa el montaje antes de dar tensión.</strong></li>
+        <li>Enciende la fuente a 9 V y mide la tensión en cada resistencia
+        (puntas en paralelo, sin desmontar nada).</li>
+        <li>Mide la intensidad: apaga, abre el circuito por un punto, intercala el
+        polímetro en modo corriente, enciende y mide. Al acabar, vuelve a dejar la
+        punta roja en VΩmA.</li>
+      </ol>
+
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Magnitud</th><th>Calculado</th><th>Simulado (P1)</th><th>Medido real</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R₁ (100 Ω)</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>R₂ (220 Ω)</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>R₃ (680 Ω)</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I del circuito</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₁</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₂</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₃</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 4.</span> Circuito en paralelo real</h3>
+      <ol>
+        <li>Desmonta el anterior y monta en paralelo <strong>1 kΩ</strong> y
+        <strong>2,2 kΩ</strong> a 9 V. (En la P1 usabas 2 kΩ, pero <strong>2 kΩ no
+        es un valor comercial</strong>: por eso aquí va 2,2 kΩ, que sí lo es. Lo
+        verás en la P3.)</li>
+        <li>Mide la tensión en cada rama. ¿Son iguales?</li>
+        <li>Mide la corriente de cada rama y la corriente total. ¿Suman?</li>
+        <li>Recalcula usando los valores <strong>reales</strong> que mediste de
+        las resistencias y compara.</li>
+      </ol>
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Magnitud</th><th>Calculado</th><th>Medido real</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>V en R₁ (1 kΩ)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₂ (2,2 kΩ)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I por R₁</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I por R₂</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I total</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 5.</span> El LED, ahora de verdad</h3>
+      <ol>
+        <li>Monta el LED con su resistencia de <strong>330 Ω</strong> en serie, a
+        9 V. Recuerda la polaridad: patilla <strong>larga al +</strong>, patilla
+        <strong>corta al −</strong>.</li>
+        <li>Si no luce, <strong>no subas la tensión</strong>: lo más probable es
+        que lo tengas del revés. Dale la vuelta.</li>
+        <li>Mide la tensión en el LED y la corriente que circula. Compáralas con
+        lo que te salió en el simulador.</li>
+      </ol>
+      <div class="aviso">
+        <strong>Nunca sin resistencia.</strong> Aquí sí se rompe de verdad: un LED
+        conectado directo a 9 V se quema en menos de un segundo.
+      </div>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 6.</span> ¿Por qué no coincide exactamente?</h3>
+      <p>Tus medidas reales no darán los números redondos del simulador. Eso
+      <strong>no es un error tuyo</strong>: es la realidad. Las causas son siempre
+      estas cuatro:</p>
+      <ul>
+        <li><strong>Tolerancia de las resistencias</strong>: una de 680 Ω con
+        banda dorada (±5 %) puede valer de verdad entre 646 y 714 Ω.</li>
+        <li><strong>Precisión del polímetro</strong>: también tiene su propio
+        margen de error.</li>
+        <li><strong>Resistencia de los contactos</strong> de la protoboard y de
+        los cables.</li>
+        <li>La <strong>fuente</strong> no da exactamente 9,00 V.</li>
+      </ul>
+      <p>Calcula, para dos de tus medidas, el <strong>error relativo</strong>:</p>
+      <div class="tarjeta">
+        <p style="text-align:center"><strong>error (%) = |medido − calculado| ÷
+        calculado × 100</strong></p>
+      </div>
+      <p>Si te sale por debajo del 5 %, tu montaje es correcto. Si sale mucho
+      mayor, algo está mal: revisa el cableado, el rango del polímetro o si has
+      confundido alguna resistencia.</p>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>Un PDF llamado <code>P2_apellido_nombre.pdf</code> con
+        <strong>fotos</strong> de cada montaje, las <strong>tablas
+        completas</strong>, los cálculos, los errores relativos y las respuestas
+        de la Parte 1.</li>
+      </ul>
+      <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
+      <ul>
+        <li><strong>Conexiones de la protoboard identificadas y comprobadas con continuidad (1,5)</strong></li>
+        <li><strong>Uso correcto del polímetro: bornes, selector y rango (1,5)</strong></li>
+        <li><strong>Circuito serie montado y medido correctamente (2,0)</strong></li>
+        <li><strong>Circuito paralelo montado y medido correctamente (2,0)</strong></li>
+        <li><strong>LED montado con su resistencia y la polaridad correcta (1,0)</strong></li>
+        <li><strong>Tabla comparativa y cálculo del error relativo (1,5)</strong></li>
+        <li><strong>Orden, seguridad y recogida del puesto (0,5)</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== P3 ==================== -->
+  <section id="p3">
+    <h2>P3 · Identificación de componentes y código de colores</h2>
+    <p class="meta"><strong>Duración:</strong> 1-2 sesiones · <strong>Evaluable</strong> ·
+    acredita RA3 (a, b) · se entrega en el portafolio</p>
+
+    <p>Una resistencia no lleva su valor escrito: lo lleva <strong>en
+    colores</strong>. Saber leerlo de un vistazo es una destreza básica de taller,
+    y es lo que vas a entrenar aquí.</p>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 1.</span> El código de colores</h3>
+      <p>En una resistencia de <strong>cuatro bandas</strong>, las dos primeras son
+      <strong>cifras</strong>, la tercera es el <strong>multiplicador</strong>
+      (cuántos ceros añadir) y la cuarta es la <strong>tolerancia</strong>.</p>
+
+      <div class="figura">
+        <svg viewBox="0 0 340 130" role="img" aria-label="Resistencia de cuatro bandas: amarillo, violeta, rojo y dorado">
+          <line class="hilo" x1="10" y1="62" x2="90" y2="62"/>
+          <line class="hilo" x1="250" y1="62" x2="330" y2="62"/>
+          <rect class="cuerpo-r" x="90" y="40" width="160" height="44" rx="12"/>
+          <rect class="banda" x="108" y="40" width="14" height="44" fill="#f2c200"/>
+          <rect class="banda" x="136" y="40" width="14" height="44" fill="#7a4fa3"/>
+          <rect class="banda" x="164" y="40" width="14" height="44" fill="#b4232c"/>
+          <rect class="banda" x="222" y="40" width="14" height="44" fill="#c9a227"/>
+          <text class="et" x="115" y="103" text-anchor="middle">4</text>
+          <text class="et" x="143" y="103" text-anchor="middle">7</text>
+          <text class="et" x="171" y="103" text-anchor="middle">×100</text>
+          <text class="et" x="229" y="103" text-anchor="middle">±5%</text>
+          <text class="et" x="170" y="124" text-anchor="middle">47 × 100 = 4700 Ω = 4,7 kΩ</text>
+        </svg>
+        <p class="pie-fig">Ejemplo resuelto: amarillo (4), violeta (7), rojo
+        (×100) y dorado (±5 %) dan <strong>4,7 kΩ ±5 %</strong>.</p>
+      </div>
+
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Color</th><th>Cifra</th><th>Multiplicador</th><th>Tolerancia</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="muestra" style="background:#1b1f24"></span>Negro</td><td>0</td><td>×1</td><td>—</td></tr>
+          <tr><td><span class="muestra" style="background:#7a4a1e"></span>Marrón</td><td>1</td><td>×10</td><td>±1 %</td></tr>
+          <tr><td><span class="muestra" style="background:#b4232c"></span>Rojo</td><td>2</td><td>×100</td><td>±2 %</td></tr>
+          <tr><td><span class="muestra" style="background:#d9701a"></span>Naranja</td><td>3</td><td>×1 000</td><td>—</td></tr>
+          <tr><td><span class="muestra" style="background:#f2c200"></span>Amarillo</td><td>4</td><td>×10 000</td><td>—</td></tr>
+          <tr><td><span class="muestra" style="background:#1a7f43"></span>Verde</td><td>5</td><td>×100 000</td><td>±0,5 %</td></tr>
+          <tr><td><span class="muestra" style="background:#1f5c8f"></span>Azul</td><td>6</td><td>×1 000 000</td><td>±0,25 %</td></tr>
+          <tr><td><span class="muestra" style="background:#7a4fa3"></span>Violeta</td><td>7</td><td>—</td><td>±0,1 %</td></tr>
+          <tr><td><span class="muestra" style="background:#8b9099"></span>Gris</td><td>8</td><td>—</td><td>—</td></tr>
+          <tr><td><span class="muestra" style="background:#ffffff"></span>Blanco</td><td>9</td><td>—</td><td>—</td></tr>
+          <tr><td><span class="muestra" style="background:#c9a227"></span>Dorado</td><td>—</td><td>×0,1</td><td>±5 %</td></tr>
+          <tr><td><span class="muestra" style="background:#b8bcc2"></span>Plateado</td><td>—</td><td>×0,01</td><td>±10 %</td></tr>
+        </tbody>
+      </table>
+
+      <div class="tarjeta">
+        <p><strong>¿Y las de cinco bandas?</strong> Son las de precisión: las
+        <strong>tres primeras</strong> son cifras, la cuarta el multiplicador y la
+        quinta la tolerancia. El método es idéntico, solo que con una cifra más.</p>
+        <p><strong>¿Por dónde empiezo a leer?</strong> Por el extremo donde las
+        bandas están <strong>más juntas</strong>. La banda de tolerancia (dorada o
+        plateada) queda separada, al otro lado.</p>
+      </div>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 2.</span> Lee estas resistencias</h3>
+      <p>Indica el valor y la tolerancia de cada una. Escribe el resultado en
+      ohmios y, si procede, también en kΩ.</p>
+      <ol>
+        <li>Marrón · Negro · Rojo · Dorado</li>
+        <li>Rojo · Rojo · Marrón · Dorado</li>
+        <li>Amarillo · Violeta · Marrón · Dorado</li>
+        <li>Azul · Gris · Naranja · Dorado</li>
+        <li>Marrón · Negro · Naranja · Plateado</li>
+        <li>Verde · Azul · Negro · Dorado</li>
+      </ol>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 3.</span> Ahora al revés</h3>
+      <p>Indica qué bandas de colores tendría cada una de estas resistencias:</p>
+      <ol>
+        <li>330 Ω ±5 %</li>
+        <li>4,7 kΩ ±5 %</li>
+        <li>100 Ω ±5 %</li>
+        <li>2,2 kΩ ±5 %</li>
+      </ol>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 4.</span> Comprobación con el polímetro</h3>
+      <ol>
+        <li>Coge <strong>seis resistencias reales</strong> de la caja del taller.</li>
+        <li>Lee sus bandas y anota el <strong>valor nominal</strong> y la
+        tolerancia.</li>
+        <li>Mídelas con el <strong>óhmetro</strong> y anota el <strong>valor
+        real</strong>.</li>
+        <li>Calcula el margen que permite la tolerancia y comprueba si el valor
+        medido <strong>está dentro</strong>.</li>
+      </ol>
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Bandas</th><th>Nominal</th><th>Tolerancia</th><th>Margen (mín – máx)</th><th>Medido</th><th>¿Dentro?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table>
+      <div class="tarjeta">
+        <p><strong>Ejemplo.</strong> Una de 680 Ω ±5 % admite 680 − 34 =
+        <strong>646 Ω</strong> como mínimo y 680 + 34 = <strong>714 Ω</strong>
+        como máximo. Si tu polímetro marca 672 Ω, la resistencia <strong>está
+        bien</strong>: no está estropeada, es que la tolerancia es esa.</p>
+      </div>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 5.</span> Valores comerciales</h3>
+      <p>No existen todos los valores imaginables. Las resistencias se fabrican en
+      series normalizadas; la más común es la <strong>serie E12</strong>, con estos
+      doce valores (y sus múltiplos por 10, 100, 1000…):</p>
+      <p><code>10 · 12 · 15 · 18 · 22 · 27 · 33 · 39 · 47 · 56 · 68 · 82</code></p>
+      <p>Por eso existen 100 Ω, 220 Ω, 330 Ω, 470 Ω, 680 Ω, 1 kΩ o 2,2 kΩ, pero
+      <strong>no</strong> existe una de 350 Ω. ¿Te suena? Es exactamente lo que te
+      pasó con el LED de la P1: calculaste 350 Ω y tuviste que usar 330 Ω.</p>
+      <ol>
+        <li>Para cada uno de estos valores calculados, di qué resistencia
+        comercial de la serie E12 usarías: <strong>350 Ω</strong>,
+        <strong>1,5 kΩ</strong>, <strong>75 Ω</strong> y <strong>900 Ω</strong>.</li>
+        <li>En el caso del LED, ¿es más seguro elegir el valor comercial
+        <em>por encima</em> o <em>por debajo</em> del calculado? Explica por qué.</li>
+      </ol>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 6.</span> Identifica otros componentes</h3>
+      <p>En la caja del taller hay más cosas además de resistencias. Localiza
+      <strong>una de cada</strong>, hazle una foto y explica para qué sirve:</p>
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Componente</th><th>Cómo reconocerlo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Condensador electrolítico</td><td>Cilíndrico, con su capacidad impresa y una <strong>banda que marca el negativo</strong>. Tiene polaridad.</td></tr>
+          <tr><td>Condensador cerámico</td><td>Pequeño, con forma de lenteja y un número corto impreso. No tiene polaridad.</td></tr>
+          <tr><td>Diodo</td><td>Cilíndrico pequeño con una <strong>franja en un extremo</strong>, que marca el cátodo.</td></tr>
+          <tr><td>LED</td><td>Encapsulado transparente o de color, con una patilla más larga (ánodo) y un lado plano (cátodo).</td></tr>
+          <tr><td>Transistor</td><td>Encapsulado negro con <strong>tres patillas</strong> y un código impreso.</td></tr>
+          <tr><td>Fusible</td><td>Tubo de cristal con un hilo fino dentro; si el hilo está partido, está fundido.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="paso-bloque">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>Un PDF llamado <code>P3_apellido_nombre.pdf</code> con las lecturas de
+        las Partes 2 y 3, la tabla de la Parte 4, las respuestas de la Parte 5 y
+        las fotos con la explicación de la Parte 6.</li>
+      </ul>
+      <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
+      <ul>
+        <li><strong>Lectura correcta de las seis resistencias de la Parte 2 (3,0)</strong></li>
+        <li><strong>Conversión de valor a bandas de la Parte 3 (2,0)</strong></li>
+        <li><strong>Medida con el óhmetro y comprobación de la tolerancia (2,0)</strong></li>
+        <li><strong>Valores comerciales de la serie E12 y razonamiento del LED (1,5)</strong></li>
+        <li><strong>Identificación de los seis componentes (1,0)</strong></li>
+        <li><strong>Presentación, orden y conclusiones (0,5)</strong></li>
+      </ul>
+    </div>
   </section>
 
   <nav class="nav-temas">

@@ -93,7 +93,70 @@ La interfaz cambia de vez en cuando el texto de los botones y el nombre de algú
 componente. La página lo advierte para que el alumnado busque el equivalente en
 lugar de bloquearse.
 
-## Próximas prácticas
+## P2 · Montaje real en protoboard y polímetro
 
-- **P2** — Montaje real en placa protoboard y medidas con el polímetro del taller.
-- **P3** — Identificación de componentes y código de colores de resistencias.
+2 sesiones. Evaluable. Acredita RA3 (b, c, d, e) y RA8 (seguridad). Entrega en
+PDF `P2_apellido_nombre.pdf` con fotos de los montajes.
+
+Repite los circuitos de la P1 **en el taller**. El objetivo pedagógico real no es
+repetir, sino que **aparezca la discrepancia**: las medidas no darán los números
+redondos del simulador, y eso obliga a introducir tolerancia, precisión del
+aparato y resistencia de contactos. En el simulador esos conceptos no existen
+porque es ideal.
+
+Contenido: (1) conexiones internas de la protoboard, descubiertas por el propio
+alumno con el **modo continuidad**; (2) bornes y rangos del polímetro, con las dos
+reglas de oro (empezar por el rango alto; devolver la punta roja a VΩmA tras medir
+corriente, o se funde el fusible); (3) serie real; (4) paralelo real —aquí se pasa
+de 2 kΩ a **2,2 kΩ** porque 2 kΩ no es comercial, lo que engancha con la P3—;
+(5) LED real; (6) cálculo del **error relativo**.
+
+Rúbrica (10): protoboard 1,5 · polímetro 1,5 · serie 2,0 · paralelo 2,0 · LED 1,0
+· tabla y error relativo 1,5 · orden y seguridad 0,5.
+
+## P3 · Identificación de componentes y código de colores
+
+1-2 sesiones. Evaluable. Acredita RA3 (a, b). Entrega `P3_apellido_nombre.pdf`.
+
+Contenido: tabla del código de colores con muestras, lectura de seis resistencias,
+conversión inversa de cuatro valores, comprobación con el óhmetro dentro de
+tolerancia, serie **E12** e identificación de seis componentes del taller.
+
+Los enunciados de las partes 2, 3 y 5 **no llevan solución en la web** a propósito:
+son la parte evaluable. Solucionario abajo.
+
+### Solucionario P3 (uso del profesor)
+
+**Parte 2 — leer las bandas**
+
+| # | Bandas | Valor |
+|---|---|---|
+| 1 | Marrón · Negro · Rojo · Dorado | 10 × 100 = **1 kΩ** ±5 % |
+| 2 | Rojo · Rojo · Marrón · Dorado | 22 × 10 = **220 Ω** ±5 % |
+| 3 | Amarillo · Violeta · Marrón · Dorado | 47 × 10 = **470 Ω** ±5 % |
+| 4 | Azul · Gris · Naranja · Dorado | 68 × 1000 = **68 kΩ** ±5 % |
+| 5 | Marrón · Negro · Naranja · Plateado | 10 × 1000 = **10 kΩ** ±10 % |
+| 6 | Verde · Azul · Negro · Dorado | 56 × 1 = **56 Ω** ±5 % |
+
+**Parte 3 — valor a bandas**
+
+| Valor | Bandas |
+|---|---|
+| 330 Ω ±5 % | Naranja · Naranja · Marrón · Dorado |
+| 4,7 kΩ ±5 % | Amarillo · Violeta · Rojo · Dorado |
+| 100 Ω ±5 % | Marrón · Negro · Marrón · Dorado |
+| 2,2 kΩ ±5 % | Rojo · Rojo · Rojo · Dorado |
+
+**Parte 5 — valores comerciales (E12)**
+
+- 350 Ω → no existe; vecinos **330 Ω** y **390 Ω**.
+- 1,5 kΩ → **sí existe** (15 es de la serie E12).
+- 75 Ω → no existe en E12; vecinos **68 Ω** y **82 Ω**.
+- 900 Ω → no existe; vecinos **820 Ω** y **1 kΩ**.
+- Para un LED conviene elegir el valor **por encima** del calculado: pasa algo
+  menos de corriente, el LED luce un poco menos pero trabaja más holgado. Elegir
+  por debajo aumenta la corriente y acorta su vida.
+
+Rúbrica (10): lectura de bandas 3,0 · conversión inversa 2,0 · medida y tolerancia
+2,0 · E12 y razonamiento del LED 1,5 · identificación de componentes 1,0 ·
+presentación 0,5.

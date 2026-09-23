@@ -35,7 +35,7 @@
           "titulo": "Prácticas de circuitos eléctricos",
           "url": "temas/ut01-practicas.html",
           "evaluable": true,
-          "nota": "P1 publicada (Tinkercad y medidas con el multímetro, guiada, con rúbrica); P2 protoboard y P3 código de colores pendientes"
+          "nota": "P1 Tinkercad y multímetro (con puntos extra: mixto avanzado y LED), P2 protoboard y polímetro real, P3 código de colores e identificación de componentes; las tres con rúbrica de 10"
         }
       ]
     }
