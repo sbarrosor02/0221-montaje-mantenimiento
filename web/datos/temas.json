@@ -16,12 +16,17 @@
       "ut": 1,
       "titulo": "Elementos básicos eléctricos y electrónicos",
       "ra": "RA3, RA8",
-      "nota": "UT1 del módulo, en dos páginas: electricidad, electrónica e instrumentos (RA3) y seguridad/PRL/medio ambiente (RA8)",
+      "nota": "portada del tema en temas/ut01.html; el contenido se reparte en cuatro apartados enlazados desde ella y desde una barra superior: teoría (RA3), seguridad y PRL (RA8), ejercicios y prácticas",
       "evaluacion": 1,
       "horas": 16,
       "estado": "publicado",
-      "actualizado": "2026-09-16",
+      "actualizado": "2026-09-23",
       "recursos": [
+        {
+          "titulo": "Teoría: electricidad, componentes y aparatos de medida (RA3)",
+          "url": "temas/ut01-teoria.html",
+          "nota": "antes estaba en temas/ut01.html, que ahora es la portada del tema"
+        },
         {
           "titulo": "Seguridad, PRL y medio ambiente (RA8)",
           "url": "temas/ut01-prl.html"

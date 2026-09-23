@@ -5,38 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tema 1 · Elementos básicos eléctricos y electrónicos · 0221 Montaje y mantenimiento</title>
 <link rel="stylesheet" href="../assets/estilo.css">
-<style>
-  .figura { background: var(--fondo); border: 1px solid var(--linea);
-    border-radius: var(--radio); padding: 1rem; margin: 1.3rem 0; text-align: center; }
-  .figura svg { max-width: 100%; height: auto; }
-  .figura figcaption, .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
-  .circuito { max-width: 340px; }
-  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  svg .nodo { fill: var(--tinta); }
-  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
-  svg .et-mut { fill: var(--tinta-suave); font: 500 12px system-ui, sans-serif; }
-  .simbolos { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 0.6rem; margin: 1.2rem 0; }
-  .simbolos figure { margin: 0; background: var(--fondo); border: 1px solid var(--linea); border-radius: 8px; padding: 0.55rem 0.4rem; text-align: center; }
-  .simbolos svg { width: 80px; height: 44px; }
-  .simbolos figcaption { font-size: 0.76rem; color: var(--tinta-suave); margin-top: 0.25rem; }
-  .tabla-datos { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
-  .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.35rem 0.5rem; text-align: left; }
-  .tabla-datos th { background: var(--acento-claro); }
-  .sw { display: inline-block; width: 0.9rem; height: 0.9rem; border: 1px solid var(--linea); border-radius: 3px; vertical-align: -1px; margin-right: 0.3rem; }
-  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.8rem 0; }
-  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
-  .solucion[open] summary { margin-bottom: 0.4rem; }
-  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; }
-</style>
 </head>
 <body>
 <div class="envoltura">
 
   <header class="cab">
-    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1 (UT1)</p>
     <h1>Tema 1 — Elementos básicos eléctricos y electrónicos</h1>
-    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT1 · Duración: 16 h</p>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA3 y RA8 · Duración: 16 h</p>
   </header>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema" aria-current="page">Portada del tema</a>
+    <a href="ut01-teoria.html">Teoría</a>
+    <a href="ut01-prl.html">Seguridad y PRL</a>
+    <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-practicas.html">Prácticas</a>
+  </nav>
+
+  <p>Este tema es la <strong>base eléctrica de todo el módulo</strong>: sin
+  entender voltaje, corriente, resistencia y la Ley de Ohm no se entiende cómo
+  funciona un ordenador por dentro ni se puede diagnosticar una avería. Está
+  repartido en cuatro apartados; entra por el que necesites.</p>
+
+  <h2>Apartados del tema</h2>
+  <ul class="lista-temas">
+
+    <li>
+      <a href="ut01-teoria.html">
+        <span class="ut">Teoría</span>Electricidad, componentes y medida
+        <br><span class="etq">RA3 · magnitudes y unidades, Ley de Ohm, serie y paralelo, resistencias, aparatos de medida · 5 apartados</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="ut01-prl.html">
+        <span class="ut">Seguridad</span>Seguridad, PRL y medio ambiente
+        <br><span class="etq">Teoría · RA8 · riesgos y accidentes, EPI, seguridad eléctrica y electricidad estática, residuos y RAEE · con autocomprobación</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="ut01-ejercicios.html">
+        <span class="ut">Ejercicios</span>Circuitos y Ley de Ohm
+        <br><span class="etq">Formativo, no evaluable · 3 ejercicios resueltos paso a paso + 2 boletines (9 de repaso y 5 mixtos)</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="ut01-practicas.html">
+        <span class="ut">Prácticas</span>Simulación, montaje real y componentes
+        <br><span class="etq">Evaluables · P1 Tinkercad y multímetro (con puntos extra) · P2 protoboard y polímetro · P3 código de colores · las tres con rúbrica</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <div class="aviso">
+    <strong>En qué orden conviene ir.</strong> Primero la
+    <a href="ut01-teoria.html">teoría</a>, para tener los conceptos y las
+    fórmulas. Después los <a href="ut01-ejercicios.html">ejercicios</a>, que son
+    de lápiz y papel y sirven para coger soltura con los cálculos. Y por último
+    las <a href="ut01-practicas.html">prácticas</a>, que son las evaluables y ya
+    se hacen con el simulador y con material real.
+    La parte de <a href="ut01-prl.html">seguridad y PRL</a> conviene leerla
+    <strong>antes de la P2</strong>, que es la primera vez que tocas componentes
+    y corriente de verdad.
+  </div>
 
   <div class="ra-ce">
     <h2>Resultados de aprendizaje y criterios de evaluación</h2>
@@ -63,471 +98,20 @@
       <li><strong>f)</strong> Se han identificado las posibles fuentes de contaminación del entorno ambiental.</li>
       <li><strong>g)</strong> Se han clasificado los residuos generados para su retirada selectiva.</li>
     </ul>
-    <p style="margin-bottom:0"><em>Esta página cubre la parte de electricidad,
-    electrónica e instrumentos de medida (RA3). La parte de seguridad y PRL, medio
-    ambiente y residuos (RA8) está en <a href="ut01-prl.html">Seguridad, PRL y
-    medio ambiente</a>.</em></p>
+    <p style="margin-bottom:0"><em>La teoría de electricidad, electrónica e
+    instrumentos cubre RA3; la de seguridad, PRL y medio ambiente cubre RA8.
+    Las prácticas evaluables se califican sobre RA3.</em></p>
   </div>
-
-  <div class="aviso">
-    <strong>Es la base eléctrica de todo el módulo.</strong> Sin dominar voltaje,
-    corriente, resistencia y la Ley de Ohm no se entiende el funcionamiento
-    eléctrico de un ordenador ni el diagnóstico de averías. Los ejercicios de
-    circuitos están en la <a href="ut01-ejercicios.html">página de ejercicios</a>.
-  </div>
-
-  <section>
-    <h2>1.1 Introducción</h2>
-    <p>Vivimos rodeados de aparatos que funcionan con electricidad. Su
-    funcionamiento se basa en leyes (Ley de Ohm, Leyes de Kirchhoff) que
-    relacionan tres magnitudes básicas: <strong>resistencia</strong>,
-    <strong>intensidad</strong> y <strong>voltaje</strong> (o diferencia de
-    potencial). A partir de ellas se construyen los aparatos eléctricos y
-    electrónicos y se identifican sus características y limitaciones (amperaje,
-    voltaje, consumo…). Por eso este tema es imprescindible para comprender el
-    funcionamiento eléctrico de un ordenador y de los componentes que integra.</p>
-  </section>
-
-  <section>
-    <h2>1.2 Conceptos de electricidad</h2>
-    <p>La electricidad es una forma de energía que se genera por el movimiento de
-    partículas cargadas —los electrones— a través de un conductor (por ejemplo,
-    un cable). La materia está formada por átomos, y estos por
-    <strong>protones</strong> (carga positiva), <strong>electrones</strong>
-    (carga negativa) y <strong>neutrones</strong> (sin carga).</p>
-
-    <div class="figura">
-      <svg viewBox="0 0 260 180" role="img" aria-label="Modelo de átomo con núcleo y electrones orbitando">
-        <ellipse class="comp" cx="130" cy="90" rx="95" ry="30" stroke="#2e7d32"/>
-        <ellipse class="comp" cx="130" cy="90" rx="95" ry="30" stroke="#2e7d32" transform="rotate(60 130 90)"/>
-        <ellipse class="comp" cx="130" cy="90" rx="95" ry="30" stroke="#2e7d32" transform="rotate(120 130 90)"/>
-        <circle cx="124" cy="86" r="6" fill="#c62828"/>
-        <circle cx="136" cy="86" r="6" fill="#c62828"/>
-        <circle cx="130" cy="96" r="6" fill="#c62828"/>
-        <circle cx="118" cy="94" r="6" fill="#8a94a6"/>
-        <circle cx="140" cy="95" r="6" fill="#8a94a6"/>
-        <circle cx="35" cy="90" r="5" fill="#1f5c8f"/>
-        <circle cx="225" cy="90" r="5" fill="#1f5c8f"/>
-        <circle cx="96" cy="23" r="5" fill="#1f5c8f"/>
-        <circle cx="164" cy="157" r="5" fill="#1f5c8f"/>
-      </svg>
-      <p class="pie-fig">Figura 1.1 · Modelo atómico: el núcleo (protones en rojo,
-      neutrones en gris) y los electrones (azul) orbitando a su alrededor.
-      <em>Esquema original.</em></p>
-    </div>
-
-    <h3>1.2.1 Diferencia de potencial (voltaje)</h3>
-    <p>Es la energía por unidad de carga necesaria para mover una carga de un
-    punto a otro: la "fuerza" que empuja a los electrones por el conductor. Se
-    mide en <strong>voltios (V)</strong>, en honor a Alessandro Volta, con un
-    <strong>voltímetro</strong>. Ejemplos: una pila de 9 V; la red doméstica
-    (110 V o 220 V); en informática, 5 V, 3,3 V o menos.</p>
-
-    <h3>1.2.2 Corriente eléctrica</h3>
-    <p>Es el flujo de cargas por un conductor. Con el símil del río: si el voltaje
-    es la "altura" que da energía, la corriente es el "caudal". Se cuantifica con
-    la <strong>intensidad</strong> (carga que pasa por un punto en un segundo),
-    que se mide en <strong>amperios (A)</strong> con un <strong>amperímetro</strong>
-    colocado <strong>en serie</strong>. Dos tipos:</p>
-    <ul>
-      <li><strong>Corriente continua (CC / DC)</strong>: las cargas fluyen siempre
-      en la misma dirección (pilas, baterías, células solares). La usan casi
-      todos los equipos electrónicos.</li>
-      <li><strong>Corriente alterna (CA / AC)</strong>: la dirección y la
-      intensidad cambian periódicamente (forma sinusoidal). Es la que llega a las
-      casas; casi todos los aparatos necesitan un transformador de alterna a
-      continua.</li>
-    </ul>
-
-    <div class="figura">
-      <svg viewBox="0 0 320 160" role="img" aria-label="Comparación de corriente continua y corriente alterna">
-        <line class="hilo" x1="30" y1="20" x2="30" y2="140" stroke-width="1.5"/>
-        <line class="hilo" x1="30" y1="80" x2="305" y2="80" stroke-width="1.5"/>
-        <line class="comp" x1="30" y1="50" x2="300" y2="50" stroke="#c62828" stroke-width="2.5"/>
-        <polyline class="comp" stroke="#1f5c8f" stroke-width="2.5" points="30,80 38,56.5 46,42 54,42 62,56.5 70,80 78,103.5 86,118 94,118 102,103.5 110,80 118,56.5 126,42 134,42 142,56.5 150,80 158,103.5 166,118 174,118 182,103.5 190,80 198,56.5 206,42 214,42 222,56.5 230,80 238,103.5 246,118 254,118 262,103.5 270,80 278,56.5 286,42"/>
-        <text class="et" x="14" y="24">V, I</text>
-        <text class="et" x="292" y="98">t</text>
-        <text class="et" x="250" y="44" fill="#c62828">CC</text>
-        <text class="et" x="150" y="36" fill="#1f5c8f">CA</text>
-      </svg>
-      <p class="pie-fig">Figura 1.2 · Corriente continua (roja, constante) frente a
-      corriente alterna (azul, sinusoidal). <em>Esquema original.</em></p>
-    </div>
-
-    <h3>1.2.3 Resistencia eléctrica</h3>
-    <p>Es la oposición de un material al paso de la corriente. Se mide en
-    <strong>ohmios (Ω)</strong> con un <strong>óhmetro</strong>. Según su
-    resistencia, los materiales se clasifican en:</p>
-    <ul>
-      <li><strong>Conductores</strong>: baja resistencia (cobre, aluminio, oro).
-      Cables y pistas de los circuitos impresos.</li>
-      <li><strong>Aislantes</strong>: alta resistencia (caucho, vidrio,
-      plásticos). Recubren cables y separan componentes para evitar
-      cortocircuitos.</li>
-      <li><strong>Semiconductores</strong>: resistencia intermedia y manipulable
-      (temperatura, luz, impurezas). El silicio es el más usado: transistores y
-      microchips.</li>
-    </ul>
-    <p>Dos propiedades intrínsecas del material (no dependen de su geometría):
-    la <strong>resistividad (ρ)</strong>, en Ω·m, alta en aislantes; y la
-    <strong>conductividad (σ = 1/ρ)</strong>, en S/m, alta en conductores.</p>
-    <table class="tabla-datos">
-      <thead><tr><th>Material</th><th>Resistividad (Ω·m)</th><th>Como conductor</th></tr></thead>
-      <tbody>
-        <tr><td>Plata</td><td>1,59×10⁻⁸</td><td>Mejor conductor</td></tr>
-        <tr><td>Cobre</td><td>1,68×10⁻⁸</td><td>Excelente conductor</td></tr>
-        <tr><td>Aluminio</td><td>2,82×10⁻⁸</td><td>Muy buen conductor</td></tr>
-        <tr><td>Hierro</td><td>9,71×10⁻⁸</td><td>Buen conductor</td></tr>
-      </tbody>
-    </table>
-
-    <h3>1.2.4 Circuito eléctrico</h3>
-    <p>Un circuito eléctrico es un sistema cerrado por el que fluye la corriente.
-    Lo forman fuentes de alimentación (generan la diferencia de potencial),
-    conductores (permiten el flujo) y componentes (resistencias, condensadores,
-    bobinas…). Se relacionan tres magnitudes: <strong>V</strong> (la fuerza que
-    impulsa), <strong>I</strong> (el flujo de cargas) y <strong>R</strong> (la
-    oposición al flujo).</p>
-
-    <h3>1.2.5 Ley de Ohm</h3>
-    <p>Relaciona las tres magnitudes. Basta conocer dos para hallar la tercera:</p>
-    <div class="figura">
-      <svg viewBox="0 0 300 150" role="img" aria-label="Triángulo de la Ley de Ohm">
-        <polygon class="comp" points="90,30 30,120 150,120"/>
-        <line class="comp" x1="55" y1="75" x2="125" y2="75"/>
-        <line class="comp" x1="90" y1="75" x2="90" y2="120"/>
-        <text class="et" x="84" y="66" font-size="18">V</text>
-        <text class="et" x="52" y="110" font-size="18">I</text>
-        <text class="et" x="112" y="110" font-size="18">R</text>
-        <text class="et" x="180" y="60" class="formula">V = I × R</text>
-        <text class="et" x="180" y="88">I = V / R</text>
-        <text class="et" x="180" y="116">R = V / I</text>
-      </svg>
-      <p class="pie-fig">Figura 1.3 · La Ley de Ohm y sus tres despejes.
-      <em>Esquema original.</em></p>
-    </div>
-
-    <h4>Circuitos en serie</h4>
-    <p>Todos los componentes en una única trayectoria: la corriente es la misma en
-    todo el circuito y el voltaje se reparte entre los componentes.</p>
-    <ul>
-      <li>Resistencia total: <span class="formula">R = R₁ + R₂ + … + Rₙ</span></li>
-      <li>Intensidad: <span class="formula">I = I₁ = I₂ = … = Iₙ</span></li>
-      <li>Voltaje de cada componente: <span class="formula">Vᵢ = I × Rᵢ</span></li>
-    </ul>
-
-    <div class="figura">
-      <svg class="circuito" viewBox="0 0 350 240" role="img" aria-label="Circuito en serie de 9 V con tres resistencias">
-        <path class="hilo" d="M50,30 L50,105 M50,135 L50,210 L250,210 L250,188 M250,152 L250,132 M250,96 L250,76 M250,40 L250,30 L50,30"/>
-        <circle class="comp" cx="50" cy="120" r="15"/>
-        <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
-        <path class="comp" d="M250,40 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="comp" d="M250,96 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="comp" d="M250,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <text class="et" x="40" y="124" text-anchor="end">9 V</text>
-        <text class="et" x="264" y="62">R₁ = 1 Ω</text>
-        <text class="et" x="264" y="118">R₂ = 2 Ω</text>
-        <text class="et" x="264" y="174">R₃ = 3 Ω</text>
-      </svg>
-      <p class="pie-fig">Ejercicio 1 · Circuito en serie. <em>Esquema original.</em></p>
-    </div>
-    <details class="solucion">
-      <summary>Ver solución del ejercicio 1</summary>
-      <ul>
-        <li>Resistencia total: R = 1 + 2 + 3 = <strong>6 Ω</strong></li>
-        <li>Intensidad: I = V / R = 9 / 6 = <strong>1,5 A</strong> (igual en todo el circuito)</li>
-        <li>V₁ = 1,5 × 1 = <strong>1,5 V</strong> · V₂ = 1,5 × 2 = <strong>3 V</strong> · V₃ = 1,5 × 3 = <strong>4,5 V</strong></li>
-        <li>Comprobación: 1,5 + 3 + 4,5 = 9 V ✔</li>
-      </ul>
-    </details>
-
-    <h4>Circuitos en paralelo</h4>
-    <p>Los componentes ofrecen varias trayectorias: la corriente se reparte entre
-    las ramas, pero el voltaje es el mismo en todas.</p>
-    <ul>
-      <li>Resistencia total: <span class="formula">1/R = 1/R₁ + 1/R₂ + … + 1/Rₙ</span></li>
-      <li>Intensidad de cada rama: <span class="formula">Iᵢ = V / Rᵢ</span></li>
-      <li>Voltaje: <span class="formula">V₁ = V₂ = … = V</span></li>
-    </ul>
-
-    <div class="figura">
-      <svg class="circuito" viewBox="0 0 340 200" role="img" aria-label="Circuito en paralelo de 9 V con tres ramas">
-        <path class="hilo" d="M40,40 L40,90 M40,120 L40,170 L300,170 M40,40 L300,40 M300,40 L300,170"/>
-        <circle class="comp" cx="40" cy="105" r="15"/>
-        <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
-        <path class="hilo" d="M130,40 L130,75 M130,111 L130,170"/>
-        <path class="hilo" d="M200,40 L200,75 M200,111 L200,170"/>
-        <path class="hilo" d="M270,40 L270,75 M270,111 L270,170"/>
-        <path class="comp" d="M130,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="comp" d="M200,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="comp" d="M270,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <circle class="nodo" cx="130" cy="40" r="3"/><circle class="nodo" cx="200" cy="40" r="3"/><circle class="nodo" cx="270" cy="40" r="3"/>
-        <circle class="nodo" cx="130" cy="170" r="3"/><circle class="nodo" cx="200" cy="170" r="3"/><circle class="nodo" cx="270" cy="170" r="3"/>
-        <text class="et" x="30" y="109" text-anchor="end">9 V</text>
-        <text class="et" x="116" y="97" text-anchor="middle">3 Ω</text>
-        <text class="et" x="186" y="97" text-anchor="middle">4 Ω</text>
-        <text class="et" x="286" y="97">12 Ω</text>
-      </svg>
-      <p class="pie-fig">Ejercicio 2 · Circuito en paralelo. <em>Esquema original.</em></p>
-    </div>
-    <details class="solucion">
-      <summary>Ver solución del ejercicio 2</summary>
-      <ul>
-        <li>1/R = 1/3 + 1/4 + 1/12 = 4/12 + 3/12 + 1/12 = 8/12 → R = <strong>1,5 Ω</strong></li>
-        <li>Voltaje en cada rama: <strong>9 V</strong> (el mismo)</li>
-        <li>I₁ = 9/3 = <strong>3 A</strong> · I₂ = 9/4 = <strong>2,25 A</strong> · I₃ = 9/12 = <strong>0,75 A</strong></li>
-        <li>Comprobación: I total = 3 + 2,25 + 0,75 = 6 A = 9 / 1,5 ✔</li>
-      </ul>
-    </details>
-
-    <h4>Circuitos mixtos</h4>
-    <p>Combinan tramos en serie y en paralelo. Para resolverlos: (1) identificar
-    los subcircuitos en serie o en paralelo y resolver cada uno; (2) calcular la
-    resistencia equivalente total; (3) aplicar la Ley de Ohm en todo el
-    circuito.</p>
-
-    <div class="figura">
-      <svg class="circuito" viewBox="0 0 340 220" role="img" aria-label="Circuito mixto de 9 V con una resistencia en serie y dos en paralelo">
-        <path class="hilo" d="M40,40 L40,100 M40,130 L40,190 L190,190 M40,40 L250,40 L250,50"/>
-        <circle class="comp" cx="40" cy="115" r="15"/>
-        <path class="comp" d="M40,126 L40,104 M35,110 L40,103 L45,110"/>
-        <path class="comp" d="M250,50 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="hilo" d="M250,86 L250,110 L190,110"/>
-        <path class="hilo" d="M190,110 L190,120 M190,156 L190,190"/>
-        <path class="hilo" d="M250,110 L250,120 M250,156 L250,175 L190,175"/>
-        <path class="comp" d="M190,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <path class="comp" d="M250,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
-        <circle class="nodo" cx="250" cy="110" r="3"/><circle class="nodo" cx="190" cy="110" r="3"/>
-        <circle class="nodo" cx="190" cy="175" r="3"/><circle class="nodo" cx="250" cy="175" r="3"/>
-        <text class="et" x="30" y="119" text-anchor="end">9 V</text>
-        <text class="et" x="264" y="72">R₁ = 3 Ω</text>
-        <text class="et" x="176" y="142" text-anchor="end">R₂ = 4 Ω</text>
-        <text class="et" x="264" y="142">R₃ = 12 Ω</text>
-      </svg>
-      <p class="pie-fig">Ejercicio 3 · Circuito mixto: R₁ en serie con el paralelo
-      de R₂ y R₃. <em>Esquema original.</em></p>
-    </div>
-    <details class="solucion">
-      <summary>Ver solución del ejercicio 3</summary>
-      <ul>
-        <li>Paralelo R₂∥R₃ = (4 × 12) / (4 + 12) = 48 / 16 = <strong>3 Ω</strong></li>
-        <li>Resistencia total = R₁ + 3 = 3 + 3 = <strong>6 Ω</strong></li>
-        <li>Intensidad total: I = 9 / 6 = <strong>1,5 A</strong></li>
-        <li>V en R₁ = 1,5 × 3 = <strong>4,5 V</strong></li>
-        <li>V en el paralelo (R₂ y R₃) = 9 − 4,5 = <strong>4,5 V</strong> (mismo en las dos)</li>
-      </ul>
-    </details>
-
-    <h3>1.2.6 Potencia eléctrica</h3>
-    <p>Es la energía que un dispositivo consume o genera por unidad de tiempo. Se
-    mide en <strong>vatios (W)</strong>: <span class="formula">P = V × I</span>.
-    Con la Ley de Ohm también <span class="formula">P = I² × R</span> y
-    <span class="formula">P = V² / R</span>. En informática es clave: determina la
-    eficiencia energética y el calor generado.</p>
-  </section>
-
-  <section>
-    <h2>1.3 Componentes eléctricos y electrónicos</h2>
-    <p>Estos son los símbolos normalizados de los componentes que se estudian en
-    el tema. Reconocerlos es imprescindible para leer un esquema.</p>
-
-    <div class="simbolos">
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="72" y2="22"/></svg><figcaption>Cable conductor</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="nodo" cx="28" cy="22" r="2.5"/><line class="comp" x1="28" y1="22" x2="52" y2="10"/><circle class="nodo" cx="52" cy="22" r="2.5"/><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Interruptor</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="34" y2="22"/><line class="comp" x1="36" y1="10" x2="36" y2="34"/><line class="comp" x1="44" y1="16" x2="44" y2="28" stroke-width="4"/><line class="hilo" x1="48" y1="22" x2="72" y2="22"/></svg><figcaption>Pila</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="4" y1="22" x2="24" y2="22"/><line class="comp" x1="26" y1="10" x2="26" y2="34"/><line class="comp" x1="32" y1="16" x2="32" y2="28" stroke-width="4"/><line class="comp" x1="46" y1="10" x2="46" y2="34"/><line class="comp" x1="52" y1="16" x2="52" y2="28" stroke-width="4"/><line class="hilo" x1="54" y1="22" x2="76" y2="22"/></svg><figcaption>Batería</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><line class="comp" x1="31" y1="13" x2="49" y2="31"/><line class="comp" x1="49" y1="13" x2="31" y2="31"/><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Bombilla</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><text class="et" x="40" y="27" text-anchor="middle">A</text><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Amperímetro</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><text class="et" x="40" y="27" text-anchor="middle">V</text><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Voltímetro</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="34" y2="22"/><line class="comp" x1="35" y1="9" x2="35" y2="35"/><line class="comp" x1="45" y1="9" x2="45" y2="35"/><line class="hilo" x1="46" y1="22" x2="72" y2="22"/></svg><figcaption>Condensador</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="22" y2="22"/><polyline class="comp" points="22,22 28,12 36,32 44,12 52,32 58,22"/><line class="hilo" x1="58" y1="22" x2="72" y2="22"/></svg><figcaption>Resistencia</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="24" y2="22"/><rect class="comp" x="24" y="14" width="32" height="16"/><line class="hilo" x1="56" y1="22" x2="72" y2="22"/></svg><figcaption>Resistencia (rect.)</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="24" y2="22"/><rect class="comp" x="24" y="14" width="32" height="16"/><line class="hilo" x1="56" y1="22" x2="72" y2="22"/><line class="comp" x1="22" y1="34" x2="56" y2="9"/><path class="comp" d="M56,9 l-7,1 l3,6 z" fill="var(--tinta)"/></svg><figcaption>Resistencia variable</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="30" y2="22"/><path class="comp" d="M30,12 L30,32 L48,22 Z" fill="var(--tinta)"/><line class="comp" x1="48" y1="12" x2="48" y2="32"/><line class="hilo" x1="48" y1="22" x2="72" y2="22"/></svg><figcaption>Diodo</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="26" y2="22"/><path class="comp" d="M26,12 L26,32 L44,22 Z" fill="var(--tinta)"/><line class="comp" x1="44" y1="12" x2="44" y2="32"/><line class="hilo" x1="44" y1="22" x2="72" y2="22"/><line class="comp" x1="48" y1="10" x2="54" y2="4"/><line class="comp" x1="54" y1="10" x2="60" y2="4"/><path class="comp" d="M54,4 l-4,0 l0,4z" fill="var(--tinta)"/><path class="comp" d="M60,4 l-4,0 l0,4z" fill="var(--tinta)"/></svg><figcaption>Diodo LED</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="24" y2="22"/><path class="comp" d="M24,22 a6,6 0 0 1 12,0 a6,6 0 0 1 12,0 a6,6 0 0 1 12,0"/><line class="hilo" x1="60" y1="22" x2="72" y2="22"/></svg><figcaption>Inductancia</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><text class="et" x="40" y="27" text-anchor="middle">M</text><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Motor</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="40" y1="8" x2="40" y2="24"/><line class="comp" x1="28" y1="24" x2="52" y2="24"/><line class="comp" x1="32" y1="30" x2="48" y2="30"/><line class="comp" x1="36" y1="36" x2="44" y2="36"/></svg><figcaption>Toma de tierra</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><path class="comp" d="M33,22 q3.5,-7 7,0 q3.5,7 7,0"/><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Fuente CA</figcaption></figure>
-      <figure><svg viewBox="0 0 80 44"><line class="hilo" x1="8" y1="22" x2="28" y2="22"/><circle class="comp" cx="40" cy="22" r="12"/><path class="comp" d="M40,29 L40,15 M35,20 L40,14 L45,20"/><line class="hilo" x1="52" y1="22" x2="72" y2="22"/></svg><figcaption>Fuente CC</figcaption></figure>
-    </div>
-    <p class="pie-fig">Figura 1.4 · Símbolos normalizados de los componentes.
-    <em>Esquemas originales.</em></p>
-
-    <h3>1.3.1 Pilas y baterías</h3>
-    <p>Almacenan energía química y la convierten en energía eléctrica. Una
-    <strong>pila</strong> suele ser una única celda; una <strong>batería</strong>
-    es un conjunto de celdas en serie o paralelo. Ambas tienen dos polos
-    (positivo y negativo) y generan <strong>corriente continua</strong>. Tipos:
-    alcalinas (mandos, relojes), iones de litio (móviles, portátiles, vehículos)
-    y plomo-ácido (SAI, automóviles). Parámetros: <strong>capacidad</strong> (Ah),
-    <strong>voltaje nominal</strong> y <strong>corriente de descarga</strong>.</p>
-
-    <h3>1.3.2 Interruptores</h3>
-    <p>Permiten o interrumpen el paso de la corriente mediante dos contactos que
-    pueden estar <strong>abiertos</strong> (no pasa) o <strong>cerrados</strong>
-    (pasa). Tipos: unipolares, bipolares, multipolares; de palanca, botón
-    pulsador y deslizantes. Usos: control de dispositivos, selección de modo y
-    seguridad (corte de alimentación).</p>
-
-    <h3>1.3.3 Pulsadores</h3>
-    <p>Son un tipo de interruptor para activar una función (teclas de un teclado,
-    botones de un mando). Tres tipos: <strong>acción momentánea</strong> (solo
-    mientras se pulsa), <strong>de enclavamiento</strong> (cambia de estado y de
-    posición) y <strong>alterada</strong> (cambia de estado pero no de posición).</p>
-
-    <h3>1.3.4 Fuentes de alimentación</h3>
-    <p>Convierten la corriente alterna de la red en una o varias corrientes
-    continuas para los componentes del equipo (procesador, RAM, discos,
-    periféricos). Características: tipos de salida (+12 V, +5 V, +3,3 V), potencia
-    (W), eficiencia, tipo (ATX, microATX…), conectores (SATA, PCIe…), protecciones
-    (sobretensión, cortocircuito, sobrecarga) y refrigeración. Se estudian a fondo
-    más adelante en el módulo.</p>
-  </section>
-
-  <section>
-    <h2>1.4 Resistencias</h2>
-    <p>Componente diseñado para introducir una resistencia concreta al paso de la
-    corriente; disipa energía en forma de calor y regula la corriente.
-    Características: <strong>valor nominal</strong> (Ω), <strong>tolerancia</strong>
-    (margen de error: 100 Ω ±5 % → entre 95 y 105 Ω), <strong>potencia</strong>
-    (W), <strong>tipo</strong> (película de carbono, película metálica, alambre
-    bobinado) y <strong>coeficiente de temperatura</strong>. En los ordenadores
-    aparecen en fuentes de alimentación, placas base, tarjetas gráficas y
-    circuitos de interfaz (USB, HDMI, SATA).</p>
-
-    <div class="figura">
-      <svg viewBox="0 0 300 76" role="img" aria-label="Resistencia con bandas de colores">
-        <line class="hilo" x1="15" y1="38" x2="90" y2="38"/>
-        <line class="hilo" x1="210" y1="38" x2="285" y2="38"/>
-        <rect class="comp" x="90" y="21" width="120" height="34" rx="8" fill="#e8d8b0"/>
-        <rect x="108" y="21" width="9" height="34" fill="#c62828"/>
-        <rect x="128" y="21" width="9" height="34" fill="#1b1f24"/>
-        <rect x="148" y="21" width="9" height="34" fill="#2e7d32"/>
-        <rect x="184" y="21" width="9" height="34" fill="#c9a227"/>
-      </svg>
-      <p class="pie-fig">Figura 1.5 · Código de colores de una resistencia de 4
-      bandas: rojo · negro · verde · oro → 20 × 10⁵ Ω ± 5 % = 2 MΩ ± 5 %.
-      <em>Esquema original.</em></p>
-    </div>
-
-    <table class="tabla-datos">
-      <thead><tr><th>Color</th><th>Dígito</th><th>Multiplicador</th></tr></thead>
-      <tbody>
-        <tr><td><span class="sw" style="background:#1b1f24"></span>Negro</td><td>0</td><td>10⁰</td></tr>
-        <tr><td><span class="sw" style="background:#6d4c2b"></span>Marrón</td><td>1</td><td>10¹</td></tr>
-        <tr><td><span class="sw" style="background:#c62828"></span>Rojo</td><td>2</td><td>10²</td></tr>
-        <tr><td><span class="sw" style="background:#e07a1f"></span>Naranja</td><td>3</td><td>10³</td></tr>
-        <tr><td><span class="sw" style="background:#f2c200"></span>Amarillo</td><td>4</td><td>10⁴</td></tr>
-        <tr><td><span class="sw" style="background:#2e7d32"></span>Verde</td><td>5</td><td>10⁵</td></tr>
-        <tr><td><span class="sw" style="background:#1f5c8f"></span>Azul</td><td>6</td><td>10⁶</td></tr>
-        <tr><td><span class="sw" style="background:#7b3fa0"></span>Violeta</td><td>7</td><td>10⁷</td></tr>
-        <tr><td><span class="sw" style="background:#8a94a6"></span>Gris</td><td>8</td><td>10⁸</td></tr>
-        <tr><td><span class="sw" style="background:#f4f6f8"></span>Blanco</td><td>9</td><td>10⁹</td></tr>
-      </tbody>
-    </table>
-    <p><strong>Tolerancia:</strong> <span class="sw" style="background:#c9a227"></span>Oro ±5 %,
-    <span class="sw" style="background:#b8b8bd"></span>Plata ±10 %. Hay resistencias
-    de 4, 5 y 6 bandas (a más bandas, más precisión y datos como el coeficiente
-    térmico).</p>
-
-    <h3>1.4.1 Resistencias SMD</h3>
-    <p>(<em>Surface Mount Device</em>) Se montan directamente sobre la superficie
-    de la placa (PCB), sin agujeros pasantes. Son compactas y permiten diseños
-    más densos y una producción más eficiente.</p>
-
-    <h3>1.4.2 Potenciómetros</h3>
-    <p>Resistor <strong>ajustable</strong> de tres terminales con un contacto
-    deslizante o giratorio que forma un divisor de voltaje variable.
-    Características: tipo de ajuste (giratorio/deslizante), valor nominal (Ω),
-    tolerancia, potencia (W) y linealidad (lineal o logarítmico). Usos: volumen,
-    brillo/contraste, velocidad de un ventilador…</p>
-
-    <h3>1.4.3 Condensadores (capacitores)</h3>
-    <p>Almacenan energía en un campo eléctrico entre dos placas separadas por un
-    dieléctrico. Características: <strong>capacidad</strong> (faradios, F; en
-    informática de pF a mF), tipo de dieléctrico (cerámica, tantalio, polímeros),
-    tolerancia, voltaje máximo y <strong>polaridad</strong> (los electrolíticos
-    son polares; los cerámicos no). Usos: filtrado de alimentación, gestión de
-    señales, arranque de motores y memoria (DRAM).</p>
-
-    <h3>1.4.4 Diodos</h3>
-    <p>Semiconductor de dos terminales (ánodo y cátodo) que deja pasar la
-    corriente en <strong>una sola dirección</strong>. Características: umbral de
-    conducción (~0,7 V en silicio), corriente directa máxima, voltaje inverso
-    máximo y tipos (rectificadores, LED, Zener, Schottky…). Usos: rectificación
-    (CA→CC), regulación de voltaje (Zener), indicadores (LED) y protección contra
-    retroceso. El <strong>LED</strong> emite luz al aplicarle voltaje; en
-    informática se usa sobre todo como indicador de estado e iluminación.</p>
-
-    <h3>1.4.5 Transistores</h3>
-    <p>Semiconductor que actúa como <strong>amplificador o interruptor</strong>.
-    Tres regiones: emisor, base y colector (bipolares, BJT) o fuente, puerta y
-    drenaje (efecto de campo, FET/MOSFET). Un pequeño cambio en el terminal de
-    control produce un gran cambio en la corriente entre los otros dos. Usos:
-    microprocesadores (millones de transistores), regulación de potencia,
-    amplificación y conmutación.</p>
-
-    <h3>1.4.6 Circuitos integrados</h3>
-    <p>Conjunto de componentes (transistores, resistencias, condensadores…)
-    interconectados y encapsulados en un único chip de silicio, con pines
-    soldados a la placa. En los equipos: microprocesadores, memorias RAM/ROM,
-    tarjetas gráficas y controladores. Escalas de integración por número de
-    transistores:</p>
-    <table class="tabla-datos">
-      <thead><tr><th>Escala</th><th>Transistores</th></tr></thead>
-      <tbody>
-        <tr><td>SSI (pequeña)</td><td>10 – 100</td></tr>
-        <tr><td>MSI (media)</td><td>101 – 1.000</td></tr>
-        <tr><td>LSI (grande)</td><td>1.001 – 10.000</td></tr>
-        <tr><td>VLSI (muy grande)</td><td>10.001 – 100.000</td></tr>
-        <tr><td>ULSI (ultra grande)</td><td>100.001 – 1.000.000</td></tr>
-        <tr><td>GLSI (giga grande)</td><td>más de 1.000.000</td></tr>
-      </tbody>
-    </table>
-    <p>La <strong>Ley de Moore</strong> observó que el número de transistores de
-    un chip se duplica aproximadamente cada dos años; no es una ley física sino
-    una tendencia empírica, muy precisa durante décadas y hoy en desaceleración.</p>
-  </section>
-
-  <section>
-    <h2>1.5 Aparatos de medición</h2>
-    <ul>
-      <li><strong>Voltímetro</strong>: mide el voltaje entre dos puntos. Dos tomas
-      (roja = positivo, negra = negativo). Analógico (aguja) o digital.</li>
-      <li><strong>Amperímetro</strong>: mide la intensidad. Se conecta
-      <strong>en serie</strong>. Analógico o digital.</li>
-      <li><strong>Óhmetro</strong>: mide la resistencia entre dos puntos aplicando
-      una corriente. Los de alta precisión usan cuatro terminales (contactos
-      Kelvin) para descontar la resistencia de los cables de medida.</li>
-      <li><strong>Multímetro</strong> (polímetro o tester): mide varias magnitudes
-      (voltaje, intensidad, resistencia, capacidad…). Analógico, digital o
-      híbrido. Es la herramienta de diagnóstico básica del técnico.</li>
-      <li><strong>Osciloscopio</strong>: representa gráficamente señales
-      eléctricas en el tiempo. Muy versátil para mediciones.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Ejercicios</h2>
-    <p>Los tres ejercicios resueltos de arriba, más dos boletines de circuitos
-    (9 de repaso y 5 mixtos), están en la
-    <a href="ut01-ejercicios.html">página de ejercicios del tema</a>, con cada
-    circuito redibujado como esquema.</p>
-    <p class="pie-fig"><em>Las prácticas evaluables del tema se publicarán aparte.</em></p>
-  </section>
 
   <nav class="nav-temas">
     <a href="ut00.html">&laquo; Tema 0 (evaluación inicial)</a>
     <a href="../index.html">Índice del módulo</a>
-    <a href="ut01-ejercicios.html">Ejercicios</a>
-    <a href="ut01-practicas.html">Prácticas &raquo;</a>
+    <span>Siguiente &raquo; (Tema 2, próximamente)</span>
   </nav>
 
   <footer class="pie">
     <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
-    Currículo: Decreto 272/2009 (Extremadura). Apuntes adaptados del curso
-    2023/24; esquemas de circuitos y componentes redibujados como SVG originales.</p>
+    Currículo: Decreto 272/2009 (Extremadura).</p>
   </footer>
 
 </div>
