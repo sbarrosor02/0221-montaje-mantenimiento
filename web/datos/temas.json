@@ -30,6 +30,12 @@
           "titulo": "Ejercicios de circuitos (Ley de Ohm: serie, paralelo y mixto)",
           "url": "temas/ut01-ejercicios.html",
           "nota": "3 resueltos publicados; boletines de 9 y 5 circuitos pendientes de redibujar"
+        },
+        {
+          "titulo": "Prácticas de circuitos eléctricos",
+          "url": "temas/ut01-practicas.html",
+          "evaluable": true,
+          "nota": "P1 publicada (Tinkercad y medidas con el multímetro, guiada, con rúbrica); P2 protoboard y P3 código de colores pendientes"
         }
       ]
     }

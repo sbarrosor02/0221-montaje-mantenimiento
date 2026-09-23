@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Prácticas de circuitos · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 360px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  svg .et-med { fill: var(--tinta); font: 700 16px system-ui, sans-serif; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.8rem 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 0.9rem 0; font-size: 0.93rem; }
+  .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; }
+  .tabla-datos th { background: var(--fondo-suave); font-weight: 600; }
+  .tabla-datos td.rellenar { background: #fffdf3; }
+  .paso-bloque { margin: 1.4rem 0 0; }
+  .paso-bloque h3 { margin: 0 0 0.3rem; }
+  .paso-bloque h3 .num { color: var(--acento); margin-right: 0.35rem; }
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Prácticas de circuitos eléctricos</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA3</p>
+  </header>
+
+  <div class="aviso">
+    <strong>Qué son estas prácticas.</strong> Son las actividades
+    <strong>evaluables</strong> del Tema 1: aquí no se trata de calcular sobre el
+    papel (eso son los <a href="ut01-ejercicios.html">ejercicios</a>), sino de
+    <strong>montar y medir</strong>. Empezamos en un simulador para poder
+    equivocarnos sin romper nada, y más adelante pasaremos al taller.
+  </div>
+
+  <section>
+    <h2>P1 · Tinkercad y medidas con el multímetro</h2>
+    <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
+    acredita RA3 (b, c, d, e) · se entrega en el portafolio</p>
+
+    <p>En esta práctica vas a aprender a usar <strong>Tinkercad Circuits</strong>,
+    un simulador de circuitos que funciona en el navegador y es gratuito. Montarás
+    varios circuitos y medirás en ellos <strong>voltaje, intensidad y
+    resistencia</strong> con el multímetro, comprobando sobre el simulador lo que
+    ya has calculado en teoría con la Ley de Ohm.</p>
+
+    <h3>Qué vas a conseguir</h3>
+    <ul>
+      <li>Montar circuitos en serie, en paralelo y mixtos en un simulador.</li>
+      <li>Conectar correctamente el multímetro como <strong>voltímetro</strong>,
+      como <strong>amperímetro</strong> y como <strong>óhmetro</strong>.</li>
+      <li>Comprobar que las medidas coinciden con los cálculos de la Ley de Ohm.</li>
+      <li>Detectar tú solo cuándo una medida «no cuadra» porque el montaje está
+      mal.</li>
+    </ul>
+
+    <div class="tarjeta">
+      <p><strong>Antes de empezar.</strong> Necesitas un navegador y una cuenta de
+      Tinkercad. Ve guardando <strong>una captura de pantalla de cada circuito
+      con la simulación en marcha</strong>: son la prueba de que lo has hecho y
+      forman parte de la entrega.</p>
+    </div>
+
+    <div class="aviso">
+      Tinkercad cambia de vez en cuando el texto de sus botones y el nombre de
+      algún componente. Si algo no se llama <em>exactamente</em> como aquí, busca
+      el equivalente más parecido: la idea es siempre la misma.
+    </div>
+
+    <!-- ============ PARTE 0 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 0.</span> Preparar Tinkercad</h3>
+      <ol>
+        <li>Abre el navegador y entra en <code>www.tinkercad.com</code>.</li>
+        <li>Inicia sesión con la cuenta del centro. Si no tienes, pulsa
+        <em>Únete ahora</em> y créala (es gratuita). Si el profesor os ha dado un
+        <strong>código de clase</strong>, entra por ahí.</li>
+        <li>En el menú de la izquierda pulsa <strong>Circuitos</strong>.</li>
+        <li>Pulsa el botón <strong>Crear</strong> y elige <strong>Circuito</strong>.
+        Se abre un lienzo vacío.</li>
+        <li>Fíjate en las tres zonas de la pantalla:
+          <ul>
+            <li>El <strong>lienzo</strong> central, donde montas el circuito.</li>
+            <li>El <strong>panel de componentes</strong> de la derecha, con un
+            buscador arriba.</li>
+            <li>Arriba a la derecha, el botón
+            <strong>Iniciar simulación</strong>.</li>
+          </ul>
+        </li>
+        <li>Tinkercad le pone al diseño un nombre aleatorio (algo como
+        «Grand Bombul»). Haz clic sobre él arriba a la izquierda y cámbialo por
+        <code>P1_tuapellido</code>. El trabajo se guarda solo.</li>
+      </ol>
+    </div>
+
+    <!-- ============ PARTE 1 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 1.</span> Tu primer circuito</h3>
+      <p>Vamos a montar el circuito más sencillo posible: una fuente y una
+      resistencia.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 200" role="img" aria-label="Circuito con fuente de 9 voltios y una resistencia de 100 ohmios">
+          <path class="hilo" d="M50,40 L280,40 L280,82 M280,118 L280,160 L50,160 L50,115 M50,85 L50,40"/>
+          <circle class="comp" cx="50" cy="100" r="15"/>
+          <path class="comp" d="M50,111 L50,89 M45,95 L50,88 L55,95"/>
+          <path class="comp" d="M280,82 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <text class="et" x="30" y="104" text-anchor="end">9 V</text>
+          <text class="et" x="296" y="104">R = 100 Ω</text>
+        </svg>
+        <p class="pie-fig">Circuito 1: fuente de 9 V con una resistencia de 100 Ω.</p>
+      </div>
+
+      <ol>
+        <li>En el buscador del panel de componentes escribe
+        <strong>fuente de alimentación</strong> y arrástrala al lienzo.</li>
+        <li>Haz clic sobre la fuente. Se abre un pequeño panel de propiedades:
+        pon <strong>Voltaje = 9 V</strong>.</li>
+        <li>Busca <strong>resistencia</strong> y arrastra una al lienzo, a la
+        derecha de la fuente.</li>
+        <li>Haz clic sobre la resistencia y, en sus propiedades, pon
+        <strong>Resistencia = 100</strong> y comprueba que la unidad
+        seleccionada es <strong>Ω</strong> (¡no kΩ!).</li>
+        <li>Ahora el cableado. Haz clic en el <strong>terminal +</strong> de la
+        fuente y, sin arrastrar, haz clic en uno de los extremos de la
+        resistencia: se dibuja un cable.</li>
+        <li>Repite: clic en el otro extremo de la resistencia y clic en el
+        <strong>terminal −</strong> de la fuente. El circuito ya está cerrado.</li>
+        <li>Para que se entienda mejor, selecciona el cable del + y ponlo
+        <strong>rojo</strong>, y el del − en <strong>negro</strong> (el color se
+        elige en el panel que sale al seleccionar el cable).</li>
+        <li>Pulsa <strong>Iniciar simulación</strong>. No verás nada
+        espectacular: no hay ninguna lámpara. Lo interesante viene ahora, al
+        medir.</li>
+      </ol>
+
+      <p>Antes de medir, <strong>calcula</strong> qué intensidad debería circular
+      aplicando la Ley de Ohm.</p>
+      <details class="solucion">
+        <summary>Comprobación del cálculo</summary>
+        <p>I = V / R = 9 V / 100 Ω = <strong>0,09 A = 90 mA</strong>. Y como solo
+        hay una resistencia, toda la tensión de la fuente cae en ella:
+        V<sub>R</sub> = 9 V.</p>
+      </details>
+    </div>
+
+    <!-- ============ PARTE 2 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 2.</span> Medir VOLTAJE (voltímetro)</h3>
+      <p>Para medir la tensión que hay en un componente, el multímetro se coloca
+      <strong>en paralelo</strong> con él: una punta a cada lado,
+      <strong>sin cortar</strong> el circuito.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 400 200" role="img" aria-label="Voltímetro conectado en paralelo con la resistencia">
+          <path class="hilo" d="M50,40 L280,40 L280,82 M280,118 L280,160 L50,160 L50,115 M50,85 L50,40"/>
+          <circle class="comp" cx="50" cy="100" r="15"/>
+          <path class="comp" d="M50,111 L50,89 M45,95 L50,88 L55,95"/>
+          <path class="comp" d="M280,82 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="hilo" d="M280,82 L350,82 M280,118 L350,118"/>
+          <circle class="comp" cx="350" cy="100" r="18"/>
+          <text class="et-med" x="350" y="106" text-anchor="middle">V</text>
+          <circle class="nodo" cx="280" cy="82" r="3"/>
+          <circle class="nodo" cx="280" cy="118" r="3"/>
+          <text class="et" x="30" y="104" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="104" text-anchor="end">R</text>
+        </svg>
+        <p class="pie-fig">El voltímetro (V) se conecta en paralelo, «puenteando»
+        la resistencia. El circuito original no se toca.</p>
+      </div>
+
+      <ol>
+        <li>Si la simulación está en marcha, pulsa
+        <strong>Detener simulación</strong>.</li>
+        <li>Busca <strong>multímetro</strong> en el panel y arrástralo al lienzo,
+        cerca de la resistencia.</li>
+        <li>Haz clic sobre el multímetro y, en sus propiedades, elige el modo
+        <strong>Voltaje</strong>.</li>
+        <li>Conecta la <strong>punta roja</strong> del multímetro al extremo de la
+        resistencia que está del lado del <strong>+</strong> de la fuente.</li>
+        <li>Conecta la <strong>punta negra</strong> al otro extremo de la
+        resistencia.</li>
+        <li>Comprueba que <strong>no has cortado ningún cable</strong>: el
+        circuito de antes sigue completo y el multímetro se ha añadido «al
+        lado».</li>
+        <li>Pulsa <strong>Iniciar simulación</strong> y anota la lectura en la
+        tabla del final.</li>
+      </ol>
+
+      <div class="tarjeta">
+        <p><strong>Por qué en paralelo.</strong> El voltaje es una
+        <em>diferencia</em> entre dos puntos, así que hay que «tocar» los dos a la
+        vez. El voltímetro tiene una resistencia interna altísima para que casi no
+        le pase corriente y no altere el circuito que está midiendo.</p>
+      </div>
+    </div>
+
+    <!-- ============ PARTE 3 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 3.</span> Medir INTENSIDAD (amperímetro)</h3>
+      <p>La corriente es lo que <em>atraviesa</em> el circuito, así que el
+      multímetro tiene que ponerse <strong>en serie</strong>: hay que
+      <strong>cortar</strong> el circuito e intercalarlo, para que la corriente
+      pase por dentro de él.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 210" role="img" aria-label="Amperímetro intercalado en serie en el circuito">
+          <path class="hilo" d="M50,40 L280,40 L280,82 M280,118 L280,160 L183,160 M147,160 L50,160 L50,115 M50,85 L50,40"/>
+          <circle class="comp" cx="50" cy="100" r="15"/>
+          <path class="comp" d="M50,111 L50,89 M45,95 L50,88 L55,95"/>
+          <path class="comp" d="M280,82 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="comp" cx="165" cy="160" r="18"/>
+          <text class="et-med" x="165" y="166" text-anchor="middle">A</text>
+          <text class="et" x="30" y="104" text-anchor="end">9 V</text>
+          <text class="et" x="296" y="104">R = 100 Ω</text>
+        </svg>
+        <p class="pie-fig">El amperímetro (A) se intercala en el circuito: la
+        corriente entra por una punta y sale por la otra.</p>
+      </div>
+
+      <ol>
+        <li>Pulsa <strong>Detener simulación</strong>.</li>
+        <li>Haz clic sobre el cable que une la resistencia con el terminal
+        <strong>−</strong> de la fuente y pulsa <code>Supr</code> para
+        borrarlo. El circuito queda <strong>abierto</strong>.</li>
+        <li>Cambia el modo del multímetro a <strong>Corriente</strong>.</li>
+        <li>Conecta la <strong>punta roja</strong> al extremo libre de la
+        resistencia.</li>
+        <li>Conecta la <strong>punta negra</strong> al terminal <strong>−</strong>
+        de la fuente. Ahora el multímetro forma parte del circuito: lo has
+        cerrado «a través» de él.</li>
+        <li>Pulsa <strong>Iniciar simulación</strong> y anota la lectura.
+        <strong>Fíjate bien en la unidad</strong>: puede mostrarlo en amperios (A)
+        o en miliamperios (mA).</li>
+      </ol>
+
+      <div class="aviso">
+        <strong>Error clásico, y peligroso.</strong> No conectes nunca el
+        amperímetro <em>en paralelo</em> con la fuente, es decir, una punta al + y
+        otra al −. Como tiene una resistencia interna casi nula, eso es un
+        <strong>cortocircuito</strong>: en Tinkercad verás un aviso o saldrá humo
+        del componente, y en el taller fundirías el fusible del polímetro.
+      </div>
+    </div>
+
+    <!-- ============ PARTE 4 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 4.</span> Medir RESISTENCIA (óhmetro)</h3>
+      <p>La resistencia se mide con el componente <strong>sin tensión</strong> y,
+      a ser posible, <strong>fuera del circuito</strong>.</p>
+      <ol>
+        <li>Pulsa <strong>Detener simulación</strong>.</li>
+        <li>En una zona libre del lienzo, arrastra una
+        <strong>resistencia nueva</strong> y ponle
+        <strong>220 Ω</strong>. No la conectes a la fuente.</li>
+        <li>Cambia el modo del multímetro a <strong>Resistencia</strong> (si te
+        hace falta, arrastra un segundo multímetro).</li>
+        <li>Conecta una punta a cada extremo de esa resistencia suelta.</li>
+        <li>Pulsa <strong>Iniciar simulación</strong> y anota el valor que
+        marca.</li>
+        <li>Compáralo con el valor nominal (220 Ω) y con lo que dirían las bandas
+        de colores de esa resistencia (repasa el
+        <a href="ut01.html">Tema 1</a> si no te acuerdas del código).</li>
+      </ol>
+      <div class="tarjeta">
+        <p><strong>Por qué sin alimentación.</strong> El óhmetro mide inyectando
+        él mismo una pequeña corriente conocida. Si el circuito tiene tensión, esa
+        corriente se mezcla con la del circuito y la lectura sale falseada (o
+        estropeas el aparato). Y si la resistencia sigue soldada junto a otras en
+        paralelo, medirás el conjunto, no la que te interesa.</p>
+      </div>
+    </div>
+
+    <!-- ============ PARTE 5 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 5.</span> Circuito en SERIE</h3>
+      <p>Monta este circuito con <strong>tres resistencias en serie</strong>, una
+      detrás de otra, formando un único camino.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 350 240" role="img" aria-label="Circuito en serie de 9 voltios con tres resistencias">
+          <path class="hilo" d="M50,30 L50,105 M50,135 L50,210 L250,210 L250,188 M250,152 L250,132 M250,96 L250,76 M250,40 L250,30 L50,30"/>
+          <circle class="comp" cx="50" cy="120" r="15"/>
+          <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
+          <path class="comp" d="M250,40 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,96 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <text class="et" x="30" y="124" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="62">R₁ = 100 Ω</text>
+          <text class="et" x="264" y="118">R₂ = 220 Ω</text>
+          <text class="et" x="264" y="174">R₃ = 680 Ω</text>
+        </svg>
+        <p class="pie-fig">Circuito 2: tres resistencias en serie alimentadas a 9 V.</p>
+      </div>
+
+      <ol>
+        <li>Crea un <strong>diseño nuevo</strong> (Circuitos → Crear → Circuito) y
+        llámalo <code>P1_tuapellido_serie</code>. Así no pierdes el anterior.</li>
+        <li>Coloca la fuente a <strong>9 V</strong> y tres resistencias de
+        <strong>100 Ω</strong>, <strong>220 Ω</strong> y <strong>680 Ω</strong>.</li>
+        <li>Cablea <strong>en serie</strong>: del + de la fuente a R₁; de R₁ a R₂;
+        de R₂ a R₃; y de R₃ al − de la fuente. Un solo camino cerrado.</li>
+        <li><strong>Antes de medir</strong>, calcula en tu cuaderno la resistencia
+        total, la intensidad y la tensión en cada resistencia.</li>
+        <li>Con el multímetro en <strong>Voltaje</strong>, mide en paralelo la
+        tensión de R₁, luego la de R₂ y luego la de R₃. Anótalas.</li>
+        <li>Con el multímetro en <strong>Corriente</strong>, córtalo por un punto
+        cualquiera e intercálalo para medir la intensidad del circuito.</li>
+        <li>Repite la medida de corriente <strong>en otro punto distinto</strong>
+        del circuito. ¿Sale lo mismo? Anótalo: esa es la propiedad clave del
+        circuito serie.</li>
+      </ol>
+
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Magnitud</th><th>Calculado</th><th>Medido en Tinkercad</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R total</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I del circuito</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₁ (100 Ω)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₂ (220 Ω)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₃ (680 Ω)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V₁ + V₂ + V₃</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table>
+
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>R<sub>t</sub> = 100 + 220 + 680 = <strong>1000 Ω</strong><br>
+        I = 9 / 1000 = <strong>0,009 A = 9 mA</strong> (la misma en todo el circuito)<br>
+        V₁ = 0,009 · 100 = <strong>0,9 V</strong><br>
+        V₂ = 0,009 · 220 = <strong>1,98 V</strong><br>
+        V₃ = 0,009 · 680 = <strong>6,12 V</strong><br>
+        Suma: 0,9 + 1,98 + 6,12 = <strong>9 V</strong>, justo la tensión de la
+        fuente.</p>
+      </details>
+    </div>
+
+    <!-- ============ PARTE 6 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 6.</span> Circuito en PARALELO</h3>
+      <p>Ahora las resistencias se colocan en <strong>ramas distintas</strong>:
+      la corriente se reparte entre ellas.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 200" role="img" aria-label="Circuito en paralelo de 9 voltios con dos resistencias">
+          <path class="hilo" d="M55,40 L280,40 M55,170 L280,170 M55,40 L55,85 M55,115 L55,170 M160,40 L160,87 M160,123 L160,170 M280,40 L280,87 M280,123 L280,170"/>
+          <circle class="comp" cx="55" cy="100" r="15"/>
+          <path class="comp" d="M55,111 L55,89 M50,95 L55,88 L60,95"/>
+          <path class="comp" d="M160,87 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M280,87 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="160" cy="40" r="3"/>
+          <circle class="nodo" cx="160" cy="170" r="3"/>
+          <text class="et" x="38" y="104" text-anchor="end">9 V</text>
+          <text class="et" x="146" y="109" text-anchor="end">R₁ = 1 kΩ</text>
+          <text class="et" x="296" y="109">R₂ = 2 kΩ</text>
+        </svg>
+        <p class="pie-fig">Circuito 3: dos resistencias en paralelo alimentadas a 9 V.</p>
+      </div>
+
+      <ol>
+        <li>Crea otro diseño nuevo, <code>P1_tuapellido_paralelo</code>.</li>
+        <li>Coloca la fuente a <strong>9 V</strong> y dos resistencias:
+        <strong>1 kΩ</strong> y <strong>2 kΩ</strong> (escribe 1 y 2 y elige la
+        unidad <strong>kΩ</strong>).</li>
+        <li>Cablea <strong>en paralelo</strong>: los dos extremos de arriba de
+        ambas resistencias van al mismo punto (al +), y los dos de abajo al mismo
+        punto (al −).</li>
+        <li>Calcula antes: la tensión de cada rama, la corriente de cada rama y la
+        corriente total.</li>
+        <li>Mide con el <strong>voltímetro</strong> la tensión en R₁ y en R₂.
+        ¿Qué observas?</li>
+        <li>Mide con el <strong>amperímetro</strong> la corriente de la rama de
+        R₁, luego la de la rama de R₂, y por último la corriente
+        <strong>total</strong> (intercalándolo justo a la salida de la fuente,
+        antes de que el circuito se bifurque).</li>
+      </ol>
+
+      <table class="tabla-datos">
+        <thead>
+          <tr><th>Magnitud</th><th>Calculado</th><th>Medido en Tinkercad</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>V en R₁ (1 kΩ)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>V en R₂ (2 kΩ)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I por R₁</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I por R₂</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I total (a la salida de la fuente)</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>I₁ + I₂</td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table>
+
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>En paralelo, <strong>las dos ramas tienen los mismos 9 V</strong>.<br>
+        I₁ = 9 / 1000 = <strong>0,009 A = 9 mA</strong><br>
+        I₂ = 9 / 2000 = <strong>0,0045 A = 4,5 mA</strong><br>
+        I total = 9 + 4,5 = <strong>13,5 mA</strong><br>
+        R equivalente = 9 V / 0,0135 A ≈ <strong>667 Ω</strong>, menor que la más
+        pequeña de las dos. Fíjate en que por la resistencia
+        <em>más pequeña</em> pasa <em>más</em> corriente, justo el doble.</p>
+      </details>
+    </div>
+
+    <!-- ============ PARTE 7 ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 7.</span> Reto opcional: circuito MIXTO</h3>
+      <p>Solo si has terminado lo anterior. Sube nota.</p>
+
+      <div class="figura">
+        <svg class="circuito" viewBox="-20 0 360 220" role="img" aria-label="Circuito mixto: una resistencia en serie con dos en paralelo">
+          <path class="hilo" d="M40,40 L40,100 M40,130 L40,190 L190,190 M40,40 L250,40 L250,50"/>
+          <circle class="comp" cx="40" cy="115" r="15"/>
+          <path class="comp" d="M40,126 L40,104 M35,110 L40,103 L45,110"/>
+          <path class="comp" d="M250,50 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="hilo" d="M250,86 L250,110 L190,110"/>
+          <path class="hilo" d="M190,110 L190,120 M190,156 L190,190"/>
+          <path class="hilo" d="M250,110 L250,120 M250,156 L250,175 L190,175"/>
+          <path class="comp" d="M190,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="250" cy="110" r="3"/><circle class="nodo" cx="190" cy="110" r="3"/>
+          <circle class="nodo" cx="190" cy="175" r="3"/><circle class="nodo" cx="250" cy="175" r="3"/>
+          <text class="et" x="22" y="119" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="72">R₁ = 100 Ω</text>
+          <text class="et" x="176" y="142" text-anchor="end">R₂ = 1 kΩ</text>
+          <text class="et" x="264" y="142">R₃ = 1 kΩ</text>
+        </svg>
+        <p class="pie-fig">Circuito 4: R₁ en serie con el conjunto de R₂ y R₃ en
+        paralelo.</p>
+      </div>
+
+      <ol>
+        <li>Monta el circuito en un diseño nuevo,
+        <code>P1_tuapellido_mixto</code>.</li>
+        <li>Calcula primero: la resistencia equivalente del paralelo, la
+        resistencia total, la intensidad que sale de la fuente, la tensión en R₁ y
+        la tensión en el bloque en paralelo.</li>
+        <li>Mide con el multímetro la tensión en R₁, la tensión en el paralelo y
+        la corriente total.</li>
+        <li>Comprueba que la tensión de R₁ más la del paralelo suman los 9 V de la
+        fuente.</li>
+      </ol>
+
+      <details class="solucion">
+        <summary>Comprobación</summary>
+        <p>R₂ ∥ R₃ = (1000 · 1000) / (1000 + 1000) = <strong>500 Ω</strong><br>
+        R<sub>t</sub> = 100 + 500 = <strong>600 Ω</strong><br>
+        I = 9 / 600 = <strong>0,015 A = 15 mA</strong><br>
+        V en R₁ = 0,015 · 100 = <strong>1,5 V</strong><br>
+        V en el paralelo = 0,015 · 500 = <strong>7,5 V</strong><br>
+        Comprobación: 1,5 + 7,5 = <strong>9 V</strong>. Y por cada rama del
+        paralelo pasan 7,5 / 1000 = 7,5 mA, que sumadas dan los 15 mA.</p>
+      </details>
+    </div>
+
+    <!-- ============ CONCLUSIONES ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Parte 8.</span> Conclusiones</h3>
+      <p>Para terminar, responde en tu informe:</p>
+      <ol>
+        <li>¿Cómo se conecta el voltímetro y cómo el amperímetro? ¿Por qué no se
+        pueden conectar igual?</li>
+        <li>En el circuito serie, ¿qué magnitud se mantiene igual en todos los
+        puntos y cuál se reparte?</li>
+        <li>En el circuito paralelo, ¿qué magnitud se mantiene igual en todas las
+        ramas y cuál se reparte?</li>
+        <li>¿Coinciden tus medidas con tus cálculos? Si hay diferencias pequeñas,
+        ¿a qué crees que se deben?</li>
+        <li>¿Qué pasaría si conectases el multímetro en modo Corriente
+        directamente entre el + y el − de la fuente?</li>
+      </ol>
+    </div>
+
+    <!-- ============ ENTREGA ============ -->
+    <div class="paso-bloque">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>Un único documento en <strong>PDF</strong> llamado
+        <code>P1_apellido_nombre.pdf</code>.</li>
+        <li>Debe contener: una <strong>captura de pantalla de cada circuito</strong>
+        con la simulación en marcha y el multímetro marcando, las
+        <strong>tablas completas</strong> (calculado y medido), los
+        <strong>cálculos</strong> hechos a mano y las
+        <strong>conclusiones</strong>.</li>
+        <li>Comparte además los diseños de Tinkercad con el profesor si se te
+        indica.</li>
+      </ul>
+
+      <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
+      <ul>
+        <li><strong>Circuito básico montado y simulando (1,0)</strong></li>
+        <li><strong>Medida de voltaje correcta, con el voltímetro en paralelo (1,5)</strong></li>
+        <li><strong>Medida de intensidad correcta, con el amperímetro en serie (1,5)</strong></li>
+        <li><strong>Medida de resistencia correcta, sin alimentación (1,0)</strong></li>
+        <li><strong>Circuito serie: tabla completa y comprobación de que V₁+V₂+V₃ = 9 V (2,0)</strong></li>
+        <li><strong>Circuito paralelo: tabla completa y comprobación de que I₁+I₂ = I total (2,0)</strong></li>
+        <li><strong>Conclusiones y comparación entre lo medido y lo calculado (1,0)</strong></li>
+      </ul>
+      <p class="meta">El circuito mixto (Parte 7) es voluntario y suma hasta
+      <strong>1 punto extra</strong>.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Próximas prácticas</h2>
+    <p>Se irán publicando conforme avance el tema:</p>
+    <ul>
+      <li><strong>P2</strong> — Montaje real en placa protoboard y medidas con el
+      polímetro del taller.</li>
+      <li><strong>P3</strong> — Identificación de componentes y código de colores
+      de resistencias.</li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut01.html">&laquo; Tema 1 (teoría)</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut01-ejercicios.html">Ejercicios &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</div>
+</body>
+</html>
