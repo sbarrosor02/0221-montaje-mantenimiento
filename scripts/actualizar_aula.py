@@ -111,7 +111,7 @@ for repo in REPOS:
             for target, label in section_list:
                 if 'prácticas del' in label.lower():
                     cards.append(card('practicas', title + ' · Prácticas del apartado', 'temas/' + name + '#' + target, 'Actividades incluidas en los apuntes. Consulta allí sus requisitos y criterios.'))
-        for target, label in re.findall(r'<a\b[^>]*href="([^"]+\.(?:docx|pdf|zip|png|jpg|svg))"[^>]*>(.*?)</a>', source, re.S):
+        for target, label in re.findall(r'<a\b[^>]*href="([^"]+\.(?:docx|dotx|xlsx|pptx|odt|pdf|zip|png|jpg|svg))"[^>]*>(.*?)</a>', source, re.S):
             if target.startswith('../'):
                 destination = target[3:]
                 if (web / destination).is_file():
