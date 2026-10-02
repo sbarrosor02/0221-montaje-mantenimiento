@@ -20,7 +20,7 @@
       "evaluacion": 1,
       "horas": 16,
       "estado": "publicado",
-      "actualizado": "2026-09-23",
+      "actualizado": "2026-10-02",
       "recursos": [
         {
           "titulo": "Teoría: electricidad, componentes y aparatos de medida (RA3)",
@@ -34,13 +34,13 @@
         {
           "titulo": "Ejercicios de circuitos (Ley de Ohm: serie, paralelo y mixto)",
           "url": "temas/ut01-ejercicios.html",
-          "nota": "3 resueltos, 10 ejercicios del boletín 1 y 5 circuitos mixtos del boletín 2; los seis esquemas antes pendientes están disponibles en SVG ampliable y descargable"
+          "nota": "3 resueltos, 10 ejercicios del boletín 1 y 5 circuitos mixtos del boletín 2 y boletín 3 de potencia y energía (3 resueltos y 12 ejercicios); los seis esquemas antes pendientes están disponibles en SVG ampliable y descargable"
         },
         {
           "titulo": "Prácticas de circuitos eléctricos",
           "url": "temas/ut01-practicas.html",
           "evaluable": true,
-          "nota": "P1 Tinkercad y multímetro (con puntos extra: mixto avanzado y LED), P2 protoboard y polímetro real, P3 código de colores e identificación de componentes; las tres con rúbrica de 10"
+          "nota": "P1 Tinkercad y multímetro (con puntos extra: mixto avanzado y LED), P2 protoboard y polímetro real (con 5 retos voluntarios: LED en serie, en paralelo, panel de 6 LED, regulador de brillo y puente de Wheatstone), P3 código de colores e identificación de componentes; las tres con rúbrica de 10"
         }
       ]
     }

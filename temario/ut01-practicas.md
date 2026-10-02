@@ -114,6 +114,29 @@ de 2 kΩ a **2,2 kΩ** porque 2 kΩ no es comercial, lo que engancha con la P3�
 Rúbrica (10): protoboard 1,5 · polímetro 1,5 · serie 2,0 · paralelo 2,0 · LED 1,0
 · tabla y error relativo 1,5 · orden y seguridad 0,5.
 
+### Parte 7 · Retos de montaje (voluntario, hasta +2)
+
+Añadidos el 02/10/2026 para quien termina pronto: circuitos con **más
+componentes y más cableado** (organizar la protoboard es la destreza nueva) y
+con varios LED. Duración: 1 sesión opcional. Solo valores **E12** y LED rojos,
+amarillos y verdes: los azules y blancos (> 3 V) no caben tres en serie a 9 V.
+
+Material adicional por puesto: 6 LED rojos, 1 amarillo, 1 verde; 3 × 330 Ω,
+2 × 220 Ω, 2 × 1 kΩ, 2 × 2,2 kΩ; potenciómetro de 10 kΩ.
+
+| Reto | Montaje (9 V) | Resultados | Qué enseña | Extra |
+|---|---|---|---|---|
+| 1 · LED en serie | 330 Ω + 2 LED rojos | V_R = 5 V; I ≈ 15,2 mA | Las tensiones se suman; un LED abierto apaga todo | +0,25 |
+| 2 · LED en paralelo | 3 ramas: 330 Ω + LED rojo / amarillo / verde | ≈ 21,2 / 20,9 / 20,6 mA; total ≈ 63 mA | Cada LED con su resistencia; con una sola compartida «acapara» el rojo (menor V_F) | +0,5 |
+| 3 · Panel de 6 LED | 2 ramas: 220 Ω + 3 LED rojos | R calc. 200 Ω → 220 Ω; I_rama ≈ 13,6 mA; total ≈ 27,3 mA | Mixto con LED; sensibilidad a la tensión: a 8 V ≈ 9 mA | +0,5 |
+| 4 · Regulador de brillo | 330 Ω + potenciómetro 10 kΩ (reostato) + LED | 21 mA → 0,68 mA | Resistencia de protección | +0,25 |
+| 5 · Puente de Wheatstone | 1 k/1 k ∥ 2,2 k/2,2 k; voltímetro entre puntos medios | V_AB = 0 → (R₂ = 2,2 k) 1,69 V → (R₃ = 1 k) 0 V | Tensión entre dos puntos; equilibrio por proporción | +0,5 |
+
+Vigilar: en el reto 2, el experimento con **una sola resistencia** es seguro
+(la corriente total sigue limitada a ≈ 21 mA). En el reto 4 **no** se debe
+quitar la fija: la pregunta se responde con cálculo. En el reto 3, con pila de
+9 V algo gastada las corrientes bajan mucho, lo cual es precisamente la lección.
+
 ## P3 · Identificación de componentes y código de colores
 
 1-2 sesiones. Evaluable. Acredita RA3 (a, b). Entrega `P3_apellido_nombre.pdf`.

@@ -69,7 +69,7 @@
   <h2 id="apartado-en-esta-pagina">En esta página</h2>
   <ul class="lista-temas">
     <li><a href="#p1"><span class="ut">P1</span>Tinkercad y medidas con el multímetro<br><span class="etq">Simulador · 2 sesiones · con puntos extra</span></a></li>
-    <li><a href="#p2"><span class="ut">P2</span>Montaje real en protoboard y polímetro<br><span class="etq">Taller · 2 sesiones</span></a></li>
+    <li><a href="#p2"><span class="ut">P2</span>Montaje real en protoboard y polímetro<br><span class="etq">Taller · 2 sesiones · con retos de LED</span></a></li>
     <li><a href="#p3"><span class="ut">P3</span>Identificación de componentes y código de colores<br><span class="etq">Taller · 1-2 sesiones</span></a></li>
   </ul>
 
@@ -713,8 +713,8 @@
   <!-- ==================== P2 ==================== -->
   <section id="p2">
     <h2 id="apartado-p2-montaje-real-en-protoboard-y-medidas-con-el-polimetro">P2 · Montaje real en protoboard y medidas con el polímetro</h2>
-    <p class="meta"><strong>Duración:</strong> 2 sesiones · <strong>Evaluable</strong> ·
-    acredita RA3 (b, c, d, e) y RA8 · se entrega en el portafolio</p>
+    <p class="meta"><strong>Duración:</strong> 2 sesiones (+1 opcional para los retos) ·
+    <strong>Evaluable</strong> · acredita RA3 (b, c, d, e) y RA8 · se entrega en el portafolio</p>
 
     <p>Ahora vas a montar <strong>de verdad</strong> los mismos circuitos que
     simulaste en la P1. Aparecerán cosas que el simulador no tiene: las
@@ -940,6 +940,302 @@
       confundido alguna resistencia.</p>
     </div>
 
+    <!-- ============ RETOS DE MONTAJE ============ -->
+    <div class="paso-bloque" id="p2-retos">
+      <h3><span class="num">Parte 7.</span> Retos de montaje (voluntario)</h3>
+      <p>Si terminas las partes anteriores, sube de nivel. Estos circuitos tienen
+      <strong>más componentes y más cables</strong>: aquí es donde se aprende a
+      organizar una protoboard. Puedes hacer los que quieras, en cualquier orden;
+      suman hasta <strong>2 puntos extra</strong>.</p>
+
+      <h3>Material de los retos</h3>
+      <ul>
+        <li><strong>LED</strong>: 6 rojos, 1 amarillo y 1 verde (todos de 5 mm,
+        no uses azules ni blancos: necesitan más de 3 V cada uno).</li>
+        <li><strong>Resistencias</strong>: 3 × 330 Ω, 2 × 220 Ω, 2 × 1 kΩ y
+        2 × 2,2 kΩ.</li>
+        <li>Un <strong>potenciómetro</strong> de 10 kΩ.</li>
+      </ul>
+
+      <div class="tarjeta">
+        <p><strong>Cuatro hábitos para montajes grandes.</strong></p>
+        <ol>
+          <li><strong>Dibuja primero</strong> el esquema y marca en él por qué
+          columna de la protoboard irá cada nodo.</li>
+          <li>Usa el <strong>bus rojo solo para el +</strong> y el
+          <strong>azul solo para el −</strong>. Nunca al revés.</li>
+          <li>Coloca todos los LED <strong>con la patilla larga hacia el mismo
+          lado</strong>: así detectas de un vistazo uno girado.</li>
+          <li>Antes de dar tensión, comprueba con el modo
+          <strong>continuidad</strong> que entre + y − <strong>no pita</strong>
+          (si pita, hay un cortocircuito).</li>
+        </ol>
+      </div>
+
+      <!-- Reto 1 -->
+      <h3><span class="num">Reto 1.</span> Dos LED en serie (+0,25)</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 260" role="img" aria-label="Dos LED rojos en serie con una resistencia de 330 ohmios a 9 voltios">
+        <path class="hilo" d="M50,40 L130,40 M186,40 L280,40 L280,80 M280,102 L280,140 M280,162 L280,220 L50,220 L50,145 M50,115 L50,40"/>
+        <circle class="comp" cx="50" cy="130" r="15"/>
+        <path class="comp" d="M50,141 L50,119 M45,125 L50,118 L55,125"/>
+        <path class="comp" d="M130,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+        <path class="comp" d="M268,80 L292,80 L280,102 Z"/><path class="comp" d="M268,102 L292,102"/><path class="comp" d="M297,85 L307,75 M302,75 L307,75 L307,80"/><path class="comp" d="M299,94 L309,84 M304,84 L309,84 L309,89"/>
+        <path class="comp" d="M268,140 L292,140 L280,162 Z"/><path class="comp" d="M268,162 L292,162"/><path class="comp" d="M297,145 L307,135 M302,135 L307,135 L307,140"/><path class="comp" d="M299,154 L309,144 M304,144 L309,144 L309,149"/>
+        <text class="et" x="30" y="134" text-anchor="end">9 V</text>
+        <text class="et" x="158" y="26" text-anchor="middle">R = 330 Ω</text>
+        <text class="et" x="316" y="96">LED 1</text>
+        <text class="et" x="316" y="156">LED 2</text>
+        </svg>
+        <p class="pie-fig">Los dos LED y la resistencia están en serie: los
+        recorre la misma corriente.</p>
+      </div>
+      <ol>
+        <li><strong>Calcula antes</strong> la corriente. Cada LED rojo se queda
+        con unos 2 V, así que a la resistencia le quedan 9 − 2 − 2 V.</li>
+        <li>Monta el circuito. El cátodo del LED 1 va en la <strong>misma
+        columna</strong> que el ánodo del LED 2.</li>
+        <li>Mide la tensión en cada LED, en la resistencia y la corriente.
+        Comprueba que las tres tensiones suman la de la fuente.</li>
+        <li><strong>Experimento:</strong> saca uno de los LED de la placa. ¿Qué le
+        pasa al otro? Explica por qué.</li>
+      </ol>
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>V<sub>R</sub> = 9 − 2 − 2 = 5 V → I = 5 / 330 ≈ <strong>15 mA</strong>.
+        Suma: 2 + 2 + 5 = <strong>9 V</strong> ✔. Lucen algo menos que con un
+        solo LED porque circula menos corriente.<br>
+        <strong>Experimento:</strong> al quitar uno se apaga el otro. En serie
+        solo hay un camino: si se abre en un punto, no circula corriente por
+        ningún sitio. (Así fallaban las antiguas tiras de luces de Navidad.)</p>
+      </details>
+
+      <!-- Reto 2 -->
+      <h3><span class="num">Reto 2.</span> Tres LED en paralelo (+0,5)</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="-14 0 434 240" role="img" aria-label="Tres ramas en paralelo a 9 voltios, cada una con una resistencia de 330 ohmios y un LED: rojo, amarillo y verde">
+        <path class="hilo" d="M40,40 L360,40 M40,210 L360,210 M40,40 L40,110 M40,140 L40,210"/>
+        <circle class="comp" cx="40" cy="125" r="15"/>
+        <path class="comp" d="M40,136 L40,114 M35,120 L40,113 L45,120"/>
+        <text class="et" x="16" y="129" text-anchor="end">9 V</text>
+        <path class="hilo" d="M140,40 L140,60 M140,96 L140,120 M140,142 L140,210"/>
+        <path class="comp" d="M140,60 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M128,120 L152,120 L140,142 Z"/><path class="comp" d="M128,142 L152,142"/><path class="comp" d="M157,125 L167,115 M162,115 L167,115 L167,120"/><path class="comp" d="M159,134 L169,124 M164,124 L169,124 L169,129"/>
+        <text class="et" x="126" y="82" text-anchor="end">330 Ω</text>
+        <text class="et-peq" x="124" y="136" text-anchor="end">rojo</text>
+        <circle class="nodo" cx="140" cy="40" r="3"/>
+        <circle class="nodo" cx="140" cy="210" r="3"/>
+        <path class="hilo" d="M250,40 L250,60 M250,96 L250,120 M250,142 L250,210"/>
+        <path class="comp" d="M250,60 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M238,120 L262,120 L250,142 Z"/><path class="comp" d="M238,142 L262,142"/><path class="comp" d="M267,125 L277,115 M272,115 L277,115 L277,120"/><path class="comp" d="M269,134 L279,124 M274,124 L279,124 L279,129"/>
+        <text class="et" x="236" y="82" text-anchor="end">330 Ω</text>
+        <text class="et-peq" x="234" y="136" text-anchor="end">amarillo</text>
+        <circle class="nodo" cx="250" cy="40" r="3"/>
+        <circle class="nodo" cx="250" cy="210" r="3"/>
+        <path class="hilo" d="M360,40 L360,60 M360,96 L360,120 M360,142 L360,210"/>
+        <path class="comp" d="M360,60 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M348,120 L372,120 L360,142 Z"/><path class="comp" d="M348,142 L372,142"/><path class="comp" d="M377,125 L387,115 M382,115 L387,115 L387,120"/><path class="comp" d="M379,134 L389,124 M384,124 L389,124 L389,129"/>
+        <text class="et" x="346" y="82" text-anchor="end">330 Ω</text>
+        <text class="et-peq" x="344" y="136" text-anchor="end">verde</text>
+        </svg>
+        <p class="pie-fig">Tres ramas en paralelo. Cada LED lleva
+        <strong>su propia</strong> resistencia.</p>
+      </div>
+      <ol>
+        <li>Lleva el + y el − a los buses. Monta cada rama (resistencia + LED)
+        entre el bus + y el bus −.</li>
+        <li>Mide la tensión en cada LED. ¿Son iguales los tres colores?</li>
+        <li>Mide la corriente de cada rama y la corriente total. ¿Suman?</li>
+        <li><strong>Experimento:</strong> apaga, quita dos resistencias y une las
+        tres ramas para que <strong>una sola resistencia de 330 Ω</strong>
+        alimente a los tres LED a la vez. Enciende. ¿Lucen igual? ¿Cuál brilla
+        más? Mide la corriente de cada LED.</li>
+      </ol>
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>Cada color tiene una tensión distinta: rojo ≈ 2,0 V, amarillo ≈ 2,1 V
+        y verde ≈ 2,2 V. Por eso cada rama da algo distinto:
+        I<sub>rojo</sub> ≈ 21,2 mA, I<sub>amarillo</sub> ≈ 20,9 mA,
+        I<sub>verde</sub> ≈ 20,6 mA. Total ≈ <strong>63 mA</strong>, la suma de
+        las tres ✔.<br>
+        <strong>Experimento:</strong> con una sola resistencia, la corriente se va
+        casi toda por el LED de <strong>menor tensión</strong>, el rojo. El verde
+        apenas luce o no luce. Conclusión: en paralelo, <strong>cada LED necesita
+        su propia resistencia</strong>.</p>
+      </details>
+
+      <!-- Reto 3 -->
+      <h3><span class="num">Reto 3.</span> Panel de seis LED (+0,5)</h3>
+      <p>El montaje más grande de la práctica: un circuito <strong>mixto</strong>
+      con dos ramas en paralelo, y en cada una tres LED en serie con su
+      resistencia. Así se construyen las tiras y los paneles de LED reales.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="-14 0 394 320" role="img" aria-label="Panel de seis LED: dos ramas en paralelo a 9 voltios, cada una con una resistencia de 220 ohmios y tres LED rojos en serie">
+        <path class="hilo" d="M40,40 L300,40 M40,290 L300,290 M40,40 L40,150 M40,180 L40,290"/>
+        <circle class="comp" cx="40" cy="165" r="15"/>
+        <path class="comp" d="M40,176 L40,154 M35,160 L40,153 L45,160"/>
+        <text class="et" x="16" y="169" text-anchor="end">9 V</text>
+        <path class="hilo" d="M170,40 L170,55 M170,91 L170,110 M170,132 L170,160 M170,182 L170,210 M170,232 L170,290"/>
+        <path class="comp" d="M170,55 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <text class="et" x="156" y="77" text-anchor="end">220 Ω</text>
+        <path class="comp" d="M158,110 L182,110 L170,132 Z"/><path class="comp" d="M158,132 L182,132"/><path class="comp" d="M187,115 L197,105 M192,105 L197,105 L197,110"/><path class="comp" d="M189,124 L199,114 M194,114 L199,114 L199,119"/>
+        <text class="et-peq" x="154" y="126" text-anchor="end">D1</text>
+        <path class="comp" d="M158,160 L182,160 L170,182 Z"/><path class="comp" d="M158,182 L182,182"/><path class="comp" d="M187,165 L197,155 M192,155 L197,155 L197,160"/><path class="comp" d="M189,174 L199,164 M194,164 L199,164 L199,169"/>
+        <text class="et-peq" x="154" y="176" text-anchor="end">D2</text>
+        <path class="comp" d="M158,210 L182,210 L170,232 Z"/><path class="comp" d="M158,232 L182,232"/><path class="comp" d="M187,215 L197,205 M192,205 L197,205 L197,210"/><path class="comp" d="M189,224 L199,214 M194,214 L199,214 L199,219"/>
+        <text class="et-peq" x="154" y="226" text-anchor="end">D3</text>
+        <path class="hilo" d="M300,40 L300,55 M300,91 L300,110 M300,132 L300,160 M300,182 L300,210 M300,232 L300,290"/>
+        <path class="comp" d="M300,55 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <text class="et" x="286" y="77" text-anchor="end">220 Ω</text>
+        <path class="comp" d="M288,110 L312,110 L300,132 Z"/><path class="comp" d="M288,132 L312,132"/><path class="comp" d="M317,115 L327,105 M322,105 L327,105 L327,110"/><path class="comp" d="M319,124 L329,114 M324,114 L329,114 L329,119"/>
+        <text class="et-peq" x="284" y="126" text-anchor="end">D4</text>
+        <path class="comp" d="M288,160 L312,160 L300,182 Z"/><path class="comp" d="M288,182 L312,182"/><path class="comp" d="M317,165 L327,155 M322,155 L327,155 L327,160"/><path class="comp" d="M319,174 L329,164 M324,164 L329,164 L329,169"/>
+        <text class="et-peq" x="284" y="176" text-anchor="end">D5</text>
+        <path class="comp" d="M288,210 L312,210 L300,232 Z"/><path class="comp" d="M288,232 L312,232"/><path class="comp" d="M317,215 L327,205 M322,205 L327,205 L327,210"/><path class="comp" d="M319,224 L329,214 M324,214 L329,214 L329,219"/>
+        <text class="et-peq" x="284" y="226" text-anchor="end">D6</text>
+        <circle class="nodo" cx="170" cy="40" r="3"/>
+        <circle class="nodo" cx="170" cy="290" r="3"/>
+        </svg>
+        <p class="pie-fig">Dos ramas iguales en paralelo. En cada rama, una
+        resistencia de 220 Ω y tres LED rojos en serie.</p>
+      </div>
+      <ol>
+        <li><strong>Calcula</strong> la resistencia de cada rama:
+        R = (9 − 3 · 2) / 0,015. Busca el valor comercial más cercano.</li>
+        <li>Monta <strong>primero una rama completa</strong>, enciende y
+        comprueba que lucen sus tres LED. Solo entonces monta la segunda.</li>
+        <li>Mide: la tensión en cada LED (D1 a D6), en cada resistencia, la
+        corriente de cada rama y la total.</li>
+        <li>Si tienes fuente regulable, baja la tensión a 8 V. ¿Cuánto cambia la
+        corriente? Compáralo con lo que pasaría con un solo LED.</li>
+      </ol>
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>R = 3 / 0,015 = 200 Ω → valor comercial <strong>220 Ω</strong>.
+        I<sub>rama</sub> = (9 − 6) / 220 ≈ <strong>13,6 mA</strong>;
+        I<sub>total</sub> ≈ <strong>27,3 mA</strong>. En cada resistencia,
+        ≈ 3 V.<br>
+        <strong>Ojo:</strong> a la resistencia solo le quedan 3 V, así que el
+        circuito es <strong>muy sensible</strong> a la tensión. A 8 V:
+        (8 − 6) / 220 ≈ 9 mA, un tercio menos. Una pila de 9 V gastada se nota
+        enseguida. Por eso los paneles reales se alimentan con
+        <strong>corriente regulada</strong>.</p>
+      </details>
+
+      <!-- Reto 4 -->
+      <h3><span class="num">Reto 4.</span> Regulador de brillo (+0,25)</h3>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 400 210" role="img" aria-label="Regulador de brillo: resistencia fija de 330 ohmios, potenciómetro de 10 kiloohmios y LED en serie a 9 voltios">
+        <path class="hilo" d="M50,40 L100,40 M156,40 L200,40 M256,40 L330,40 L330,90 M330,112 L330,170 L50,170 L50,120 M50,90 L50,40"/>
+        <circle class="comp" cx="50" cy="105" r="15"/>
+        <path class="comp" d="M50,116 L50,94 M45,100 L50,93 L55,100"/>
+        <path class="comp" d="M100,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+        <path class="comp" d="M200,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+        <path class="comp" d="M210,60 L248,18 M239,19 L248,18 L247,27"/>
+        <path class="comp" d="M318,90 L342,90 L330,112 Z"/><path class="comp" d="M318,112 L342,112"/><path class="comp" d="M347,95 L357,85 M352,85 L357,85 L357,90"/><path class="comp" d="M349,104 L359,94 M354,94 L359,94 L359,99"/>
+        <text class="et" x="30" y="109" text-anchor="end">9 V</text>
+        <text class="et" x="128" y="24" text-anchor="middle">330 Ω</text>
+        <text class="et" x="228" y="74" text-anchor="middle">P = 10 kΩ</text>
+        <text class="et" x="366" y="106">LED</text>
+        </svg>
+        <p class="pie-fig">El potenciómetro, usado como resistencia variable
+        (patilla central y una de los extremos), en serie con una resistencia fija
+        y el LED.</p>
+      </div>
+      <ol>
+        <li>Conecta solo <strong>dos patillas</strong> del potenciómetro: la
+        central (cursor) y una de los extremos.</li>
+        <li>Monta el circuito y gira el mando de un tope a otro. Mide la corriente
+        en los dos topes.</li>
+        <li>Pregunta: ¿para qué sirve la resistencia fija de 330 Ω si ya hay un
+        potenciómetro? <strong>No la quites para comprobarlo</strong>: razónalo
+        con un cálculo.</li>
+      </ol>
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>Potenciómetro a 0 Ω: I = 7 / 330 ≈ <strong>21 mA</strong> (brillo
+        máximo).<br>
+        Potenciómetro a 10 kΩ: I = 7 / 10 330 ≈ <strong>0,7 mA</strong>
+        (apenas luce).<br>
+        La resistencia fija <strong>protege</strong> el LED: si giras el
+        potenciómetro hasta 0 Ω y no estuviera, el LED quedaría conectado directo
+        a 9 V y se quemaría.</p>
+      </details>
+
+      <!-- Reto 5 -->
+      <h3><span class="num">Reto 5.</span> Puente de resistencias (+0,5)</h3>
+      <p>Hasta ahora siempre medías la tensión <strong>en un
+      componente</strong>. Aquí vas a medirla <strong>entre dos puntos
+      cualesquiera</strong> del circuito. Son dos divisores de tensión en
+      paralelo; el voltímetro va entre sus puntos medios A y B.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="-14 0 454 260" role="img" aria-label="Puente de dos divisores de tensión a 9 voltios; un voltímetro mide entre los puntos medios A y B">
+        <path class="hilo" d="M40,30 L330,30 M40,230 L330,230 M40,30 L40,115 M40,145 L40,230"/>
+        <path class="hilo" d="M170,30 L170,62 M170,98 L170,152 M170,188 L170,230 M330,30 L330,62 M330,98 L330,152 M330,188 L330,230"/>
+        <path class="hilo" d="M170,125 L234,125 M266,125 L330,125"/>
+        <circle class="comp" cx="40" cy="130" r="15"/>
+        <path class="comp" d="M40,141 L40,119 M35,125 L40,118 L45,125"/>
+        <path class="comp" d="M170,62 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M170,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M330,62 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M330,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <circle class="comp" cx="250" cy="125" r="16"/>
+        <text class="et" x="250" y="130" text-anchor="middle">V</text>
+        <circle class="nodo" cx="170" cy="30" r="3"/>
+        <circle class="nodo" cx="170" cy="230" r="3"/>
+        <circle class="nodo" cx="170" cy="125" r="3"/>
+        <circle class="nodo" cx="330" cy="125" r="3"/>
+        <text class="et" x="16" y="134" text-anchor="end">9 V</text>
+        <text class="et" x="156" y="84" text-anchor="end">R₁ = 1 kΩ</text>
+        <text class="et" x="156" y="174" text-anchor="end">R₂ = 1 kΩ</text>
+        <text class="et" x="344" y="84">R₃ = 2,2 kΩ</text>
+        <text class="et" x="344" y="174">R₄ = 2,2 kΩ</text>
+        <text class="et" x="180" y="117">A</text>
+        <text class="et" x="316" y="117" text-anchor="end">B</text>
+        </svg>
+        <p class="pie-fig">Puente de Wheatstone. Rama izquierda: R₁ y R₂. Rama
+        derecha: R₃ y R₄. El voltímetro mide V<sub>AB</sub>.</p>
+      </div>
+      <ol>
+        <li>Monta el puente con los valores del esquema. Mide la tensión de A y de
+        B respecto al − de la fuente (punta negra en −). Luego mide
+        V<sub>AB</sub> directamente (punta roja en A, negra en B).</li>
+        <li>Apaga y sustituye <strong>R₂</strong> por una de 2,2 kΩ. Repite las
+        tres medidas.</li>
+        <li>Apaga y sustituye ahora también <strong>R₃</strong> por una de 1 kΩ.
+        Repite las medidas. ¿Qué ha pasado con V<sub>AB</sub>?</li>
+      </ol>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead>
+          <tr><th>Montaje</th><th>V<sub>A</sub></th><th>V<sub>B</sub></th><th>V<sub>AB</sub> calculado</th><th>V<sub>AB</sub> medido</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 · Valores del esquema</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>2 · R₂ = 2,2 kΩ</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+          <tr><td>3 · R₂ = 2,2 kΩ y R₃ = 1 kΩ</td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td><td class="rellenar"></td></tr>
+        </tbody>
+      </table></div>
+      <details class="solucion">
+        <summary>Comprobación (ábrelo solo después de medir)</summary>
+        <p>Divisor de tensión: V<sub>A</sub> = 9 · R₂ / (R₁ + R₂).<br>
+        <strong>Montaje 1:</strong> V<sub>A</sub> = V<sub>B</sub> = 4,5 V →
+        V<sub>AB</sub> = <strong>0 V</strong>: el puente está
+        <strong>equilibrado</strong>.<br>
+        <strong>Montaje 2:</strong> V<sub>A</sub> = 9 · 2,2 / 3,2 ≈ 6,19 V;
+        V<sub>B</sub> = 4,5 V → V<sub>AB</sub> ≈ <strong>1,69 V</strong>.<br>
+        <strong>Montaje 3:</strong> V<sub>A</sub> = V<sub>B</sub> ≈ 6,19 V →
+        V<sub>AB</sub> = <strong>0 V</strong> otra vez.<br>
+        Conclusión: el puente se equilibra cuando las dos ramas tienen la
+        <strong>misma proporción</strong> (R₁/R₂ = R₃/R₄), aunque los valores
+        sean distintos. Es el principio de muchos sensores: si un componente
+        cambia (con la temperatura o la luz), aparece tensión entre A y B.</p>
+      </details>
+
+      <p class="meta">Para cada reto que hagas, incluye en el PDF: foto del
+      montaje funcionando, cálculos previos, medidas y la respuesta al
+      experimento.</p>
+    </div>
+
     <div class="paso-bloque">
       <h3><span class="num">Entrega</span></h3>
       <ul>
@@ -947,6 +1243,7 @@
         <strong>fotos</strong> de cada montaje, las <strong>tablas
         completas</strong>, los cálculos, los errores relativos y las respuestas
         de la Parte 1.</li>
+        <li>Si haces retos de la Parte 7, añádelos al final del mismo PDF.</li>
       </ul>
       <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
       <ul>
@@ -958,6 +1255,10 @@
         <li><strong>Tabla comparativa y cálculo del error relativo (1,5)</strong></li>
         <li><strong>Orden, seguridad y recogida del puesto (0,5)</strong></li>
       </ul>
+      <p class="meta">Los retos de la Parte 7 son voluntarios y suman hasta
+      <strong>2 puntos extra</strong>: LED en serie (+0,25), LED en paralelo
+      (+0,5), panel de seis LED (+0,5), regulador de brillo (+0,25) y puente de
+      resistencias (+0,5).</p>
     </div>
   </section>
 

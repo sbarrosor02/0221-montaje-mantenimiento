@@ -38,6 +38,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 - **Tema 1 — Electricidad y electrónica**: portada, teoría, seguridad y PRL,
   ejercicios y prácticas P1–P3 disponibles. Los boletines de circuitos están
   completos: 10 ejercicios del primero y 5 del segundo, además de 3 resueltos.
+  Boletín 3 de potencia y energía: 3 resueltos y 12 ejercicios (solucionario en
+  `temario/ut01-ejercicios-potencia.md`). La P2 incluye 5 retos voluntarios de
+  montaje con varios LED y un puente de Wheatstone.
   Los seis esquemas incorporados desde los PDF se pueden ampliar y descargar.
 - Resto de temas: pendientes.
 

@@ -23,6 +23,7 @@
   .solucion[open] summary { margin-bottom: 0.3rem; }
   .esquema-ampliable { overflow-x: auto; }
   .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; }
   .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
   @media print {
     .ejercicio { break-inside: avoid; }
@@ -36,7 +37,7 @@
 </head>
 <body data-modulo="0221">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li><li><a href="#apartado-boletin-3-potencia-y-energia">Boletín 3 · Potencia y energía</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
@@ -57,7 +58,8 @@
     Ejercicios de análisis de circuitos (serie, paralelo y mixto) para practicar
     la <strong>Ley de Ohm</strong>. Repasa los conceptos en la
     <a href="ut01-teoria.html">teoría del tema</a>. Los tres primeros van resueltos; el resto son
-    para que los resuelvas tú.
+    para que los resuelvas tú. El <a href="#b3">boletín 3</a> añade el cálculo de
+    <strong>potencias y energía</strong>, con sus propios resueltos.
   </div>
 
   <section>
@@ -403,6 +405,215 @@
         </div>
         <figcaption><a href="../assets/img/circuitos/boletin-2-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-5.svg" download>Descargar SVG</a></figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section id="b3">
+    <h2 id="apartado-boletin-3-potencia-y-energia">Boletín 3 · Potencia y energía</h2>
+    <p>Hasta ahora calculabas tensiones e intensidades. Ahora vas a calcular
+    <strong>cuánta energía gasta</strong> cada componente. Es lo que decide si una
+    resistencia se quema, cuánto se calienta un ordenador o qué fuente de
+    alimentación hay que comprar. Repasa el apartado
+    <a href="ut01-teoria.html#potencia-electrica">1.2.6 de la teoría</a>.</p>
+
+    <div class="tarjeta">
+      <p><strong>Fórmulas que vas a usar</strong></p>
+      <ul>
+        <li><span class="formula">P = V × I</span> (vatios, W). Con la Ley de Ohm:
+        <span class="formula">P = I² × R</span> y
+        <span class="formula">P = V² / R</span>.</li>
+        <li>Elige la fórmula según lo que conozcas. En <strong>serie</strong>
+        todas comparten la I: usa <span class="formula">I² × R</span>. En
+        <strong>paralelo</strong> todas comparten la V: usa
+        <span class="formula">V² / R</span>.</li>
+        <li><strong>Conservación</strong>: la potencia que entrega la fuente es
+        igual a la <strong>suma</strong> de las potencias de todos los
+        componentes. Es la mejor forma de comprobar tus resultados.</li>
+        <li><strong>Energía</strong>: <span class="formula">E = P × t</span>. En la
+        factura de la luz se mide en <strong>kWh</strong>: potencia en kW por
+        tiempo en horas.</li>
+        <li>Cada resistencia tiene una <strong>potencia máxima</strong> (¼ W,
+        ½ W, 1 W…). Si disipa más, se calienta y se quema. En la práctica se
+        elige al menos el <strong>doble</strong> de la calculada.</li>
+      </ul>
+    </div>
+
+    <h3 id="apartado-resueltos-de-potencia">Resueltos de potencia</h3>
+
+    <div class="ejercicio">
+      <h3><span class="num">R4.</span> Potencia en un circuito mixto</h3>
+      <p>En el circuito del <a href="#apartado-resueltos">resuelto R3</a>
+      (9 V; R₁ = 3 Ω en serie con R₂ = 4 Ω ∥ R₃ = 12 Ω), calcula la potencia de
+      cada resistencia y la que entrega la fuente. Comprueba que coinciden.</p>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <p>Del R3 ya sabemos: I = 1,5 A, V(R₁) = 4,5 V y V(paralelo) = 4,5 V.</p>
+        <ul>
+          <li>R₁ (la recorre toda la I): P₁ = I² · R = 1,5² · 3 =
+          <strong>6,75 W</strong></li>
+          <li>R₂ (conocemos su V): P₂ = V² / R = 4,5² / 4 =
+          <strong>5,06 W</strong></li>
+          <li>R₃: P₃ = 4,5² / 12 = <strong>1,69 W</strong></li>
+          <li>Suma: 6,75 + 5,06 + 1,69 = <strong>13,5 W</strong></li>
+          <li>Fuente: P = V · I = 9 · 1,5 = <strong>13,5 W</strong> ✔</li>
+        </ul>
+        <p>Fíjate: en el paralelo, la resistencia <strong>más pequeña</strong>
+        (4 Ω) es la que más potencia disipa, porque por ella pasa más
+        corriente.</p>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R5.</span> ¿Qué resistencia compro?</h3>
+      <p>El circuito del LED de la práctica: fuente de 9 V, resistencia de
+      330 Ω y LED rojo (2 V). Calcula la potencia de la resistencia, la del LED y
+      la de la fuente. ¿Sirve una resistencia de ¼ W?</p>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>I = (9 − 2) / 330 = 0,0212 A = <strong>21,2 mA</strong></li>
+          <li>Resistencia: P<sub>R</sub> = V² / R = 7² / 330 =
+          <strong>0,148 W</strong> (148 mW)</li>
+          <li>LED: P<sub>LED</sub> = 2 · 0,0212 = <strong>0,042 W</strong>
+          (42 mW)</li>
+          <li>Fuente: P = 9 · 0,0212 = <strong>0,191 W</strong> = 0,148 + 0,042 ✔</li>
+        </ul>
+        <p>¼ W = 0,25 W, mayor que 0,148 W: <strong>sí sirve</strong>, aunque
+        trabaja al 60 % de su máximo y se notará algo templada. Curiosidad: la
+        resistencia gasta <strong>3,5 veces más</strong> que el propio LED.</p>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R6.</span> Lo que cuesta un ordenador</h3>
+      <p>Un ordenador consume 250 W y está encendido 6 horas al día, 22 días al
+      mes. Si el kWh cuesta 0,15 €, ¿cuánta energía gasta al mes y cuánto
+      cuesta?</p>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>Pasamos la potencia a kW: 250 W = <strong>0,25 kW</strong></li>
+          <li>Horas al mes: 6 · 22 = 132 h</li>
+          <li>E = P · t = 0,25 · 132 = <strong>33 kWh</strong></li>
+          <li>Coste = 33 · 0,15 = <strong>4,95 €</strong> al mes</li>
+        </ul>
+      </details>
+    </div>
+
+    <h3 id="apartado-ejercicios-de-potencia">Ejercicios de potencia</h3>
+
+    <div class="ejercicio">
+      <h3><span class="num">1.</span> Una bombilla de 230 V</h3>
+      <p>Una bombilla de 60 W funciona a 230 V. Calcula la intensidad que
+      consume y su resistencia.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">2.</span> ¿Aguanta la resistencia?</h3>
+      <p>Conectamos una resistencia de 100 Ω de <strong>¼ W</strong> a una fuente
+      de 12 V. Calcula la potencia que disipa. ¿Aguanta? Si no, ¿de qué potencia
+      la comprarías?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">3.</span> Potencia en serie</h3>
+      <p>Calcula la potencia de cada resistencia del
+      <a href="#apartado-resueltos">resuelto R1</a> (9 V; 1 Ω, 2 Ω y 3 Ω en
+      serie) y la de la fuente. ¿Cuál disipa más? Enuncia una regla.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">4.</span> Potencia en paralelo</h3>
+      <p>Haz lo mismo con el <a href="#apartado-resueltos">resuelto R2</a>
+      (9 V; 3 Ω, 4 Ω y 12 Ω en paralelo). ¿Cuál disipa más ahora? Compara la
+      regla con la del ejercicio 3: ¿por qué es al revés?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">5.</span> Cinco resistencias en serie</h3>
+      <p>En el circuito del <strong>ejercicio 4 del boletín 1</strong> (90 V;
+      10, 5, 2, 8 y 20 Ω), calcula la potencia de cada resistencia y la total.
+      Comprueba la conservación de la potencia.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">6.</span> La resistencia mínima</h3>
+      <p>Solo tienes resistencias de ¼ W y una fuente de 5 V. ¿Cuál es el valor
+      <strong>más pequeño</strong> de resistencia que puedes conectar
+      directamente a la fuente sin que se queme?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">7.</span> Mixto: serie, paralelo y serie</h3>
+      <p>Calcula la intensidad total, la potencia de cada resistencia y la de la
+      fuente. Comprueba que coinciden.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 400 230" role="img" aria-label="Circuito mixto de 12 voltios: R1 de 2 ohmios, paralelo de 6 y 3 ohmios y R4 de 2 ohmios en serie">
+        <path class="hilo" d="M50,40 L100,40 M156,40 L230,40 M300,40 L300,64 M100,180 L50,180 L50,125 M50,95 L50,40"/>
+        <path class="hilo" d="M230,40 L300,40 M230,64 L230,40 M230,100 L230,120 L300,120 L300,100 M265,120 L265,180 L156,180"/>
+        <circle class="comp" cx="50" cy="110" r="15"/>
+        <path class="comp" d="M50,121 L50,99 M45,105 L50,98 L55,105"/>
+        <path class="comp" d="M100,40 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+        <path class="comp" d="M100,180 h8 l4,-10 l8,20 l8,-20 l8,20 l8,-20 l4,10 h8"/>
+        <path class="comp" d="M230,64 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <path class="comp" d="M300,64 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+        <circle class="nodo" cx="230" cy="40" r="3"/>
+        <circle class="nodo" cx="265" cy="120" r="3"/>
+        <text class="et" x="30" y="114" text-anchor="end">12 V</text>
+        <text class="et" x="128" y="24" text-anchor="middle">R₁ = 2 Ω</text>
+        <text class="et" x="128" y="206" text-anchor="middle">R₄ = 2 Ω</text>
+        <text class="et" x="216" y="86" text-anchor="end">R₂ = 6 Ω</text>
+        <text class="et" x="314" y="86">R₃ = 3 Ω</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">8.</span> La fuente de alimentación del PC</h3>
+      <p>Una fuente ATX entrega, a plena carga, 25 A por la línea de +12 V, 10 A
+      por la de +5 V y 8 A por la de +3,3 V.</p>
+      <ol>
+        <li>Calcula la potencia de cada línea y la potencia total de salida.</li>
+        <li>Si su <strong>eficiencia</strong> es del 85 %, ¿cuánta potencia toma
+        del enchufe?</li>
+        <li>¿Cuántos vatios se pierden en forma de <strong>calor</strong> dentro
+        de la fuente? ¿Para qué sirve, entonces, su ventilador?</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">9.</span> Un servidor que nunca se apaga</h3>
+      <p>Un servidor de 400 W está encendido las 24 horas los 365 días del año.
+      Con el kWh a 0,15 €, ¿cuánto cuesta al año? Y un monitor que se queda en
+      espera (0,5 W) todo el año, ¿cuánto gasta?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">10.</span> El panel de seis LED</h3>
+      <p>En el <a href="ut01-practicas.html#p2-retos">panel de seis LED de la
+      P2</a> (9 V; dos ramas, cada una con 220 Ω y tres LED rojos de 2 V en
+      serie), calcula:</p>
+      <ol>
+        <li>La potencia de cada resistencia y la de cada LED.</li>
+        <li>La potencia total que entrega la pila.</li>
+        <li>¿Qué porcentaje de esa potencia se pierde en las resistencias?</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">11.</span> ¿Cuánto dura la pila?</h3>
+      <p>Una pila de 9 V tiene una capacidad de <strong>500 mAh</strong>
+      (puede dar 500 mA durante una hora, o 50 mA durante diez horas…). ¿Cuántas
+      horas mantendrá encendido el circuito del resuelto R5 (21,2 mA)? ¿Cuánta
+      energía almacena la pila, en Wh?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">12.</span> Reto: potencia en el circuito mixto 4</h3>
+      <p>En el <a href="#b2-4">circuito 4 del boletín 2</a> (21 V), calcula la
+      potencia total que entrega la fuente y la potencia que disipa
+      <strong>cada una</strong> de las seis resistencias. Comprueba la
+      conservación de la potencia.</p>
     </div>
   </section>
 
