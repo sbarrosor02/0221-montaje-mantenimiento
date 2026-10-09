@@ -23,6 +23,7 @@
   .control li { padding-left: 1.7rem; position: relative; }
   .control li::before { content: ""; position: absolute; left: 0; top: 0.3rem; width: 1rem; height: 1rem; border: 2px solid var(--tinta-suave); border-radius: 3px; }
   @media print { .apartado, .ejemplo { break-inside: avoid; } }
+  .subnav a[aria-current="true"] { background: var(--acento); border-color: var(--acento); color: #fff; font-weight: 600; }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
@@ -44,7 +45,8 @@
     <a href="ut01-teoria.html">Teoría</a>
     <a href="ut01-prl.html">Seguridad y PRL</a>
     <a href="ut01-ejercicios.html">Ejercicios</a>
-    <a href="ut01-practicas.html">Prácticas</a>
+    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
+    <a href="ut01-practicas.html" aria-current="true">Prácticas</a>
   </nav>
 
   <section>

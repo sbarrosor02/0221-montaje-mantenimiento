@@ -2,6 +2,26 @@
   "modulo": "0221",
   "titulo": "Montaje y mantenimiento de equipo",
   "curso": "2026/2027",
+  "destacados": [
+    {
+      "etiqueta": "Examen · miércoles 14 de octubre",
+      "titulo": "Repaso para el examen de circuitos",
+      "texto": "Ejercicios con el formato del examen, resultados para comprobar y un simulacro.",
+      "url": "temas/ut01-ejercicios-repaso.html"
+    },
+    {
+      "etiqueta": "Entrega",
+      "titulo": "Informe técnico de la P2",
+      "texto": "Qué apartados lleva, ejemplos y lista de comprobación.",
+      "url": "temas/ut01-practicas-p2-informe.html"
+    },
+    {
+      "etiqueta": "Tema 1",
+      "titulo": "Todo el tema 1",
+      "texto": "Teoría, ejercicios, taller de nudos y prácticas.",
+      "url": "temas/ut01.html"
+    }
+  ],
   "temas": [
     {
       "ut": 0,
@@ -37,6 +57,11 @@
           "nota": "3 resueltos, 10 ejercicios del boletín 1 y 5 circuitos mixtos del boletín 2 y boletín 3 de potencia y energía (3 resueltos y 12 ejercicios); los seis esquemas antes pendientes están disponibles en SVG ampliable y descargable; boletín 4 de mixtos avanzados (6 ejercicios) y boletín 5 de circuitos enrevesados (6 ejercicios), generados y verificados con scripts/generar_boletines_4_5.py"
         },
         {
+          "titulo": "Repaso para el examen de circuitos",
+          "url": "temas/ut01-ejercicios-repaso.html",
+          "nota": "6 ejercicios con el formato del examen de 2024 (bloque de ramas y fuente en medio), con resultados y resolución, y un simulacro de 2 ejercicios; esquemas generados y verificados con scripts/generar_repaso_examen.py"
+        },
+        {
           "titulo": "Taller de nudos (interactivo)",
           "url": "temas/ut01-ejercicios-nudos.html",
           "nota": "colorear nudos, reducir serie/paralelo con validación y calcular la intensidad total en los 6 circuitos del boletín 5; sin dependencias, funciona también abriendo el HTML desde el disco"
@@ -54,5 +79,6 @@
         }
       ]
     }
-  ]
+  ],
+  "_destacados_nota": "destacados: avisos de la portada («Ahora en clase»). Editar o vaciar la lista y ejecutar scripts/actualizar_aula.py."
 }

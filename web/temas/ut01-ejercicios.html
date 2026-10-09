@@ -31,6 +31,17 @@
     .esquema-ampliable img { min-width: 0; }
     .figura { break-inside: avoid; }
   }
+  .mapa-boletines { margin: 1.4rem 0 2rem; }
+  .mapa-boletines .mapa-titulo { font-weight: 700; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .mapa-boletines .mapa-destacado { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); padding: .6rem .9rem; }
+  .mapa-boletines ul { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .6rem; }
+  .mapa-boletines li { margin: 0; }
+  .mapa-boletines li a { display: flex; flex-direction: column; gap: .15rem; height: 100%; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem; text-decoration: none; color: var(--tinta); }
+  .mapa-boletines li a:hover { border-color: var(--acento); background: var(--acento-claro); }
+  .mapa-boletines li strong { color: var(--acento); line-height: 1.3; }
+  .mapa-boletines li span { font-size: .88rem; color: var(--tinta-suave); }
+  .mapa-boletines .nivel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .volver-mapa { font-size: .9rem; margin: 1rem 0 0; }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
@@ -51,6 +62,7 @@
     <a href="ut01-teoria.html">Teoría</a>
     <a href="ut01-prl.html">Seguridad y PRL</a>
     <a href="ut01-ejercicios.html" aria-current="page">Ejercicios</a>
+    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
     <a href="ut01-practicas.html">Prácticas</a>
   </nav>
 
@@ -64,6 +76,20 @@
     y circuitos dibujados para despistar, con un
     <a href="ut01-ejercicios-nudos.html">taller interactivo de nudos</a>.
   </div>
+
+  <nav class="mapa-boletines" id="mapa" aria-label="Boletines de esta página">
+    <p class="mapa-titulo">¿Qué quieres hacer?</p>
+    <p class="mapa-destacado"><strong>¿Examen a la vista?</strong> Ve al <a href="ut01-ejercicios-repaso.html">repaso para el examen</a>: ejercicios con el formato del examen y un simulacro.</p>
+    <ul>
+      <li><a href="#apartado-resueltos"><span class="nivel">Empieza aquí</span><strong>Resueltos</strong><span>3 ejemplos resueltos: serie, paralelo y mixto</span></a></li>
+      <li><a href="#apartado-boletin-1-serie-paralelo-y-mixto"><span class="nivel">Básico</span><strong>Boletín 1 · Serie, paralelo y mixto</strong><span>10 ejercicios</span></a></li>
+      <li><a href="#apartado-boletin-2-circuitos-mixtos"><span class="nivel">Medio</span><strong>Boletín 2 · Circuitos mixtos</strong><span>5 ejercicios</span></a></li>
+      <li><a href="#apartado-boletin-3-potencia-y-energia"><span class="nivel">Medio</span><strong>Boletín 3 · Potencia y energía</strong><span>3 resueltos y 12 ejercicios</span></a></li>
+      <li><a href="#apartado-boletin-4-mixtos-avanzados"><span class="nivel">Avanzado</span><strong>Boletín 4 · Mixtos avanzados</strong><span>6 ejercicios</span></a></li>
+      <li><a href="#apartado-boletin-5-circuitos-enrevesados"><span class="nivel">Avanzado</span><strong>Boletín 5 · Circuitos enrevesados</strong><span>6 ejercicios dibujados para despistar</span></a></li>
+      <li><a href="ut01-ejercicios-nudos.html"><span class="nivel">Interactivo</span><strong>Taller de nudos</strong><span>Reduce circuitos paso a paso con corrección</span></a></li>
+    </ul>
+  </nav>
 
   <section>
     <h2 id="apartado-resueltos">Resueltos</h2>
@@ -162,6 +188,7 @@
         </ul>
       </details>
     </div>
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <section>
@@ -346,6 +373,7 @@
         <figcaption><a href="../assets/img/circuitos/boletin-1-mixto.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-1-mixto.svg" download>Descargar SVG</a></figcaption>
       </figure>
     </div>
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <section>
@@ -409,6 +437,7 @@
         <figcaption><a href="../assets/img/circuitos/boletin-2-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-5.svg" download>Descargar SVG</a></figcaption>
       </figure>
     </div>
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <section id="b3">
@@ -618,6 +647,7 @@
       <strong>cada una</strong> de las seis resistencias. Comprueba la
       conservación de la potencia.</p>
     </div>
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <section id="b4">
@@ -725,6 +755,7 @@
       </figure>
     </div>
 
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <section id="b5">
@@ -841,6 +872,7 @@
       </figure>
     </div>
 
+    <p class="volver-mapa"><a href="#mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
   <nav class="nav-temas">

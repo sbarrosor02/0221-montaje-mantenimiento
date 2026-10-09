@@ -67,6 +67,15 @@ code { font-size: .91em; overflow-wrap: anywhere; }
 .aula-tabla { overflow-x: auto; margin: 1rem 0; }
 .aula-tabla table { min-width: 32rem; }
 .aula-tabla:focus-visible { outline-offset: 0; }
+.aula-ahora { margin: 1.4rem 0 .5rem; }
+.aula-ahora h2 { margin: 0 0 .6rem; font-size: 1.15rem; }
+.aula-ahora ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
+.aula-ahora li { margin: 0; }
+.aula-ahora a { display: flex; flex-direction: column; gap: .25rem; height: 100%; padding: .9rem 1rem; background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); text-decoration: none; color: var(--tinta); }
+.aula-ahora a:hover { background: var(--acento-claro); }
+.aula-ahora strong { color: var(--acento); font-size: 1.05rem; line-height: 1.3; }
+.aula-ahora span:last-child { font-size: .9rem; color: var(--tinta-suave); }
+.aula-ahora .aula-tipo { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--tinta-suave); }
 img { max-width: 100%; height: auto; }
 figure { margin-inline: 0; }
 @media (max-width: 850px) {

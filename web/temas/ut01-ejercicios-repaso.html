@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Repaso para el examen de circuitos · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura figcaption { font-size: 0.85rem; margin-top: 0.4rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; height: auto; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .pista { font-size: 0.95rem; color: var(--tinta-suave); }
+  .metodo { counter-reset: paso; list-style: none; padding: 0; display: grid; gap: .6rem; }
+  .metodo li { counter-increment: paso; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem .7rem 3rem; position: relative; }
+  .metodo li::before { content: counter(paso); position: absolute; left: .9rem; top: .7rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--acento); color: white; font-weight: 700; font-size: .85rem; display: grid; place-items: center; }
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 0.9rem 0; font-size: 0.93rem; }
+  .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .tabla-datos th { background: var(--fondo-suave); font-weight: 600; }
+  .simulacro { background: white; border: 2px solid var(--acento); border-radius: var(--radio); padding: 0.4rem 1.2rem 1rem; }
+  @media print {
+    .ejercicio, .figura { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+  }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-que-te-vas-a-encontrar">Qué te vas a encontrar</a></li><li><a href="#apartado-metodo-paso-a-paso">Método paso a paso</a></li><li><a href="#apartado-tipo-1-bloque-de-ramas">Tipo 1 · Bloque de ramas</a></li><li><a href="#apartado-tipo-2-la-fuente-en-medio">Tipo 2 · La fuente en medio</a></li><li><a href="#apartado-simulacro-de-examen">Simulacro de examen</a></li><li><a href="#apartado-mas-practica">Más práctica</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Repaso para el examen de circuitos</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · Examen: miércoles 14 de octubre</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01-teoria.html">Teoría</a>
+    <a href="ut01-prl.html">Seguridad y PRL</a>
+    <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-ejercicios-repaso.html" aria-current="page">Repaso examen</a>
+    <a href="ut01-practicas.html">Prácticas</a>
+  </nav>
+
+  <div class="aviso">
+    <strong>Cómo usar esta página.</strong> Haz los ejercicios en papel, como en
+    el examen. Cuando termines cada uno, abre «Comprueba tu resultado». Mira la
+    resolución paso a paso solo si no te sale o si te ha dado otro número.
+    Deja el simulacro para el final y hazlo con el reloj delante.
+  </div>
+
+  <section>
+    <h2 id="apartado-que-te-vas-a-encontrar">Qué te vas a encontrar</h2>
+    <p>Problemas de circuitos mixtos como los de esta página. En cada uno se
+    pide la <strong>resistencia total</strong>, la <strong>intensidad
+    total</strong> y la <strong>intensidad en alguna resistencia</strong>
+    concreta. Para que la respuesta cuente entera:</p>
+    <ul>
+      <li><strong>Explica el proceso</strong>: qué resistencias juntas y por qué
+      están en serie o en paralelo.</li>
+      <li><strong>Escribe la fórmula</strong> antes de poner los números.</li>
+      <li>Pon la <strong>unidad</strong> en todos los resultados (Ω, kΩ, A, mA, V).</li>
+      <li><strong>Nombra las resistencias</strong> como en el esquema (R₁, R₂…),
+      también las equivalentes: «R₆₇ = R₆ + R₇ = 6 Ω».</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-metodo-paso-a-paso">Método paso a paso</h2>
+    <ol class="metodo">
+      <li><strong>Marca los nudos.</strong> Todo lo unido solo por cable es el
+      mismo punto. Busca cables que unan los dos extremos de una resistencia: si
+      los hay, esa resistencia está cortocircuitada y no cuenta.</li>
+      <li><strong>Busca la serie más interna</strong>: dos resistencias seguidas
+      en cuya unión no sale nada más. Súmalas.</li>
+      <li><strong>Busca los paralelos</strong>: resistencias o ramas que van entre
+      los mismos dos puntos. Para dos, usa (R₁·R₂)/(R₁+R₂); para más,
+      1/R = 1/R₁ + 1/R₂ + …</li>
+      <li><strong>Redibuja</strong> el circuito con la equivalente y repite hasta
+      que quede una sola resistencia: la R total.</li>
+      <li><strong>Ley de Ohm a todo el circuito</strong>: I = V / R total. Si R
+      está en kΩ, la intensidad sale en mA.</li>
+      <li><strong>Vuelve hacia atrás</strong> para la corriente de una
+      resistencia: la tensión de un paralelo es V = I · R<sub>paralelo</sub>, y
+      cada rama lleva I = V / R<sub>rama</sub>. Comprueba que las ramas suman la
+      corriente que entra.</li>
+    </ol>
+    <h3>Errores que más puntos quitan</h3>
+    <div class="aula-tabla" role="region" aria-label="Errores frecuentes; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Error</th><th>Cómo evitarlo</th></tr></thead>
+      <tbody>
+        <tr><td>Sumar en paralelo o hacer la inversa en serie.</td><td>Un paralelo siempre da menos que la resistencia más pequeña. Si te sale más, está mal.</td></tr>
+        <tr><td>Mezclar Ω y kΩ.</td><td>Pásalo todo a la misma unidad antes de operar. 12 V / 4 kΩ = 3 mA.</td></tr>
+        <tr><td>Pensar que la fuente siempre está a la izquierda.</td><td>Si está en medio, mira el circuito desde la fuente: lo que tiene en serie, y lo que hay a cada lado entre los dos cables.</td></tr>
+        <tr><td>No ver un cable que cortocircuita una resistencia.</td><td>Sigue con el dedo cada cable hasta el final antes de empezar.</td></tr>
+        <tr><td>Dar la corriente total como corriente de una rama.</td><td>En un paralelo la corriente se reparte: calcula primero la tensión del paralelo.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-tipo-1-bloque-de-ramas">Tipo 1 · Bloque de ramas</h2>
+    <p>Un bloque de tres ramas, dos de ellas unidas por un cable intermedio,
+    seguido de resistencias en serie y de un paralelo final. Empieza por el
+    bloque: es lo más interno.</p>
+
+    <div class="ejercicio" id="r1">
+      <h3><span class="num">1.</span> Bloque de ramas · 24 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total del circuito.</li>
+        <li>La intensidad total.</li>
+        <li>La intensidad en R₁₁ (I₁) y en R₁₂ (I₂).</li>
+        <li>La intensidad en R₄.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-1.svg" width="986" height="384" alt="Circuito alimentado a 24 V con R1 de 2 ohmios, R2 de 2 ohmios, R3 de 2 ohmios, R4 de 4 ohmios, R5 de 2 ohmios, R6 de 1 ohmios, R7 de 5 ohmios, R8 de 3 ohmios, R9 de 3 ohmios, R10 de 2 ohmios, R11 de 12 ohmios, R12 de 6 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-1.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>12 Ω</b></li><li>I total = <b>2 A</b></li><li>I₁ = <b>0,67 A</b> · I₂ = <b>1,33 A</b></li><li>I(R₄) = <b>0,5 A</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>Ramas del bloque: R₆ + R₇ = 1 + 5 = 6 Ω y R₄ + R₅ = 4 + 2 = 6 Ω. Las dos acaban en el mismo punto (el cable vertical las une), así que están en paralelo: 6 ∥ 6 = <b>3 Ω</b>.</li><li>Ese conjunto está en serie con R₈: 3 + 3 = <b>6 Ω</b>.</li><li>Rama de arriba: R₁ + R₂ + R₃ = 6 Ω. En paralelo con la anterior: 6 ∥ 6 = <b>3 Ω</b>.</li><li>Final: R₁₁ ∥ R₁₂ = (12 · 6) / (12 + 6) = <b>4 Ω</b>.</li><li>R total = 3 + R₉ + R₁₀ + 4 = 3 + 3 + 2 + 4 = <b>12 Ω</b> → I = V / R = 24 / 12 = <b>2 A</b>.</li><li>Tensión en el paralelo final: V = 2 · 4 = 8 V → I₁ = 8 / 12 = <b>0,67 A</b> · I₂ = 8 / 6 = <b>1,33 A</b> (suman 2 A ✔).</li><li>En el bloque, las dos ramas valen 6 Ω: se reparten 1 A cada una. La de abajo pasa por R₈ y se vuelve a repartir a partes iguales: I(R₄) = <b>0,5 A</b>.</li></ol>
+      </details>
+    </div>
+
+    <div class="ejercicio" id="r2">
+      <h3><span class="num">2.</span> Bloque de ramas con resistencia escondida · 20 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total del circuito.</li>
+        <li>La intensidad total.</li>
+        <li>La intensidad en R₈.</li>
+        <li>La intensidad en R₁₁ (I₁) y en R₁₂ (I₂).</li>
+      </ol>
+      <p class="pista"><strong>Pista:</strong> Sigue el cable que sale de R₅ hasta el final.</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-2.svg" width="986" height="384" alt="Circuito alimentado a 20 V con R1 de 2 ohmios, R2 de 2 ohmios, R3 de 2 ohmios, R4 de 4 ohmios, R5 de 2 ohmios, R6 de 2 ohmios, R7 de 4 ohmios, R8 de 5 ohmios, R9 de 4 ohmios, R10 de 2 ohmios, R11 de 6 ohmios, R12 de 3 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-2.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>10 Ω</b></li><li>I total = <b>2 A</b></li><li>I(R₈) = <b>0 A</b>: está cortocircuitada</li><li>I₁ = <b>0,67 A</b> · I₂ = <b>1,33 A</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>El cable que sale de R₅ sube hasta la unión de R₇ y R₈ y también llega al lado derecho del bloque. Los dos extremos de R₈ están unidos por cable: R₈ está <b>cortocircuitada</b> y por ella no pasa corriente.</li><li>Sin R₈, las tres ramas del bloque van entre los mismos dos puntos: R₁ + R₂ + R₃ = 6 Ω, R₆ + R₇ = 6 Ω y R₄ + R₅ = 6 Ω → 1/R = 1/6 + 1/6 + 1/6 → <b>2 Ω</b>.</li><li>Final: R₁₁ ∥ R₁₂ = (6 · 3) / (6 + 3) = <b>2 Ω</b>.</li><li>R total = 2 + 4 + 2 + 2 = <b>10 Ω</b> → I = 20 / 10 = <b>2 A</b>.</li><li>Tensión en el paralelo final: 2 · 2 = 4 V → I₁ = 4 / 6 = <b>0,67 A</b> · I₂ = 4 / 3 = <b>1,33 A</b>.</li></ol>
+      </details>
+    </div>
+
+    <div class="ejercicio" id="r3">
+      <h3><span class="num">3.</span> Bloque de ramas en kiloohmios · 12 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total del circuito.</li>
+        <li>La intensidad total, en mA.</li>
+        <li>La intensidad en R₁₁.</li>
+        <li>La intensidad en R₈ y en R₁.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-3.svg" width="986" height="384" alt="Circuito alimentado a 12 V con R1 de 1 kiloohmios, R2 de 2 kiloohmios, R3 de 3 kiloohmios, R4 de 3 kiloohmios, R5 de 3 kiloohmios, R6 de 4 kiloohmios, R7 de 2 kiloohmios, R8 de 3 kiloohmios, R9 de 1 kiloohmios, R10 de 2 kiloohmios, R11 de 12 kiloohmios, R12 de 12 kiloohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-3.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>12 kΩ</b></li><li>I total = <b>1 mA</b></li><li>I(R₁₁) = <b>0,5 mA</b></li><li>I(R₈) = <b>0,5 mA</b> · I(R₁) = <b>0,5 mA</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>R₆ + R₇ = 6 kΩ y R₄ + R₅ = 6 kΩ, en paralelo: <b>3 kΩ</b>. Más R₈: 3 + 3 = <b>6 kΩ</b>.</li><li>Rama de arriba: 1 + 2 + 3 = 6 kΩ. Con la anterior: 6 ∥ 6 = <b>3 kΩ</b>.</li><li>R₁₁ ∥ R₁₂ = 12 ∥ 12 = <b>6 kΩ</b>.</li><li>R total = 3 + 1 + 2 + 6 = <b>12 kΩ</b> → I = 12 V / 12 000 Ω = 0,001 A = <b>1 mA</b>.</li><li>R₁₁ y R₁₂ son iguales: se reparten 0,5 mA cada una.</li><li>En el bloque, las dos ramas valen 6 kΩ: 0,5 mA por la de arriba (R₁) y 0,5 mA por la de abajo, que es la que pasa por R₈.</li></ol>
+      </details>
+    </div>
+
+  </section>
+
+  <section>
+    <h2 id="apartado-tipo-2-la-fuente-en-medio">Tipo 2 · La fuente en medio</h2>
+    <p>La fuente no está en un extremo, sino en una rama central con una
+    resistencia en serie. Mira el circuito <strong>desde la fuente</strong>: su
+    corriente pasa por R₅, llega al cable de arriba y vuelve por el de abajo
+    repartida entre lo que hay a la izquierda y a la derecha. Esos dos lados
+    están en paralelo entre sí.</p>
+
+    <div class="ejercicio" id="r4">
+      <h3><span class="num">4.</span> Fuente en medio · 12 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total que «ve» la fuente.</li>
+        <li>La intensidad total, en mA.</li>
+        <li>La intensidad en R₄ y en R₆.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-4.svg" width="843" height="360" alt="Circuito alimentado a 12 V con R1 de 2 kiloohmios, R2 de 4 kiloohmios, R3 de 4 kiloohmios, R4 de 3 kiloohmios, R5 de 2 kiloohmios, R6 de 6 kiloohmios, R7 de 12 kiloohmios, R8 de 12 kiloohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-4.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>4 kΩ</b></li><li>I total = <b>3 mA</b></li><li>I(R₄) = <b>0,67 mA</b> · I(R₆) = <b>1 mA</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>Mira el circuito desde la fuente. Toda su corriente pasa por R₅ y llega al cable de arriba. De ahí puede ir hacia la izquierda o hacia la derecha, y todo vuelve por el cable de abajo.</li><li>Izquierda: R₁ y R₂ están en serie (en su unión no hay nada más): 2 + 4 = 6 kΩ. En paralelo con R₄: 6 ∥ 3 = <b>2 kΩ</b>. Más R₃: <b>6 kΩ</b>.</li><li>Derecha: 1/R = 1/6 + 1/12 + 1/12 = 4/12 → <b>3 kΩ</b>.</li><li>Izquierda y derecha van entre los mismos dos cables: 6 ∥ 3 = <b>2 kΩ</b>. Más R₅: R total = <b>4 kΩ</b>.</li><li>I = 12 V / 4 000 Ω = 0,003 A = <b>3 mA</b>. Tensión entre los cables: 3 mA · 2 kΩ = 6 V.</li><li>Derecha: I(R₆) = 6 V / 6 kΩ = <b>1 mA</b>. Izquierda: 6 V / 6 kΩ = 1 mA, que deja 1 mA · 2 kΩ = 2 V en R₄ → I(R₄) = 2 / 3 = <b>0,67 mA</b>.</li></ol>
+      </details>
+    </div>
+
+    <div class="ejercicio" id="r5">
+      <h3><span class="num">5.</span> Fuente en medio con dos ramas · 24 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total.</li>
+        <li>La intensidad total, en mA.</li>
+        <li>La intensidad en R₃ y en R₇.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-5.svg" width="719" height="360" alt="Circuito alimentado a 24 V con R1 de 1 kiloohmios, R2 de 2 kiloohmios, R3 de 2 kiloohmios, R4 de 6 kiloohmios, R5 de 1 kiloohmios, R6 de 12 kiloohmios, R7 de 6 kiloohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-5.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>3 kΩ</b></li><li>I total = <b>8 mA</b></li><li>I(R₃) = <b>4 mA</b> · I(R₇) = <b>2,67 mA</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>Izquierda: R₁ + R₂ = 3 kΩ, en paralelo con R₄: 3 ∥ 6 = 2 kΩ. Más R₃: <b>4 kΩ</b>.</li><li>Derecha: R₆ ∥ R₇ = 12 ∥ 6 = <b>4 kΩ</b>.</li><li>4 ∥ 4 = 2 kΩ. Más R₅: R total = <b>3 kΩ</b> → I = 24 / 3 000 = <b>8 mA</b>.</li><li>Tensión entre los cables: 8 mA · 2 kΩ = 16 V. Izquierda: 16 / 4 kΩ = <b>4 mA</b>, que es la que pasa por R₃. I(R₇) = 16 / 6 kΩ = <b>2,67 mA</b>.</li></ol>
+      </details>
+    </div>
+
+    <div class="ejercicio" id="r6">
+      <h3><span class="num">6.</span> Fuente en medio con serie a la derecha · 18 V</h3>
+      <p>Nombra las resistencias como en el esquema y calcula:</p>
+      <ol>
+        <li>La resistencia total.</li>
+        <li>La intensidad total.</li>
+        <li>La intensidad en R₉ y en R₄.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Repaso, ejercicio 6; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/repaso-6.svg" width="719" height="360" alt="Circuito alimentado a 18 V con R1 de 2 kiloohmios, R2 de 1 kiloohmios, R3 de 1 kiloohmios, R4 de 6 kiloohmios, R5 de 3 kiloohmios, R6 de 2 kiloohmios, R7 de 2 kiloohmios, R9 de 2 kiloohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/repaso-6.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <details class="solucion">
+        <summary>Comprueba tu resultado</summary>
+        <ul><li>R total = <b>4,5 kΩ</b></li><li>I total = <b>4 mA</b></li><li>I(R₉) = <b>2 mA</b> · I(R₄) = <b>0,67 mA</b></li></ul>
+      </details>
+      <details class="solucion">
+        <summary>Ver la resolución paso a paso</summary>
+        <ol><li>Izquierda: R₁ + R₂ = 3 kΩ ∥ R₄ = 6 kΩ → 2 kΩ. Más R₃: <b>3 kΩ</b>.</li><li>Derecha: R₆ ∥ R₇ = 1 kΩ. Más R₉, que está en serie con ellas: <b>3 kΩ</b>.</li><li>3 ∥ 3 = 1,5 kΩ. Más R₅: R total = <b>4,5 kΩ</b> → I = 18 / 4 500 = <b>4 mA</b>.</li><li>Tensión entre los cables: 4 mA · 1,5 kΩ = 6 V. Cada lado (3 kΩ) lleva 2 mA: I(R₉) = <b>2 mA</b>.</li><li>Izquierda: 2 mA · 2 kΩ = 4 V en R₄ → I(R₄) = 4 / 6 = <b>0,67 mA</b>.</li></ol>
+      </details>
+    </div>
+
+  </section>
+
+  <section>
+    <h2 id="apartado-simulacro-de-examen">Simulacro de examen</h2>
+    <div class="simulacro">
+      <p><strong>Tiempo: 50 minutos.</strong> Resuelve los ejercicios
+      explicando razonadamente el proceso, indicando las fórmulas utilizadas y
+      las unidades de todos los resultados. Si quieres hacerlo en papel, pulsa
+      «Imprimir / guardar PDF».</p>
+
+    <div class="ejercicio" id="s1">
+      <h3>Ejercicio 1 (3 puntos)</h3>
+      <p>Teniendo en cuenta el siguiente circuito (30 V), y nombrando las resistencias como en el esquema, se pide:</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Simulacro, ejercicio 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/simulacro-1.svg" width="986" height="384" alt="Circuito alimentado a 30 V con R1 de 4 ohmios, R2 de 4 ohmios, R3 de 4 ohmios, R4 de 3 ohmios, R5 de 3 ohmios, R6 de 2 ohmios, R7 de 4 ohmios, R8 de 9 ohmios, R9 de 3 ohmios, R10 de 2 ohmios, R11 de 6 ohmios, R12 de 12 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/simulacro-1.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <ol>
+        <li>Calcular la resistencia total del circuito. <b>1 punto</b>.</li>
+        <li>Calcular la intensidad total del circuito. <b>1 punto</b>.</li>
+        <li>Calcular la intensidad en R₁₁ (I₁), en R₁₂ (I₂) y en R₁. <b>1 punto</b>.</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio" id="s2">
+      <h3>Ejercicio 2 (3 puntos)</h3>
+      <p>Teniendo en cuenta el siguiente circuito (15 V), y nombrando las resistencias como en el esquema, se pide:</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Simulacro, ejercicio 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/simulacro-2.svg" width="719" height="360" alt="Circuito alimentado a 15 V con R1 de 3 kiloohmios, R2 de 1 kiloohmios, R3 de 2 kiloohmios, R4 de 4 kiloohmios, R5 de 1 kiloohmios, R6 de 12 kiloohmios, R7 de 6 kiloohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/simulacro-2.svg">Abrir el esquema ampliado</a></figcaption>
+      </figure>
+      <ol>
+        <li>Calcular la resistencia total del circuito. <b>1 punto</b>.</li>
+        <li>Calcular la intensidad total del circuito. <b>1 punto</b>.</li>
+        <li>Calcular la intensidad en R₄ y en R₇. <b>1 punto</b>.</li>
+      </ol>
+    </div>
+
+      <details class="solucion">
+        <summary>Resultados del simulacro (ábrelo al terminar)</summary>
+        <ul><li><strong>Ejercicio 1:</strong> R total = 15 Ω · I total = 2 A · I₁ = 1,33 A · I₂ = 0,67 A · I(R₁) = 1 A</li><li><strong>Ejercicio 2:</strong> R total = 3 kΩ · I total = 5 mA · I(R₄) = 1,25 mA · I(R₇) = 1,67 mA</li></ul>
+        <p>Si no te coincide algún resultado, rehaz el ejercicio siguiendo el
+        método de arriba y pregunta en clase antes del examen.</p>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-mas-practica">Más práctica</h2>
+    <ul>
+      <li><a href="ut01-ejercicios.html#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a>: los del boletín manuscrito.</li>
+      <li><a href="ut01-ejercicios.html#apartado-boletin-4-mixtos-avanzados">Boletín 4 · Mixtos avanzados</a>: más largos, con corrientes de rama.</li>
+      <li><a href="ut01-ejercicios.html#apartado-boletin-5-circuitos-enrevesados">Boletín 5 · Circuitos enrevesados</a> y el <a href="ut01-ejercicios-nudos.html">taller de nudos</a>, para entrenar a ver qué está en serie y qué en paralelo.</li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut01-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut01.html">Portada del tema</a>
+    <a href="ut01-practicas.html">Prácticas &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Los circuitos se generan y verifican con <code>scripts/generar_repaso_examen.py</code>.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

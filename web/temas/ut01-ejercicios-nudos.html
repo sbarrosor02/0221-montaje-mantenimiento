@@ -77,6 +77,7 @@
   .muestra:hover { background: var(--muestra); filter: brightness(.92); }
   .boton-enlace:hover { background: none; color: var(--acento); text-decoration-thickness: 2px; }
   @media print { .taller-circuitos, .taller-botones, .taller-acciones, .paleta { display: none; } }
+  .subnav a[aria-current="true"] { background: var(--acento); border-color: var(--acento); color: #fff; font-weight: 600; }
 </style>
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
@@ -97,7 +98,8 @@
     <a href="ut01.html" class="inicio-tema">Portada del tema</a>
     <a href="ut01-teoria.html">Teoría</a>
     <a href="ut01-prl.html">Seguridad y PRL</a>
-    <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-ejercicios.html" aria-current="true">Ejercicios</a>
+    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
     <a href="ut01-practicas.html">Prácticas</a>
   </nav>
 
