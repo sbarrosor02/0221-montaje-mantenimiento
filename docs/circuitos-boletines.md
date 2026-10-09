@@ -60,3 +60,59 @@ sección de pendientes se conserva como ancla de entrada al boletín 2.
 
 Después de modificar títulos o apartados, ejecutar también
 `python scripts/actualizar_aula.py` para regenerar el índice y el catálogo.
+
+## Boletines 4 y 5 · revisión del 09/10/2026
+
+`python scripts/generar_boletines_4_5.py` genera los doce SVG
+(`boletin-4-N.svg`, `boletin-5-N.svg`) y `web/assets/circuitos-nudos.js`, que
+son los datos del taller de nudos. Solo usa la biblioteca estándar.
+
+- **Boletín 4**: circuitos dibujados de forma ordenada a partir de su
+  expresión serie/paralelo. El script comprueba que el dibujo y la expresión
+  dan la misma resistencia equivalente.
+- **Boletín 5**: geometría libre (diagonales, cruces sin punto, cortocircuitos,
+  ramas abiertas y un puente equilibrado). Cada red se resuelve por análisis
+  nodal modificado, con fuentes ideales, y se contrasta con la reducción
+  escrita a mano.
+
+| Esquema | Reducción contrastada | R equivalente | I |
+|---|---|---|---|
+| B4, 1 | 2 + ((4 + (12 \|\| 6)) \|\| 8) + (3 \|\| 6) | 8 Ω | 3 A |
+| B4, 2 | 5 + ((10 + (30 \|\| 15)) \|\| ((20 \|\| 20) + 10) \|\| 10) + (40 \|\| 10) + 2 | 20 Ω | 3 A |
+| B4, 3 | 1200 + ((2200 + 1800) \|\| (1000 + (6000 \|\| 3000) + 1000)) + 800 | 4 kΩ | 5 mA (20 V) |
+| B4, 4 | escalera 6 + (6 \|\| (3 + (6 \|\| (3 + (6 \|\| (4 + (6 \|\| 3))))))) | 9 Ω | 4 A |
+| B4, 5 | ((8 + 4) \|\| 6 \|\| 4) + 4 + ((6 + (4 \|\| 12)) \|\| 18) | 12 Ω | 2 A |
+| B4, 6 | 3 + ((Rx + 4) \|\| 12) + (10 \|\| (6 + (8 \|\| 8))), con Rx = 8 | 14 Ω | 2 A |
+| B5, 1 | 3 + (6 \|\| (2 + (6 \|\| 12))) | 6 Ω | 3 A |
+| B5, 2 | 4 + (12 \|\| 6) + 4; R4 cortocircuitada y R5 abierta | 12 Ω | 2 A |
+| B5, 3 | 3 + (12 \|\| 6 \|\| ((12 \|\| 6) + 8)) | 6 Ω | 3 A |
+| B5, 4 | 3 + (6 \|\| 12 \|\| 4) + 1 | 6 Ω | 2 A |
+| B5, 5 | 2 + (6 \|\| (8 + (12 \|\| 6))), fuentes 36 − 6 = 30 V | 6 Ω | 5 A |
+| B5, 6 | 2 + ((6 + 12) \|\| (3 + 6)); puente equilibrado, R5 sin corriente | 8 Ω | 2 A |
+
+Como en los boletines anteriores, la página del alumnado no incluye las
+soluciones. Los solucionarios para el profesor están en `temario/soluciones/`:
+enunciados con solucionario de los dos boletines y la resolución paso a paso
+del boletín 5 con los nudos coloreados.
+
+### Taller de nudos
+
+`web/temas/ut01-ejercicios-nudos.html` + `web/assets/taller-nudos.js`.
+Sin dependencias ni red, y funciona abriendo el HTML desde el disco, porque
+los datos se cargan como script y no con `fetch`. No guarda nada.
+
+1. **Colorear nudos**: cada cable y cada patilla es un trozo pintable. Al
+   pintar un cable se pintan las patillas que lo tocan, pero no los cables
+   que llegan por otro camino. «Comprobar» detecta trozos sin pintar, nudos
+   con dos colores y colores repetidos en nudos distintos.
+2. **Reducir**: el alumno selecciona resistencias y elige serie, paralelo o
+   «no conduce». El taller valida la relación con los nudos (paralelo:
+   mismos dos nudos; serie: cadena cuyos nudos intermedios no tienen otras
+   ramas ni la fuente; quitar: cortocircuito, extremo libre o corriente nula
+   calculada, como en el puente equilibrado) y pide el valor equivalente con
+   un 1 % de tolerancia. El botón de pista redibuja el estado actual de forma
+   ordenada.
+3. **Intensidad total** con la Ley de Ohm.
+
+Para añadir circuitos al taller, se añade un objeto `Free` a `B5` en el
+script y se vuelve a ejecutar.

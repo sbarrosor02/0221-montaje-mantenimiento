@@ -37,7 +37,7 @@
 </head>
 <body data-modulo="0221">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li><li><a href="#apartado-boletin-3-potencia-y-energia">Boletín 3 · Potencia y energía</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li><li><a href="#apartado-boletin-1-serie-paralelo-y-mixto">Boletín 1 · Serie, paralelo y mixto</a></li><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li><li><a href="#apartado-boletin-3-potencia-y-energia">Boletín 3 · Potencia y energía</a></li><li><a href="#apartado-boletin-4-mixtos-avanzados">Boletín 4 · Mixtos avanzados</a></li><li><a href="#apartado-boletin-5-circuitos-enrevesados">Boletín 5 · Circuitos enrevesados</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
@@ -60,6 +60,9 @@
     <a href="ut01-teoria.html">teoría del tema</a>. Los tres primeros van resueltos; el resto son
     para que los resuelvas tú. El <a href="#b3">boletín 3</a> añade el cálculo de
     <strong>potencias y energía</strong>, con sus propios resueltos.
+    Los <a href="#b4">boletines 4 y 5</a> son de ampliación: mixtos más largos
+    y circuitos dibujados para despistar, con un
+    <a href="ut01-ejercicios-nudos.html">taller interactivo de nudos</a>.
   </div>
 
   <section>
@@ -615,6 +618,229 @@
       <strong>cada una</strong> de las seis resistencias. Comprueba la
       conservación de la potencia.</p>
     </div>
+  </section>
+
+  <section id="b4">
+    <h2 id="apartado-boletin-4-mixtos-avanzados">Boletín 4 · Mixtos avanzados</h2>
+    <p>Seis circuitos que amplían el boletín 2. Tienen más niveles de
+    anidamiento y piden algo más que la corriente de la fuente: intensidades
+    de rama, tensiones parciales, potencias y una resistencia desconocida.
+    Reduce siempre desde el bloque más interno hacia la fuente y comprueba
+    que las tensiones y las intensidades suman lo que deben.</p>
+
+    <div class="ejercicio" id="b4-1">
+      <h3><span class="num">1.</span> Tres niveles de anidamiento</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La resistencia equivalente y la intensidad que suministra la fuente.</li>
+        <li>La tensión en R₁, en el bloque central y en el paralelo R₆∥R₇.</li>
+        <li>La intensidad que atraviesa cada una de las siete resistencias.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-1.svg" width="734" height="260" alt="Fuente de 24 V. R1 de 2 ohmios en serie con dos ramas en paralelo (R2 de 4 ohmios en serie con el paralelo de R3 de 12 y R4 de 6; y R5 de 8 ohmios) y en serie con el paralelo de R6 de 3 y R7 de 6 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-2">
+      <h3><span class="num">2.</span> Tres ramas y once resistencias</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad suministrada por la fuente de 60 V.</li>
+        <li>La intensidad de cada una de las tres ramas del bloque central.</li>
+        <li>La tensión y la intensidad en R₉ y en R₁₀.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-2.svg" width="850" height="392" alt="Fuente de 60 V. R1 de 5 ohmios en serie con tres ramas en paralelo (R2 de 10 más el paralelo de R3 de 30 y R4 de 15; el paralelo de R5 y R6 de 20 más R7 de 10; y R8 de 10), el paralelo de R9 de 40 y R10 de 10, y R11 de 2 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-3">
+      <h3><span class="num">3.</span> Fuente desconocida y unidades mezcladas</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>El voltaje de la fuente, sabiendo que suministra <strong>5 mA</strong>.</li>
+        <li>La intensidad de cada rama del paralelo.</li>
+        <li>La intensidad que pasa por R₅ y por R₆.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-3.svg" width="810" height="260" alt="Fuente desconocida con una corriente total de 5 mA. R1 de 1,2 kiloohmios en serie con dos ramas en paralelo (R2 de 2,2 más R3 de 1,8 kiloohmios; y R4 de 1 kiloohmio más el paralelo de R5 de 6 y R6 de 3 kiloohmios más R7 de 1 kiloohmio) y en serie con R8 de 800 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-4">
+      <h3><span class="num">4.</span> Red en escalera</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad suministrada por la fuente de 36 V.</li>
+        <li>La intensidad que atraviesa R₇.</li>
+        <li>La tensión y la intensidad en R₉.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-4.svg" width="890" height="392" alt="Fuente de 36 V. R1 de 6 ohmios en serie con una escalera: R2 de 6 en paralelo con R3 de 3 más el paralelo de R4 de 6 con R5 de 3 más el paralelo de R6 de 6 con R7 de 4 más el paralelo de R8 de 6 y R9 de 3 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-5">
+      <h3><span class="num">5.</span> Dos fuentes en serie y balance de potencias</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad total que circula por las fuentes.</li>
+        <li>La potencia que disipa cada una de las nueve resistencias.</li>
+        <li>La potencia que entregan las fuentes. Comprueba la conservación de la potencia.</li>
+        <li>¿Qué resistencias no podrían ser de 1 W?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-5.svg" width="850" height="260" alt="Fuentes de 9 V y 15 V en serie. Primer bloque en paralelo: R1 de 8 más R2 de 4; R3 de 6; R4 de 4 ohmios. En serie con R5 de 4 ohmios y con el paralelo de R6 de 6 más el paralelo de R7 de 4 y R8 de 12, y R9 de 18 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-6">
+      <h3><span class="num">6.</span> Problema inverso: la resistencia que falta</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>El valor de Rₓ para que la fuente de 28 V suministre exactamente <strong>2 A</strong>.</li>
+        <li>La intensidad que pasa por Rₓ y la tensión entre sus terminales.</li>
+        <li>La potencia que disipa Rₓ. ¿Sirve una resistencia de ½ W?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 6; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-6.svg" width="850" height="260" alt="Fuente de 28 V con una corriente total de 2 A. R1 de 3 ohmios en serie con el paralelo de Rx desconocida más R2 de 4, y R3 de 12; en serie con el paralelo de R4 de 10 y R5 de 6 más el paralelo de R6 y R7 de 8 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-6.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-6.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+  </section>
+
+  <section id="b5">
+    <h2 id="apartado-boletin-5-circuitos-enrevesados">Boletín 5 · Circuitos enrevesados</h2>
+    <p>Estos circuitos están dibujados para despistar. Antes de calcular nada,
+    identifica los nudos. Puedes practicarlo en el
+    <a href="ut01-ejercicios-nudos.html">taller de nudos</a>, que comprueba
+    cada paso.</p>
+    <div class="aviso">
+      <strong>Antes de calcular nada</strong>
+      <ol>
+        <li>Pon una letra a cada <strong>nudo</strong>. Todo lo que está unido solo por cable, sin resistencias en medio, es el mismo nudo, aunque esté dibujado lejos.</li>
+        <li>Un cruce de cables <strong>sin punto</strong> no está conectado. Con punto, sí.</li>
+        <li>Anota entre qué dos nudos está cada resistencia. Dos resistencias están <strong>en paralelo</strong> si comparten los dos nudos, y <strong>en serie</strong> si comparten uno solo y de él no sale ninguna otra rama.</li>
+        <li>Si una resistencia tiene sus dos extremos en el mismo nudo, está <strong>cortocircuitada</strong>. Si tiene un extremo libre, es una <strong>rama abierta</strong>. En los dos casos no pasa corriente por ella.</li>
+        <li>Redibuja el circuito de forma ordenada y solo entonces aplica la Ley de Ohm.</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio" id="b5-1">
+      <h3><span class="num">1.</span> La rama que parece paralela</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>Marca con una letra cada nudo. ¿Entre qué dos nudos está conectada cada resistencia?</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La intensidad por R₅ y la tensión en R₂.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-1.svg" width="812" height="360" alt="Fuente de 18 V y R1 de 3 ohmios en el cable superior. Del cable superior bajan R2 de 6 ohmios en vertical, R3 de 6 ohmios en diagonal y R4 de 12 ohmios en vertical. En el cable inferior, entre la bajada de R2 y la de R3, está R5 de 2 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-2">
+      <h3><span class="num">2.</span> Cortocircuito escondido y rama abierta</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>¿Qué corriente pasa por R₄? ¿Y por R₅? Justifica la respuesta.</li>
+        <li>La potencia que disipa cada resistencia y la que entrega la fuente.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-2.svg" width="918" height="391" alt="Fuente de 24 V. En el cable superior, R1 de 4 ohmios y el paralelo de R2 de 12 y R3 de 6 ohmios. Después baja R4 de 8 ohmios, cuyo extremo inferior se une con un cable que vuelve a subir al cable superior. R5 de 100 ohmios baja y termina en un extremo libre. R6 de 4 ohmios baja por la derecha hasta el cable de retorno.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-3">
+      <h3><span class="num">3.</span> La falsa estrella</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>Parece una estrella dentro de un triángulo. Sigue el cable que sale del centro: ¿a qué nudo llega? ¿Cuántos nudos distintos hay?</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La intensidad que pasa por cada una de las seis resistencias.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-3.svg" width="719" height="422" alt="Fuente de 18 V. Triángulo con R2 de 12 ohmios en el lado superior, R4 de 8 ohmios en el lado derecho y R5 de 12 ohmios en el izquierdo. Desde un punto central salen R3 de 6 ohmios hacia el vértice derecho y R6 de 6 ohmios hacia el inferior. Un cable une el punto central con el cable de la fuente y cruza R5 sin punto de conexión. R1 de 3 ohmios está en el cable inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-4">
+      <h3><span class="num">4.</span> En fila, pero no en serie</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>R₂, R₃ y R₄ están dibujadas una detrás de otra. ¿Están en serie? Razónalo con los nudos.</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>Si se retira R₃, ¿cuánto vale la nueva intensidad total?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-4.svg" width="843" height="360" alt="Fuente de 12 V con R1 de 3 ohmios arriba y R5 de 1 ohmio abajo. En el centro, R2 de 6, R3 de 12 y R4 de 4 ohmios están dibujadas en fila. Sus puntos de unión se conectan alternativamente al cable superior y al inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-5">
+      <h3><span class="num">5.</span> Diagonales cruzadas y fuentes enfrentadas</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>¿Qué tensión neta aplican las dos fuentes? Fíjate en su polaridad.</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La potencia de cada resistencia. ¿Cuánta potencia entrega la fuente de 36 V y qué le ocurre a la de 6 V?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-5.svg" width="781" height="422" alt="Dos fuentes, de 36 V y de 6 V, enfrentadas en el lado izquierdo, con R1 de 2 ohmios en el cable inferior. Rectángulo con R2 de 8 ohmios arriba, R3 de 12 ohmios a la derecha y un cable abajo. Dos diagonales, R4 y R5 de 6 ohmios, se cruzan en el centro sin punto de conexión.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-6">
+      <h3><span class="num">6.</span> Reto: el puente equilibrado</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>R₅ no está ni en serie ni en paralelo con ninguna otra. Calcula R₁/R₂ y R₃/R₄. ¿Qué observas?</li>
+        <li>Suponiendo que por R₅ no pasa corriente, calcula la resistencia equivalente y la intensidad total.</li>
+        <li>Comprueba que la tensión del vértice superior coincide con la del inferior (respecto al borne −).</li>
+        <li>Si R₄ fuese de 12 Ω, ¿seguiría sin pasar corriente por R₅?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 6; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-6.svg" width="781" height="496" alt="Fuente de 16 V con R6 de 2 ohmios. Rombo: R1 de 6 y R2 de 12 ohmios por arriba, R3 de 3 y R4 de 6 ohmios por abajo, y R5 de 10 ohmios en vertical entre el vértice superior y el inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-6.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-6.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
   </section>
 
   <nav class="nav-temas">

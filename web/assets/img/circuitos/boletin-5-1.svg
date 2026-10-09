@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 812 360" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 5, ejercicio 1: La rama que parece paralela</title>
+<desc id="desc">Fuente de 18 V y R1 de 3 ohmios en el cable superior. Del cable superior bajan R2 de 6 ohmios en vertical, R3 de 6 ohmios en diagonal y R4 de 12 ohmios en vertical. En el cable inferior, entre la bajada de R2 y la de R3, está R5 de 2 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.2}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:15px sans-serif;fill:#24364a}.dato{font-weight:600;fill:#8a3d00}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="93.0,55.8 155.0,55.8"/>
+<polyline class="wire" points="279.0,55.8 372.0,55.8 465.0,55.8 682.0,55.8"/>
+<polyline class="wire" points="93.0,303.8 372.0,303.8 415.4,303.8"/>
+<polyline class="wire" points="539.4,303.8 589.0,303.8 682.0,303.8"/>
+<path class="wire" d="M155.0,55.8 L187.0,55.8 M247.0,55.8 L279.0,55.8"/>
+<path class="wire" transform="translate(217.0,55.8) rotate(0.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="217.0" y="36.8" text-anchor="middle">R₁ = 3 Ω</text>
+<path class="wire" d="M372.0,55.8 L372.0,149.8 M372.0,209.8 L372.0,303.8"/>
+<path class="wire" transform="translate(372.0,179.8) rotate(90.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="354.0" y="184.8" text-anchor="end">R₂ = 6 Ω</text>
+<path class="wire" d="M415.4,303.8 L447.4,303.8 M507.4,303.8 L539.4,303.8"/>
+<path class="wire" transform="translate(477.4,303.8) rotate(0.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="477.4" y="327.8" text-anchor="middle">R₅ = 2 Ω</text>
+<path class="wire" d="M465.0,55.8 L507.4,140.6 M534.2,194.2 L589.0,303.8"/>
+<path class="wire" transform="translate(520.8,167.4) rotate(63.4)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="542.3" y="163.5" text-anchor="start">R₃ = 6 Ω</text>
+<path class="wire" d="M682.0,55.8 L682.0,149.8 M682.0,209.8 L682.0,303.8"/>
+<path class="wire" transform="translate(682.0,179.8) rotate(90.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="664.0" y="184.8" text-anchor="end">R₄ = 12 Ω</text>
+<path class="wire" d="M93.0,303.8 L93.0,196.8 M93.0,162.8 L93.0,55.8"/>
+<circle class="source" cx="93.0" cy="179.8" r="17"/>
+<path class="wire" d="M89.0,171.8 h8 M93.0,167.8 v8 M89.0,187.8 h8"/>
+<text class="dato" x="68.0" y="184.8" text-anchor="end">18 V</text>
+<circle class="node" cx="372.0" cy="55.8" r="3.8"/>
+<circle class="node" cx="465.0" cy="55.8" r="3.8"/>
+<circle class="node" cx="372.0" cy="303.8" r="3.8"/>
+<circle class="node" cx="589.0" cy="303.8" r="3.8"/>
+</svg>

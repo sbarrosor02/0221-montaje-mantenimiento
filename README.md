@@ -42,6 +42,11 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   `temario/ut01-ejercicios-potencia.md`). La P2 incluye 5 retos voluntarios de
   montaje con varios LED y un puente de Wheatstone.
   Los seis esquemas incorporados desde los PDF se pueden ampliar y descargar.
+  Boletín 4 (mixtos avanzados) y boletín 5 (circuitos dibujados para
+  despistar), 6 ejercicios cada uno, con esquemas generados y verificados por
+  `scripts/generar_boletines_4_5.py`. Solucionarios en `temario/soluciones/`.
+  El **taller de nudos** (`web/temas/ut01-ejercicios-nudos.html`) permite
+  colorear los nudos y reducir paso a paso los circuitos del boletín 5.
 - Resto de temas: pendientes.
 
 ## Navegación del aula
