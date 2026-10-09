@@ -114,6 +114,13 @@ de 2 kΩ a **2,2 kΩ** porque 2 kΩ no es comercial, lo que engancha con la P3�
 Rúbrica (10): protoboard 1,5 · polímetro 1,5 · serie 2,0 · paralelo 2,0 · LED 1,0
 · tabla y error relativo 1,5 · orden y seguridad 0,5.
 
+**Informe técnico** (añadido el 09/10/2026): la entrega se redacta como informe
+siguiendo la guía `web/temas/ut01-practicas-p2-informe.html`. Apartados: portada,
+objetivo, material, seguridad, desarrollo (4.1 protoboard, 4.2 polímetro,
+4.3 serie, 4.4 paralelo, 4.5 LED), análisis de resultados con error relativo,
+incidencias, conclusiones, anexo de retos y fuentes. La guía incluye la
+correspondencia de cada apartado con la rúbrica, que no cambia.
+
 ### Parte 7 · Retos de montaje (voluntario, hasta +2)
 
 Añadidos el 02/10/2026 para quien termina pronto: circuitos con **más

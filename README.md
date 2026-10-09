@@ -47,6 +47,8 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   `scripts/generar_boletines_4_5.py`. Solucionarios en `temario/soluciones/`.
   El **taller de nudos** (`web/temas/ut01-ejercicios-nudos.html`) permite
   colorear los nudos y reducir paso a paso los circuitos del boletín 5.
+  La entrega de la P2 se hace como informe técnico con la guía
+  `web/temas/ut01-practicas-p2-informe.html`.
 - Resto de temas: pendientes.
 
 ## Navegación del aula

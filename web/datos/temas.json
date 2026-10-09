@@ -46,6 +46,11 @@
           "url": "temas/ut01-practicas.html",
           "evaluable": true,
           "nota": "P1 Tinkercad y multímetro (con puntos extra: mixto avanzado y LED), P2 protoboard y polímetro real (con 5 retos voluntarios: LED en serie, en paralelo, panel de 6 LED, regulador de brillo y puente de Wheatstone), P3 código de colores e identificación de componentes; las tres con rúbrica de 10"
+        },
+        {
+          "titulo": "Guía del informe técnico de la P2",
+          "url": "temas/ut01-practicas-p2-informe.html",
+          "nota": "apartados del informe, qué incluir en cada uno, ejemplos de cálculo, tabla y pie de foto, relación con la rúbrica y lista de comprobación"
         }
       ]
     }

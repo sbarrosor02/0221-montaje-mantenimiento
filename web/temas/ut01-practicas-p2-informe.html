@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Informe técnico de la P2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 0.9rem 0; font-size: 0.93rem; }
+  .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+  .tabla-datos th { background: var(--fondo-suave); font-weight: 600; }
+  .tabla-datos td.num, .tabla-datos th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .apartado { background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.9rem 1.1rem; margin: 1rem 0; }
+  .apartado h3 { margin: 0 0 0.4rem; }
+  .apartado h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .apartado .extension { font-size: 0.88rem; color: var(--tinta-suave); margin: 0 0 0.6rem; }
+  .apartado h4 { margin: 0.9rem 0 0.3rem; font-size: 1rem; }
+  .ejemplo { border-left: 3px solid var(--acento); background: var(--acento-claro); padding: 0.6rem 0.9rem; margin: 0.7rem 0; border-radius: 0 6px 6px 0; }
+  .ejemplo p { margin: 0.25rem 0; }
+  .ejemplo .etq { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--acento); }
+  .esqueleto { background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: 0.9rem 1.1rem; overflow-x: auto; font-size: 0.9rem; line-height: 1.55; }
+  .control { list-style: none; padding-left: 0; }
+  .control li { padding-left: 1.7rem; position: relative; }
+  .control li::before { content: ""; position: absolute; left: 0; top: 0.3rem; width: 1rem; height: 1rem; border: 2px solid var(--tinta-suave); border-radius: 3px; }
+  @media print { .apartado, .ejemplo { break-inside: avoid; } }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-antes-de-empezar">Antes de empezar</a></li><li><a href="#apartado-estructura-del-informe">Estructura del informe</a></li><li><a href="#apartado-ejemplos-de-presentacion">Ejemplos de presentación</a></li><li><a href="#apartado-errores-frecuentes">Errores frecuentes</a></li><li><a href="#apartado-que-mira-la-rubrica">Qué mira la rúbrica</a></li><li><a href="#apartado-antes-de-entregar">Antes de entregar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Informe técnico de la P2</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · Guía para redactar la entrega de la
+    práctica <a href="ut01-practicas.html#apartado-p2-montaje-real-en-protoboard-y-medidas-con-el-polimetro">P2 · Montaje real en protoboard y medidas con el polímetro</a></p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01-teoria.html">Teoría</a>
+    <a href="ut01-prl.html">Seguridad y PRL</a>
+    <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-practicas.html">Prácticas</a>
+  </nav>
+
+  <section>
+    <h2 id="apartado-antes-de-empezar">Antes de empezar</h2>
+    <p>La parte práctica ya la hiciste en el taller. Ahora toca contarla como lo
+    haría un técnico: alguien que no estuvo allí tiene que poder entender
+    <strong>qué montaste, cómo lo mediste, qué salió y por qué</strong>, y
+    poder repetirlo con tu informe en la mano.</p>
+    <div class="aviso">
+      <strong>Las medidas no se inventan.</strong> Usa los valores que anotaste en
+      el taller. Si te falta alguna medida, escribe «no medido» en la tabla y
+      explica el motivo en el apartado de incidencias. Un dato inventado o
+      copiado del simulador como si fuera real penaliza más que un hueco
+      justificado.
+    </div>
+    <h3>Formato de la entrega</h3>
+    <ul>
+      <li>Un único PDF llamado <code>P2_apellido_nombre.pdf</code>. Lo puedes
+      escribir en Word, LibreOffice o Google Docs y exportarlo a PDF.</li>
+      <li>Tamaño A4, letra de 11 o 12 puntos, páginas numeradas.</li>
+      <li>Extensión orientativa: de 6 a 12 páginas con las fotos. Cuenta más que
+      esté completo y claro que el número de páginas.</li>
+      <li>Fotos <strong>nítidas</strong> y <strong>numeradas</strong>, cada una
+      con su pie: «Figura 3. …». Lo mismo con las tablas: «Tabla 2. …».</li>
+      <li>Todos los números llevan <strong>unidad</strong> (V, mA, Ω) y usan la
+      coma decimal: 6,12 V, no «6.12».</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-estructura-del-informe">Estructura del informe</h2>
+    <p>El informe tiene estas partes, en este orden. Al lado de cada una está
+    la parte de la práctica de la que sale.</p>
+
+    <div class="apartado">
+      <h3><span class="num">Portada</span></h3>
+      <p class="extension">1 página</p>
+      <ul>
+        <li>Título: <em>Informe técnico · P2 · Montaje real en protoboard y medidas con el polímetro</em>.</li>
+        <li>Módulo 0221 Montaje y mantenimiento de equipo · 2.º SMR · IES Valle del Jerte.</li>
+        <li>Tu nombre y apellidos, el de tu compañero o compañera de puesto si
+        trabajasteis en pareja, la fecha en que hiciste la práctica y la de
+        entrega.</li>
+      </ul>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">1.</span> Objetivo</h3>
+      <p class="extension">3–5 líneas</p>
+      <p>Qué se pretendía con la práctica, con tus palabras: montar circuitos
+      serie, paralelo y con LED en una protoboard, medir con el polímetro y
+      comparar las medidas reales con los cálculos y con la simulación de la P1.</p>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">2.</span> Material y equipos</h3>
+      <p class="extension">Una tabla</p>
+      <p>Una tabla con <strong>elemento, características y cantidad</strong>. Sé
+      concreto: no vale «un polímetro», sino su marca y modelo, y si es de
+      autorango o no.</p>
+      <ul>
+        <li>Protoboard, fuente de alimentación o pila (con su tensión nominal),
+        polímetro (marca y modelo), cables puente.</li>
+        <li>Cada resistencia con su <strong>valor nominal, sus bandas de color y
+        su tolerancia</strong>: 100, 220, 680, 330 Ω, 1 kΩ y 2,2 kΩ.</li>
+        <li>El LED: color y diámetro.</li>
+      </ul>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">3.</span> Seguridad</h3>
+      <p class="extension">Una lista breve · rúbrica: orden y seguridad</p>
+      <p>Las medidas de seguridad que <strong>aplicaste de verdad</strong>, no
+      una lista genérica. Por ejemplo: montar y desmontar sin tensión, no
+      superar 12 V, no conectar el LED sin resistencia, devolver la punta roja
+      a VΩmA tras medir corriente, recoger el puesto. Repasa
+      <a href="ut01-prl.html">Seguridad y PRL</a>.</p>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">4.</span> Desarrollo</h3>
+      <p class="extension">La parte más larga · un subapartado por cada parte de la práctica</p>
+      <p>En cada subapartado sigue siempre el mismo orden:
+      <strong>esquema → cálculo previo → foto del montaje → cómo mediste →
+      tabla de resultados</strong>. El esquema puede ser una captura de
+      Tinkercad o un dibujo a mano escaneado, pero con los valores escritos.</p>
+
+      <h4>4.1 La protoboard (Parte 1)</h4>
+      <ul>
+        <li>Tabla con las <strong>cinco pruebas de continuidad</strong>: qué
+        dos puntos uniste, si pitó o no y qué conclusión sacas.</li>
+        <li>Tu dibujo de qué está unido con qué: columnas, canal central y buses
+        de alimentación.</li>
+      </ul>
+
+      <h4>4.2 El polímetro (Parte 2)</h4>
+      <ul>
+        <li>Foto o dibujo de <strong>tu</strong> polímetro con los bornes y las
+        zonas del selector etiquetados.</li>
+        <li>La tensión real de la fuente o la pila medida antes de montar.</li>
+        <li>Qué modo, qué borne y qué rango usaste para cada magnitud: tensión,
+        corriente, resistencia y continuidad.</li>
+      </ul>
+
+      <h4>4.3 Circuito en serie (Parte 3)</h4>
+      <ul>
+        <li>Esquema con 100, 220 y 680 Ω a 9 V.</li>
+        <li><strong>Cálculo previo</strong> con los valores nominales: R total,
+        I y la tensión de cada resistencia. Deja ver las operaciones.</li>
+        <li>El valor real de cada resistencia medido con el óhmetro.</li>
+        <li>Foto del montaje y foto midiendo, al menos una tensión y la
+        intensidad. Explica <strong>por dónde abriste el circuito</strong> para
+        meter el amperímetro.</li>
+        <li>La tabla de la práctica completa: calculado, simulado (P1) y medido
+        real.</li>
+      </ul>
+
+      <h4>4.4 Circuito en paralelo (Parte 4)</h4>
+      <ul>
+        <li>Esquema con 1 kΩ y 2,2 kΩ a 9 V, y por qué se usó 2,2 kΩ y no 2 kΩ.</li>
+        <li>Cálculo previo: intensidad de cada rama, intensidad total y R total.</li>
+        <li>Fotos, cómo mediste cada corriente y la tabla completa.</li>
+        <li>Comprueba con tus medidas que <strong>las dos ramas tienen la misma
+        tensión</strong> y que <strong>las corrientes de rama suman la
+        total</strong>.</li>
+        <li>Recálculo con los valores <strong>reales</strong> de las
+        resistencias, como pide la práctica.</li>
+      </ul>
+
+      <h4>4.5 El LED (Parte 5)</h4>
+      <ul>
+        <li>Esquema con la resistencia de 330 Ω y el LED, marcando ánodo y
+        cátodo.</li>
+        <li>Cálculo previo de la corriente: I = (9 − V<sub>LED</sub>) / 330.</li>
+        <li>Foto del LED encendido.</li>
+        <li>Tensión medida en el LED y corriente medida, comparadas con el
+        simulador.</li>
+        <li>Para qué sirve la resistencia y qué pasa si el LED se monta al revés.</li>
+      </ul>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">5.</span> Análisis de resultados</h3>
+      <p class="extension">1–2 páginas · rúbrica: tabla comparativa y error relativo</p>
+      <ul>
+        <li>El <strong>error relativo</strong> de al menos dos medidas, con la
+        fórmula y la operación: error (%) = |medido − calculado| ÷ calculado × 100.</li>
+        <li>Si el error es menor del 5 %, di que el montaje es correcto. Si es
+        mayor, busca la causa: cableado, rango, una resistencia confundida…</li>
+        <li>Explica <strong>por qué</strong> no coinciden exactamente, con las
+        causas de la Parte 6: tolerancia de las resistencias, precisión del
+        polímetro, contactos de la protoboard y tensión real de la fuente.
+        Relaciónalas con tus datos: «R₃ midió 672 Ω, un 1,2 % menos de su
+        valor nominal».</li>
+      </ul>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">6.</span> Incidencias y soluciones</h3>
+      <p class="extension">Una tabla o una lista</p>
+      <p>Lo que salió mal y cómo lo resolviste: un LED del revés, un cable en
+      la columna equivocada, una lectura de 0 por usar mal el rango, una
+      medida que te faltó… Un técnico que documenta sus fallos es un buen
+      técnico. Si no hubo ninguna incidencia, dilo.</p>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">7.</span> Conclusiones</h3>
+      <p class="extension">Media página</p>
+      <p>Qué has aprendido, apoyándote en tus medidas. Como mínimo responde:</p>
+      <ul>
+        <li>En serie, ¿la intensidad es la misma en todo el circuito? ¿Las
+        tensiones suman la de la fuente?</li>
+        <li>En paralelo, ¿la tensión es la misma en cada rama? ¿Las corrientes
+        suman la total?</li>
+        <li>¿En qué se diferencia medir en el taller de medir en el simulador?</li>
+      </ul>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">Anexo A.</span> Retos de montaje (si los hiciste)</h3>
+      <p class="extension">Un apartado por reto · puntos extra</p>
+      <p>Para cada reto de la Parte 7: foto del montaje funcionando, cálculos
+      previos, medidas y la respuesta a la pregunta del experimento.</p>
+    </div>
+
+    <div class="apartado">
+      <h3><span class="num">Fuentes</span></h3>
+      <p>Lo que consultaste: los apuntes del tema, el enunciado de la práctica,
+      el manual o la hoja de características del polímetro o del LED, si los
+      usaste.</p>
+    </div>
+
+    <h3>Esqueleto para copiar</h3>
+    <p>Puedes copiar este índice en tu documento y rellenarlo.</p>
+<pre class="esqueleto">Portada
+1. Objetivo
+2. Material y equipos
+3. Seguridad
+4. Desarrollo
+   4.1 La protoboard: pruebas de continuidad
+   4.2 El polímetro: bornes, selector y tensión de la fuente
+   4.3 Circuito en serie: esquema, cálculo, montaje, medidas
+   4.4 Circuito en paralelo: esquema, cálculo, montaje, medidas
+   4.5 El LED: esquema, cálculo, montaje, medidas
+5. Análisis de resultados: error relativo y causas
+6. Incidencias y soluciones
+7. Conclusiones
+Anexo A. Retos de montaje (si los hiciste)
+Fuentes</pre>
+  </section>
+
+  <section>
+    <h2 id="apartado-ejemplos-de-presentacion">Ejemplos de presentación</h2>
+    <p>Así se ve un apartado bien presentado. Los cálculos usan los valores
+    nominales de la práctica. Los números «medidos» son
+    <strong>inventados para el ejemplo</strong>: en tu informe van los tuyos.</p>
+
+    <div class="ejemplo">
+      <p class="etq">Cálculo previo · serie</p>
+      <p>R total = 100 + 220 + 680 = <strong>1000 Ω</strong></p>
+      <p>I = V / R = 9 V / 1000 Ω = 0,009 A = <strong>9 mA</strong></p>
+      <p>V₁ = 9 mA · 100 Ω = 0,90 V · V₂ = 9 mA · 220 Ω = 1,98 V · V₃ = 9 mA · 680 Ω = 6,12 V</p>
+      <p>Comprobación: 0,90 + 1,98 + 6,12 = 9,00 V ✔</p>
+    </div>
+
+    <div class="ejemplo">
+      <p class="etq">Tabla de resultados · serie</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de ejemplo; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <caption>Tabla 3. Circuito en serie a 9 V: valores calculados, simulados y medidos.</caption>
+        <thead><tr><th>Magnitud</th><th class="num">Calculado</th><th class="num">Simulado (P1)</th><th class="num">Medido real</th><th class="num">Error</th></tr></thead>
+        <tbody>
+          <tr><td>I del circuito</td><td class="num">9,00 mA</td><td class="num">9,00 mA</td><td class="num">8,82 mA</td><td class="num">2,0 %</td></tr>
+          <tr><td>V en R₃ (680 Ω)</td><td class="num">6,12 V</td><td class="num">6,12 V</td><td class="num">6,01 V</td><td class="num">1,8 %</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="ejemplo">
+      <p class="etq">Error relativo</p>
+      <p>Intensidad: |8,82 − 9,00| ÷ 9,00 × 100 = <strong>2,0 %</strong>. Es
+      menor del 5 %, así que la medida es correcta. La fuente marcaba 8,85 V en
+      lugar de 9 V, lo que explica casi toda la diferencia.</p>
+    </div>
+
+    <div class="ejemplo">
+      <p class="etq">Pie de foto</p>
+      <p><em>Figura 4. Circuito en serie montado en la protoboard. El polímetro,
+      en 20 V de continua, mide la tensión en R₃.</em></p>
+    </div>
+
+    <h3>Valores calculados de referencia</h3>
+    <p>Para comprobar tus cálculos previos, con valores nominales y 9 V:</p>
+    <div class="aula-tabla" role="region" aria-label="Valores calculados de referencia; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Montaje</th><th>Resultado calculado</th></tr></thead>
+      <tbody>
+        <tr><td>Serie 100 + 220 + 680 Ω</td><td>R = 1000 Ω · I = 9 mA · V = 0,90 / 1,98 / 6,12 V</td></tr>
+        <tr><td>Paralelo 1 kΩ ∥ 2,2 kΩ</td><td>I₁ = 9 mA · I₂ ≈ 4,09 mA · I total ≈ 13,09 mA · R ≈ 687,5 Ω</td></tr>
+        <tr><td>LED rojo + 330 Ω</td><td>I ≈ (9 − 2) / 330 ≈ 21,2 mA, suponiendo V<sub>LED</sub> ≈ 2 V</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-errores-frecuentes">Errores frecuentes</h2>
+    <ul>
+      <li>Dar solo el resultado, sin la operación. Siempre <strong>fórmula →
+      sustitución → resultado con unidad</strong>.</li>
+      <li>Poner en la columna «medido» los números del simulador.</li>
+      <li>Fotos movidas, oscuras o sin pie, en las que no se distingue el
+      montaje.</li>
+      <li>Tablas sin unidades o con mA y A mezclados en la misma columna.</li>
+      <li>Explicar las diferencias con un «por error humano». Hay que
+      nombrar la causa concreta: tolerancia, precisión del polímetro,
+      contactos o tensión real de la fuente.</li>
+      <li>Conclusiones genéricas («he aprendido mucho») que no citan ninguna
+      medida.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-que-mira-la-rubrica">Qué mira la rúbrica</h2>
+    <p>La P2 se califica con su rúbrica de 10 puntos. Esta tabla indica en qué
+    apartado del informe se ve cada criterio.</p>
+    <div class="aula-tabla" role="region" aria-label="Correspondencia entre rúbrica e informe; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Criterio de la rúbrica</th><th class="num">Puntos</th><th>Dónde se ve en el informe</th></tr></thead>
+      <tbody>
+        <tr><td>Conexiones de la protoboard identificadas y comprobadas con continuidad</td><td class="num">1,5</td><td>4.1</td></tr>
+        <tr><td>Uso correcto del polímetro: bornes, selector y rango</td><td class="num">1,5</td><td>4.2 y el «cómo mediste» de 4.3–4.5</td></tr>
+        <tr><td>Circuito serie montado y medido correctamente</td><td class="num">2,0</td><td>4.3</td></tr>
+        <tr><td>Circuito paralelo montado y medido correctamente</td><td class="num">2,0</td><td>4.4</td></tr>
+        <tr><td>LED montado con su resistencia y la polaridad correcta</td><td class="num">1,0</td><td>4.5</td></tr>
+        <tr><td>Tabla comparativa y cálculo del error relativo</td><td class="num">1,5</td><td>Tablas de 4.3–4.4 y apartado 5</td></tr>
+        <tr><td>Orden, seguridad y recogida del puesto</td><td class="num">0,5</td><td>3 y lo observado en el taller</td></tr>
+      </tbody>
+    </table></div>
+    <p class="meta">Los retos de la Parte 7 suman hasta 2 puntos extra y van en
+    el anexo A.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-antes-de-entregar">Antes de entregar</h2>
+    <p>Repasa esta lista con el PDF ya exportado:</p>
+    <ul class="control">
+      <li>El archivo se llama <code>P2_apellido_nombre.pdf</code> y se abre bien.</li>
+      <li>La portada tiene tu nombre, la fecha y el título.</li>
+      <li>Las páginas están numeradas y los apartados siguen el orden de esta guía.</li>
+      <li>Están las tablas de serie y de paralelo completas, con unidades.</li>
+      <li>Hay cálculo previo, con operaciones, para serie, paralelo y LED.</li>
+      <li>Hay foto de cada montaje (serie, paralelo y LED encendido), cada una con su pie.</li>
+      <li>Están las cinco pruebas de continuidad de la protoboard.</li>
+      <li>Hay al menos dos errores relativos calculados y explicados.</li>
+      <li>Las faltas de datos están justificadas en incidencias, sin inventar nada.</li>
+      <li>Las conclusiones citan tus medidas.</li>
+      <li>Si hiciste retos, van en el anexo A.</li>
+    </ul>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut01-practicas.html#apartado-p2-montaje-real-en-protoboard-y-medidas-con-el-polimetro">&laquo; Enunciado de la P2</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut01-practicas.html#apartado-p3-identificacion-de-componentes-y-codigo-de-colores">P3 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
