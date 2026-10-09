@@ -7,10 +7,14 @@
 <link rel="stylesheet" href="../assets/estilo.css">
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
+<style>
+  .ahora { border-left: 4px solid var(--acento); }
+  .ahora ul { margin: .3rem 0 0; padding-left: 1.2rem; }
+</style>
 </head>
 <body data-modulo="0221">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-apartados-del-tema">Apartados del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1 (UT1)</p>
@@ -24,72 +28,77 @@
     <a href="ut01-teoria.html">Teoría</a>
     <a href="ut01-prl.html">Seguridad y PRL</a>
     <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
     <a href="ut01-practicas.html">Prácticas</a>
   </nav>
 
   <p>Este tema es la <strong>base eléctrica de todo el módulo</strong>: sin
   entender voltaje, corriente, resistencia y la Ley de Ohm no se entiende cómo
-  funciona un ordenador por dentro ni se puede diagnosticar una avería. Está
-  repartido en cuatro apartados; entra por el que necesites.</p>
+  funciona un ordenador por dentro ni se puede diagnosticar una avería.</p>
 
-  <h2 id="apartado-apartados-del-tema">Apartados del tema</h2>
+  <div class="tarjeta ahora">
+    <p><strong>Ahora mismo</strong></p>
+    <ul>
+      <li><strong>Examen de circuitos: miércoles 14 de octubre.</strong> Prepáralo con el <a href="ut01-ejercicios-repaso.html">repaso para el examen</a>, que incluye un simulacro.</li>
+      <li><strong>Entrega del informe de la P2.</strong> Sigue la <a href="ut01-practicas-p2-informe.html">guía del informe técnico</a>.</li>
+    </ul>
+  </div>
+
+  <h2 id="apartado-estudiar">Estudiar</h2>
   <ul class="lista-temas">
-
     <li>
       <a href="ut01-teoria.html">
         <span class="ut">Teoría</span>Electricidad, componentes y medida
-        <br><span class="etq">RA3 · magnitudes y unidades, Ley de Ohm, serie y paralelo, resistencias, aparatos de medida · 5 apartados</span>
+        <br><span class="etq">RA3 · magnitudes y unidades, Ley de Ohm, serie y paralelo, resistencias, aparatos de medida</span>
       </a>
     </li>
-
     <li>
       <a href="ut01-prl.html">
         <span class="ut">Seguridad</span>Seguridad, PRL y medio ambiente
-        <br><span class="etq">Teoría · RA8 · riesgos y accidentes, EPI, seguridad eléctrica y electricidad estática, residuos y RAEE · con autocomprobación</span>
+        <br><span class="etq">RA8 · riesgos, EPI, seguridad eléctrica, residuos y RAEE · léela antes de trabajar en el taller</span>
       </a>
     </li>
+  </ul>
 
+  <h2 id="apartado-practicar">Practicar</h2>
+  <p class="meta">No cuenta para la nota. Sirve para coger soltura antes del examen.</p>
+  <ul class="lista-temas">
+    <li>
+      <a href="ut01-ejercicios-repaso.html">
+        <span class="ut">Repaso</span>Repaso para el examen
+        <br><span class="etq">Ejercicios con el formato del examen, con resultados para comprobar y un simulacro de 50 minutos</span>
+      </a>
+    </li>
     <li>
       <a href="ut01-ejercicios.html">
         <span class="ut">Ejercicios</span>Circuitos y Ley de Ohm
-        <br><span class="etq">Formativo, no evaluable · 3 resueltos y cinco boletines: serie y paralelo, mixtos, potencia, mixtos avanzados y circuitos enrevesados · esquemas ampliables</span>
+        <br><span class="etq">Resueltos y cinco boletines, de más fácil a más difícil: serie y paralelo, mixtos, potencia, mixtos avanzados y circuitos enrevesados</span>
       </a>
     </li>
-
     <li>
       <a href="ut01-ejercicios-nudos.html">
         <span class="ut">Taller</span>Taller de nudos
-        <br><span class="etq">Interactivo, no evaluable · colorea los nudos, reduce serie y paralelo paso a paso y comprueba cada resultado</span>
+        <br><span class="etq">Interactivo · colorea los nudos y reduce el circuito paso a paso; el taller te dice si vas bien</span>
       </a>
     </li>
-
-    <li>
-      <a href="ut01-practicas.html">
-        <span class="ut">Prácticas</span>Simulación, montaje real y componentes
-        <br><span class="etq">Evaluables · P1 Tinkercad y multímetro (con puntos extra) · P2 protoboard y polímetro · P3 código de colores · las tres con rúbrica</span>
-      </a>
-    </li>
-
-    <li>
-      <a href="ut01-practicas-p2-informe.html">
-        <span class="ut">Entrega</span>Informe técnico de la P2
-        <br><span class="etq">Guía para redactar el informe: apartados, ejemplos, relación con la rúbrica y lista de comprobación</span>
-      </a>
-    </li>
-
   </ul>
 
-  <div class="aviso">
-    <strong>En qué orden conviene ir.</strong> Primero la
-    <a href="ut01-teoria.html">teoría</a>, para tener los conceptos y las
-    fórmulas. Después los <a href="ut01-ejercicios.html">ejercicios</a>, que son
-    de lápiz y papel y sirven para coger soltura con los cálculos. Y por último
-    las <a href="ut01-practicas.html">prácticas</a>, que son las evaluables y ya
-    se hacen con el simulador y con material real.
-    La parte de <a href="ut01-prl.html">seguridad y PRL</a> conviene leerla
-    <strong>antes de la P2</strong>, que es la primera vez que tocas componentes
-    y corriente de verdad.
-  </div>
+  <h2 id="apartado-entregar">Entregar</h2>
+  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de entregar.</p>
+  <ul class="lista-temas">
+    <li>
+      <a href="ut01-practicas.html">
+        <span class="ut">Prácticas</span>P1, P2 y P3: enunciados y rúbricas
+        <br><span class="etq">P1 Tinkercad y multímetro · P2 protoboard y polímetro · P3 código de colores</span>
+      </a>
+    </li>
+    <li>
+      <a href="ut01-practicas-p2-informe.html">
+        <span class="ut">Informe</span>Cómo hacer el informe técnico de la P2
+        <br><span class="etq">Apartados, ejemplos, qué mira la rúbrica y lista de comprobación</span>
+      </a>
+    </li>
+  </ul>
 
   <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
     <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>

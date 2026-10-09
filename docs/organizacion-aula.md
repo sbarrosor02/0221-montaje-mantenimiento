@@ -69,3 +69,23 @@ Capturas y resultados en `../revision-aulas/`.
 La comprobación visual de navegación no constituye una revisión de exactitud
 de todos los contenidos didácticos. Los circuitos y los textos se conservan.
 
+
+## Revisión del 09/10/2026 · encontrar las cosas
+
+Al alumnado le costaba encontrar el material. Cambios:
+
+- **Portada del módulo**: bloque «Ahora en clase» con lo urgente (examen,
+  entregas). Se edita en `destacados` de `web/datos/temas.json` y se regenera
+  con `scripts/actualizar_aula.py`. Si la lista está vacía, el bloque no sale.
+- **Portada del tema 1**: aviso «Ahora mismo» y apartados agrupados por lo
+  que se quiere hacer: Estudiar, Practicar y Entregar.
+- **Barra del tema**: se añade «Repaso examen». En el taller de nudos se
+  marca «Ejercicios» y en la guía del informe se marca «Prácticas», porque
+  son subpáginas de esos apartados.
+- **Ejercicios**: la página es muy larga, así que al principio hay un mapa de
+  boletines con su nivel y su número de ejercicios. Cada boletín termina con
+  un enlace de vuelta al mapa.
+- **Catálogo**: los esquemas SVG ya no salen como descargas sueltas (de 25 a
+  8 materiales). Siguen disponibles dentro de cada ejercicio.
+- `assets/aula.css` recibe los estilos de `.aula-ahora`. Si se copia al
+  repositorio de 0223, no le afecta mientras no use `destacados`.

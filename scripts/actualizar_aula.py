@@ -114,6 +114,9 @@ for repo in REPOS:
         for target, label in re.findall(r'<a\b[^>]*href="([^"]+\.(?:docx|dotx|xlsx|pptx|odt|pdf|zip|png|jpg|svg))"[^>]*>(.*?)</a>', source, re.S):
             if target.startswith('../'):
                 destination = target[3:]
+                # Los esquemas SVG se consultan dentro de su ejercicio; listarlos sueltos llenaba el catálogo.
+                if Path(destination).suffix == '.svg':
+                    continue
                 if (web / destination).is_file():
                     if Path(destination).suffix == '.svg':
                         svg = (web / destination).read_text(encoding='utf-8')
@@ -126,7 +129,13 @@ for repo in REPOS:
     filters = ''.join('<button type="button" data-filtro="' + value + '" aria-pressed="' + ('true' if value == 'todos' else 'false') + '">' + label + '</button>' for value, label in [('todos','Todos'), ('apuntes','Apuntes'), ('ejercicios','Ejercicios'), ('practicas','Prácticas'), ('consulta','Consulta'), ('descargas','Descargas')])
     catalogue = '<header class="cab"><p class="modulo">' + code + ' · ' + short_name + '</p><h1>Encuentra tu material</h1><p class="meta">Apuntes, ejercicios, prácticas y archivos de trabajo, en un solo lugar.</p></header><div class="aula-busqueda" hidden><label for="buscar-material">Buscar por título o apartado</label><input id="buscar-material" type="search" placeholder="Por ejemplo: estilos, tabla, circuito…"><div class="aula-filtros" aria-label="Filtrar por tipo">' + filters + '<button type="button" data-limpiar>Limpiar búsqueda</button></div><p id="estado-busqueda" role="status" aria-live="polite"></p></div><noscript><p>Todos los materiales están disponibles en la lista. Activa JavaScript para usar los filtros.</p></noscript><ul class="aula-catalogo">' + '\n'.join(cards) + '</ul>'
     (web / 'recursos.html').write_text(shell(document('Materiales · ' + short_name, catalogue), code, 'recursos.html', short_name), encoding='utf-8')
-    home = '<header class="cab"><p class="modulo">IES Valle del Jerte · CFGM SMR · ' + code + '</p><h1>' + escape(data['titulo']) + '</h1><p class="meta">' + ('2.º curso · 6 h/semana' if code == '0221' else '1.º curso · 7 h/semana') + ' · Curso 2026/2027</p></header><p>Tu aula de consulta: estudia el tema, practica con los ejercicios y prepara las entregas que indique el profesor.</p><nav class="ruta-estudio" aria-label="Qué necesitas hacer">'
+    home = '<header class="cab"><p class="modulo">IES Valle del Jerte · CFGM SMR · ' + code + '</p><h1>' + escape(data['titulo']) + '</h1><p class="meta">' + ('2.º curso · 6 h/semana' if code == '0221' else '1.º curso · 7 h/semana') + ' · Curso 2026/2027</p></header><p>Tu aula de consulta: estudia el tema, practica con los ejercicios y prepara las entregas que indique el profesor.</p>'
+    if data.get('destacados'):
+        home += '<section class="aula-ahora" aria-labelledby="ahora-titulo"><h2 id="ahora-titulo">Ahora en clase</h2><ul>'
+        for item in data['destacados']:
+            home += '<li><a href="' + escape(item['url']) + '"><span class="aula-tipo">' + escape(item['etiqueta']) + '</span><strong>' + escape(item['titulo']) + '</strong><span>' + escape(item['texto']) + '</span></a></li>'
+        home += '</ul></section>'
+    home += '<nav class="ruta-estudio" aria-label="Qué necesitas hacer">'
     for label, target, description in [('Estudiar', 'apuntes', 'Apuntes y explicaciones por tema'), ('Practicar', 'ejercicios', 'Ejercicios para aprender y repasar'), ('Preparar una entrega', 'practicas', 'Enunciados, requisitos y rúbricas')]:
         home += '<a href="recursos.html?tipo=' + target + '"><strong>' + label + '</strong><span>' + description + '</span></a>'
     home += '</nav><p><a href="recursos.html">Buscar un material o descargar un archivo</a></p><h2>Recorrido del módulo</h2><p>Sigue el orden de los temas y las indicaciones del profesor. Los próximos contenidos se añadirán aquí.</p><ul class="lista-temas">'

@@ -49,6 +49,10 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   colorear los nudos y reducir paso a paso los circuitos del boletín 5.
   La entrega de la P2 se hace como informe técnico con la guía
   `web/temas/ut01-practicas-p2-informe.html`.
+  **Repaso para el examen** (`web/temas/ut01-ejercicios-repaso.html`): 6
+  ejercicios con el formato del examen de 2024 y un simulacro, generados y
+  verificados con `scripts/generar_repaso_examen.py`. Simulacro imprimible con
+  solucionario en `temario/soluciones/`.
 - Resto de temas: pendientes.
 
 ## Navegación del aula
