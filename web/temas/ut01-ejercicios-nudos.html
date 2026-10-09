@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 1 · Taller de nudos · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .taller-circuitos { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; }
+  .taller-circuitos button, .taller-botones button, .taller-acciones button, .taller-form button {
+    font: inherit; font-size: .92rem; padding: .45rem .8rem; border-radius: 6px; cursor: pointer;
+    border: 1px solid var(--linea); background: white; color: var(--tinta); }
+  .taller-circuitos button[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); color: white; }
+  .taller-botones .principal, .taller-acciones button, .taller-form .principal { background: var(--acento); border-color: var(--acento); color: white; font-weight: 600; }
+  .taller-acciones button:disabled { opacity: .45; cursor: default; }
+  .taller-fase { background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem; margin: 1rem 0; }
+  .taller-fase h3 { margin: 0 0 .4rem; }
+  .taller-fase > p { margin: .3rem 0 .7rem; }
+  .lienzo-zona { overflow-x: auto; border: 1px dashed var(--linea); border-radius: 6px; background: white; }
+  #lienzo { display: block; width: 100%; min-width: 500px; height: auto; touch-action: manipulation; }
+  .paleta { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: .6rem 0; }
+  .muestra { min-width: 2.6rem; min-height: 2.6rem; border-radius: 50%; border: 3px solid white; outline: 1px solid var(--linea);
+    background: var(--muestra); color: white; font: 700 1rem system-ui, sans-serif; cursor: pointer; }
+  .muestra[aria-pressed="true"] { outline: 3px solid var(--tinta); }
+  .muestra.goma { border-radius: 6px; background: white; color: var(--tinta); font-weight: 600; padding: 0 .7rem; }
+  .taller-botones, .taller-acciones { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0 .3rem; }
+  .taller-msg { min-height: 1.4em; margin: .5rem 0 0; padding: 0; }
+  .taller-msg.bien, .taller-msg.mal, .taller-msg.info { padding: .5rem .8rem; border-radius: 6px; }
+  .taller-msg.bien { background: #e7f5ec; color: #145c32; }
+  .taller-msg.mal { background: #fdecee; color: #8c1c24; }
+  .taller-msg.info { background: var(--acento-claro); }
+  .chip { display: inline-block; min-width: 1.4em; padding: 0 .3em; border-radius: 1em; color: white; font-weight: 700; font-size: .85em; text-align: center; line-height: 1.5; }
+  #lienzo .pieza { cursor: pointer; }
+  #lienzo .pieza-zona { fill: none; stroke: transparent; stroke-width: 16; stroke-linecap: round; }
+  #lienzo .pieza-trazo { fill: none; stroke: #24364a; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  #lienzo .pieza.pintada .pieza-trazo { stroke-width: 4.5; }
+  #lienzo .pieza:hover .pieza-trazo, #lienzo .pieza:focus .pieza-trazo { stroke-width: 6; }
+  #lienzo .pieza:focus { outline: none; }
+  #lienzo .pieza.error .pieza-trazo { stroke-dasharray: 6 5; stroke-width: 5; }
+  #lienzo .res-zona { fill: transparent; }
+  #lienzo .res-zig { fill: none; stroke: #24364a; stroke-width: 2.4; stroke-linejoin: round; }
+  #lienzo .fuente { fill: white; stroke: #24364a; stroke-width: 2.2; }
+  #lienzo .signo { fill: none; stroke: #24364a; stroke-width: 2; }
+  #lienzo .punto { fill: #24364a; }
+  #lienzo .abierto { fill: white; stroke: #24364a; stroke-width: 2; }
+  #lienzo text { font: 15px system-ui, sans-serif; fill: #24364a; }
+  #lienzo .dato { font-weight: 600; fill: #8a3d00; }
+  #lienzo .marca circle { stroke: white; stroke-width: 2; }
+  #lienzo .marca text { font: 700 12px system-ui, sans-serif; fill: white; pointer-events: none; }
+  #lienzo .marca { pointer-events: none; }
+  .modo-reducir #lienzo .pieza { cursor: default; }
+  .modo-reducir #lienzo .resistencia { cursor: pointer; }
+  .modo-reducir #lienzo .resistencia:hover .res-zig { stroke-width: 4; }
+  #lienzo .resistencia.agrupada .res-zig { stroke: var(--acento); stroke-width: 3.5; }
+  #lienzo .resistencia.sel .res-zig { stroke: #ad4c00; stroke-width: 5; }
+  #lienzo .resistencia.sel .res-zona { fill: #ad4c0022; }
+  #lienzo .resistencia.quitada, #lienzo text.quitada { opacity: .3; }
+  #lienzo .resistencia:focus { outline: none; }
+  #lienzo .resistencia:focus .res-zona { stroke: #ad4c00; stroke-width: 2; stroke-dasharray: 3 3; }
+  .tabla-taller { border-collapse: collapse; width: 100%; font-size: .95rem; margin: .6rem 0; }
+  .tabla-taller th, .tabla-taller td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--linea); }
+  .tabla-taller tr.sel { background: #fff2e6; }
+  .tabla-taller label { cursor: pointer; font-weight: 600; }
+  .taller-form { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .7rem 0; }
+  .taller-form input { font: inherit; width: 7rem; padding: .4rem .5rem; border: 1px solid var(--linea); border-radius: 6px; }
+  .esquema-redibujo { overflow-x: auto; }
+  .esquema-redibujo svg { display: block; width: 100%; min-width: 480px; height: auto; }
+  .esquema-redibujo .w { fill: none; stroke: #24364a; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .esquema-redibujo .f { fill: white; stroke: #24364a; stroke-width: 2.2; }
+  .esquema-redibujo .n { fill: #24364a; }
+  .esquema-redibujo text { font: 15px system-ui, sans-serif; fill: #24364a; }
+  .esquema-redibujo .dato { font-weight: 600; fill: #8a3d00; }
+  .nota { color: var(--tinta-suave); font-size: .95rem; }
+  .boton-enlace { font: inherit; background: none; border: none; color: var(--acento); text-decoration: underline; cursor: pointer; padding: .3rem 0; }
+  .taller-circuitos button:hover, .taller-botones button:hover, .taller-form button:hover, .muestra.goma:hover { background: var(--fondo-suave); }
+  .taller-circuitos button[aria-pressed="true"]:hover, .taller-botones .principal:hover, .taller-acciones button:hover, .taller-form .principal:hover { background: var(--acento); filter: brightness(.88); }
+  .muestra:hover { background: var(--muestra); filter: brightness(.92); }
+  .boton-enlace:hover { background: none; color: var(--acento); text-decoration-thickness: 2px; }
+  @media print { .taller-circuitos, .taller-botones, .taller-acciones, .paleta { display: none; } }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<script defer src="../assets/circuitos-nudos.js"></script>
+<script defer src="../assets/taller-nudos.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-funciona">Cómo funciona</a></li><li><a href="#apartado-taller">Taller</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Taller de nudos</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · Actividad interactiva, no evaluable</p>
+  </header>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01-teoria.html">Teoría</a>
+    <a href="ut01-prl.html">Seguridad y PRL</a>
+    <a href="ut01-ejercicios.html">Ejercicios</a>
+    <a href="ut01-practicas.html">Prácticas</a>
+  </nav>
+
+  <section>
+    <h2 id="apartado-como-funciona">Cómo funciona</h2>
+    <p>Practica con los circuitos del <a href="ut01-ejercicios.html#b5">boletín 5</a>,
+    los que están dibujados para despistar. Lo vas a resolver en tres fases y el
+    taller comprueba cada paso:</p>
+    <ol>
+      <li><strong>Colorea los nudos.</strong> Elige un color y toca los cables y las
+      patillas de las resistencias. Todo lo que esté unido solo por cable lleva el
+      mismo color. Un cruce sin punto no está conectado.</li>
+      <li><strong>Reduce.</strong> Selecciona dos o más resistencias y di si están en
+      serie o en paralelo. Si aciertas, calcula cuánto vale la equivalente. Si una
+      resistencia no conduce, quítala.</li>
+      <li><strong>Calcula la intensidad</strong> que sale de la fuente.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 id="apartado-taller">Taller</h2>
+    <noscript><p>Este taller necesita JavaScript. Mientras tanto, puedes resolver los mismos circuitos en el <a href="ut01-ejercicios.html#b5">boletín 5</a>.</p></noscript>
+    <div id="taller" hidden>
+      <div class="taller-circuitos" id="taller-circuitos" aria-label="Elige un circuito"></div>
+      <h3 id="taller-titulo"></h3>
+
+      <div class="taller-fase" id="fase-nudos">
+        <h3>1 · Colorea los nudos</h3>
+        <div id="paleta-zona">
+          <p>Elige un color y toca cada cable y cada patilla. Al pintar un cable se pintan también las patillas que lo tocan.</p>
+          <div class="paleta" id="paleta" aria-label="Colores"></div>
+        </div>
+        <div class="lienzo-zona" role="region" aria-label="Esquema del circuito; desplazamiento horizontal" tabindex="0">
+          <svg id="lienzo" role="img" aria-label="Esquema del circuito"></svg>
+        </div>
+        <div class="taller-botones">
+          <button type="button" class="principal" id="btn-comprobar">Comprobar los nudos</button>
+          <button type="button" id="btn-solucion">Ver la solución</button>
+          <button type="button" id="btn-reiniciar">Empezar de nuevo</button>
+        </div>
+        <p class="taller-msg" id="msg-nudos" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="taller-fase" id="fase-reducir" hidden>
+        <h3>2 · Reduce el circuito</h3>
+        <p>Selecciona resistencias en el dibujo o en la tabla y elige qué relación tienen.</p>
+        <div class="aula-tabla" role="region" aria-label="Resistencias del circuito; desplazamiento horizontal" tabindex="0">
+          <table class="tabla-taller" id="tabla-elementos"></table>
+        </div>
+        <div class="taller-acciones" id="acciones">
+          <button type="button" data-op="serie">Están en serie</button>
+          <button type="button" data-op="paralelo">Están en paralelo</button>
+          <button type="button" data-op="quitar">No conduce: quitar</button>
+        </div>
+        <div id="pregunta-valor" hidden>
+          <form class="taller-form" id="form-valor">
+            <label for="valor" id="etq-valor"></label>
+            <input id="valor" inputmode="decimal" autocomplete="off">
+            <span>Ω</span>
+            <button type="submit" class="principal">Comprobar</button>
+            <button type="button" id="btn-cancelar">Cancelar</button>
+          </form>
+        </div>
+        <p class="taller-msg" id="msg-reducir" role="status" aria-live="polite"></p>
+        <div id="pasos-zona" hidden>
+          <p><strong>Pasos hechos</strong></p>
+          <ol id="pasos"></ol>
+        </div>
+        <button type="button" class="boton-enlace" id="btn-redibujo" aria-expanded="false" aria-controls="redibujo">Ver el circuito redibujado (pista)</button>
+        <div id="redibujo" hidden></div>
+      </div>
+
+      <div class="taller-fase" id="fase-final" hidden>
+        <h3>3 · Intensidad total</h3>
+        <p id="texto-final"></p>
+        <form class="taller-form" id="form-final">
+          <label for="intensidad">I =</label>
+          <input id="intensidad" inputmode="decimal" autocomplete="off">
+          <span>A</span>
+          <button type="submit" class="principal">Comprobar</button>
+        </form>
+        <p class="taller-msg" id="msg-final" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut01-ejercicios.html#b5">&laquo; Boletín 5</a>
+    <a href="../index.html">Índice del módulo</a>
+    <a href="ut01-practicas.html">Prácticas &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Los circuitos se generan con <code>scripts/generar_boletines_4_5.py</code>.
+    No se guarda nada: si recargas la página, empiezas de nuevo.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

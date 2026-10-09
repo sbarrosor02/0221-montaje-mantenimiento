@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 918 391" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 5, ejercicio 2: Cortocircuito escondido y rama abierta</title>
+<desc id="desc">Fuente de 24 V. En el cable superior, R1 de 4 ohmios y el paralelo de R2 de 12 y R3 de 6 ohmios. Después baja R4 de 8 ohmios, cuyo extremo inferior se une con un cable que vuelve a subir al cable superior. R5 de 100 ohmios baja y termina en un extremo libre. R6 de 4 ohmios baja por la derecha hasta el cable de retorno.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.2}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:15px sans-serif;fill:#24364a}.dato{font-weight:600;fill:#8a3d00}</style>
+<rect width="100%" height="100%" fill="white"/>
+<polyline class="wire" points="93.0,55.8 142.6,55.8"/>
+<polyline class="wire" points="266.6,55.8 310.0,55.8 310.0,155.0"/>
+<polyline class="wire" points="465.0,55.8 465.0,155.0"/>
+<polyline class="wire" points="465.0,55.8 527.0,55.8 626.2,55.8 713.0,55.8 787.4,55.8"/>
+<polyline class="wire" points="527.0,204.6 626.2,204.6 626.2,55.8"/>
+<polyline class="wire" points="787.4,334.8 93.0,334.8"/>
+<path class="wire" d="M142.6,55.8 L174.6,55.8 M234.6,55.8 L266.6,55.8"/>
+<path class="wire" transform="translate(204.6,55.8) rotate(0.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="204.6" y="36.8" text-anchor="middle">R₁ = 4 Ω</text>
+<path class="wire" d="M310.0,55.8 L357.5,55.8 M417.5,55.8 L465.0,55.8"/>
+<path class="wire" transform="translate(387.5,55.8) rotate(0.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="387.5" y="36.8" text-anchor="middle">R₂ = 12 Ω</text>
+<path class="wire" d="M310.0,155.0 L357.5,155.0 M417.5,155.0 L465.0,155.0"/>
+<path class="wire" transform="translate(387.5,155.0) rotate(0.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="387.5" y="179.0" text-anchor="middle">R₃ = 6 Ω</text>
+<path class="wire" d="M527.0,55.8 L527.0,100.2 M527.0,160.2 L527.0,204.6"/>
+<path class="wire" transform="translate(527.0,130.2) rotate(90.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="545.0" y="135.2" text-anchor="start">R₄ = 8 Ω</text>
+<path class="wire" d="M713.0,55.8 L713.0,106.4 M713.0,166.4 L713.0,217.0"/>
+<path class="wire" transform="translate(713.0,136.4) rotate(90.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="695.0" y="141.4" text-anchor="end">R₅ = 100 Ω</text>
+<path class="wire" d="M787.4,55.8 L787.4,165.3 M787.4,225.3 L787.4,334.8"/>
+<path class="wire" transform="translate(787.4,195.3) rotate(90.0)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="805.4" y="200.3" text-anchor="start">R₆ = 4 Ω</text>
+<path class="wire" d="M93.0,334.8 L93.0,212.3 M93.0,178.3 L93.0,55.8"/>
+<circle class="source" cx="93.0" cy="195.3" r="17"/>
+<path class="wire" d="M89.0,187.3 h8 M93.0,183.3 v8 M89.0,203.3 h8"/>
+<text class="dato" x="68.0" y="200.3" text-anchor="end">24 V</text>
+<circle class="node" cx="310.0" cy="55.8" r="3.8"/>
+<circle class="node" cx="465.0" cy="55.8" r="3.8"/>
+<circle class="node" cx="527.0" cy="55.8" r="3.8"/>
+<circle class="node" cx="626.2" cy="55.8" r="3.8"/>
+<circle class="node" cx="713.0" cy="55.8" r="3.8"/>
+<circle class="open" cx="713.0" cy="217.0" r="4.5"/>
+</svg>

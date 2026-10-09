@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 734 260" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 4, ejercicio 1: Tres niveles de anidamiento</title>
+<desc id="desc">Fuente de 24 V. R1 de 2 ohmios en serie con dos ramas en paralelo (R2 de 4 ohmios en serie con el paralelo de R3 de 12 y R4 de 6; y R5 de 8 ohmios) y en serie con el paralelo de R6 de 3 y R7 de 6 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.2}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:15px sans-serif;fill:#24364a}.dato{font-weight:600;fill:#8a3d00}</style>
+<rect width="100%" height="100%" fill="white"/>
+<path class="wire" d="M114,50 h28 M202,50 h28"/>
+<path class="wire" transform="translate(172,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="172" y="33" text-anchor="middle">R₁ = 2 Ω</text>
+<path class="wire" d="M230,50 H250 M522,50 H542 M250,50 v132 M522,50 v132"/>
+<path class="wire" d="M250.0,50 h28 M338.0,50 h28"/>
+<path class="wire" transform="translate(308.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="308.0" y="33" text-anchor="middle">R₂ = 4 Ω</text>
+<path class="wire" d="M366.0,50 H386.0 M502.0,50 H522.0 M386.0,50 v66 M502.0,50 v66"/>
+<path class="wire" d="M386.0,50 h28 M474.0,50 h28"/>
+<path class="wire" transform="translate(444.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="444.0" y="33" text-anchor="middle">R₃ = 12 Ω</text>
+<path class="wire" d="M386.0,116 h28 M474.0,116 h28"/>
+<path class="wire" transform="translate(444.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="444.0" y="99" text-anchor="middle">R₄ = 6 Ω</text>
+<circle class="node" cx="386.0" cy="50" r="3.5"/><circle class="node" cx="502.0" cy="50" r="3.5"/>
+<path class="wire" d="M328.0,182 h28 M416.0,182 h28"/>
+<path class="wire" transform="translate(386.0,182)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="386.0" y="165" text-anchor="middle">R₅ = 8 Ω</text>
+<path class="wire" d="M250,182 h78.0 M444.0,182 h78.0"/>
+<circle class="node" cx="250" cy="50" r="3.5"/><circle class="node" cx="522" cy="50" r="3.5"/>
+<path class="wire" d="M542,50 H562 M678,50 H698 M562,50 v66 M678,50 v66"/>
+<path class="wire" d="M562.0,50 h28 M650.0,50 h28"/>
+<path class="wire" transform="translate(620.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="620.0" y="33" text-anchor="middle">R₆ = 3 Ω</text>
+<path class="wire" d="M562.0,116 h28 M650.0,116 h28"/>
+<path class="wire" transform="translate(620.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="620.0" y="99" text-anchor="middle">R₇ = 6 Ω</text>
+<circle class="node" cx="562" cy="50" r="3.5"/><circle class="node" cx="678" cy="50" r="3.5"/>
+<path class="wire" d="M80,50 H114 M698,50 h16 V226 H80"/>
+<path class="wire" d="M80.0,226.0 L80.0,155.0 M80.0,121.0 L80.0,50.0"/>
+<circle class="source" cx="80.0" cy="138.0" r="17"/>
+<path class="wire" d="M76.0,130.0 h8 M80.0,126.0 v8 M76.0,146.0 h8"/>
+<text class="dato" x="55.0" y="143.0" text-anchor="end">24 V</text>
+</svg>

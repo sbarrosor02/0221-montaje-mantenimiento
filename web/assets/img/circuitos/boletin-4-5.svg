@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 260" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 4, ejercicio 5: Dos fuentes en serie y balance de potencias</title>
+<desc id="desc">Fuentes de 9 V y 15 V en serie. Primer bloque en paralelo: R1 de 8 más R2 de 4; R3 de 6; R4 de 4 ohmios. En serie con R5 de 4 ohmios y con el paralelo de R6 de 6 más el paralelo de R7 de 4 y R8 de 12, y R9 de 18 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.2}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:15px sans-serif;fill:#24364a}.dato{font-weight:600;fill:#8a3d00}</style>
+<rect width="100%" height="100%" fill="white"/>
+<path class="wire" d="M114,50 H134 M366,50 H386 M134,50 v132 M366,50 v132"/>
+<path class="wire" d="M134.0,50 h28 M222.0,50 h28"/>
+<path class="wire" transform="translate(192.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="192.0" y="33" text-anchor="middle">R₁ = 8 Ω</text>
+<path class="wire" d="M250.0,50 h28 M338.0,50 h28"/>
+<path class="wire" transform="translate(308.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="308.0" y="33" text-anchor="middle">R₂ = 4 Ω</text>
+<path class="wire" d="M192.0,116 h28 M280.0,116 h28"/>
+<path class="wire" transform="translate(250.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="250.0" y="99" text-anchor="middle">R₃ = 6 Ω</text>
+<path class="wire" d="M134,116 h58.0 M308.0,116 h58.0"/>
+<path class="wire" d="M192.0,182 h28 M280.0,182 h28"/>
+<path class="wire" transform="translate(250.0,182)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="250.0" y="165" text-anchor="middle">R₄ = 4 Ω</text>
+<path class="wire" d="M134,182 h58.0 M308.0,182 h58.0"/>
+<circle class="node" cx="134" cy="50" r="3.5"/><circle class="node" cx="366" cy="50" r="3.5"/>
+<path class="wire" d="M386,50 h28 M474,50 h28"/>
+<path class="wire" transform="translate(444,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="444" y="33" text-anchor="middle">R₅ = 4 Ω</text>
+<path class="wire" d="M502,50 H522 M794,50 H814 M522,50 v132 M794,50 v132"/>
+<path class="wire" d="M522.0,50 h28 M610.0,50 h28"/>
+<path class="wire" transform="translate(580.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="580.0" y="33" text-anchor="middle">R₆ = 6 Ω</text>
+<path class="wire" d="M638.0,50 H658.0 M774.0,50 H794.0 M658.0,50 v66 M774.0,50 v66"/>
+<path class="wire" d="M658.0,50 h28 M746.0,50 h28"/>
+<path class="wire" transform="translate(716.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="716.0" y="33" text-anchor="middle">R₇ = 4 Ω</text>
+<path class="wire" d="M658.0,116 h28 M746.0,116 h28"/>
+<path class="wire" transform="translate(716.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="716.0" y="99" text-anchor="middle">R₈ = 12 Ω</text>
+<circle class="node" cx="658.0" cy="50" r="3.5"/><circle class="node" cx="774.0" cy="50" r="3.5"/>
+<path class="wire" d="M600.0,182 h28 M688.0,182 h28"/>
+<path class="wire" transform="translate(658.0,182)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="658.0" y="165" text-anchor="middle">R₉ = 18 Ω</text>
+<path class="wire" d="M522,182 h78.0 M716.0,182 h78.0"/>
+<circle class="node" cx="522" cy="50" r="3.5"/><circle class="node" cx="794" cy="50" r="3.5"/>
+<path class="wire" d="M80,50 H114 M814,50 h16 V226 H80"/>
+<path class="wire" d="M80.0,138.0 L80.0,111.0 M80.0,77.0 L80.0,50.0"/>
+<circle class="source" cx="80.0" cy="94.0" r="17"/>
+<path class="wire" d="M76.0,86.0 h8 M80.0,82.0 v8 M76.0,102.0 h8"/>
+<text class="dato" x="55.0" y="99.0" text-anchor="end">9 V</text>
+<path class="wire" d="M80.0,226.0 L80.0,199.0 M80.0,165.0 L80.0,138.0"/>
+<circle class="source" cx="80.0" cy="182.0" r="17"/>
+<path class="wire" d="M76.0,174.0 h8 M80.0,170.0 v8 M76.0,190.0 h8"/>
+<text class="dato" x="55.0" y="187.0" text-anchor="end">15 V</text>
+</svg>

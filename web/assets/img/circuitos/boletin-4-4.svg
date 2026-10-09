@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890 392" role="img" aria-labelledby="title desc">
+<title id="title">Boletín 4, ejercicio 4: Red en escalera</title>
+<desc id="desc">Fuente de 36 V. R1 de 6 ohmios en serie con una escalera: R2 de 6 en paralelo con R3 de 3 más el paralelo de R4 de 6 con R5 de 3 más el paralelo de R6 de 6 con R7 de 4 más el paralelo de R8 de 6 y R9 de 3 ohmios.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.source{fill:white;stroke:#24364a;stroke-width:2.2}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:15px sans-serif;fill:#24364a}.dato{font-weight:600;fill:#8a3d00}</style>
+<rect width="100%" height="100%" fill="white"/>
+<path class="wire" d="M114,50 h28 M202,50 h28"/>
+<path class="wire" transform="translate(172,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="172" y="33" text-anchor="middle">R₁ = 6 Ω</text>
+<path class="wire" d="M230,50 H250 M834,50 H854 M250,50 v66 M834,50 v66"/>
+<path class="wire" d="M484.0,50 h28 M572.0,50 h28"/>
+<path class="wire" transform="translate(542.0,50)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="542.0" y="33" text-anchor="middle">R₂ = 6 Ω</text>
+<path class="wire" d="M250,50 h234.0 M600.0,50 h234.0"/>
+<path class="wire" d="M250.0,116 h28 M338.0,116 h28"/>
+<path class="wire" transform="translate(308.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="308.0" y="99" text-anchor="middle">R₃ = 3 Ω</text>
+<path class="wire" d="M366.0,116 H386.0 M814.0,116 H834.0 M386.0,116 v66 M814.0,116 v66"/>
+<path class="wire" d="M542.0,116 h28 M630.0,116 h28"/>
+<path class="wire" transform="translate(600.0,116)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="600.0" y="99" text-anchor="middle">R₄ = 6 Ω</text>
+<path class="wire" d="M386.0,116 h156.0 M658.0,116 h156.0"/>
+<path class="wire" d="M386.0,182 h28 M474.0,182 h28"/>
+<path class="wire" transform="translate(444.0,182)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="444.0" y="165" text-anchor="middle">R₅ = 3 Ω</text>
+<path class="wire" d="M502.0,182 H522.0 M794.0,182 H814.0 M522.0,182 v66 M794.0,182 v66"/>
+<path class="wire" d="M600.0,182 h28 M688.0,182 h28"/>
+<path class="wire" transform="translate(658.0,182)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="658.0" y="165" text-anchor="middle">R₆ = 6 Ω</text>
+<path class="wire" d="M522.0,182 h78.0 M716.0,182 h78.0"/>
+<path class="wire" d="M522.0,248 h28 M610.0,248 h28"/>
+<path class="wire" transform="translate(580.0,248)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="580.0" y="231" text-anchor="middle">R₇ = 4 Ω</text>
+<path class="wire" d="M638.0,248 H658.0 M774.0,248 H794.0 M658.0,248 v66 M774.0,248 v66"/>
+<path class="wire" d="M658.0,248 h28 M746.0,248 h28"/>
+<path class="wire" transform="translate(716.0,248)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="716.0" y="231" text-anchor="middle">R₈ = 6 Ω</text>
+<path class="wire" d="M658.0,314 h28 M746.0,314 h28"/>
+<path class="wire" transform="translate(716.0,314)" d="M-30,0 L-25,-8 L-15,8 L-5,-8 L5,8 L15,-8 L25,8 L30,0"/>
+<text x="716.0" y="297" text-anchor="middle">R₉ = 3 Ω</text>
+<circle class="node" cx="658.0" cy="248" r="3.5"/><circle class="node" cx="774.0" cy="248" r="3.5"/>
+<circle class="node" cx="522.0" cy="182" r="3.5"/><circle class="node" cx="794.0" cy="182" r="3.5"/>
+<circle class="node" cx="386.0" cy="116" r="3.5"/><circle class="node" cx="814.0" cy="116" r="3.5"/>
+<circle class="node" cx="250" cy="50" r="3.5"/><circle class="node" cx="834" cy="50" r="3.5"/>
+<path class="wire" d="M80,50 H114 M854,50 h16 V358 H80"/>
+<path class="wire" d="M80.0,358.0 L80.0,221.0 M80.0,187.0 L80.0,50.0"/>
+<circle class="source" cx="80.0" cy="204.0" r="17"/>
+<path class="wire" d="M76.0,196.0 h8 M80.0,192.0 v8 M76.0,212.0 h8"/>
+<text class="dato" x="55.0" y="209.0" text-anchor="end">36 V</text>
+</svg>
