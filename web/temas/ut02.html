@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 2 · Estructura funcional del ordenador y arquitectura de buses · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2)</p>
+    <h1>Tema 2 — Estructura funcional del ordenador y arquitectura de buses</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA1 (criterios a y b)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema" aria-current="page">Portada del tema</a>
+    <a href="ut02-teoria.html">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html">Ejercicios</a>
+    <a href="ut02-practicas.html">Prácticas</a>
+  </nav>
+
+  <p>En el tema 1 viste los componentes electrónicos. Ahora subimos un nivel:
+  <strong>cómo se organiza un ordenador por dentro</strong>, qué hace cada
+  bloque (CPU, memoria, entrada/salida) y cómo viaja la información entre
+  ellos por los <strong>buses</strong>. Es la base para elegir componentes en
+  el tema 3 y para montar un equipo en el tema 5.</p>
+
+  <h2 id="apartado-estudiar">Estudiar</h2>
+  <ul class="lista-temas">
+    <li>
+      <a href="ut02-teoria.html">
+        <span class="ut">Teoría</span>Del bit al ordenador completo
+        <br><span class="etq">Representación de la información, puertas lógicas, arquitectura de Von Neumann, unidades funcionales, buses y ciclo de instrucción · con piezas interactivas y autoevaluación</span>
+      </a>
+    </li>
+  </ul>
+
+  <h2 id="apartado-practicar">Practicar</h2>
+  <p class="meta">No cuenta para la nota. Sirve para entender y coger soltura.</p>
+  <ul class="lista-temas">
+    <li>
+      <a href="ut02-ejercicios-cpu.html">
+        <span class="ut">Simulador</span>Simulador de CPU
+        <br><span class="etq">Interactivo · ejecuta programas instrucción a instrucción y mira cómo cambian los registros y los buses; escribe tus propios programas</span>
+      </a>
+    </li>
+    <li>
+      <a href="ut02-ejercicios.html">
+        <span class="ut">Ejercicios</span>Cuatro boletines
+        <br><span class="etq">Representación de la información, circuitos lógicos, arquitectura y buses, ejecución de programas</span>
+      </a>
+    </li>
+  </ul>
+
+  <h2 id="apartado-entregar">Entregar</h2>
+  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de empezar.</p>
+  <ul class="lista-temas">
+    <li>
+      <a href="ut02-practicas.html">
+        <span class="ut">Práctica</span>P4 · Del bloque a la pieza
+        <br><span class="etq">Taller, en parejas · identifica los bloques funcionales y los buses en un equipo real · rúbrica de 10 puntos</span>
+      </a>
+    </li>
+  </ul>
+
+  <h2 id="apartado-recorrido">Recorrido del tema</h2>
+  <p>Orden orientativo de las sesiones. El ritmo se ajustará a la marcha del
+  grupo.</p>
+  <ol>
+    <li>Bits, sistemas binario y hexadecimal, unidades (teoría 2.1 y 2.2;
+    boletín 1).</li>
+    <li>Puertas lógicas y cómo se lee un circuito (teoría 2.3; boletín 2).</li>
+    <li>Bloques funcionales, Von Neumann y Harvard (teoría 2.4).</li>
+    <li>Memoria, UAL, unidad de control y E/S por dentro (teoría 2.5).</li>
+    <li>Los buses y sus cálculos (teoría 2.6; boletín 3).</li>
+    <li>El ciclo de instrucción con el simulador (teoría 2.7).</li>
+    <li>Ejecución de programas a mano y con el simulador (boletín 4).</li>
+    <li>Práctica P4 en el taller (2–3 sesiones).</li>
+    <li>Repaso y prueba del tema.</li>
+  </ol>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
+    <p>La UT2 trabaja dos criterios del resultado de aprendizaje 1 del Decreto
+    272/2009:</p>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones.</li>
+      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses.</li>
+    </ul>
+    <p style="margin-bottom:0"><em>El resto de criterios del RA1 (microprocesador,
+    placa base, BIOS, memoria, almacenamiento…) se trabajan en los temas 3 y
+    4.</em></p>
+  </details>
+
+  <nav class="nav-temas">
+    <a href="ut01.html">&laquo; Tema 1</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>Siguiente &raquo; (Tema 3, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

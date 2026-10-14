@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicios · Tema 2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-mapa">Mapa de boletines</a></li><li><a href="#boletin-1">Boletín 1 · Representación de la información</a></li><li><a href="#boletin-2">Boletín 2 · Circuitos lógicos</a></li><li><a href="#boletin-3">Boletín 3 · Arquitectura y buses</a></li><li><a href="#boletin-4">Boletín 4 · Ejecución de programas</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2) · Ejercicios</p>
+    <h1>Ejercicios — Estructura funcional del ordenador y buses</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT2 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02-teoria.html">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html" aria-current="page">Ejercicios</a>
+    <a href="ut02-practicas.html">Prácticas</a>
+  </nav>
+
+  <div class="aviso">
+    <strong>Cómo trabajar los boletines.</strong> Hazlos en tu cuaderno o en un
+    documento de LibreOffice, con el razonamiento, no solo el resultado. El
+    profesor indicará en clase cuáles se entregan y dónde. Los ejercicios sirven
+    para entrenar: no cuentan para la nota.
+  </div>
+
+  <h2 id="apartado-mapa">Mapa de boletines</h2>
+  <ul class="mapa-boletines">
+    <li><a href="#boletin-1"><strong>Boletín 1 · Representación</strong><span>Bits, binario, hexadecimal y unidades · 10 ejercicios</span></a></li>
+    <li><a href="#boletin-2"><strong>Boletín 2 · Circuitos lógicos</strong><span>Expresión y tabla de verdad · 7 ejercicios</span></a></li>
+    <li><a href="#boletin-3"><strong>Boletín 3 · Arquitectura y buses</strong><span>Bloques, Von Neumann y cálculos de buses · 9 ejercicios</span></a></li>
+    <li><a href="#boletin-4"><strong>Boletín 4 · Ejecución de programas</strong><span>Simula la CPU instrucción a instrucción · 6 programas</span></a></li>
+  </ul>
+
+  <section>
+    <h2 id="boletin-1">Boletín 1 · Representación de la información</h2>
+    <p>Repasa los apartados <a href="ut02-teoria.html#apartado-2-1">2.1</a> y
+    <a href="ut02-teoria.html#apartado-2-2">2.2</a> de la teoría.</p>
+    <div class="ejercicio">
+      <p><span class="num">1.1</span> ¿Qué unidades de información existen
+      mayores que el exabyte? Indica también su nombre en el sistema binario
+      (IEC).</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.2</span> ¿Para qué se utilizan las unidades
+      <em>word</em>, <em>dword</em> y <em>qword</em>? Busca dónde aparecen
+      <em>DWORD</em> y <em>QWORD</em> en el Editor del Registro de Windows
+      (<span class="mono">regedit</span>) y explica qué tipo de valor
+      guardan.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.3</span> ¿Cuántos bits necesitas, como mínimo,
+      para representar cada una de estas cosas? Justifica cada respuesta con
+      2<sup>n</sup>.</p>
+      <ol type="a">
+        <li>Los días de la semana.</li>
+        <li>Los meses del año.</li>
+        <li>Los 30 alumnos de una clase.</li>
+        <li>256 colores distintos.</li>
+        <li>1000 números de matrícula distintos.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.4</span> Pasa a decimal: 1010<sub>2</sub>, 1100
+      1000<sub>2</sub>, 0111 1111<sub>2</sub> y 1 0000 0000<sub>2</sub>.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.5</span> Pasa a binario con 8 bits, por divisiones
+      sucesivas: 13, 100, 255 y 170.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.6</span> Pasa a hexadecimal: 1011 1110 1110
+      1111<sub>2</sub>, 0001 1111<sub>2</sub> y 1100 1010 1111
+      1110<sub>2</sub>. Después pasa a binario: 3A<sub>16</sub>,
+      FF<sub>16</sub> y <span class="mono">0x2C0</span>.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.7</span> En HTML los colores se escriben como
+      <span class="mono">#RRGGBB</span>: dos cifras hexadecimales para el rojo,
+      dos para el verde y dos para el azul. ¿Qué cantidad de cada color, en
+      decimal (0–255), tiene <span class="mono">#FF8000</span>? ¿De qué color
+      se trata?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.8</span> Un bloque de memoria tiene 128 celdas de
+      1 byte. ¿Qué capacidad tiene un módulo formado por 32 bloques? Exprésala
+      en bytes y en KiB.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.9</span> Compras un disco de 500 GB y una memoria
+      USB de 64 GB. ¿Qué capacidad mostrará Windows para cada uno? Explica por
+      qué no coincide con la de la caja.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.10</span> ¿Cuántos bytes ocupa la palabra «Hola»
+      en ASCII? Busca el código de cada letra y escríbelo en decimal y en
+      hexadecimal.</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-2">Boletín 2 · Circuitos lógicos</h2>
+    <p>Para cada circuito: <strong>(a)</strong> escribe la expresión de la
+    salida de cada puerta, <strong>(b)</strong> obtén la expresión de F y
+    <strong>(c)</strong> haz la tabla de verdad completa, con columnas
+    intermedias. Sigue el método del
+    <a href="ut02-teoria.html#apartado-2-3">ejemplo resuelto de la
+    teoría</a>. Recuerda: un punto une cables; un cruce con salto, no.</p>
+    <p>Si algún resultado te parece extraño, no lo cambies sin más: repasa el
+    circuito puerta a puerta. Puede que sea correcto.</p>
+
+    <div class="ejercicio">
+      <h3><span class="num">2.1</span> Circuito lógico 1</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-1.svg" alt="Circuito lógico 1. Entradas A, B y C. Puerta 1: NOT de A. Puerta 2: AND de la salida de la puerta 1 y B. Puerta 3: NOR de B y C. Puerta 4: NOT de C. Puerta 5: AND de las salidas de las puertas 3 y 4. Puerta 6: OR de las salidas de las puertas 2 y 5, que da F." width="520"><figcaption><a href="../assets/img/logica/circuito-1.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">2.2</span> Circuito lógico 2</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-2.svg" alt="Circuito lógico 2. Entradas A, B y C. Puerta 1: AND de A y B. Puerta 2: NOT de B. Puerta 3: OR de C y B; el cable de C cruza la bajada de B sin unirse. Puerta 4: AND de las salidas de las puertas 2 y 3. Puerta 5: OR de las salidas de las puertas 1 y 4, que da F." width="560"><figcaption><a href="../assets/img/logica/circuito-2.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">2.3</span> Circuito lógico 3</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-3.svg" alt="Circuito lógico 3. Entradas A, B y C. Puerta 1: NOT de A. Puerta 2: OR de la salida de la puerta 1 y B. Puerta 3: NOT de C. Puerta 4: AND de B y la salida de la puerta 3. Puerta 5: NOR de las salidas de las puertas 2 y 4. Puerta 6: AND de las salidas de las puertas 5 y 4, que da F." width="540"><figcaption><a href="../assets/img/logica/circuito-3.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">2.4</span> Circuito lógico 4</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-4.svg" alt="Circuito lógico 4. Entradas A, B y C. Puerta 1: NOT de B. Puerta 2: AND de A y la salida de la puerta 1. Puerta 3: NAND de las salidas de las puertas 2 y 1. Puerta 4: OR de la salida de la puerta 1 y C. Puerta 5: NOR de las salidas de las puertas 3 y 4, que da F." width="530"><figcaption><a href="../assets/img/logica/circuito-4.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">2.5</span> Circuito lógico 5</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-5.svg" alt="Circuito lógico 5. Entradas A y B. Puerta 1: NOT de A. Puerta 2: NOT de B. Puerta 3: AND de A y la salida de la puerta 2. Puerta 4: AND de la salida de la puerta 1 y B. Puerta 5: OR de las salidas de las puertas 3 y 4, que da F." width="440"><figcaption><a href="../assets/img/logica/circuito-5.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+      <p>Solo tiene dos entradas, así que la tabla tiene 4 filas. Compara el
+      resultado con las puertas del laboratorio: ¿a cuál equivale este
+      circuito?</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">2.6</span> Circuito lógico 6</h3>
+      <figure class="figura"><img src="../assets/img/logica/circuito-6.svg" alt="Circuito lógico 6. Entradas A, B y C. Puerta 1: AND de A y B. Puerta 2: AND de A y C. Puerta 3: AND de B y C. Puerta 4: OR de las salidas de las puertas 1 y 2. Puerta 5: OR de las salidas de las puertas 4 y 3, que da F." width="520"><figcaption><a href="../assets/img/logica/circuito-6.svg" download>Descargar esquema (SVG)</a></figcaption></figure>
+      <p>Tres jueces pulsan un botón (1 = sí) y F enciende una luz. Explica con
+      tus palabras cuándo se enciende.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.7</span> Dibuja el circuito con puertas lógicas de
+      la función F = A · B + C' y haz su tabla de verdad. Puedes dibujarlo a
+      mano o en un simulador como Logisim o
+      <a href="https://www.tinkercad.com/" rel="noopener">Tinkercad</a>, que ya
+      conoces del tema 1.</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-3">Boletín 3 · Arquitectura y buses</h2>
+    <p>Repasa los apartados <a href="ut02-teoria.html#apartado-2-4">2.4</a>,
+    <a href="ut02-teoria.html#apartado-2-5">2.5</a> y
+    <a href="ut02-teoria.html#apartado-2-6">2.6</a>. Para los cálculos puedes
+    comprobar tus resultados con la calculadora de buses de la teoría,
+    <strong>después</strong> de hacerlos a mano.</p>
+    <div class="ejercicio">
+      <p><span class="num">3.1</span> Explica qué tiene en común la
+      arquitectura Harvard con la de Von Neumann y en qué se diferencian. ¿Por
+      qué se usa Harvard en microcontroladores como el de Arduino y no en los
+      PC?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.2</span> Para cada unidad funcional de la
+      arquitectura de Von Neumann, indica qué componente o componentes de un
+      ordenador de sobremesa actual la forman.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.3</span> Pon dos ejemplos de dispositivos actuales
+      basados en la arquitectura de Von Neumann. ¿Cómo les afecta el cuello de
+      botella de Von Neumann? ¿Qué se ha hecho para reducirlo?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.4</span> ¿Qué es el overclocking? ¿Qué relación
+      tiene con la unidad de control? ¿Qué riesgos tiene para el equipo?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.5</span> Calcula la memoria máxima direccionable,
+      con celdas de 1 byte, para un bus de direcciones de 16, 20, 32 y 36
+      líneas. Exprésala en la unidad IEC más adecuada.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.6</span> ¿Cuántas líneas necesita como mínimo el
+      bus de direcciones para direccionar 8 GiB con celdas de 1 byte?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.7</span> Calcula el ancho de banda de un canal de
+      memoria de 64 bits con módulos DDR4-2666 y con módulos DDR5-4800. ¿Cuánto
+      sería con dos canales (<em>dual channel</em>)?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.8</span> Indica por qué bus viaja cada una de
+      estas informaciones: la dirección 1F40<sub>16</sub>; el código ASCII de
+      la letra que se va a imprimir; la orden de escribir en memoria; el aviso
+      del teclado de que se ha pulsado una tecla; los pulsos del reloj.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.9</span> Los primeros PC usaban buses paralelos
+      compartidos. Los actuales (PCI Express, SATA, USB) son buses serie punto
+      a punto. Explica dos motivos de este cambio.</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-4">Boletín 4 · Ejecución de programas</h2>
+    <p>Las siguientes tablas muestran programas guardados en memoria. Las
+    instrucciones tienen formato <strong>operación-dirección</strong> y el
+    juego de instrucciones es:</p>
+    <div class="columnas">
+      <div><p class="mono">1 → Cargar el AC desde memoria<br>2 → Almacenar el AC en memoria<br>3 → Sumar al AC el dato de memoria</p></div>
+      <div><p class="mono">4 → Restar al AC el dato de memoria<br>5 → Multiplicar el AC por el dato de memoria<br>6 → Dividir el AC entre el dato de memoria</p></div>
+    </div>
+    <p><strong>Para cada programa</strong>, simula su ejecución instrucción a
+    instrucción. En cada paso indica los valores de los registros de la CPU
+    implicados (CP, RI, RD, RM y AC) y explica qué sucede. Al final, indica qué
+    valor queda en memoria. Cada programa empieza en la primera dirección de su tabla. Fíjate en el
+    <a href="ut02-teoria.html#apartado-2-7">ejemplo resuelto de la
+    teoría</a>.</p>
+    <p>Cuando lo tengas en papel, escribe el programa en la «Memoria libre» del
+    <a href="ut02-ejercicios-cpu.html">simulador</a> y compara tu traza con la
+    suya.</p>
+
+    <div class="ejercicio">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 1</caption>
+        <tbody><tr><th>100</th><td>1300</td></tr><tr><th>101</th><td>3301</td></tr><tr><th>102</th><td>2301</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>300</th><td>0016</td></tr><tr><th>301</th><td>0007</td></tr></tbody></table></div>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 2</caption>
+        <tbody><tr><th>110</th><td>1302</td></tr><tr><th>111</th><td>4303</td></tr><tr><th>112</th><td>2303</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>302</th><td>0013</td></tr><tr><th>303</th><td>0010</td></tr></tbody></table></div>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 3</caption>
+        <tbody><tr><th>110</th><td>1304</td></tr><tr><th>111</th><td>5305</td></tr><tr><th>112</th><td>2305</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>304</th><td>0025</td></tr><tr><th>305</th><td>0003</td></tr></tbody></table></div>
+    </div>
+    <div class="ejercicio">
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 4</caption>
+        <tbody><tr><th>130</th><td>1309</td></tr><tr><th>131</th><td>6308</td></tr><tr><th>132</th><td>3307</td></tr><tr><th>133</th><td>4306</td></tr><tr><th>134</th><td>2309</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>306</th><td>0003</td></tr><tr><th>307</th><td>0006</td></tr><tr><th>308</th><td>0002</td></tr><tr><th>309</th><td>0008</td></tr></tbody></table></div>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 5</caption>
+        <tbody><tr><th>140</th><td>1310</td></tr><tr><th>141</th><td>3310</td></tr><tr><th>142</th><td>3313</td></tr><tr><th>143</th><td>4312</td></tr><tr><th>144</th><td>2312</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>310</th><td>0005</td></tr><tr><th>311</th><td>0010</td></tr><tr><th>312</th><td>0015</td></tr><tr><th>313</th><td>0020</td></tr></tbody></table></div>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="programa-tabla"><caption>Programa 6</caption>
+        <tbody><tr><th>150</th><td>1317</td></tr><tr><th>151</th><td>5315</td></tr><tr><th>152</th><td>4316</td></tr><tr><th>153</th><td>5315</td></tr><tr><th>154</th><td>2314</td></tr>
+        <tr class="hueco"><th colspan="2">⋮</th></tr><tr><th>314</th><td>0001</td></tr><tr><th>315</th><td>0002</td></tr><tr><th>316</th><td>0003</td></tr><tr><th>317</th><td>0004</td></tr></tbody></table></div>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-ejercicios-cpu.html">&laquo; Simulador de CPU</a>
+    <a href="ut02-practicas.html">Prácticas &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

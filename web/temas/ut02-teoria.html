@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoría · Tema 2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<script defer src="../assets/ut02-interactivos.js"></script>
+<script defer src="../assets/ut02-cpu.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-2-1">2.1 Del mundo analógico al digital</a></li><li><a href="#apartado-2-2">2.2 Representación de la información</a></li><li><a href="#apartado-2-3">2.3 Puertas lógicas: cómo calcula un circuito</a></li><li><a href="#apartado-2-4">2.4 Bloques funcionales y arquitectura de Von Neumann</a></li><li><a href="#apartado-2-5">2.5 Las unidades funcionales por dentro</a></li><li><a href="#apartado-2-6">2.6 Los buses</a></li><li><a href="#apartado-2-7">2.7 El ciclo de instrucción</a></li><li><a href="#apartado-2-8">2.8 Del hardware al software: niveles de un ordenador</a></li><li><a href="#apartado-resumen">Resumen</a></li><li><a href="#apartado-autoevaluacion">Autoevaluación</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2) · Teoría</p>
+    <h1>Teoría — Estructura funcional del ordenador y arquitectura de buses</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT2 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02-teoria.html" aria-current="page">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html">Ejercicios</a>
+    <a href="ut02-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios cubre esta página</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones.</li>
+      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses.</li>
+    </ul>
+    <p style="margin-bottom:0"><em>Los apartados 2.1 a 2.3 (representación de la
+    información y puertas lógicas) son la base para entender cómo trabaja la CPU
+    por dentro. No se evalúan por separado.</em></p>
+  </details>
+
+  <div class="aviso">
+    <strong>Cómo estudiar este tema.</strong> Cada apartado tiene una pieza
+    marcada como <em>Pruébalo</em>: pulsa, cambia valores y mira qué pasa. Antes
+    de pasar al siguiente apartado, comprueba que sabrías explicar con tus
+    palabras lo que has visto.
+  </div>
+
+  <section>
+    <h2 id="apartado-2-1">2.1 Del mundo analógico al digital</h2>
+    <p>Un ordenador es una máquina que <strong>procesa información</strong>:
+    recibe datos, los transforma siguiendo las instrucciones de un programa y
+    devuelve resultados. Antes de ver cómo lo hace, hay que entender qué tipo de
+    información maneja.</p>
+
+    <div class="columnas">
+      <div>
+        <h4>Información analógica</h4>
+        <p>Puede tomar <strong>infinitos valores</strong> entre dos puntos. La
+        temperatura de una habitación no salta de 20 °C a 21 °C: pasa por 20,1,
+        20,15, 20,151… La voz, la luz o la velocidad de un coche también son
+        analógicas.</p>
+      </div>
+      <div>
+        <h4>Información digital</h4>
+        <p>Solo toma <strong>valores concretos</strong>, sin nada en medio. Un
+        termómetro digital que muestra «20,5» no puede mostrar nada entre 20,5
+        y 20,6. Los ordenadores actuales son <strong>digitales</strong>.</p>
+      </div>
+    </div>
+
+    <h3>¿Por qué solo dos estados?</h3>
+    <p>Dentro del ordenador la información se guarda y se mueve como
+    <strong>tensión eléctrica</strong>. Distinguir solo dos niveles («hay
+    tensión» y «no hay tensión») es muy fiable: aunque el cable recoja algo de
+    ruido, es difícil confundir uno con otro. Si hubiera que distinguir diez
+    niveles, cualquier interferencia provocaría errores.</p>
+    <p>A esos dos estados los llamamos <strong>1 y 0</strong> (también
+    <em>alto/bajo</em>, <em>H/L</em> o <em>verdadero/falso</em>). Los primeros
+    circuitos digitales trabajaban con 0 V y 5 V. Hoy se usan tensiones mucho
+    más bajas para gastar menos y calentarse menos: el núcleo de un procesador
+    actual funciona alrededor de 1 V y la memoria DDR5 a 1,1 V.</p>
+
+    <div class="clave">
+      <strong>El bit</strong>
+      <p>El <strong>bit</strong> (<em>binary digit</em>, dígito binario) es la
+      unidad mínima de información: un único 0 o 1. Todo lo que hay en un
+      ordenador (textos, fotos, música, programas) se guarda como largas
+      secuencias de bits.</p>
+    </div>
+
+    <h3>Agrupaciones de bits</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Nombre</th><th>Bits</th><th>Combinaciones posibles</th><th>Dónde lo verás</th></tr></thead>
+      <tbody>
+        <tr><td>Bit</td><td>1</td><td>2</td><td>Un interruptor: encendido o apagado</td></tr>
+        <tr><td>Nibble (cuarteto)</td><td>4</td><td>16</td><td>Una cifra hexadecimal</td></tr>
+        <tr><td>Byte (octeto)</td><td>8</td><td>256</td><td>Un carácter de texto; la unidad de las capacidades</td></tr>
+        <tr><td>Palabra (<em>word</em>)</td><td>16</td><td>65 536</td><td>Tamaño de dato de los primeros PC (procesador 8086)</td></tr>
+        <tr><td>Doble palabra (<em>dword</em>)</td><td>32</td><td>≈ 4 300 millones</td><td>Procesadores y sistemas operativos de 32 bits</td></tr>
+        <tr><td>Cuádruple palabra (<em>qword</em>)</td><td>64</td><td>≈ 1,8 × 10<sup>19</sup></td><td>Procesadores y sistemas operativos de 64 bits actuales</td></tr>
+      </tbody>
+    </table></div>
+    <p>Fíjate en la tercera columna: con <strong>n bits</strong> se pueden
+    formar <strong>2<sup>n</sup> combinaciones</strong>. Esta idea aparece una
+    y otra vez en el tema.</p>
+
+    <div class="ejemplo">
+      <strong>Ejemplo · ¿Cuántos bits necesita una calculadora?</strong>
+      <p>Las teclas numéricas son 10 (del 0 al 9). Con 3 bits salen
+      2<sup>3</sup> = 8 combinaciones: no llegan. Con 4 bits salen
+      2<sup>4</sup> = 16: sobran 6, pero ya caben las 10. <strong>Se necesitan
+      4 bits.</strong> En general, se busca el menor n que cumpla 2<sup>n</sup>
+      ≥ número de cosas que quiero representar.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-2">2.2 Representación de la información</h2>
+
+    <h3>2.2.1 Sistema binario</h3>
+    <p>Usamos el sistema <strong>decimal</strong> (base 10): diez cifras, y
+    cada posición vale diez veces más que la de su derecha (unidades, decenas,
+    centenas…). El sistema <strong>binario</strong> (base 2) funciona igual,
+    pero solo con las cifras 0 y 1, y cada posición vale el
+    <strong>doble</strong> que la de su derecha:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos mono" style="text-align:center">
+      <thead><tr><th>Posición</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th><th>0</th></tr></thead>
+      <tbody><tr><th>Peso</th><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr></tbody>
+    </table></div>
+    <p><strong>De binario a decimal:</strong> se suman los pesos de las
+    posiciones que tienen un 1. Por ejemplo, 0010 1101 = 32 + 8 + 4 + 1 =
+    <strong>45</strong>.</p>
+    <p><strong>De decimal a binario:</strong> se divide entre 2 una y otra vez
+    y se leen los restos de abajo arriba. También se puede ir restando el
+    mayor peso que quepa:</p>
+    <div class="ejemplo">
+      <strong>Ejemplo · 45 en binario por divisiones sucesivas</strong>
+      <p class="mono">45 ÷ 2 = 22, resto <strong>1</strong><br>
+      22 ÷ 2 = 11, resto <strong>0</strong><br>
+      11 ÷ 2 = 5, resto <strong>1</strong><br>
+      5 ÷ 2 = 2, resto <strong>1</strong><br>
+      2 ÷ 2 = 1, resto <strong>0</strong><br>
+      1 ÷ 2 = 0, resto <strong>1</strong></p>
+      <p>Leyendo los restos de abajo arriba: <strong>101101</strong>. Con 8
+      bits se escribe 0010 1101.</p>
+    </div>
+
+    <h3>2.2.2 Sistema hexadecimal</h3>
+    <p>Escribir muchos bits es incómodo y es fácil equivocarse. El sistema
+    <strong>hexadecimal</strong> (base 16) usa 16 cifras: del 0 al 9 y de la A
+    a la F (A = 10, B = 11, C = 12, D = 13, E = 14 y F = 15). Su gran ventaja
+    es que <strong>cada cifra hexadecimal equivale exactamente a 4
+    bits</strong>.</p>
+    <p>Para pasar de binario a hexadecimal se agrupan los bits de cuatro en
+    cuatro empezando por la derecha y se cambia cada grupo por su cifra:</p>
+    <p class="mono" style="text-align:center">0110 1100 0010 1110 → 6 C 2 E → <strong>6C2E</strong></p>
+    <p>El hexadecimal aparece continuamente en informática: direcciones de
+    memoria en los mensajes de error, direcciones MAC de las tarjetas de red
+    (<span class="mono">3C:52:82:1A:F0:9B</span>), colores de las páginas web
+    (<span class="mono">#17685E</span> es el verde de este módulo) o códigos de
+    error de la BIOS.</p>
+    <p>Para distinguir en qué base está un número se usa un subíndice o un
+    prefijo: 101<sub>2</sub> o <span class="mono">0b101</span> en binario,
+    2E<sub>16</sub> o <span class="mono">0x2E</span> en hexadecimal.</p>
+
+    <div class="interactivo" data-widget="bits" data-bits="8">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Un byte en tus manos</h3>
+      <p class="instrucciones">Pulsa los bits para encenderlos y apagarlos, o
+      escribe un número. Fíjate en cómo cada grupo de 4 bits se convierte en
+      una cifra hexadecimal.</p>
+    </div>
+
+    <h3>2.2.3 Unidades de capacidad</h3>
+    <p>La capacidad de memorias y discos se mide en bytes y sus múltiplos. Aquí
+    hay una trampa que conviene conocer: existen <strong>dos sistemas de
+    múltiplos</strong>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th colspan="2">Sistema internacional (base 10)</th><th colspan="2">Sistema binario IEC (base 2)</th></tr></thead>
+      <tbody>
+        <tr><td>kilobyte (kB)</td><td>1000 bytes</td><td>kibibyte (KiB)</td><td>1024 bytes</td></tr>
+        <tr><td>megabyte (MB)</td><td>1000 kB</td><td>mebibyte (MiB)</td><td>1024 KiB</td></tr>
+        <tr><td>gigabyte (GB)</td><td>1000 MB</td><td>gibibyte (GiB)</td><td>1024 MiB</td></tr>
+        <tr><td>terabyte (TB)</td><td>1000 GB</td><td>tebibyte (TiB)</td><td>1024 GiB</td></tr>
+        <tr><td>petabyte (PB)</td><td>1000 TB</td><td>pebibyte (PiB)</td><td>1024 TiB</td></tr>
+        <tr><td>exabyte (EB)</td><td>1000 PB</td><td>exbibyte (EiB)</td><td>1024 PiB</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los fabricantes de discos usan el sistema internacional. Windows calcula
+    en base 1024, pero escribe «GB». Por eso un disco de <strong>1 TB</strong>
+    aparece en Windows como <strong>931 GB</strong>: no falta espacio, solo
+    cambia la forma de contar. La memoria RAM, en cambio, siempre se fabrica en
+    potencias de 2: un módulo de «16 GB» tiene en realidad 16 GiB.</p>
+    <p>Por encima del exabyte están el zettabyte (ZB) y el yottabyte (YB). En
+    2022 se añadieron el ronnabyte (RB) y el quettabyte (QB).</p>
+
+    <div class="interactivo" data-widget="unidades">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Conversor de unidades</h3>
+      <p class="instrucciones">Escribe la capacidad de tu disco o de tu móvil y
+      compara las dos formas de contar.</p>
+    </div>
+
+    <h3>2.2.4 Otros códigos</h3>
+    <ul>
+      <li><strong>BCD</strong> (<em>decimal codificado en binario</em>): cada
+      cifra decimal se guarda por separado con 4 bits. 45 en BCD es 0100 0101.
+      Lo usan relojes, calculadoras y el reloj de la placa base.</li>
+      <li><strong>ASCII</strong>: asigna un número a cada letra, cifra y
+      símbolo. La «A» es el 65 (<span class="mono">0x41</span>) y la «a» el 97.
+      ASCII solo tiene 128 caracteres, así que no incluye la «ñ» ni las tildes.
+      Hoy se usa <strong>Unicode</strong> (normalmente en formato UTF-8), que
+      tiene sitio para todos los idiomas y para los emojis.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-3">2.3 Puertas lógicas: cómo calcula un circuito</h2>
+    <p>En 1938, Claude Shannon demostró que el <strong>álgebra de
+    Boole</strong>, una parte de las matemáticas que trabaja solo con
+    «verdadero» y «falso», sirve para diseñar circuitos eléctricos. Desde
+    entonces, todo lo que hace un procesador se construye a partir de unos
+    bloques muy simples: las <strong>puertas lógicas</strong>.</p>
+    <p>Una puerta lógica recibe uno o varios bits de entrada y produce un bit
+    de salida según una regla fija. Por dentro está hecha con
+    <strong>transistores</strong> que funcionan como interruptores
+    controlados por tensión. El chip 4011, por ejemplo, contiene cuatro puertas
+    NAND. Un procesador actual tiene decenas de miles de millones de
+    transistores.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Puerta</th><th>Expresión</th><th>La salida vale 1 cuando…</th><th>Símbolo IEC</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NOT</strong> (inversora)</td><td class="mono">S = A'</td><td>la entrada vale 0</td><td class="mono">1 con círculo</td></tr>
+        <tr><td><strong>AND</strong> (Y)</td><td class="mono">S = A · B</td><td>todas las entradas valen 1</td><td class="mono">&amp;</td></tr>
+        <tr><td><strong>OR</strong> (O)</td><td class="mono">S = A + B</td><td>alguna entrada vale 1</td><td class="mono">≥1</td></tr>
+        <tr><td><strong>NAND</strong> (NO-Y)</td><td class="mono">S = (A · B)'</td><td>alguna entrada vale 0</td><td class="mono">&amp; con círculo</td></tr>
+        <tr><td><strong>NOR</strong> (NO-O)</td><td class="mono">S = (A + B)'</td><td>todas las entradas valen 0</td><td class="mono">≥1 con círculo</td></tr>
+        <tr><td><strong>XOR</strong> (O exclusiva)</td><td class="mono">S = A ⊕ B</td><td>las entradas son distintas</td><td class="mono">=1</td></tr>
+        <tr><td><strong>XNOR</strong></td><td class="mono">S = (A ⊕ B)'</td><td>las entradas son iguales</td><td class="mono">=1 con círculo</td></tr>
+      </tbody>
+    </table></div>
+    <p>Hay dos formas de dibujar las puertas: los símbolos <strong>ANSI</strong>
+    (americanos, con formas curvas, los que verás en los esquemas de este
+    tema) y los <strong>IEC</strong> (europeos, un rectángulo con un signo
+    dentro). En los dos casos, un <strong>círculo pequeño</strong> en la salida
+    significa «invertida».</p>
+
+    <div class="interactivo" data-widget="puertas" data-inicial="AND">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Laboratorio de puertas</h3>
+      <p class="instrucciones">Elige una puerta y pulsa los conmutadores A y B.
+      Los cables en verde llevan un 1. La fila de la tabla de verdad que estás
+      probando se marca en amarillo.</p>
+    </div>
+
+    <h3>2.3.1 Cómo leer un circuito lógico</h3>
+    <p>Cuando se combinan varias puertas, la salida se calcula paso a paso,
+    <strong>de izquierda a derecha</strong>:</p>
+    <ol>
+      <li>Numera las puertas y escribe la expresión de la salida de cada una a
+      partir de sus entradas.</li>
+      <li>Sustituye hasta llegar a la expresión de F en función de las
+      entradas.</li>
+      <li>Haz la <strong>tabla de verdad</strong>: con n entradas hay
+      2<sup>n</sup> filas (con A, B y C, 8 filas).</li>
+    </ol>
+    <p>Un <strong>punto</strong> donde se juntan cables indica que están
+    unidos. Si dos cables se cruzan <strong>sin punto</strong> (o con un
+    pequeño salto), no se tocan.</p>
+
+    <figure class="figura">
+      <img src="../assets/img/logica/circuito-ejemplo.svg" alt="Circuito de ejemplo: A y B entran en una puerta OR; C entra en una puerta NOT; las salidas de la OR y de la NOT entran en una puerta AND cuya salida es F." width="340">
+      <figcaption>Ejemplo resuelto: F a partir de A, B y C.</figcaption>
+    </figure>
+    <div class="ejemplo">
+      <strong>Ejemplo resuelto</strong>
+      <p>Puerta 1 (OR): A + B. Puerta 2 (NOT): C'. Puerta 3 (AND):
+      <strong>F = (A + B) · C'</strong>.</p>
+      <p>F vale 1 cuando «A o B valen 1» <em>y</em> «C vale 0»:</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="verdad">
+        <thead><tr><th>A</th><th>B</th><th>C</th><th>A + B</th><th>C'</th><th>F</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table></div>
+      <p>Añadir columnas intermedias (A + B, C') evita muchos errores.</p>
+    </div>
+
+    <h3>2.3.2 De las puertas a la memoria: circuitos combinacionales y secuenciales</h3>
+    <div class="columnas">
+      <div>
+        <h4>Combinacionales</h4>
+        <p>La salida depende <strong>solo de las entradas de ese
+        momento</strong>. No recuerdan nada. Ejemplos: las puertas, los
+        sumadores, los decodificadores (de una dirección binaria a «cuál de
+        las celdas activo») o los multiplexores (elegir una entre varias
+        señales).</p>
+      </div>
+      <div>
+        <h4>Secuenciales</h4>
+        <p>La salida depende de las entradas <strong>y de lo que pasó
+        antes</strong>: tienen memoria. Su pieza básica es el
+        <strong>biestable</strong> (<em>flip-flop</em>), que guarda 1 bit.
+        Varios biestables juntos forman un <strong>registro</strong>. Funcionan
+        al ritmo de una señal de <strong>reloj</strong>.</p>
+      </div>
+    </div>
+
+    <h3>2.3.3 Así suma la UAL</h3>
+    <p>Sumar dos bits tiene cuatro casos: 0 + 0 = 0, 0 + 1 = 1, 1 + 0 = 1 y
+    1 + 1 = 10 (es decir, 0 y «me llevo 1»). Si te fijas, la cifra de la suma
+    se comporta como una <strong>XOR</strong> y la llevada como una
+    <strong>AND</strong>. Con esas dos puertas se construye un
+    <strong>semisumador</strong>:</p>
+    <div class="interactivo" data-widget="semisumador">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Semisumador</h3>
+      <p class="instrucciones">Prueba las cuatro combinaciones de A y B y
+      comprueba que S y C dan la suma en binario.</p>
+    </div>
+    <p>Encadenando sumadores (cada uno pasa su llevada al siguiente) se suman
+    números de 4, 8, 32 o 64 bits. Esto es, literalmente, lo que hay dentro de
+    la unidad aritmético-lógica del procesador:</p>
+    <div class="interactivo" data-widget="sumador">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Sumador de 4 bits</h3>
+      <p class="instrucciones">Pulsa los bits de A y de B. Prueba a sumar 9 + 8
+      y fíjate en lo que pasa con la última llevada.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-4">2.4 Bloques funcionales y arquitectura de Von Neumann</h2>
+    <p>Da igual que sea un portátil, un servidor o un móvil: todos los
+    ordenadores se organizan en los mismos <strong>bloques
+    funcionales</strong>. Cada bloque cumple una función, aunque físicamente
+    pueda estar repartido entre varios componentes.</p>
+
+    <h3>2.4.1 El modelo de Von Neumann</h3>
+    <p>En 1945, el matemático John von Neumann describió cómo debía
+    organizarse un ordenador de propósito general. Casi todos los
+    ordenadores actuales siguen ese modelo, que se basa en
+    <strong>tres ideas clave</strong>:</p>
+    <ol>
+      <li><strong>Programa almacenado:</strong> los datos y las instrucciones
+      del programa se guardan juntos en la misma memoria. Para cambiar lo que
+      hace la máquina basta con cargar otro programa, sin recablear nada.</li>
+      <li><strong>Acceso por dirección:</strong> cada celda de la memoria tiene
+      un número (su dirección) y se llega a su contenido indicando ese
+      número.</li>
+      <li><strong>Ejecución secuencial:</strong> las instrucciones se ejecutan
+      una detrás de otra, en el orden en que están en memoria, salvo que una
+      instrucción ordene saltar a otra dirección.</li>
+    </ol>
+
+    <div class="interactivo">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Explora la máquina de Von Neumann</h3>
+      <p class="instrucciones">Pulsa cada bloque para ver qué hace y qué
+      componente real lo forma.</p>
+      <div data-widget="von-neumann" data-inicial="uc">
+        <div class="vn" role="group" aria-label="Bloques de la arquitectura de Von Neumann">
+          <button type="button" data-vn="es">Unidad de E/S<small>periféricos e interfaces</small></button>
+          <div class="vn-cpu">
+            <span>CPU</span>
+            <button type="button" data-vn="uc">Unidad de control (UC)<small>dirige y coordina</small></button>
+            <button type="button" data-vn="ual">Unidad aritmético-lógica (UAL)<small>calcula</small></button>
+            <button type="button" data-vn="reg">Registros<small>memoria rapidísima interna</small></button>
+          </div>
+          <button type="button" data-vn="mem">Memoria principal<small>datos e instrucciones</small></button>
+          <div class="vn-buses">
+            <button type="button" data-vn="bd">Bus de datos</button>
+            <button type="button" data-vn="ba">Bus de direcciones</button>
+            <button type="button" data-vn="bc">Bus de control</button>
+          </div>
+        </div>
+        <div class="vn-info" data-vn-info="uc" aria-live="polite">
+          <h4>Unidad de control (UC)</h4>
+          <p>Es el «director de orquesta». Busca en memoria la siguiente
+          instrucción, la interpreta (decodifica) y envía las señales de
+          control para que el resto de bloques la ejecuten en el orden
+          correcto. Lleva la cuenta de por dónde va el programa con el
+          <strong>contador de programa (CP)</strong>.</p>
+          <p><strong>Componente real:</strong> está dentro del microprocesador.</p>
+        </div>
+        <div class="vn-info" data-vn-info="ual" hidden>
+          <h4>Unidad aritmético-lógica (UAL o ALU)</h4>
+          <p>Hace las operaciones: aritméticas (sumar, restar, multiplicar,
+          dividir) y lógicas (AND, OR, NOT, comparar). Trabaja con los datos
+          que le dejan en sus registros y guarda el resultado en el
+          <strong>acumulador (AC)</strong>. No decide qué hacer: obedece a la
+          UC.</p>
+          <p><strong>Componente real:</strong> dentro del microprocesador. Un
+          procesador actual tiene varias UAL en cada núcleo.</p>
+        </div>
+        <div class="vn-info" data-vn-info="reg" hidden>
+          <h4>Registros</h4>
+          <p>Pequeñas memorias dentro de la CPU, cada una de unos pocos bytes.
+          Son la memoria más rápida del ordenador. Algunos tienen una función
+          fija: el CP (dirección de la siguiente instrucción), el RI
+          (instrucción en curso) o el AC (resultado de la UAL).</p>
+          <p><strong>Componente real:</strong> dentro del microprocesador.</p>
+        </div>
+        <div class="vn-info" data-vn-info="mem" hidden>
+          <h4>Memoria principal</h4>
+          <p>Guarda los programas que se están ejecutando y los datos con los
+          que trabajan. Está formada por celdas, cada una con su dirección. Es
+          <strong>volátil</strong>: al apagar el equipo se borra.</p>
+          <p><strong>Componente real:</strong> los módulos de memoria RAM
+          (DIMM en sobremesa, SO-DIMM en portátiles) o chips soldados en la
+          placa.</p>
+        </div>
+        <div class="vn-info" data-vn-info="es" hidden>
+          <h4>Unidad de entrada/salida (E/S)</h4>
+          <p>Comunica el ordenador con el exterior: con las personas (teclado,
+          pantalla), con otros equipos (red) y con el almacenamiento permanente
+          (discos). Cada periférico se conecta a través de una
+          <strong>interfaz</strong> que adapta sus señales a las del sistema.</p>
+          <p><strong>Componente real:</strong> controladores de la placa base y
+          del chipset, tarjetas de expansión, puertos (USB, HDMI, red) y los
+          propios periféricos.</p>
+        </div>
+        <div class="vn-info" data-vn-info="bd" hidden>
+          <h4>Bus de datos</h4>
+          <p>Por él viajan los datos y las instrucciones entre la CPU, la
+          memoria y la E/S. Es <strong>bidireccional</strong>: los datos pueden
+          ir en los dos sentidos (leer o escribir).</p>
+          <p><strong>Componente real:</strong> pistas de la placa base y
+          conexiones dentro de los chips.</p>
+        </div>
+        <div class="vn-info" data-vn-info="ba" hidden>
+          <h4>Bus de direcciones</h4>
+          <p>Lleva la <strong>dirección</strong> de la celda de memoria o del
+          dispositivo de E/S con el que la CPU quiere trabajar. Va en un único
+          sentido: de la CPU hacia la memoria y la E/S.</p>
+          <p><strong>Componente real:</strong> pistas de la placa base y
+          conexiones dentro de los chips.</p>
+        </div>
+        <div class="vn-info" data-vn-info="bc" hidden>
+          <h4>Bus de control</h4>
+          <p>Lleva las <strong>órdenes</strong> y avisos que coordinan a todos:
+          «leer», «escribir», la señal de reloj, el reinicio o las peticiones
+          de interrupción de los periféricos.</p>
+          <p><strong>Componente real:</strong> pistas de la placa base y
+          conexiones dentro de los chips.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Al conjunto de <strong>unidad de control + UAL + registros</strong> se
+    le llama <strong>unidad central de proceso (CPU)</strong>. Si se le añaden
+    la memoria principal, la unidad de E/S y los buses, tenemos el ordenador
+    completo.</p>
+
+    <p><strong>Cómo circula la información:</strong> los datos entran por la
+    unidad de E/S y se guardan en la memoria. La UC va leyendo las
+    instrucciones de la memoria y ordena a la UAL las operaciones necesarias.
+    Los resultados vuelven a la memoria y, desde ahí, salen al usuario por la
+    unidad de E/S. Todo ese tráfico pasa por los buses.</p>
+
+    <div class="clave">
+      <strong>El cuello de botella de Von Neumann</strong>
+      <p>Como instrucciones y datos comparten la misma memoria y los mismos
+      buses, la CPU no puede leer una instrucción y un dato a la vez. Además,
+      la CPU es muchísimo más rápida que la memoria, así que a menudo se queda
+      esperando. Gran parte del diseño de un ordenador actual (memorias caché,
+      varios canales de memoria, buses más anchos) existe para aliviar este
+      problema.</p>
+    </div>
+
+    <h3>2.4.2 La arquitectura Harvard</h3>
+    <p>La arquitectura <strong>Harvard</strong> separa la memoria en dos: una
+    para las <strong>instrucciones</strong> y otra para los
+    <strong>datos</strong>, cada una con sus propios buses. Así la CPU puede
+    leer una instrucción y un dato al mismo tiempo.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>Von Neumann</th><th>Harvard</th></tr></thead>
+      <tbody>
+        <tr><th>Memorias</th><td>Una sola, para datos e instrucciones</td><td>Dos: una de instrucciones y otra de datos</td></tr>
+        <tr><th>Buses</th><td>Un juego de buses compartido</td><td>Un juego de buses para cada memoria</td></tr>
+        <tr><th>Ventaja</th><td>Simple y flexible: la memoria se reparte según la necesite cada programa</td><td>Más rápida: lee instrucción y dato a la vez</td></tr>
+        <tr><th>Inconveniente</th><td>Cuello de botella en el acceso a memoria</td><td>Puede sobrar memoria de un tipo y faltar de otro; diseño más complejo</td></tr>
+        <tr><th>Dónde se usa</th><td>Ordenadores personales, portátiles, servidores</td><td>Microcontroladores (el de la placa Arduino Uno), procesadores de señal (DSP)</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los procesadores actuales son una mezcla: hacia fuera siguen el modelo de
+    Von Neumann (una sola RAM), pero por dentro su caché de primer nivel (L1)
+    está partida en dos, una para instrucciones y otra para datos. Es lo que se
+    llama <strong>Harvard modificada</strong>.</p>
+
+    <h3>2.4.3 De los bloques a las piezas reales</h3>
+    <p>Cuando abras un equipo en el taller verás piezas, no bloques. Esta es la
+    correspondencia:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Bloque funcional</th><th>Componentes físicos</th></tr></thead>
+      <tbody>
+        <tr><td>CPU (UC, UAL, registros)</td><td>Microprocesador (con su disipador). Incluye además la memoria caché y, en los modelos actuales, el controlador de memoria y a veces la gráfica integrada.</td></tr>
+        <tr><td>Memoria principal</td><td>Módulos de RAM en sus ranuras de la placa base.</td></tr>
+        <tr><td>Unidad de E/S</td><td>Chipset y controladores de la placa base, tarjetas de expansión (gráfica, red, sonido), puertos y conectores, y los periféricos: teclado, ratón, monitor, discos SSD y HDD, impresora…</td></tr>
+        <tr><td>Buses</td><td>Pistas de cobre de la placa base, ranuras (PCI Express, ranuras de memoria) y conexiones internas de los chips.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los discos son una pieza curiosa. Por su función forman parte de la
+    jerarquía de memoria (memoria secundaria). Pero en el modelo de Von Neumann
+    son <strong>periféricos de almacenamiento</strong>: la CPU no ejecuta
+    programas directamente desde ellos, primero los copia a la RAM.</p>
+
+    <div class="interactivo clasifica" data-widget="clasifica" data-opciones='{"cpu":"CPU","mem":"Memoria principal","es":"Unidad de E/S","bus":"Buses"}'>
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>¿A qué bloque pertenece?</h3>
+      <p class="instrucciones">Elige el bloque funcional de cada elemento y
+      pulsa «Comprobar».</p>
+      <ol>
+        <li data-bloque="cpu" data-pista="Hace los cálculos y dirige el resto: es el corazón de la CPU.">Microprocesador Ryzen 5</li>
+        <li data-bloque="mem" data-pista="Guarda los programas mientras se ejecutan y se borra al apagar.">Módulo DDR5 de 16 GB</li>
+        <li data-bloque="es" data-pista="Guarda datos de forma permanente y la CPU accede a él como periférico de almacenamiento.">SSD NVMe de 1 TB</li>
+        <li data-bloque="es" data-pista="Comunica el equipo con la red: es una interfaz con el exterior.">Tarjeta de red wifi</li>
+        <li data-bloque="bus" data-pista="Son las líneas por las que viajan datos y direcciones.">Pistas de cobre entre el zócalo y las ranuras de RAM</li>
+        <li data-bloque="cpu" data-pista="Es un registro, y los registros están dentro de la CPU.">Acumulador (AC)</li>
+        <li data-bloque="es" data-pista="Es un dispositivo de salida.">Monitor</li>
+        <li data-bloque="bus" data-pista="Es una ranura de conexión: forma parte del sistema de buses de la placa.">Ranura PCI Express x16</li>
+        <li data-bloque="cpu" data-pista="Lleva la cuenta de qué instrucción toca: es un registro de la unidad de control.">Contador de programa (CP)</li>
+        <li data-bloque="es" data-pista="Es un periférico de salida conectado por un puerto.">Impresora láser</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-5">2.5 Las unidades funcionales por dentro</h2>
+
+    <h3>2.5.1 La memoria principal</h3>
+    <p>La memoria es un conjunto de <strong>celdas</strong> iguales. Cada celda
+    guarda un número fijo de bits (en los PC, un byte) y tiene su propia
+    <strong>dirección</strong>. Sobre una celda se pueden hacer dos
+    operaciones, nunca a la vez:</p>
+    <ul>
+      <li><strong>Lectura (L):</strong> se consulta lo que hay guardado. El
+      contenido no cambia.</li>
+      <li><strong>Escritura (E):</strong> se guarda un valor nuevo. Lo que
+      hubiera antes se pierde.</li>
+    </ul>
+    <p>Para trabajar, la memoria usa dos registros auxiliares:</p>
+    <ul>
+      <li><strong>Registro de direcciones (RD):</strong> guarda la dirección de
+      la celda a la que se quiere acceder. Le llega por el bus de
+      direcciones.</li>
+      <li><strong>Registro de memoria (RM):</strong> guarda el dato que se
+      acaba de leer o el que se va a escribir. Está conectado al bus de
+      datos.</li>
+    </ul>
+    <p>En otros libros verás estos registros con sus siglas en inglés:
+    <span class="mono">MAR</span> (RD) y <span class="mono">MDR</span> o
+    <span class="mono">MBR</span> (RM).</p>
+    <p>La <strong>capacidad</strong> de una memoria es el número de celdas por
+    el tamaño de cada celda. Las celdas se organizan en filas y columnas, y en
+    los chips de verdad, en varios bloques (bancos). Para localizar un dato el
+    chip activa una fila y después una columna. Volverás a ver esta idea al
+    estudiar las latencias de la RAM en el tema 3.</p>
+
+    <h4>La jerarquía de memoria</h4>
+    <p>No existe una memoria a la vez rápida, enorme y barata. Por eso el
+    ordenador combina varios niveles: arriba los pequeños y rapidísimos; abajo
+    los grandes, lentos y baratos. Lo que más se usa se mantiene en los niveles
+    rápidos.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Nivel</th><th>Dónde está</th><th>Tiempo de acceso típico</th><th>Capacidad típica</th><th>Si el registro tardase 1 segundo…</th></tr></thead>
+      <tbody>
+        <tr><td>Registros</td><td>Dentro de la CPU</td><td>≈ 0,3 ns</td><td>Bytes</td><td>1 segundo</td></tr>
+        <tr><td>Caché L1 · L2 · L3</td><td>Dentro de la CPU</td><td>1 ns · 4 ns · 15 ns</td><td>KB · MB · decenas de MB</td><td>3 s · 13 s · 50 s</td></tr>
+        <tr><td>Memoria principal (RAM)</td><td>Módulos en la placa</td><td>≈ 80 ns</td><td>GB</td><td>≈ 4 minutos</td></tr>
+        <tr><td>Secundaria: SSD NVMe</td><td>Unidad de almacenamiento</td><td>≈ 50 µs</td><td>Cientos de GB a TB</td><td>≈ 2 días</td></tr>
+        <tr><td>Secundaria: disco duro (HDD)</td><td>Unidad de almacenamiento</td><td>≈ 5 ms</td><td>TB</td><td>≈ 6 meses</td></tr>
+        <tr><td>Auxiliar</td><td>Discos externos, cintas, nube</td><td>De milisegundos a segundos</td><td>TB a PB</td><td>Años</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los valores son aproximados y cambian según el modelo. La última columna
+    ayuda a hacerse una idea: si leer un registro durase un segundo, ir a la RAM
+    supondría unos cuatro minutos y leer del disco duro, medio año. Por eso la
+    caché es tan importante.</p>
+    <p>Los registros, la caché y la memoria principal forman la
+    <strong>memoria interna</strong>. La memoria secundaria y la auxiliar
+    forman la <strong>memoria externa</strong>.</p>
+
+    <h3>2.5.2 La unidad aritmético-lógica (UAL)</h3>
+    <p>La UAL contiene los <strong>operadores</strong>: los circuitos que
+    suman, restan, comparan o hacen operaciones lógicas como el sumador que
+    has visto en el apartado 2.3. Según cuántos datos usan, los operadores son
+    <strong>monádicos</strong> (un dato, como NOT o cambiar el signo) o
+    <strong>diádicos</strong> (dos datos, como la suma).</p>
+    <ul>
+      <li>Los datos llegan a unos <strong>registros de entrada</strong> de la
+      UAL.</li>
+      <li>El resultado se guarda en el <strong>acumulador (AC)</strong>, desde
+      donde puede usarse en la siguiente operación o enviarse a memoria.</li>
+      <li>El <strong>registro de estado</strong> guarda información sobre el
+      último resultado mediante indicadores (<em>flags</em>): si ha salido
+      cero, si es negativo, si ha habido llevada o si el resultado no cabe
+      (desbordamiento). La UC los consulta para tomar decisiones, como en un
+      «si… entonces» de un programa.</li>
+    </ul>
+
+    <h3>2.5.3 La unidad de control (UC)</h3>
+    <p>La UC busca las instrucciones, las interpreta y genera las órdenes para
+    ejecutarlas. Sus partes principales son:</p>
+    <ul>
+      <li><strong>Contador de programa (CP):</strong> registro con la dirección
+      de la siguiente instrucción. En inglés, <span class="mono">PC</span>
+      (<em>program counter</em>).</li>
+      <li><strong>Registro de instrucción (RI):</strong> guarda la instrucción
+      que se está ejecutando. En inglés, <span class="mono">IR</span>.</li>
+      <li><strong>Decodificador:</strong> interpreta la instrucción del RI y
+      averigua qué operación hay que hacer y con qué datos.</li>
+      <li><strong>Secuenciador:</strong> genera las señales de control en el
+      orden correcto, paso a paso.</li>
+      <li><strong>Reloj:</strong> marca el ritmo. Cada pulso es un ciclo, y
+      cada paso de una instrucción ocupa uno o varios ciclos.</li>
+    </ul>
+    <div class="clave">
+      <strong>La frecuencia de reloj</strong>
+      <p>Se mide en hercios (Hz): ciclos por segundo. Un procesador a
+      <strong>4 GHz</strong> da 4000 millones de pulsos por segundo; cada ciclo
+      dura 0,25 ns. Subir la frecuencia por encima de la de fábrica se llama
+      <strong>overclocking</strong>: el procesador va más rápido, pero consume
+      más, se calienta más y puede volverse inestable.</p>
+    </div>
+    <p>Hay dos formas de construir una UC. En la de <strong>control
+    cableado</strong>, los pasos de cada instrucción están fijados en los
+    circuitos. En la de <strong>control microprogramado</strong>, cada
+    instrucción se descompone en un pequeño programa interno de
+    microinstrucciones. A ese software grabado dentro del hardware se le
+    llama, en general, <strong>firmware</strong>.</p>
+
+    <h3>2.5.4 La unidad de entrada/salida</h3>
+    <p>Los periféricos se clasifican en:</p>
+    <ul>
+      <li><strong>De entrada:</strong> introducen información (teclado, ratón,
+      escáner, micrófono, webcam).</li>
+      <li><strong>De salida:</strong> muestran o entregan información
+      (monitor, impresora, altavoces).</li>
+      <li><strong>De entrada/salida:</strong> hacen las dos cosas. Unos son de
+      <strong>almacenamiento</strong> (discos, memorias USB) y otros de
+      <strong>comunicación</strong> (tarjeta de red, router, módem). La
+      pantalla táctil también es de entrada/salida.</li>
+    </ul>
+    <p>Entre la CPU y cada periférico hay dos piezas:</p>
+    <ul>
+      <li>El <strong>controlador</strong> maneja directamente el dispositivo.
+      Por ejemplo, el controlador de un disco mueve el cabezal. Suele ir dentro
+      del propio periférico.</li>
+      <li>La <strong>interfaz</strong> traduce las señales del periférico a
+      las señales normalizadas del sistema. Ejemplos: USB, SATA, HDMI.</li>
+    </ul>
+    <p>Para que la CPU distinga si habla con la memoria o con un periférico hay
+    dos sistemas:</p>
+    <ul>
+      <li><strong>E/S mapeada en memoria:</strong> los periféricos ocupan
+      algunas direcciones del mismo mapa que la memoria. La CPU les habla con
+      las mismas instrucciones que usa para leer y escribir en memoria.</li>
+      <li><strong>E/S aislada (o independiente):</strong> los periféricos
+      tienen su propio mapa de direcciones, separado del de la memoria. La CPU
+      usa instrucciones especiales de E/S y una señal del bus de control que
+      indica «esto va para la E/S, no para la memoria».</li>
+    </ul>
+    <p>Los periféricos son lentos comparados con la CPU. Para no tenerla
+    esperando, se usan <strong>interrupciones</strong> (el periférico avisa
+    cuando tiene algo listo; lo verás en el apartado 2.7). Para mover muchos
+    datos se usa el <strong>acceso directo a memoria (DMA)</strong>: el
+    periférico copia los datos a la RAM sin pasar por la CPU.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-6">2.6 Los buses</h2>
+    <p>Un <strong>bus</strong> es un conjunto de líneas (cables o pistas de
+    cobre) que comparten varias unidades para comunicarse. Por cada línea
+    viaja un bit cada vez. El número de líneas es el <strong>ancho del
+    bus</strong>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Bus</th><th>Qué lleva</th><th>Sentido</th><th>Qué determina su ancho</th></tr></thead>
+      <tbody>
+        <tr><td><strong>De datos (BD)</strong></td><td>Datos e instrucciones</td><td>Bidireccional</td><td>Cuántos bits se mueven de una vez. Un bus de 64 bits mueve 8 bytes en cada transferencia.</td></tr>
+        <tr><td><strong>De direcciones (BA)</strong></td><td>Direcciones de memoria o de E/S</td><td>Unidireccional (sale de la CPU)</td><td>Cuánta memoria se puede direccionar: con <strong>n líneas hay 2<sup>n</sup> direcciones</strong>.</td></tr>
+        <tr><td><strong>De control (BC)</strong></td><td>Señales de control: leer, escribir, reloj, reinicio, petición y aceptación de interrupción, bus ocupado…</td><td>Cada línea en su sentido</td><td>No se mide igual: cada línea es una señal distinta.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo · ¿Por qué un sistema de 32 bits no ve más de 4 GB?</strong>
+      <p>Si las direcciones tienen 32 bits, hay 2<sup>32</sup> = 4 294 967 296
+      direcciones distintas. Con una celda de 1 byte en cada dirección, el
+      máximo es 4 294 967 296 bytes = <strong>4 GiB</strong>. Aunque se
+      instale más RAM, no hay direcciones para llegar a ella.</p>
+    </div>
+
+    <p>La velocidad de un bus se mide por su <strong>ancho de banda</strong>:
+    cuántos bytes transfiere por segundo.</p>
+    <p class="mono" style="text-align:center">ancho de banda = (ancho en bits ÷ 8) × frecuencia × transferencias por ciclo</p>
+    <p>Las memorias <strong>DDR</strong> (<em>double data rate</em>) hacen dos
+    transferencias por ciclo de reloj. Por eso una DDR4 con reloj de 1600 MHz
+    se vende como DDR4-3200: 3200 millones de transferencias por
+    segundo.</p>
+
+    <div class="interactivo" data-widget="buses">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Calculadora de buses</h3>
+      <p class="instrucciones">Cambia el ancho de los buses y la frecuencia, o
+      carga uno de los ejemplos reales.</p>
+    </div>
+
+    <h3>2.6.1 Los buses en un ordenador actual</h3>
+    <p>El modelo de Von Neumann dibuja un único juego de buses compartido por
+    todos. Los primeros PC eran así, pero hoy sería un atasco permanente. Un
+    equipo actual usa varias conexiones <strong>punto a punto</strong>, cada
+    una dedicada a un tipo de tráfico:</p>
+    <ul>
+      <li><strong>CPU ↔ RAM:</strong> el controlador de memoria está dentro
+      del procesador y se comunica con los módulos por dos o más
+      <strong>canales</strong> de memoria independientes.</li>
+      <li><strong>CPU ↔ tarjeta gráfica y SSD NVMe:</strong> por
+      <strong>PCI Express</strong>, organizado en carriles (x1, x4, x16). A
+      más carriles, más ancho de banda.</li>
+      <li><strong>CPU ↔ chipset:</strong> un enlace dedicado (en Intel se llama
+      DMI).</li>
+      <li><strong>Chipset ↔ resto de E/S:</strong> USB, SATA, red, sonido…</li>
+    </ul>
+    <p>Además, casi todos estos buses modernos son <strong>serie</strong>: en
+    lugar de muchas líneas en paralelo, usan pocas líneas a velocidades
+    altísimas. Con muchas líneas en paralelo, a frecuencias muy altas, los
+    bits de las distintas líneas llegan desfasados. Verás todo esto con detalle
+    al estudiar la placa base en el tema 3.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-7">2.7 El ciclo de instrucción</h2>
+    <p>Un programa es una lista de <strong>instrucciones</strong> guardadas en
+    memoria. Cada instrucción tiene un formato fijo. En nuestra máquina de
+    ejemplo, cada celda tiene 4 cifras con formato
+    <strong>operación-dirección</strong>:</p>
+    <p class="mono" style="text-align:center"><strong>1</strong>408 → operación <strong>1</strong> sobre el dato de la dirección <strong>408</strong></p>
+    <p>La lista de operaciones que entiende un procesador es su <strong>juego
+    de instrucciones</strong>. Cada familia de procesadores tiene el suyo: un
+    programa para x86 (Intel, AMD) no funciona en un procesador ARM (móviles,
+    Mac actuales) sin traducirlo.</p>
+
+    <h3>2.7.1 Las fases</h3>
+    <p>La CPU repite sin parar el mismo ciclo para cada instrucción:</p>
+    <ol>
+      <li><strong>Búsqueda</strong> (<em>fetch</em>): la UC copia el CP en el
+      RD, la memoria lee esa celda y la instrucción llega por el bus de datos
+      hasta el RI. El CP se incrementa para apuntar a la siguiente
+      instrucción.</li>
+      <li><strong>Decodificación:</strong> el decodificador separa la
+      operación y la dirección del dato.</li>
+      <li><strong>Ejecución:</strong> la UC genera las órdenes: llevar la
+      dirección del dato al RD, leer o escribir en memoria, pedir a la UAL que
+      opere… El resultado queda en el AC o en memoria.</li>
+      <li><strong>Interrupción</strong> (solo si hace falta): antes de empezar
+      la siguiente instrucción, la CPU comprueba si algún periférico ha pedido
+      atención.</li>
+    </ol>
+
+    <div class="interactivo">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Simulador de CPU: el ejemplo de los apuntes</h3>
+      <p class="instrucciones">Pulsa «Siguiente paso» y lee lo que pasa en cada
+      momento. Los registros que cambian se marcan en amarillo y los buses que
+      se usan se iluminan. Al final, abre la traza para ver el estado de los
+      registros tras cada instrucción.</p>
+      <div class="cpu-sim" data-programa="libro"></div>
+    </div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo resuelto · Lo que hace el programa del simulador</strong>
+      <p>Juego de instrucciones del ejemplo: 1 = cargar el AC desde memoria, 2 =
+      restar al AC el dato de memoria, 3 = almacenar el AC en memoria. El CP
+      empieza en 250.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos mono">
+        <thead><tr><th>Instrucción</th><th>CP después</th><th>RI</th><th>AC</th><th>Qué pasa</th></tr></thead>
+        <tbody>
+          <tr><td>250</td><td>251</td><td>1408</td><td>0009</td><td>Carga en el AC el dato de 408 (9)</td></tr>
+          <tr><td>251</td><td>252</td><td>2409</td><td>0004</td><td>Resta al AC el dato de 409: 9 − 5 = 4</td></tr>
+          <tr><td>252</td><td>253</td><td>3409</td><td>0004</td><td>Guarda el AC en 409, que pasa de 0005 a 0004</td></tr>
+        </tbody>
+      </table></div>
+      <p>En 253 hay un 0000: el programa termina.</p>
+    </div>
+    <p>En el <a href="ut02-ejercicios-cpu.html">simulador completo</a> puedes
+    escribir tus propios programas en la memoria y ejecutarlos paso a
+    paso.</p>
+
+    <h3>2.7.2 Las interrupciones</h3>
+    <p>Imagina que la CPU tuviera que preguntar al teclado mil veces por
+    segundo «¿han pulsado algo?». Perdería muchísimo tiempo. En su lugar, el
+    teclado <strong>avisa</strong> con una señal de petición de interrupción
+    (IRQ) por el bus de control. Entonces la CPU:</p>
+    <ol>
+      <li>termina la instrucción que estaba ejecutando;</li>
+      <li><strong>guarda el contexto</strong>: el valor del CP y de los
+      registros, para poder volver;</li>
+      <li>ejecuta la <strong>rutina de servicio</strong> de ese periférico
+      (por ejemplo, leer la tecla pulsada);</li>
+      <li><strong>restaura el contexto</strong> y sigue con el programa donde
+      lo había dejado.</li>
+    </ol>
+    <p>Si varios periféricos piden atención a la vez, hay que decidir
+    prioridades. Puede hacerse <strong>en cadena</strong> (<em>daisy
+    chain</em>), donde tiene más prioridad el que está más cerca de la CPU, o
+    con un <strong>controlador de interrupciones</strong> que recibe todas las
+    peticiones y decide el orden.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-2-8">2.8 Del hardware al software: niveles de un ordenador</h2>
+    <p>Un ordenador se puede ver como una cebolla: cada capa se apoya en la de
+    debajo y oculta sus detalles a la de arriba.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Nivel</th><th>Ejemplos</th><th>Zona</th></tr></thead>
+      <tbody>
+        <tr><td>Aplicaciones</td><td>Navegador, LibreOffice, un videojuego</td><td rowspan="3">Software</td></tr>
+        <tr><td>Lenguajes de alto nivel</td><td>Programas en Python, Java o C</td></tr>
+        <tr><td>Sistema operativo</td><td>Windows, Ubuntu, macOS, Android</td></tr>
+        <tr><td><strong>Lenguaje máquina</strong></td><td>Las instrucciones del juego de instrucciones de la CPU</td><td><strong>Frontera</strong></td></tr>
+        <tr><td>Transferencia entre registros</td><td>Registros, buses y memoria, como en el simulador</td><td rowspan="3">Hardware</td></tr>
+        <tr><td>Circuitos digitales</td><td>Puertas, sumadores, biestables, decodificadores</td></tr>
+        <tr><td>Componentes electrónicos</td><td>Transistores, resistencias, condensadores (tema 1)</td></tr>
+      </tbody>
+    </table></div>
+    <p>El lenguaje máquina es la frontera entre hardware y software: es lo
+    último que «entiende» el procesador. Todo programa, esté escrito en el
+    lenguaje que esté, acaba traducido a esas instrucciones.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-resumen">Resumen</h2>
+    <ul>
+      <li>Los ordenadores son digitales: trabajan con <strong>bits</strong> (0
+      y 1). Con n bits hay 2<sup>n</sup> combinaciones.</li>
+      <li>El <strong>hexadecimal</strong> abrevia el binario: cada cifra son 4
+      bits. Hay unidades en base 1000 (kB, MB, GB) y en base 1024 (KiB, MiB,
+      GiB).</li>
+      <li>Las <strong>puertas lógicas</strong> (NOT, AND, OR, NAND, NOR, XOR,
+      XNOR) se combinan para formar sumadores, registros y, al final, la
+      CPU.</li>
+      <li>Bloques funcionales: <strong>CPU</strong> (UC, UAL y registros),
+      <strong>memoria principal</strong>, <strong>unidad de E/S</strong> y
+      <strong>buses</strong>.</li>
+      <li><strong>Von Neumann:</strong> programa almacenado en una memoria
+      común, acceso por dirección y ejecución secuencial.
+      <strong>Harvard:</strong> memorias separadas para instrucciones y
+      datos.</li>
+      <li>Buses: <strong>datos</strong> (bidireccional), <strong>direcciones</strong>
+      (n líneas → 2<sup>n</sup> direcciones) y <strong>control</strong>
+      (órdenes y avisos).</li>
+      <li>Ciclo de instrucción: <strong>búsqueda → decodificación → ejecución
+      → (interrupción)</strong>. Registros clave: CP, RI, RD, RM y AC.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-autoevaluacion">Autoevaluación</h2>
+    <p class="meta">No cuenta para la nota. Contesta, corrige y lee las
+    explicaciones.</p>
+    <form class="quiz" onsubmit="return false">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> ¿Cuántos bits necesitas como mínimo para representar los 26 pisos de un edificio?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q1" value="a"> 4</label></li>
+          <li><label><input type="radio" name="q1" value="b"> 26</label></li>
+          <li><label><input type="radio" name="q1" value="c"> 5</label></li>
+          <li><label><input type="radio" name="q1" value="d"> 8</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>2<sup>4</sup> = 16 no llega; 2<sup>5</sup> = 32 sí. Se necesitan 5 bits.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">2.</span> El número binario 1111 0001 en hexadecimal es…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q2" value="a"> 151</label></li>
+          <li><label><input type="radio" name="q2" value="b"> F1</label></li>
+          <li><label><input type="radio" name="q2" value="c"> 1F</label></li>
+          <li><label><input type="radio" name="q2" value="d"> E1</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>1111 = F y 0001 = 1, así que es F1 (241 en decimal).</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Una puerta tiene dos entradas y su salida vale 1 solo cuando las dos entradas valen 0. ¿Qué puerta es?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q3" value="a"> NOR</label></li>
+          <li><label><input type="radio" name="q3" value="b"> NAND</label></li>
+          <li><label><input type="radio" name="q3" value="c"> XOR</label></li>
+          <li><label><input type="radio" name="q3" value="d"> AND</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>La NOR es una OR invertida: la OR solo vale 0 cuando todas valen 0, así que la NOR solo vale 1 en ese caso.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> ¿Cuál de estas NO es una de las tres ideas clave de Von Neumann?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q4" value="a"> Datos e instrucciones en la misma memoria</label></li>
+          <li><label><input type="radio" name="q4" value="b"> Acceso a la memoria indicando una dirección</label></li>
+          <li><label><input type="radio" name="q4" value="c"> Ejecución secuencial de las instrucciones</label></li>
+          <li><label><input type="radio" name="q4" value="d"> Una memoria para datos y otra para instrucciones</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Separar las memorias es justo lo que caracteriza a la arquitectura Harvard.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> ¿Qué registro guarda la dirección de la siguiente instrucción que se va a ejecutar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q5" value="a"> El registro de instrucción (RI)</label></li>
+          <li><label><input type="radio" name="q5" value="b"> El contador de programa (CP)</label></li>
+          <li><label><input type="radio" name="q5" value="c"> El acumulador (AC)</label></li>
+          <li><label><input type="radio" name="q5" value="d"> El registro de memoria (RM)</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El CP apunta a la siguiente instrucción y se incrementa en cada fase de búsqueda. El RI guarda la instrucción que se está ejecutando ahora.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Un procesador tiene un bus de direcciones de 24 líneas y cada celda guarda 1 byte. ¿Cuánta memoria puede direccionar?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q6" value="a"> 24 bytes</label></li>
+          <li><label><input type="radio" name="q6" value="b"> 24 MiB</label></li>
+          <li><label><input type="radio" name="q6" value="c"> 16 MiB</label></li>
+          <li><label><input type="radio" name="q6" value="d"> 4 GiB</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>2<sup>24</sup> = 16 777 216 direcciones = 16 MiB (2<sup>20</sup> bytes son 1 MiB, y 2<sup>4</sup> = 16).</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> ¿Qué bus es bidireccional?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q7" value="a"> El de datos</label></li>
+          <li><label><input type="radio" name="q7" value="b"> El de direcciones</label></li>
+          <li><label><input type="radio" name="q7" value="c"> Ninguno</label></li>
+          <li><label><input type="radio" name="q7" value="d"> Solo el de control</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Por el bus de datos la información va de la CPU a la memoria (escritura) y de la memoria a la CPU (lectura). Las direcciones siempre salen de la CPU.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">8.</span> En la fase de búsqueda, ¿qué ocurre justo después de que la instrucción llegue al RI?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q8" value="a"> Se escribe el resultado en memoria</label></li>
+          <li><label><input type="radio" name="q8" value="b"> El CP se incrementa para apuntar a la siguiente instrucción</label></li>
+          <li><label><input type="radio" name="q8" value="c"> La UAL suma el AC con el RM</label></li>
+          <li><label><input type="radio" name="q8" value="d"> Se borra la memoria</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Al terminar la búsqueda el CP ya apunta a la siguiente instrucción. Después viene la decodificación.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">9.</span> Un disco duro de 2 TB aparece en Windows como «1,81 TB». ¿Por qué?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q9" value="a"> Porque el sistema operativo ocupa ese espacio</label></li>
+          <li><label><input type="radio" name="q9" value="b"> Porque el disco está defectuoso</label></li>
+          <li><label><input type="radio" name="q9" value="c"> Porque el fabricante cuenta en base 1000 y Windows en base 1024</label></li>
+          <li><label><input type="radio" name="q9" value="d"> Porque la RAM limita la capacidad del disco</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>2 TB = 2 × 10<sup>12</sup> bytes ≈ 1,82 TiB. Windows muestra 1,82 «TB», aunque en realidad son TiB.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">10.</span> ¿Qué arquitectura usa el microcontrolador de una placa Arduino Uno?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="q10" value="a"> Von Neumann pura</label></li>
+          <li><label><input type="radio" name="q10" value="b"> Ninguna: no tiene memoria</label></li>
+          <li><label><input type="radio" name="q10" value="c"> La misma que un PC de sobremesa</label></li>
+          <li><label><input type="radio" name="q10" value="d"> Harvard: memoria de programa y de datos separadas</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El programa se guarda en su memoria flash y los datos en una SRAM aparte, con buses distintos.</p>
+      </div>
+      <div class="acciones">
+        <button type="button" data-corregir>Corregir</button>
+        <button type="button" class="sec" data-reiniciar>Volver a empezar</button>
+      </div>
+      <p class="resultado oculto" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02.html">&laquo; Portada del tema 2</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

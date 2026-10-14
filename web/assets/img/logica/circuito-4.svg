@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 550 210" role="img" aria-labelledby="title desc">
+<title id="title">Circuito lógico 4</title>
+<desc id="desc">Circuito combinacional con entradas A, B, C y salida F. Puerta 1: NOT de B; Puerta 2: AND de A y la salida de la puerta 1; Puerta 3: NAND de la salida de la puerta 2 y la salida de la puerta 1; Puerta 4: OR de la salida de la puerta 1 y C; Puerta 5: NOR de la salida de la puerta 3 y la salida de la puerta 4. F es la salida de la puerta 5. Un cruce con salto indica que los cables no están unidos.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.gate{fill:white;stroke:#24364a;stroke-width:2.2;stroke-linejoin:round}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:16px sans-serif;fill:#24364a}.dato{font-weight:700;fill:#8a3d00}</style>
+<rect x="-10" width="100%" height="100%" fill="white"/>
+<path class="wire" d="M30,40 L200,40"/>
+<path class="wire" d="M30,110 L80,110"/>
+<path class="wire" d="M30,170 L200,170"/>
+<path class="wire" d="M120,110 L150,110"/>
+<path class="wire" d="M150,60 L150,150"/>
+<path class="wire" d="M150,60 L200,60"/>
+<path class="wire" d="M150,150 L200,150"/>
+<path class="wire" d="M150,110 L280,110"/>
+<path class="wire" d="M280,110 L280,85"/>
+<path class="wire" d="M280,85 L300,85"/>
+<path class="wire" d="M250,50 L270,50"/>
+<path class="wire" d="M270,50 L270,65"/>
+<path class="wire" d="M270,65 L300,65"/>
+<path class="wire" d="M358,75 L385,75"/>
+<path class="wire" d="M385,75 L385,110"/>
+<path class="wire" d="M385,110 L410,110"/>
+<path class="wire" d="M250,160 L395,160"/>
+<path class="wire" d="M395,160 L395,130"/>
+<path class="wire" d="M395,130 L410,130"/>
+<path class="wire" d="M468,120 L500,120"/>
+<path class="gate" d="M80,97 L110,110 L80,123 Z"/>
+<circle class="gate" cx="114" cy="110" r="4"/>
+<path class="gate" d="M200,32 H225 A25,18 0 0 1 225,68 H200 Z"/>
+<path class="gate" d="M300,57 H325 A25,18 0 0 1 325,93 H300 Z"/>
+<circle class="gate" cx="354" cy="75" r="4"/>
+<path class="gate" d="M196,142 Q208,160 196,178 Q228,178 250,160 Q228,142 196,142 Z"/>
+<path class="wire" d="M200,150 h4"/>
+<path class="wire" d="M200,170 h4"/>
+<path class="gate" d="M406,102 Q418,120 406,138 Q438,138 460,120 Q438,102 406,102 Z"/>
+<circle class="gate" cx="464" cy="120" r="4"/>
+<path class="wire" d="M410,110 h4"/>
+<path class="wire" d="M410,130 h4"/>
+<circle class="node" cx="150" cy="110" r="3.6"/>
+<circle class="open" cx="30" cy="40" r="4"/>
+<text class="dato" x="22" y="45" text-anchor="end">A</text>
+<circle class="open" cx="30" cy="110" r="4"/>
+<text class="dato" x="22" y="115" text-anchor="end">B</text>
+<circle class="open" cx="30" cy="170" r="4"/>
+<text class="dato" x="22" y="175" text-anchor="end">C</text>
+<text class="dato" x="508" y="125">F</text>
+</svg>
