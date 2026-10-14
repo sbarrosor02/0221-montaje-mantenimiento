@@ -53,6 +53,14 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   ejercicios con el formato del examen de 2024 y un simulacro, generados y
   verificados con `scripts/generar_repaso_examen.py`. Simulacro imprimible con
   solucionario en `temario/soluciones/`.
+- **Tema 2 — Estructura funcional del ordenador y arquitectura de buses**
+  (RA1 a, b): portada, teoría interactiva (bits y bases, unidades, laboratorio de
+  puertas, semisumador y sumador de 4 bits, explorador de Von Neumann, calculadora
+  de buses, simulador de CPU y autoevaluación), simulador de CPU con retos,
+  cuatro boletines y práctica P4 en el taller. Circuitos lógicos generados y
+  verificados con `scripts/generar_circuitos_logicos.py`; programas contrastados
+  con el simulador web con `scripts/generar_trazas_cpu.py --web`. Solucionarios en
+  `temario/soluciones/` y decisiones del tema en `temario/ut02-estructura-funcional.md`.
 - Resto de temas: pendientes.
 
 ## Navegación del aula

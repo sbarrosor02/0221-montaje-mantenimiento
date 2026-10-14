@@ -96,7 +96,8 @@ for repo in REPOS:
             category = 'practicas'
         elif 'mapa-' in name or name == 'ut00.html':
             category = 'consulta'
-        elif name == ('ut01.html' if code == '0221' else 'ut02.html'):
+        elif re.fullmatch(r'ut(0[1-9]|[1-9][0-9])\.html', name) if code == '0221' else name == 'ut02.html':
+            # Las portadas de tema se enlazan desde el inicio; no son material del catálogo.
             continue
         filtered = [(target, label) for target, label in section_list if not any(word in label.lower() for word in ['criterio', 'resultado de aprendizaje', 'pendiente', 'próximos', 'en esta página'])]
         shortcuts = '<div class="aula-atajos">' + ''.join('<a href="temas/' + name + '#' + target + '">' + escape(label) + '</a>' for target, label in filtered[:5]) + '</div>'

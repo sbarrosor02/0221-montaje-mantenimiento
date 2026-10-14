@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prácticas · Tema 2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-p4">P4 · Del bloque a la pieza: los bloques funcionales de un equipo real</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2) · Prácticas</p>
+    <h1>Prácticas — Estructura funcional del ordenador</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT2 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02-teoria.html">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html">Ejercicios</a>
+    <a href="ut02-practicas.html" aria-current="page">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-acredita">Qué criterios acredita</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones.</li>
+      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses.</li>
+    </ul>
+  </details>
+
+  <section id="p4">
+    <h2 id="apartado-p4">P4 · Del bloque a la pieza: los bloques funcionales de un equipo real</h2>
+    <p class="meta"><strong>Evaluable</strong> · acredita RA1 (a, b) · taller,
+    en parejas · 2–3 sesiones · se entrega en el portafolio</p>
+
+    <h3>Qué vas a conseguir</h3>
+    <p>En la teoría has visto el ordenador como un esquema de bloques: CPU,
+    memoria, unidad de E/S y buses. En esta práctica abrirás un equipo de
+    verdad y encontrarás cada bloque en sus piezas reales. Al terminar sabrás
+    explicar, delante del equipo abierto, qué hace cada componente y por dónde
+    viaja la información entre ellos.</p>
+
+    <div class="aviso">
+      <strong>Antes de tocar nada.</strong> Repasa
+      <a href="ut01-prl.html">Seguridad y PRL</a>. El equipo debe estar
+      <strong>apagado y desenchufado</strong> (no basta con apagarlo). Ponte la
+      pulsera antiestática conectada al chasis y trabaja sobre la alfombrilla.
+      No desmontes nada que no se indique: en esta práctica se
+      <strong>observa</strong>, no se desmonta. El montaje y desmontaje
+      completos llegan en el tema 5.
+    </div>
+
+    <h3>Material</h3>
+    <ul>
+      <li>Un equipo de sobremesa del taller, por pareja, con su número de
+      puesto.</li>
+      <li>Destornillador de estrella, pulsera y alfombrilla antiestáticas,
+      linterna.</li>
+      <li>Móvil para hacer fotos (solo del equipo).</li>
+      <li>El manual de la placa base (en papel o descargado de la web del
+      fabricante con el modelo que encuentres impreso en la placa).</li>
+    </ul>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> El equipo por fuera: la unidad de E/S</h3>
+      <p>Con el equipo aún cerrado, haz una foto del panel trasero y otra del
+      frontal. Completa esta tabla con <strong>todos</strong> los conectores
+      que encuentres:</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Conector</th><th>Cuántos hay</th><th>Para qué sirve (periférico típico)</th><th>Entrada, salida o E/S</th></tr></thead>
+        <tbody>
+          <tr><td>Ej.: USB-A (azul)</td><td>4</td><td>Teclado, ratón, memorias USB…</td><td>E/S</td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Indica cuáles salen directamente de la placa base y cuáles de una
+      tarjeta de expansión. ¿Cómo lo has sabido?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> El equipo por dentro: de cada pieza a su bloque</h3>
+      <p>Abre la tapa lateral siguiendo las indicaciones del profesor. Haz una
+      foto general del interior y, sobre ella, numera cada componente. Después
+      completa la tabla:</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>N.º</th><th>Componente</th><th>Bloque funcional (CPU, memoria principal, E/S o buses)</th><th>Qué función cumple</th><th>Datos visibles (marca, modelo, capacidad, velocidad…)</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ej.: módulo de RAM</td><td>Memoria principal</td><td>Guarda los programas en ejecución y sus datos</td><td>DDR4, 8 GB, 3200 MHz (etiqueta)</td></tr>
+          <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Como mínimo deben aparecer: microprocesador (bajo su disipador; no lo
+      quites), módulos de RAM, placa base, chipset (suele tener un disipador
+      plano), unidades de almacenamiento, fuente de alimentación y tarjetas de
+      expansión si las hay. La fuente no forma parte de ningún bloque de Von
+      Neumann: explica por qué es imprescindible de todos modos.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Los buses en la placa base</h3>
+      <p>Los buses no se ven como «cables», pero sí sus pistas y sus ranuras.
+      Sobre una foto de la placa base, marca y rotula:</p>
+      <ol type="a">
+        <li>El zócalo de la CPU y las <strong>ranuras de memoria</strong>.
+        Consulta el manual: ¿cuántos <strong>canales</strong> de memoria
+        tiene? ¿En qué ranuras hay que poner dos módulos para que funcionen en
+        doble canal? ¿Coincide con cómo están montados?</li>
+        <li>Las <strong>ranuras PCI Express</strong>, indicando su tipo (x16,
+        x4, x1). ¿Cuáles van a la CPU y cuáles al chipset?</li>
+        <li>Los conectores de almacenamiento: <strong>SATA</strong> y
+        <strong>M.2</strong>.</li>
+        <li>Busca en el manual el <strong>diagrama de bloques</strong> de la
+        placa (muchos lo incluyen). Si no aparece, búscalo en la web del
+        fabricante. Dibuja con flechas el camino que siguen los datos de la
+        CPU a la RAM, de la CPU a la tarjeta gráfica y de la CPU a un disco
+        SATA.</li>
+      </ol>
+      <p>Mira las pistas de cobre que salen del zócalo hacia las ranuras de
+      memoria con la linterna. ¿Por qué crees que hay tantas y tan
+      juntas?</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Lo que dice el propio equipo</h3>
+      <p>Cierra el equipo, conéctalo y arráncalo. Obtén los datos por software
+      con una de estas opciones:</p>
+      <div class="columnas">
+        <div>
+          <h4>Windows</h4>
+          <p><strong>CPU-Z</strong> (gratuito): pestañas CPU, Caches, Memory y
+          SPD. También el Administrador de tareas → Rendimiento.</p>
+        </div>
+        <div>
+          <h4>Linux</h4>
+          <p><span class="mono">lscpu</span> para la CPU y sus cachés,
+          <span class="mono">sudo dmidecode -t memory</span> para la RAM,
+          <span class="mono">lsblk</span> para los discos y
+          <span class="mono">lspci</span> para lo que cuelga de PCI
+          Express.</p>
+        </div>
+      </div>
+      <p>Anota y explica:</p>
+      <ol type="a">
+        <li>Modelo de CPU, número de núcleos e hilos, frecuencia base y máxima.
+        Relaciona la frecuencia con el reloj de la unidad de control.</li>
+        <li>Tamaño de las cachés L1 (instrucciones y datos), L2 y L3.
+        Relaciónalo con la jerarquía de memoria y con la arquitectura Harvard
+        modificada.</li>
+        <li>Tipo de RAM, capacidad total, número de módulos, frecuencia y si
+        trabaja en canal simple o doble.</li>
+        <li>Con esos datos, <strong>calcula el ancho de banda máximo</strong>
+        de la memoria (ancho del canal × transferencias por segundo × número
+        de canales) y escribe el cálculo completo.</li>
+      </ol>
+      <p class="meta">Ojo: CPU-Z muestra la frecuencia real del reloj de la
+      memoria («DRAM Frequency»). En DDR hay que multiplicarla por 2 para
+      obtener las transferencias por segundo.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 5.</span> El esquema de bloques de tu equipo</h3>
+      <p>Dibuja el esquema de Von Neumann de <strong>tu</strong> equipo (a mano
+      o con <a href="https://app.diagrams.net/" rel="noopener">diagrams.net</a>)
+      usando los nombres y datos reales: en lugar de «Memoria principal»,
+      «2 × 8 GB DDR4-3200, doble canal». Incluye la CPU (con UC, UAL y caché),
+      la memoria, al menos cuatro elementos de E/S y los buses o enlaces que
+      los unen.</p>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Parte 6.</span> Conclusiones</h3>
+      <ol>
+        <li>¿Qué bloque funcional te ha costado más encontrar en el equipo
+        real? ¿Por qué?</li>
+        <li>Si este equipo tuviera un solo módulo de RAM, ¿qué cambiaría en el
+        ancho de banda de la memoria? Justifícalo con tu cálculo.</li>
+        <li>¿Dónde está, físicamente, la unidad de control de este
+        equipo?</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>Un PDF por pareja llamado
+        <code>P4_apellido1_apellido2.pdf</code>, con el número de puesto en la
+        portada.</li>
+        <li>Debe incluir las <strong>fotos rotuladas</strong>, las dos
+        <strong>tablas completas</strong>, las respuestas de cada parte, las
+        <strong>capturas</strong> de CPU-Z o la salida de los comandos, el
+        cálculo del ancho de banda y el <strong>esquema de bloques</strong>.</li>
+        <li>Las fotos deben ser tuyas y de tu puesto. No se aceptan imágenes
+        sacadas de internet.</li>
+      </ul>
+
+      <h3>Cómo se evalúa (rúbrica, 10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Conectores exteriores identificados y clasificados</td><td>a)</td><td>1,5</td><td>Están todos, con su uso y su tipo (entrada, salida o E/S) bien indicados.</td></tr>
+          <tr><td>Componentes internos asignados a su bloque y con su función</td><td>a)</td><td>2,5</td><td>Están los componentes mínimos, con el bloque correcto, una función bien explicada y datos reales. La pregunta de la fuente está razonada.</td></tr>
+          <tr><td>Buses en la placa: memoria, PCI Express, SATA/M.2 y diagrama</td><td>b)</td><td>2,0</td><td>Foto bien rotulada, canales de memoria explicados con el manual y caminos de datos dibujados correctamente.</td></tr>
+          <tr><td>Datos por software y cálculo del ancho de banda</td><td>a), b)</td><td>1,5</td><td>Datos completos, relacionados con la teoría, y cálculo correcto con unidades.</td></tr>
+          <tr><td>Esquema de bloques del equipo con datos reales</td><td>a), b)</td><td>1,5</td><td>Esquema claro, completo y coherente con lo encontrado en el equipo.</td></tr>
+          <tr><td>Conclusiones</td><td>a)</td><td>0,5</td><td>Respuestas razonadas, no solo afirmaciones.</td></tr>
+          <tr><td>Orden, seguridad y recogida del puesto</td><td>—</td><td>0,5</td><td>Pulsera puesta, equipo desconectado al abrir, tornillos guardados y puesto recogido.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut02.html">Portada del tema 2</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

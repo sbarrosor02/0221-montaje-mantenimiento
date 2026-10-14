@@ -78,6 +78,39 @@
           "nota": "apartados del informe, qué incluir en cada uno, ejemplos de cálculo, tabla y pie de foto, relación con la rúbrica y lista de comprobación"
         }
       ]
+    },
+    {
+      "ut": 2,
+      "titulo": "Estructura funcional del ordenador y arquitectura de buses",
+      "ra": "RA1",
+      "nota": "portada en temas/ut02.html con teoría, simulador de CPU, ejercicios y práctica P4; RA1 a) y b). La programación asigna 6 h; se amplía según el ritmo del grupo",
+      "evaluacion": 1,
+      "horas": 6,
+      "estado": "publicado",
+      "actualizado": "2026-10-14",
+      "recursos": [
+        {
+          "titulo": "Teoría: representación, puertas lógicas, Von Neumann, buses y ciclo de instrucción",
+          "url": "temas/ut02-teoria.html",
+          "nota": "piezas interactivas: bits y bases, unidades, laboratorio de puertas, semisumador, sumador de 4 bits, explorador de Von Neumann, clasificación de componentes, calculadora de buses, simulador de CPU y autoevaluación"
+        },
+        {
+          "titulo": "Simulador de CPU",
+          "url": "temas/ut02-ejercicios-cpu.html",
+          "nota": "máquina de Von Neumann paso a paso con memoria editable y retos R1-R4; contrastado con scripts/generar_trazas_cpu.py --web"
+        },
+        {
+          "titulo": "Ejercicios: cuatro boletines",
+          "url": "temas/ut02-ejercicios.html",
+          "nota": "representación (10), circuitos lógicos (7, esquemas generados y verificados con scripts/generar_circuitos_logicos.py), arquitectura y buses (9), ejecución de programas (6). Solucionarios en temario/soluciones/"
+        },
+        {
+          "titulo": "Práctica P4: del bloque a la pieza",
+          "url": "temas/ut02-practicas.html",
+          "evaluable": true,
+          "nota": "taller en parejas, RA1 a) y b), rúbrica de 10"
+        }
+      ]
     }
   ],
   "_destacados_nota": "destacados: avisos de la portada («Ahora en clase»). Editar o vaciar la lista y ejecutar scripts/actualizar_aula.py."

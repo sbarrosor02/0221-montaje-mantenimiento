@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de CPU · Tema 2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<script defer src="../assets/ut02-cpu.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-se-usa">Cómo se usa</a></li><li><a href="#apartado-simulador">Simulador</a></li><li><a href="#apartado-retos">Retos: programa la máquina</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1">
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2) · Simulador</p>
+    <h1>Simulador de CPU — una máquina de Von Neumann paso a paso</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT2 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02-teoria.html">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html" aria-current="page">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html">Ejercicios</a>
+    <a href="ut02-practicas.html">Prácticas</a>
+  </nav>
+
+  <p>Este simulador reproduce la máquina del apartado
+  <a href="ut02-teoria.html#apartado-2-7">2.7 de la teoría</a>: una CPU con
+  unidad de control y UAL, una memoria de celdas de 4 cifras y los tres buses.
+  Sirve para <strong>ver</strong> qué ocurre dentro del ordenador en cada
+  instrucción y para <strong>comprobar</strong> los ejercicios de ejecución de
+  programas que hagas en papel.</p>
+
+  <section>
+    <h2 id="apartado-como-se-usa">Cómo se usa</h2>
+    <ol>
+      <li>Elige un programa en el desplegable. Los tres primeros ya están
+      cargados; con «Memoria libre» escribes el tuyo.</li>
+      <li>Pulsa <strong>Siguiente paso</strong> y lee la explicación. Cada
+      instrucción tiene unos siete pasos: tres de búsqueda, uno de
+      decodificación y tres de ejecución.</li>
+      <li>Con <strong>Instrucción completa</strong> avanzas una instrucción
+      entera, y con <strong>Hasta el final</strong>, todo el programa.</li>
+      <li>Abre la <strong>traza</strong> para ver los registros al terminar
+      cada instrucción. Es lo que te piden en los ejercicios.</li>
+    </ol>
+    <div class="clave">
+      <strong>Recuerda el formato</strong>
+      <p>Cada celda tiene 4 cifras. En una instrucción, la primera cifra es la
+      <strong>operación</strong> y las tres siguientes, la
+      <strong>dirección</strong> del dato. 3251 significa «sumar al AC el dato
+      de la dirección 251». Una celda con 0000 en la posición del programa lo
+      termina.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-simulador">Simulador</h2>
+    <div class="interactivo">
+      <div class="cpu-sim" data-programa="suma" data-selector></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-retos">Retos: programa la máquina</h2>
+    <p>Elige «Memoria libre» en el desplegable y escribe estos programas con el
+    juego de instrucciones del boletín (1 cargar, 2 almacenar, 3 sumar,
+    4 restar, 5 multiplicar, 6 dividir). Antes de teclear, escribe en tu
+    cuaderno qué irá en cada celda. Coloca el programa a partir de la
+    dirección 100 y los datos a partir de la 200.</p>
+    <div class="ejercicio">
+      <p><span class="num">R1.</span> Calcula (A + B) × C con A = 4, B = 6 y
+      C = 3, y guarda el resultado en memoria. ¿Qué valor debería quedar?
+      Compruébalo en el simulador.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">R2.</span> Pasa 3 horas a minutos y guarda el
+      resultado. Pista: el número 60 también tiene que estar guardado en alguna
+      celda de memoria.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">R3.</span> Calcula la media de tres notas (7, 5 y 9)
+      y guárdala. ¿Qué pasa si las notas son 7, 5 y 8? Explica por qué el
+      resultado no es exacto.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">R4.</span> Escribe en una celda del programa una
+      instrucción con el código de operación 8 y ejecuta. ¿Qué ocurre? ¿Y si
+      divides entre una celda que contiene 0000? Relaciónalo con lo que hace
+      la unidad de control.</p>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-teoria.html">&laquo; Teoría</a>
+    <a href="ut02-ejercicios.html">Ejercicios &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
