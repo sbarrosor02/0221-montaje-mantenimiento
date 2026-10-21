@@ -1,6 +1,6 @@
 /* Piezas interactivas del tema 2 de 0221. Sin dependencias.
    Cada pieza se activa con data-widget="…" y es independiente:
-     bits · unidades · puertas · semisumador · sumador · buses · clasifica · von-neumann
+     bits · unidades · puertas · semisumador · sumador · buses · clasifica · von-neumann · ciclo-add
    Los cuestionarios son <form class="quiz"> con .pregunta[data-correcta]. */
 (function () {
   'use strict';
@@ -409,6 +409,181 @@
     mostrar(raiz.getAttribute('data-inicial') || botones[0].getAttribute('data-vn'));
   }
 
+  /* ------------------------------------------------------------ ciclo-add
+     Animación paso a paso de ADD 200,201,202: búsqueda, decodificación,
+     ejecución y almacenamiento, con el dato viajando por registros y buses. */
+  function cicloAdd(raiz) {
+    var R = {
+      cp_rd: [[85, 90], [85, 70], [280, 70], [280, 88], [290, 88]],
+      ba: [[380, 100], [480, 100]],
+      bc: [[250, 180], [480, 180]],
+      bdEntra: [[480, 250], [380, 250]],
+      bdSale: [[380, 250], [480, 250]],
+      rm_ri: [[290, 250], [275, 250], [275, 122], [240, 122]],
+      ri_rd: [[240, 100], [290, 100]],
+      ri_dec: [[184, 125], [184, 150]],
+      rm_a: [[335, 230], [335, 222], [90, 222], [90, 240]],
+      rm_b: [[335, 230], [335, 222], [190, 222], [190, 240]],
+      a_ual: [[90, 280], [90, 315]],
+      b_ual: [[190, 280], [190, 315]],
+      ual_ac: [[140, 335], [140, 380]],
+      ac_rm: [[190, 395], [335, 395], [335, 270]]
+    };
+    var PASOS = [
+      { f: 'Inicio', t: 'Estado inicial', d: 'El contador de programa (CP) apunta a la dirección 100, donde está la instrucción ADD 200,201,202: sumar el contenido de las celdas 200 y 201 y guardar el resultado en la 202.', hl: ['cp', 'm100'], a: [] },
+      { f: 'Búsqueda', t: 'El CP pasa la dirección al RD', d: 'La unidad de control copia el valor del contador de programa (100) en el registro de direcciones (RD).', hl: ['cp', 'rd'], a: [{ m: [[R.cp_rd, '100']], s: { rd: '100' } }] },
+      { f: 'Búsqueda', t: 'Dirección al bus y orden de lectura', d: 'El RD pone 100 en el bus de direcciones y la UC activa la señal de lectura en el bus de control. La memoria selecciona la celda 100.', hl: ['rd', 'ba', 'bc', 'm100'], a: [{ m: [[R.ba, '100'], [R.bc, 'Leer']] }] },
+      { f: 'Búsqueda', t: 'La instrucción viaja hasta el RM', d: 'El contenido de la celda 100 sale por el bus de datos y queda en el registro de memoria (RM).', hl: ['m100', 'bd', 'rm'], a: [{ m: [[R.bdEntra, 'ADD…']], s: { rm: 'ADD 200,201,202' } }] },
+      { f: 'Búsqueda', t: 'Al registro de instrucción, y CP + 1', d: 'El RM pasa la instrucción al registro de instrucción (RI). A la vez, el CP se incrementa a 101 para apuntar a la siguiente instrucción.', hl: ['rm', 'ri', 'cp'], a: [{ m: [[R.rm_ri, 'ADD…']], s: { ri: 'ADD 200,201,202', cp: '101' } }] },
+      { f: 'Decodificación', t: 'El decodificador interpreta la instrucción', d: 'El código de operación ADD indica una suma. Los operandos son tres direcciones: dos de lectura (200 y 201) y una de escritura (202). La UC prepara la secuencia de señales de control.', hl: ['ri', 'dec'], a: [{ m: [[R.ri_dec, 'ADD']], s: { dec: 'M[202]←M[200]+M[201]' } }] },
+      { f: 'Ejecución', t: 'Buscar el primer operando', d: 'La dirección 200 pasa del RI al RD, sale por el bus de direcciones y la UC vuelve a activar la señal de lectura.', hl: ['ri', 'rd', 'ba', 'bc', 'm200'], a: [{ m: [[R.ri_rd, '200']], s: { rd: '200' } }, { m: [[R.ba, '200'], [R.bc, 'Leer']] }] },
+      { f: 'Ejecución', t: 'El dato 25 llega al registro A', d: 'La memoria devuelve 25 por el bus de datos al RM, y de ahí pasa al registro A, una de las entradas de la UAL.', hl: ['m200', 'bd', 'rm', 'a'], a: [{ m: [[R.bdEntra, '25']], s: { rm: '25' } }, { m: [[R.rm_a, '25']], s: { a: '25' } }] },
+      { f: 'Ejecución', t: 'Buscar el segundo operando', d: 'Mismo proceso con la dirección 201: del RI al RD, al bus de direcciones, y señal de lectura.', hl: ['ri', 'rd', 'ba', 'bc', 'm201'], a: [{ m: [[R.ri_rd, '201']], s: { rd: '201' } }, { m: [[R.ba, '201'], [R.bc, 'Leer']] }] },
+      { f: 'Ejecución', t: 'El dato 17 llega al registro B', d: 'La memoria devuelve 17 por el bus de datos al RM, que lo pasa al registro B, la segunda entrada de la UAL.', hl: ['m201', 'bd', 'rm', 'b'], a: [{ m: [[R.bdEntra, '17']], s: { rm: '17' } }, { m: [[R.rm_b, '17']], s: { b: '17' } }] },
+      { f: 'Ejecución', t: 'La UAL suma', d: 'La UC envía a la UAL la orden de sumar. A + B = 25 + 17 = 42, y el resultado queda en el acumulador (AC).', hl: ['a', 'b', 'ual', 'ac'], a: [{ m: [[R.a_ual, '25'], [R.b_ual, '17']] }, { m: [[R.ual_ac, '42']], s: { ac: '42' } }] },
+      { f: 'Almacenamiento', t: 'Preparar la escritura', d: 'La dirección de destino (202) pasa del RI al RD, y el resultado (42) pasa del acumulador al RM.', hl: ['ri', 'rd', 'ac', 'rm'], a: [{ m: [[R.ri_rd, '202'], [R.ac_rm, '42']], s: { rd: '202', rm: '42' } }] },
+      { f: 'Almacenamiento', t: 'Escribir en memoria', d: 'El RD pone 202 en el bus de direcciones, la UC activa la señal de escritura y el RM envía 42 por el bus de datos. La celda 202 guarda el resultado.', hl: ['rd', 'rm', 'ba', 'bc', 'bd', 'm202'], a: [{ m: [[R.ba, '202'], [R.bc, 'Escribir'], [R.bdSale, '42']], s: { m202: '42' } }] },
+      { f: 'Fin', t: 'Instrucción completada', d: 'M[202] = 42. El CP ya vale 101, así que el ciclo vuelve a empezar con la búsqueda de la siguiente instrucción.', hl: ['m202', 'cp'], a: [] }
+    ];
+    var INICIAL = { cp: '100', rd: '', rm: '', ri: '', dec: '', a: '', b: '', ac: '', m202: '' };
+
+    function reg(id, x, y, w, nombre, chico) {
+      return '<g data-ca="' + id + '" class="ca-reg"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="40" rx="6"/>' +
+        '<text class="ca-nom" x="' + (x + w / 2) + '" y="' + (y + 12) + '">' + nombre + '</text>' +
+        '<text class="ca-val' + (chico ? ' ca-chico' : '') + '" data-v="' + id + '" x="' + (x + w / 2) + '" y="' + (y + 29) + '">—</text></g>';
+    }
+    function celda(id, y, dir, cont, vid) {
+      return '<g data-ca="' + id + '" class="ca-celda"><rect x="490" y="' + y + '" width="165" height="34" rx="4"/>' +
+        '<text class="ca-dir" x="500" y="' + (y + 17) + '">' + dir + '</text>' +
+        '<text class="ca-cont"' + (vid ? ' data-v="' + vid + '"' : '') + ' x="540" y="' + (y + 17) + '">' + cont + '</text></g>';
+    }
+    function cable(d) { return '<path class="ca-cable" d="' + d + '" marker-end="url(#ca-flecha)"/>'; }
+
+    var dibujo =
+      '<svg class="ca-svg" viewBox="0 0 680 460" role="img" aria-labelledby="ca-titulo ca-desc">' +
+      '<title id="ca-titulo">CPU, buses y memoria principal</title>' +
+      '<desc id="ca-desc">Esquema con la unidad de control (CP, RI y decodificador), los registros RD y RM, la UAL con los registros A, B y el acumulador, los tres buses y la memoria principal con las celdas 100, 101, 200, 201 y 202.</desc>' +
+      '<defs><marker id="ca-flecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#8192a5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>' +
+      '<rect class="ca-cpu" x="20" y="20" width="380" height="425" rx="12"/><text class="ca-titulo" x="388" y="40" text-anchor="end">CPU</text>' +
+      '<rect class="ca-uc" x="35" y="40" width="215" height="160" rx="10"/><text class="ca-titulo" x="142" y="56">Unidad de control</text>' +
+      cable('M85 90V70H280V88H288') + cable('M240 100H288') + cable('M290 250H275V122H242') + cable('M184 130V143') +
+      cable('M335 230V222H90V238') + cable('M190 222V238') + cable('M90 280V303') + cable('M190 280V303') +
+      cable('M140 340V373') + cable('M190 395H335V272') +
+      reg('cp', 50, 90, 70, 'CP') + reg('ri', 128, 90, 112, 'RI', true) +
+      '<g data-ca="dec" class="ca-reg"><rect x="50" y="145" width="190" height="44" rx="6"/><text class="ca-nom" x="145" y="157">Decodificador</text><text class="ca-val ca-chico" data-v="dec" x="145" y="176">—</text></g>' +
+      reg('rd', 290, 80, 90, 'RD') + reg('rm', 290, 230, 90, 'RM', true) +
+      reg('a', 50, 240, 80, 'Registro A') + reg('b', 150, 240, 80, 'Registro B') +
+      '<g data-ca="ual" class="ca-reg"><polygon points="50,305 230,305 195,340 85,340"/><text class="ca-titulo" x="140" y="322">UAL</text></g>' +
+      reg('ac', 90, 375, 100, 'Acumulador (AC)') +
+      '<line data-ca="ba" class="ca-bus ca-ba" x1="380" y1="100" x2="480" y2="100"/>' +
+      '<line data-ca="bc" class="ca-bus ca-bc" x1="250" y1="180" x2="480" y2="180"/>' +
+      '<line data-ca="bd" class="ca-bus ca-bd" x1="380" y1="250" x2="480" y2="250"/>' +
+      '<text class="ca-etq" x="430" y="90">B. direcciones</text><text class="ca-etq" x="430" y="170">B. control</text><text class="ca-etq" x="430" y="240">B. datos</text>' +
+      '<rect class="ca-mem" x="480" y="40" width="185" height="245" rx="10"/><text class="ca-titulo" x="572" y="56">Memoria principal</text>' +
+      celda('m100', 70, '100', 'ADD 200,201,202') + celda('m101', 104, '101', '(siguiente)') +
+      '<text class="ca-etq" x="572" y="157">⋮</text>' +
+      celda('m200', 172, '200', '25') + celda('m201', 206, '201', '17') + celda('m202', 240, '202', '—', 'm202') +
+      '<g class="ca-fichas"></g></svg>';
+
+    raiz.innerHTML =
+      '<div class="cpu-botones ca-botones">' +
+      '<button type="button" data-acc="ant">« Anterior</button>' +
+      '<button type="button" class="principal" data-acc="play">▶ Reproducir</button>' +
+      '<button type="button" data-acc="sig">Siguiente paso »</button>' +
+      '<button type="button" data-acc="rei">Reiniciar</button></div>' +
+      '<div class="ca-lienzo">' + dibujo + '</div>' +
+      '<div class="cpu-narracion" aria-live="polite"><span class="cpu-fase"></span><div><p class="ca-paso"></p><p><strong class="ca-t"></strong> <span class="ca-d"></span></p></div></div>' +
+      '<div class="ca-progreso" aria-hidden="true"></div>';
+
+    var NSs = 'http://www.w3.org/2000/svg';
+    var fichas = raiz.querySelector('.ca-fichas');
+    var progreso = raiz.querySelector('.ca-progreso');
+    var botonPlay = raiz.querySelector('[data-acc="play"]');
+    PASOS.forEach(function () { progreso.appendChild(el('span')); });
+    var calmado = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var estado = {}, actual = 0, reproduciendo = false, turno = 0, espera = null;
+
+    function texto(k, v) { if (!v) return '—'; if (k === 'rm' && v.length > 11) return v.slice(0, 9) + '…'; return v; }
+    function pintar() { Object.keys(estado).forEach(function (k) { var t = raiz.querySelector('[data-v="' + k + '"]'); if (t) t.textContent = texto(k, estado[k]); }); }
+    function resaltar(ids) {
+      raiz.querySelectorAll('[data-ca]').forEach(function (n) { n.classList.toggle('ca-activo', ids.indexOf(n.getAttribute('data-ca')) >= 0); });
+    }
+    function aplicar(p) { p.a.forEach(function (g) { Object.keys(g.s || {}).forEach(function (k) { estado[k] = g.s[k]; }); }); }
+    function panel() {
+      var p = PASOS[actual];
+      var fase = raiz.querySelector('.cpu-fase');
+      fase.textContent = p.f;
+      fase.setAttribute('data-fase', p.f === 'Almacenamiento' ? 'Ejecución' : p.f);
+      raiz.querySelector('.ca-paso').textContent = 'Paso ' + actual + ' de ' + (PASOS.length - 1);
+      raiz.querySelector('.ca-t').textContent = p.t;
+      raiz.querySelector('.ca-d').textContent = p.d;
+      Array.prototype.forEach.call(progreso.children, function (s, i) { s.classList.toggle('hecho', i <= actual); });
+    }
+    function botonReproducir() { botonPlay.textContent = reproduciendo ? '❚❚ Pausa' : '▶ Reproducir'; }
+
+    function viajar(puntos, etiqueta, id) {
+      return new Promise(function (fin) {
+        if (calmado) return fin(true);
+        var g = document.createElementNS(NSs, 'g');
+        var ancho = etiqueta.length * 7.6 + 18;
+        var r = document.createElementNS(NSs, 'rect');
+        r.setAttribute('x', -ancho / 2); r.setAttribute('y', -11); r.setAttribute('width', ancho); r.setAttribute('height', 22); r.setAttribute('rx', 11);
+        var t = document.createElementNS(NSs, 'text');
+        t.textContent = etiqueta;
+        g.setAttribute('class', 'ca-ficha'); g.appendChild(r); g.appendChild(t); fichas.appendChild(g);
+        var tramos = [], total = 0;
+        for (var i = 1; i < puntos.length; i++) { var l = Math.hypot(puntos[i][0] - puntos[i - 1][0], puntos[i][1] - puntos[i - 1][1]); tramos.push(l); total += l; }
+        var dur = Math.max(700, total / 0.15), t0 = performance.now();
+        function cuadro(ahora) {
+          if (id !== turno) { g.remove(); return fin(false); }
+          var x = Math.min(1, (ahora - t0) / dur);
+          var e = x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+          var d = e * total, k = 0;
+          while (k < tramos.length - 1 && d > tramos[k]) { d -= tramos[k]; k++; }
+          var a = puntos[k], b = puntos[k + 1], q = tramos[k] ? Math.min(1, d / tramos[k]) : 1;
+          g.setAttribute('transform', 'translate(' + (a[0] + (b[0] - a[0]) * q) + ',' + (a[1] + (b[1] - a[1]) * q) + ')');
+          if (x < 1) requestAnimationFrame(cuadro); else setTimeout(function () { g.remove(); fin(true); }, 180);
+        }
+        requestAnimationFrame(cuadro);
+      });
+    }
+
+    function ir(i) {
+      var id = ++turno;
+      clearTimeout(espera);
+      actual = i;
+      estado = {}; Object.keys(INICIAL).forEach(function (k) { estado[k] = INICIAL[k]; });
+      for (var k = 0; k < i; k++) aplicar(PASOS[k]);
+      fichas.textContent = '';
+      pintar(); panel(); resaltar(PASOS[i].hl);
+      var grupos = PASOS[i].a, n = 0;
+      (function siguiente() {
+        if (id !== turno) return;
+        if (n >= grupos.length) {
+          if (reproduciendo) espera = setTimeout(function () {
+            if (actual < PASOS.length - 1) ir(actual + 1); else { reproduciendo = false; botonReproducir(); }
+          }, 1900);
+          return;
+        }
+        var g = grupos[n++];
+        Promise.all(g.m.map(function (m) { return viajar(m[0], m[1], id); })).then(function () {
+          if (id !== turno) return;
+          Object.keys(g.s || {}).forEach(function (key) { estado[key] = g.s[key]; });
+          pintar(); siguiente();
+        });
+      })();
+    }
+
+    raiz.querySelector('[data-acc="sig"]').addEventListener('click', function () { ir(Math.min(actual + 1, PASOS.length - 1)); });
+    raiz.querySelector('[data-acc="ant"]').addEventListener('click', function () { ir(Math.max(actual - 1, 0)); });
+    raiz.querySelector('[data-acc="rei"]').addEventListener('click', function () { reproduciendo = false; botonReproducir(); ir(0); });
+    botonPlay.addEventListener('click', function () {
+      reproduciendo = !reproduciendo; botonReproducir();
+      if (reproduciendo) ir(actual >= PASOS.length - 1 ? 0 : actual + 1); else clearTimeout(espera);
+    });
+    ir(0);
+  }
+
   /* ---------------------------------------------------------------- quiz */
   function quiz(form) {
     var preguntas = form.querySelectorAll('.pregunta');
@@ -440,7 +615,7 @@
     });
   }
 
-  var PIEZAS = { bits: bits, unidades: unidades, puertas: puertas, semisumador: semisumador, sumador: sumador, buses: buses, clasifica: clasifica, 'von-neumann': vonNeumann };
+  var PIEZAS = { bits: bits, unidades: unidades, puertas: puertas, semisumador: semisumador, sumador: sumador, buses: buses, clasifica: clasifica, 'von-neumann': vonNeumann, 'ciclo-add': cicloAdd };
   function iniciar() {
     document.querySelectorAll('[data-widget]').forEach(function (r) {
       var f = PIEZAS[r.getAttribute('data-widget')];

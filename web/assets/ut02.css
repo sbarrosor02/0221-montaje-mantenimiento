@@ -245,3 +245,35 @@ button.sec:hover { background: var(--acento-claro); }
    Las tablas pequeñas del tema no lo necesitan. */
 .aula-tabla table.verdad, .aula-tabla table.programa-tabla { min-width: 0; }
 .ejercicio .aula-tabla { display: inline-block; vertical-align: top; margin: .2rem 1rem .2rem 0; max-width: 100%; }
+
+/* Animación del ciclo de instrucción ADD (apartado 2.4) */
+.ca-botones { margin-bottom: .8rem; }
+.ca-lienzo { overflow-x: auto; margin-bottom: .8rem; }
+.ca-svg { display: block; width: 100%; min-width: 30rem; height: auto; font-family: "Segoe UI", system-ui, sans-serif; }
+.ca-svg text { text-anchor: middle; dominant-baseline: central; fill: var(--tinta); }
+.ca-cpu { fill: none; stroke: var(--tinta-suave); stroke-width: 1.2; stroke-dasharray: 5 4; }
+.ca-uc { fill: var(--acento-claro); stroke: var(--acento); stroke-width: 1; }
+.ca-mem { fill: var(--fondo-suave); stroke: var(--tinta-suave); stroke-width: 1; }
+.ca-titulo { font-size: 14px; font-weight: 700; }
+.ca-svg .ca-etq { font-size: 12px; fill: var(--tinta-suave); }
+.ca-reg rect, .ca-reg polygon, .ca-celda rect { fill: white; stroke: var(--linea); stroke-width: 1.2; transition: stroke .2s, fill .2s; }
+.ca-reg polygon { fill: var(--fondo-suave); stroke: var(--tinta-suave); }
+.ca-svg .ca-nom { font-size: 11px; fill: var(--tinta-suave); }
+.ca-val, .ca-cont, .ca-dir, .ca-ficha text { font-family: ui-monospace, Consolas, "Cascadia Code", monospace; }
+.ca-val { font-size: 14px; font-weight: 700; }
+.ca-val.ca-chico, .ca-cont { font-size: 11.5px; font-weight: 700; }
+.ca-svg .ca-dir { font-size: 12px; fill: var(--tinta-suave); text-anchor: start; }
+.ca-svg .ca-cont { text-anchor: start; }
+.ca-cable { fill: none; stroke: #8192a5; stroke-width: 1; }
+.ca-bus { stroke-width: 3; transition: stroke-width .2s; }
+.ca-ba { stroke: #2f6db3; }
+.ca-bd { stroke: #17685e; }
+.ca-bc { stroke: #ad4c00; stroke-dasharray: 6 4; }
+.ca-activo rect, .ca-activo polygon { fill: #fff1c2; stroke: #f2b705; stroke-width: 2.5; }
+.ca-bus.ca-activo { stroke-width: 6; }
+.ca-ficha rect { fill: #f2b705; stroke: #8a5a00; stroke-width: 1; }
+.ca-svg .ca-ficha text { font-size: 12px; font-weight: 700; fill: #3d2a00; }
+.ca-progreso { display: flex; gap: 4px; }
+.ca-progreso span { flex: 1; height: 4px; border-radius: 2px; background: var(--linea); }
+.ca-progreso span.hecho { background: #f2b705; }
+.ca-paso { font-size: .85rem; color: var(--tinta-suave); margin-bottom: .2rem !important; }
