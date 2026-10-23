@@ -61,6 +61,11 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   verificados con `scripts/generar_circuitos_logicos.py`; programas contrastados
   con el simulador web con `scripts/generar_trazas_cpu.py --web`. Solucionarios en
   `temario/soluciones/` y decisiones del tema en `temario/ut02-estructura-funcional.md`.
+  **Concurso de clase** (`web/juegos/ut02-concurso.html`): juego de preguntas tipo
+  Kahoot para proyectar, sin dispositivos del alumnado. El profesor marca quién
+  responde (tarjetas de colores o dedos, o mano alzada), con marcador, podio,
+  desempate y premios de +0,5 y +0,25. Archivo autónomo: funciona desde un USB sin
+  conexión. No se enlaza desde las páginas del alumnado.
 - Resto de temas: pendientes.
 
 ## Navegación del aula

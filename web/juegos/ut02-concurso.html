@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concurso del tema 2 · 0221 Montaje y mantenimiento</title>
+<meta name="robots" content="noindex">
+<!-- Archivo autónomo: funciona abierto desde el disco o un USB, sin conexión.
+     Se proyecta en clase; el profesor marca quién responde. Estado guardado en localStorage. -->
+<style>
+:root {
+  --fondo: #1d2b36; --fondo-2: #263a48; --tinta: #1b2733; --blanco: #ffffff;
+  --acento: #17685e; --acento-claro: #e3f3ee; --suave: #5d6f80;
+  --c0: #d01c3a; --c1: #1366c4; --c2: #a87300; --c3: #24800c;
+  --ok: #1d8a4a; --mal: #c0262f; --oro: #e2a400; --plata: #9aa6b2; --bronce: #b8733a;
+  --radio: 12px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font-family: "Segoe UI", Calibri, system-ui, sans-serif; background: var(--fondo); color: var(--blanco); font-size: clamp(15px, 1.15vw, 20px); }
+button { font: inherit; cursor: pointer; border: none; border-radius: 8px; padding: .6em 1.1em; font-weight: 700; }
+button:focus-visible, textarea:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #ffb347; outline-offset: 3px; }
+.principal { background: var(--blanco); color: var(--tinta); font-size: 1.1em; box-shadow: 0 4px 0 #9fb0bf; }
+.principal:active { transform: translateY(2px); box-shadow: 0 2px 0 #9fb0bf; }
+.sec { background: transparent; color: var(--blanco); border: 2px solid rgba(255,255,255,.55); }
+.sec:hover { background: rgba(255,255,255,.1); }
+.peligro { background: transparent; color: #ffb4b8; border: 2px solid #ffb4b8; }
+#app { min-height: 100%; display: flex; flex-direction: column; }
+
+/* Barra superior */
+.barra { display: flex; align-items: center; justify-content: space-between; gap: .8em; flex-wrap: wrap; padding: .6em 1.2em; background: rgba(0,0,0,.25); }
+.barra .estado { font-weight: 700; }
+.barra .estado small { font-weight: 400; opacity: .8; margin-left: .5em; }
+.barra-acciones { display: flex; gap: .4em; flex-wrap: wrap; }
+.barra-acciones button { padding: .35em .7em; font-size: .85em; }
+
+/* Configuración */
+.config { max-width: 64rem; width: 100%; margin: 0 auto; padding: 2em 1.2em 3em; }
+.config h1 { font-size: clamp(2em, 4vw, 3.2em); margin: 0; letter-spacing: -.02em; }
+.config .sub { margin: .2em 0 1.5em; opacity: .85; }
+.config-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1em; }
+.panel { background: var(--blanco); color: var(--tinta); border-radius: var(--radio); padding: 1.1em 1.2em; }
+.panel h2 { margin: 0 0 .6em; font-size: 1.15em; color: var(--acento); }
+.panel label { display: block; }
+.panel textarea { width: 100%; font: inherit; padding: .6em; border: 1px solid #9aabbb; border-radius: 6px; resize: vertical; min-height: 12em; }
+.panel select { font: inherit; padding: .3em .4em; border-radius: 6px; border: 1px solid #9aabbb; }
+.panel .nota { font-size: .85em; color: var(--suave); margin: .4em 0 0; }
+.opcion-modo { display: flex; gap: .6em; align-items: flex-start; padding: .55em .6em; border: 2px solid #d6dee6; border-radius: 8px; margin-bottom: .5em; cursor: pointer; }
+.opcion-modo:has(input:checked) { border-color: var(--acento); background: var(--acento-claro); }
+.opcion-modo input { margin-top: .3em; }
+.opcion-modo span { display: block; font-size: .85em; color: var(--suave); }
+.fila-ajuste { display: flex; justify-content: space-between; align-items: center; gap: .6em; margin: .55em 0; flex-wrap: wrap; }
+.panel .sec { color: var(--acento); border-color: var(--acento); margin-top: .6em; }
+.ayuda { margin: 1em 0; background: var(--fondo-2); border-radius: var(--radio); padding: .2em 1.2em; }
+.ayuda summary { cursor: pointer; font-weight: 700; padding: .7em 0; }
+.ayuda li + li { margin-top: .35em; }
+.premios-linea { display: flex; gap: 1em; flex-wrap: wrap; align-items: center; margin: 1.2em 0; font-size: 1.1em; }
+.premio { background: var(--fondo-2); border-radius: 2em; padding: .35em .9em; }
+.error { color: #ffb4b8; font-weight: 700; min-height: 1.4em; }
+
+/* Pregunta */
+.escenario { flex: 1; display: grid; grid-template-rows: auto auto 1fr; gap: 1em; padding: 1em 1.2em; }
+.enunciado { background: var(--blanco); color: var(--tinta); border-radius: var(--radio); padding: .8em 1em; text-align: center; font-size: clamp(1.4em, 2.6vw, 2.5em); font-weight: 700; line-height: 1.25; margin: 0; }
+.centro { display: flex; align-items: center; justify-content: center; gap: 2em; flex-wrap: wrap; }
+.reloj { --p: 1; width: 5.2em; height: 5.2em; border-radius: 50%; display: grid; place-items: center; font-size: clamp(1.1em, 1.6vw, 1.6em); font-weight: 800;
+  background: radial-gradient(closest-side, var(--fondo) 79%, transparent 80% 100%), conic-gradient(var(--blanco) calc(var(--p) * 360deg), rgba(255,255,255,.15) 0); }
+.reloj.agotado { background: var(--mal); font-size: clamp(.9em, 1.2vw, 1.2em); text-align: center; line-height: 1.1; padding: .4em; }
+.reloj.pausado { opacity: .55; }
+.contador { font-size: 1.2em; text-align: center; }
+.contador strong { display: block; font-size: 2em; line-height: 1; }
+.opciones { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; align-content: stretch; }
+.opcion { display: flex; align-items: center; gap: .8em; border-radius: var(--radio); padding: .7em 1em; font-size: clamp(1.1em, 1.9vw, 1.9em); font-weight: 700; color: var(--blanco); min-height: 3.2em; box-shadow: 0 5px 0 rgba(0,0,0,.25); transition: opacity .3s, transform .3s; }
+.opcion svg { width: 1.5em; height: 1.5em; flex: none; fill: var(--blanco); }
+.opcion .num { flex: none; width: 1.6em; height: 1.6em; display: grid; place-items: center; border-radius: 50%; background: rgba(0,0,0,.22); font-size: .8em; }
+.opcion .texto { flex: 1; overflow-wrap: anywhere; }
+.opcion .marca-ok { margin-left: auto; font-size: 1.3em; }
+.c0 { background: var(--c0); } .c1 { background: var(--c1); } .c2 { background: var(--c2); } .c3 { background: var(--c3); }
+.opcion.apagada { opacity: .28; transform: scale(.97); }
+.opcion.correcta { outline: 5px solid var(--blanco); outline-offset: 3px; }
+.explicacion { background: var(--blanco); color: var(--tinta); border-left: 8px solid var(--ok); border-radius: var(--radio); padding: .7em 1em; margin: 0; font-size: 1.15em; }
+
+/* Mesa del profesor */
+.mesa { background: rgba(0,0,0,.25); padding: .8em 1.2em 1em; }
+.mesa-ayuda { margin: 0 0 .6em; font-size: .95em; opacity: .9; }
+.chips { display: flex; flex-wrap: wrap; gap: .45em; }
+.chip { display: inline-flex; align-items: center; gap: .45em; padding: .45em .8em; border-radius: 2em; background: var(--fondo-2); color: var(--blanco); border: 2px solid rgba(255,255,255,.25); font-weight: 600; }
+.chip:hover:not(:disabled) { border-color: var(--blanco); }
+.chip:disabled { cursor: default; opacity: .6; }
+.chip .insignia { display: inline-grid; place-items: center; min-width: 1.6em; height: 1.6em; padding: 0 .3em; border-radius: 1em; background: rgba(255,255,255,.2); font-size: .8em; }
+.chip.respondido { background: var(--blanco); color: var(--tinta); border-color: var(--blanco); }
+.chip.respondido .insignia { background: var(--fondo); color: var(--blanco); }
+.chip.turno { background: #ffb347; color: var(--tinta); border-color: #ffb347; animation: latido 1s infinite; }
+.chip.bloqueado { opacity: .45; text-decoration: line-through; }
+.chip.ok { background: var(--ok); border-color: var(--ok); color: var(--blanco); }
+.chip.fallo { background: var(--mal); border-color: var(--mal); color: var(--blanco); }
+.chip.ok .insignia, .chip.fallo .insignia { background: rgba(0,0,0,.25); color: var(--blanco); }
+@keyframes latido { 50% { box-shadow: 0 0 0 6px rgba(255,179,71,.35); } }
+@media (prefers-reduced-motion: reduce) { .chip.turno { animation: none; } .opcion { transition: none; } }
+.mesa-botones { display: flex; gap: .5em; flex-wrap: wrap; justify-content: flex-end; margin-top: .8em; align-items: center; }
+.mesa-botones .si { background: var(--ok); color: var(--blanco); }
+.mesa-botones .no { background: var(--mal); color: var(--blanco); }
+.mesa-botones .aviso-turno { margin-right: auto; font-weight: 700; color: #ffcf8a; }
+
+/* Marcador */
+.marcador { flex: 1; width: 100%; max-width: 56rem; margin: 0 auto; padding: 1.5em 1.2em; }
+.marcador h2 { text-align: center; font-size: clamp(1.6em, 3vw, 2.6em); margin: 0 0 .8em; }
+.fila-marcador { display: grid; grid-template-columns: 2.4em 1fr auto; align-items: center; gap: .8em; background: var(--blanco); color: var(--tinta); border-radius: 10px; padding: .55em .9em; margin-bottom: .5em; font-size: 1.25em; position: relative; overflow: hidden; }
+.fila-marcador .barra-pts { position: absolute; inset: 0 auto 0 0; background: var(--acento-claro); z-index: 0; }
+.fila-marcador > *:not(.barra-pts) { position: relative; z-index: 1; }
+.fila-marcador .pos { font-weight: 800; color: var(--acento); }
+.fila-marcador .nom { font-weight: 700; overflow-wrap: anywhere; }
+.fila-marcador .pts { font-weight: 800; text-align: right; }
+.fila-marcador .delta { display: block; font-size: .65em; color: var(--ok); font-weight: 700; }
+.fila-marcador .sube { color: var(--ok); font-size: .7em; margin-left: .4em; }
+.resto { margin-top: 1em; }
+.resto summary { cursor: pointer; font-weight: 700; }
+.resto ol { columns: 2 14em; }
+.pie-acciones { display: flex; gap: .6em; justify-content: center; flex-wrap: wrap; margin-top: 1.5em; }
+
+/* Podio */
+.podio-zona { flex: 1; padding: 1.2em; max-width: 64rem; width: 100%; margin: 0 auto; }
+.podio-zona h2 { text-align: center; font-size: clamp(1.8em, 3.4vw, 3em); margin: 0 0 .5em; }
+.podio { display: grid; grid-template-columns: repeat(3, 1fr); align-items: end; gap: .8em; max-width: 46rem; margin: 0 auto; }
+.peana { text-align: center; }
+.peana .quien { font-size: clamp(1.1em, 2vw, 1.8em); font-weight: 800; overflow-wrap: anywhere; }
+.peana .cuantos { opacity: .85; margin-bottom: .4em; }
+.peana .bloque { border-radius: 10px 10px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15em; font-size: clamp(2em, 4vw, 3.6em); font-weight: 900; color: var(--tinta); }
+.peana.p1 .bloque { height: min(11em, 34vh); background: var(--oro); } .peana.p2 .bloque { height: min(8em, 25vh); background: var(--plata); } .peana.p3 .bloque { height: min(5.5em, 17vh); background: var(--bronce); }
+.peana .bloque small { display: block; font-size: .32em; font-weight: 800; background: var(--blanco); border-radius: 2em; padding: .2em .8em; line-height: 1.4; }
+.aviso-empate { max-width: 46rem; margin: 1.2em auto 0; background: #ffb347; color: var(--tinta); border-radius: var(--radio); padding: .8em 1em; font-weight: 600; text-align: center; }
+
+/* Tarjetas para imprimir: solo se ven al imprimir */
+#hoja-tarjetas { display: none; }
+@media print {
+  @page { size: A4; margin: 10mm; }
+  body { background: white; color: black; font-size: 12pt; }
+  body.imprimir-tarjetas #app { display: none; }
+  body.imprimir-tarjetas #hoja-tarjetas { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; width: 190mm; height: 277mm; }
+  .tarjeta-imp { border: 1px dashed #777; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .tarjeta-imp svg { width: 55mm; height: 55mm; }
+  .tarjeta-imp .n { font-size: 40pt; font-weight: 900; }
+  .tarjeta-imp .p { font-size: 9pt; color: #555; }
+  body:not(.imprimir-tarjetas) .barra, body:not(.imprimir-tarjetas) .pie-acciones, body:not(.imprimir-tarjetas) .mesa-botones { display: none !important; }
+  body:not(.imprimir-tarjetas) .fila-marcador, body:not(.imprimir-tarjetas) .peana .bloque { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (max-width: 640px) {
+  .opciones { grid-template-columns: 1fr; }
+  .podio { gap: .4em; }
+  .peana.p1 .bloque { height: 8em; } .peana.p2 .bloque { height: 6em; } .peana.p3 .bloque { height: 4em; }
+  .fila-marcador { font-size: 1.05em; }
+}
+</style>
+</head>
+<body>
+<div id="app" aria-live="polite"></div>
+<div id="hoja-tarjetas" aria-hidden="true"></div>
+<noscript><p style="padding:2em">Este concurso necesita JavaScript.</p></noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------ preguntas
+     o: opciones (2 o 4), c: índice de la correcta, e: explicación, t: segundos mínimos */
+  var Q = [
+    { p: '¿Cuántas combinaciones distintas se pueden formar con 6 bits?', o: ['6', '12', '36', '64'], c: 3, e: 'Con n bits hay 2ⁿ combinaciones: 2⁶ = 64.' },
+    { p: '¿Cuántos bits necesitas como mínimo para representar 100 valores distintos?', o: ['6', '7', '8', '100'], c: 1, e: '2⁶ = 64 no llega; 2⁷ = 128 sí.', t: 30 },
+    { p: '¿Cómo se escribe 1100 1010₂ en hexadecimal?', o: ['AC', 'CA', '12 10', 'C10'], c: 1, e: 'Se agrupa de 4 en 4: 1100 = C y 1010 = A → CA.', t: 30 },
+    { p: '¿Qué número decimal es 0x1F?', o: ['15', '16', '31', '115'], c: 2, e: '1F₁₆ = 1 · 16 + 15 = 31.', t: 30 },
+    { p: '¿Qué es más grande?', o: ['1 GB', '1 GiB', '1000 MB', 'Son iguales'], c: 1, e: '1 GiB = 1024³ bytes ≈ 1,07 × 10⁹. 1 GB = 1000 MB = 10⁹ bytes.' },
+    { p: '¿Por qué un disco de 1 TB aparece en Windows como unos 931 GB?', o: ['El fabricante cuenta en base 1000 y Windows en base 1024', 'El sistema operativo ocupa ese espacio', 'El disco tiene sectores defectuosos', 'La partición de recuperación lo reduce'], c: 0, e: '10¹² bytes ÷ 1024³ ≈ 931 GiB, aunque Windows escriba «GB».' },
+    { p: 'En ASCII, la letra «A» mayúscula es el número…', o: ['1', '41', '65', '97'], c: 2, e: '«A» = 65 (0x41 en hexadecimal). La «a» minúscula es el 97.' },
+    { p: '¿Qué puerta da 1 solo cuando sus dos entradas son distintas?', o: ['AND', 'OR', 'XOR', 'NAND'], c: 2, e: 'La XOR (O exclusiva) vale 1 cuando A ≠ B.' },
+    { p: 'Una puerta NAND con A = 1 y B = 1 da…', o: ['0', '1'], c: 0, e: 'La AND daría 1 y la NAND la invierte: 0. Es el único caso en que una NAND vale 0.' },
+    { p: 'Una puerta NOR da 1 cuando…', o: ['todas sus entradas valen 0', 'todas sus entradas valen 1', 'alguna entrada vale 1', 'las entradas son distintas'], c: 0, e: 'La OR solo vale 0 si todas sus entradas valen 0; la NOR lo invierte.' },
+    { p: 'En un semisumador, el acarreo (la llevada) sale de una puerta…', o: ['OR', 'AND', 'XOR', 'NOT'], c: 1, e: '1 + 1 = 10: solo hay llevada cuando A y B valen 1, que es una AND. La suma sale de una XOR.' },
+    { p: 'Si F = (A + B) · C′, ¿cuánto vale F con A = 0, B = 1 y C = 0?', o: ['0', '1'], c: 1, e: 'A + B = 1 y C′ = 1, así que F = 1 · 1 = 1.', t: 30 },
+    { p: '¿Qué elemento NO forma parte de la CPU?', o: ['Unidad de control', 'UAL', 'Registros', 'Memoria principal'], c: 3, e: 'La CPU es UC + UAL + registros. La memoria principal es otro bloque funcional.' },
+    { p: 'En la arquitectura de Von Neumann, los datos y las instrucciones se guardan…', o: ['en la misma memoria', 'en dos memorias separadas', 'solo en los registros', 'en el disco duro'], c: 0, e: 'Es la idea del programa almacenado. Separarlos es lo propio de la arquitectura Harvard.' },
+    { p: 'El microcontrolador de una placa Arduino Uno sigue la arquitectura…', o: ['Von Neumann', 'Harvard'], c: 1, e: 'La memoria de programa (flash) y la de datos (SRAM) están separadas, cada una con sus buses.' },
+    { p: '¿Qué es el «cuello de botella de Von Neumann»?', o: ['La CPU espera porque datos e instrucciones comparten memoria y buses', 'La fuente no da potencia suficiente', 'El disco duro es más lento que el SSD', 'La UAL no sabe dividir'], c: 0, e: 'Un único camino hacia la memoria y una CPU mucho más rápida que ella. Las cachés lo alivian.' },
+    { p: '¿Qué registro guarda la instrucción que se está ejecutando?', o: ['CP', 'RI', 'AC', 'RD'], c: 1, e: 'RI = registro de instrucción. El CP guarda la dirección de la siguiente.' },
+    { p: '¿Dónde queda el resultado de una operación de la UAL?', o: ['En el acumulador (AC)', 'En el contador de programa (CP)', 'En el registro de instrucción (RI)', 'En el registro de direcciones (RD)'], c: 0, e: 'El acumulador recoge el resultado y lo deja listo para la siguiente operación.' },
+    { p: '¿En qué fase del ciclo de instrucción se incrementa el contador de programa?', o: ['Búsqueda', 'Decodificación', 'Ejecución', 'Interrupción'], c: 0, e: 'Al traer la instrucción al RI, el CP pasa a apuntar a la siguiente.' },
+    { p: 'Con el juego 1 cargar, 2 almacenar, 3 sumar…, ¿qué hace la instrucción 3405?', o: ['Suma al AC el dato de la dirección 405', 'Suma 405 al AC', 'Almacena el AC en la dirección 340', 'Carga el dato 3405 en el AC'], c: 0, e: 'Formato operación-dirección: 3 = sumar y 405 es la dirección del dato, no el dato.', t: 30 },
+    { p: '¿Qué bus es bidireccional?', o: ['El de datos', 'El de direcciones', 'Ninguno', 'Todos'], c: 0, e: 'Por el bus de datos se lee y se escribe. Las direcciones siempre salen de la CPU.' },
+    { p: 'Las órdenes de «leer» y «escribir» viajan por el bus de…', o: ['datos', 'direcciones', 'control', 'PCI Express'], c: 2, e: 'El bus de control lleva las órdenes y los avisos: leer, escribir, reloj, interrupciones…' },
+    { p: 'Un bus de direcciones de 30 líneas, con celdas de 1 byte, puede direccionar…', o: ['30 MiB', '1 GiB', '4 GiB', '30 GiB'], c: 1, e: '2³⁰ bytes = 1 GiB. Con 32 líneas serían 4 GiB.', t: 30 },
+    { p: 'Ancho de banda de un canal de memoria DDR4-3200 de 64 bits:', o: ['3,2 GB/s', '25,6 GB/s', '51,2 GB/s', '204,8 GB/s'], c: 1, e: '3200 millones de transferencias por segundo × 8 bytes = 25,6 GB/s. 51,2 GB/s sería en doble canal.', t: 30 },
+    { p: 'Los buses de un PC actual (PCI Express, SATA, USB) son sobre todo…', o: ['serie y punto a punto', 'paralelos y compartidos'], c: 0, e: 'Pocas líneas muy rápidas y un enlace propio para cada dispositivo.' },
+    { p: '¿Cuál de estas memorias es la más rápida?', o: ['Caché L3', 'RAM', 'Registros', 'SSD NVMe'], c: 2, e: 'Los registros están dentro de la CPU y son lo más alto de la jerarquía de memoria.' },
+    { p: 'Un periférico avisa a la CPU de que tiene datos listos mediante…', o: ['una interrupción', 'el contador de programa', 'el acumulador', 'la caché'], c: 0, e: 'La petición de interrupción (IRQ) llega por el bus de control.' },
+    { p: '¿Qué técnica permite a un periférico copiar datos a la RAM sin pasar por la CPU?', o: ['DMA', 'IRQ', 'BCD', 'ASCII'], c: 0, e: 'DMA = acceso directo a memoria.' },
+    { p: '¿Qué es el overclocking?', o: ['Subir la frecuencia de reloj por encima de la de fábrica', 'Añadir más memoria RAM', 'Ampliar el bus de datos', 'Poner un disipador mejor'], c: 0, e: 'Más ciclos por segundo: más rendimiento, pero más consumo, más calor y posible inestabilidad.' },
+    { p: '¿Qué nivel es la frontera entre el hardware y el software?', o: ['El lenguaje máquina', 'El sistema operativo', 'Los circuitos digitales', 'Las aplicaciones'], c: 0, e: 'Todo programa acaba traducido a las instrucciones del juego de instrucciones de la CPU.' },
+    { p: 'Una impresora es un periférico de…', o: ['entrada', 'salida', 'almacenamiento', 'comunicación'], c: 1, e: 'Saca información del ordenador hacia fuera.' },
+    { p: 'En la E/S mapeada en memoria…', o: ['los periféricos ocupan direcciones del mismo mapa que la memoria', 'cada periférico tiene su propio bus', 'los periféricos no tienen dirección', 'la CPU no puede leer de los periféricos'], c: 0, e: 'La CPU les habla con las mismas instrucciones que usa para la memoria.' }
+  ];
+  /* Preguntas rápidas para desempatar (después se usan las del banco que no hayan salido). */
+  var RESERVA = [
+    { p: '¿Cuánto es 0xFF en decimal?', o: ['15', '255', '256', '1515'], c: 1, e: 'FF₁₆ = 15 · 16 + 15 = 255.' },
+    { p: '¿Cuánto es 2¹⁰?', o: ['100', '512', '1000', '1024'], c: 3, e: '2¹⁰ = 1024: por eso 1 KiB son 1024 bytes.' },
+    { p: '¿Cuánta memoria direccionan 16 líneas de direcciones, con celdas de 1 byte?', o: ['16 KiB', '64 KiB', '1 MiB', '16 MiB'], c: 1, e: '2¹⁶ = 65 536 bytes = 64 KiB.' },
+    { p: '¿Cuánto es 1010 1010₂ en decimal?', o: ['85', '160', '170', '255'], c: 2, e: '128 + 32 + 8 + 2 = 170.' },
+    { p: '¿Qué puerta tiene una sola entrada?', o: ['AND', 'OR', 'NOT', 'XOR'], c: 2, e: 'La NOT invierte su única entrada.' }
+  ];
+  window.CONCURSO_PREGUNTAS = { Q: Q, RESERVA: RESERVA };
+
+  var FORMAS = [
+    '<svg viewBox="0 0 40 40" aria-hidden="true"><polygon points="20,4 37,35 3,35"/></svg>',
+    '<svg viewBox="0 0 40 40" aria-hidden="true"><polygon points="20,2 38,20 20,38 2,20"/></svg>',
+    '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/></svg>',
+    '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="4" width="32" height="32"/></svg>'
+  ];
+  var COLORES = ['rojo (triángulo)', 'azul (rombo)', 'amarillo (círculo)', 'verde (cuadrado)'];
+  var CLAVE = 'concurso-ut02-v1', CLAVE_LISTA = 'concurso-ut02-lista', CLAVE_SONIDO = 'concurso-ut02-sonido';
+
+  var app = document.getElementById('app');
+  var S = cargar() || nuevo();
+  var reloj = null;
+  var sonido = leer(CLAVE_SONIDO) !== 'no';
+
+  /* ------------------------------------------------------------ utilidades */
+  function leer(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function escribir(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento: se juega igual */ } }
+  function cargar() { try { var t = leer(CLAVE); return t ? JSON.parse(t) : null; } catch (e) { return null; } }
+  function guardar() { escribir(CLAVE, JSON.stringify(S)); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function num(n) { return n.toLocaleString('es-ES'); }
+  function aciertos(n) { return n + (n === 1 ? ' acierto' : ' aciertos'); }
+  function barajar(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  function nuevo(previo) {
+    var p = previo || {};
+    return { fase: 'config', jugadores: [], cola: [], i: 0,
+      modo: p.modo || 'tarjetas', rapidez: p.rapidez !== false, tiempo: p.tiempo || 20, nPreg: p.nPreg || 15, mezclar: p.mezclar !== false,
+      resp: {}, mano: { turno: null, t: 0, bloq: [] }, crono: null, ultimos: {}, rankAnt: [], desempate: null, reservaUsada: 0, sinPreguntas: false };
+  }
+  function jug(id) { return S.jugadores.filter(function (j) { return j.id === id; })[0]; }
+  function activos() { return S.desempate ? S.jugadores.filter(function (j) { return S.desempate.ids.indexOf(j.id) >= 0; }) : S.jugadores; }
+  function ranking() { return S.jugadores.slice().sort(function (a, b) { return b.puntos - a.puntos || a.nombre.localeCompare(b.nombre, 'es'); }); }
+  function modoMano() { return S.modo === 'mano' || !!S.desempate; }
+  function poolDesempate() {
+    var sinSalir = Q.filter(function (q, i) { return S.cola.indexOf(i) < 0; });
+    return RESERVA.concat(sinSalir);
+  }
+  function pregunta() { return S.desempate ? poolDesempate()[S.reservaUsada] : Q[S.cola[S.i]]; }
+
+  /* ------------------------------------------------------------ cronómetro */
+  function transcurrido() {
+    var c = S.crono, ahora = Date.now();
+    var pausa = c.pausado + (c.pausaDesde ? ahora - c.pausaDesde : 0);
+    return Math.max(0, Math.min(c.limite, (ahora - c.inicio - pausa) / 1000));
+  }
+  function pausar() { if (!S.crono.pausaDesde) S.crono.pausaDesde = Date.now(); }
+  function reanudar() { if (S.crono.pausaDesde) { S.crono.pausado += Date.now() - S.crono.pausaDesde; S.crono.pausaDesde = null; } }
+  function pararReloj() { if (reloj) { clearInterval(reloj); reloj = null; } }
+  function iniciarReloj() { pararReloj(); reloj = setInterval(actualizarReloj, 100); actualizarReloj(); }
+  function actualizarReloj() {
+    if (S.fase !== 'pregunta' || !S.crono) { pararReloj(); return; }
+    var resto = Math.max(0, S.crono.limite - transcurrido());
+    var el = document.getElementById('reloj');
+    if (el && !S.crono.agotado) {
+      el.textContent = Math.ceil(resto);
+      el.style.setProperty('--p', resto / S.crono.limite);
+      el.classList.toggle('pausado', !!S.crono.pausaDesde);
+    }
+    if (resto <= 0 && !S.crono.agotado) {
+      S.crono.agotado = true;
+      if (S.mano.turno) { S.mano.turno = null; }
+      guardar(); pitido(); render();
+    }
+  }
+  function pitido() {
+    if (!sonido) return;
+    try {
+      var Ctx = window.AudioContext || window.webkitAudioContext, ctx = new Ctx(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'square'; o.frequency.value = 520; g.gain.value = 0.08;
+      o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + 0.45);
+    } catch (e) { /* sin audio */ }
+  }
+
+  function puntos(r) {
+    if (!r || !r.ok) return 0;
+    if (!S.rapidez) return 1000;
+    var lim = S.crono.limite;
+    return Math.round(1000 * (1 - Math.min(r.t, lim) / lim / 2));
+  }
+
+  /* ------------------------------------------------------------ acciones */
+  function empezar() {
+    var lineas = document.getElementById('lista').value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    var error = document.getElementById('error');
+    if (!lineas.length) { error.textContent = 'Escribe al menos un participante.'; return; }
+    escribir(CLAVE_LISTA, lineas.join('\n'));
+    var usados = {};
+    var jugadores = lineas.map(function (n, i) {
+      var nombre = n; var k = 2;
+      while (usados[nombre.toLowerCase()]) { nombre = n + ' (' + k++ + ')'; }
+      usados[nombre.toLowerCase()] = true;
+      return { id: 'j' + i, nombre: nombre, puntos: 0, aciertos: 0 };
+    });
+    var cfg = {
+      modo: document.querySelector('input[name=modo]:checked').value,
+      rapidez: document.getElementById('rapidez').checked,
+      tiempo: parseInt(document.getElementById('tiempo').value, 10),
+      nPreg: parseInt(document.getElementById('npreg').value, 10),
+      mezclar: document.getElementById('mezclar').checked
+    };
+    S = nuevo(cfg);
+    S.jugadores = jugadores;
+    var indices = Q.map(function (q, i) { return i; });
+    if (cfg.mezclar) barajar(indices);
+    S.cola = indices.slice(0, cfg.nPreg > 0 ? cfg.nPreg : indices.length);
+    S.i = 0;
+    preparar();
+  }
+
+  function preparar() {
+    var q = pregunta();
+    if (!q) { S.desempate = null; S.sinPreguntas = true; S.fase = 'podio'; guardar(); render(); return; }
+    S.fase = 'pregunta';
+    S.resp = {};
+    S.mano = { turno: null, t: 0, bloq: [] };
+    S.crono = { inicio: Date.now(), pausado: 0, pausaDesde: null, limite: Math.max(S.tiempo, q.t || 0), agotado: false };
+    guardar(); render();
+  }
+
+  function pulsarChip(id) {
+    var r = S.resp[id];
+    if (S.fase === 'pregunta') {
+      if (S.crono.agotado) return;
+      if (modoMano()) {
+        if (S.mano.bloq.indexOf(id) >= 0) return;
+        if (S.mano.turno === id) { S.mano.turno = null; reanudar(); }
+        else if (!S.mano.turno) { S.mano.turno = id; S.mano.t = transcurrido(); pausar(); }
+      } else {
+        if (!S.rapidez) return;
+        if (r) {
+          delete S.resp[id];
+          Object.keys(S.resp).sort(function (a, b) { return S.resp[a].orden - S.resp[b].orden; })
+            .forEach(function (k, i) { S.resp[k].orden = i + 1; });
+        } else {
+          S.resp[id] = { t: transcurrido(), orden: Object.keys(S.resp).length + 1, ok: true };
+        }
+      }
+    } else if (S.fase === 'revelada') {
+      /* Corregir: sin marcar → acierto → fallo → sin marcar */
+      if (!r) S.resp[id] = { t: S.crono.limite, orden: Object.keys(S.resp).length + 1, ok: true };
+      else if (r.ok) r.ok = false;
+      else delete S.resp[id];
+    }
+    guardar(); render();
+  }
+
+  function contestar(bien) {
+    var id = S.mano.turno;
+    if (!id) return;
+    var orden = Object.keys(S.resp).length + 1;
+    S.resp[id] = { t: S.mano.t, orden: orden, ok: bien };
+    S.mano.turno = null;
+    if (bien) { revelar(); return; }
+    S.mano.bloq.push(id);
+    reanudar();
+    guardar(); render();
+  }
+
+  function revelar() {
+    if (S.mano.turno) { S.mano.turno = null; }
+    reanudar();
+    S.fase = 'revelada';
+    pararReloj(); guardar(); render();
+  }
+
+  function cerrarPregunta() {
+    if (S.desempate) {
+      var ganadores = Object.keys(S.resp).filter(function (k) { return S.resp[k].ok; })
+        .sort(function (a, b) { return S.resp[a].orden - S.resp[b].orden; });
+      S.reservaUsada++;
+      if (ganadores.length) {
+        var g = jug(ganadores[0]);
+        g.puntos += 1; g.desempates = (g.desempates || 0) + 1;
+        S.ganadorDesempate = g.nombre;
+        S.desempate = null; S.fase = 'podio'; guardar(); render();
+      } else {
+        preparar();
+      }
+      return;
+    }
+    S.rankAnt = ranking().map(function (j) { return j.id; });
+    var dados = {};
+    Object.keys(S.resp).forEach(function (id) {
+      var p = puntos(S.resp[id]), j = jug(id);
+      if (p && j) { j.puntos += p; j.aciertos++; }
+      dados[id] = p;
+    });
+    S.ultimos = dados;
+    S.fase = 'marcador';
+    guardar(); render();
+  }
+
+  function siguiente() {
+    S.i++;
+    if (S.i >= S.cola.length) { S.fase = 'podio'; guardar(); render(); return; }
+    preparar();
+  }
+
+  function empate() {
+    var r = ranking();
+    if (r.length < 2) return null;
+    if (r[0].puntos === r[1].puntos) return { puesto: 1, ids: r.filter(function (j) { return j.puntos === r[0].puntos; }).map(function (j) { return j.id; }) };
+    if (r.length >= 3 && r[1].puntos === r[2].puntos) return { puesto: 2, ids: r.filter(function (j) { return j.puntos === r[1].puntos; }).map(function (j) { return j.id; }) };
+    return null;
+  }
+
+  function textoResultados() {
+    var r = ranking(), e = empate(), fecha = new Date().toLocaleDateString('es-ES');
+    var lineas = ['Concurso del tema 2 · 0221 Montaje y mantenimiento · ' + fecha, ''];
+    r.forEach(function (j, i) {
+      var premio = '';
+      if (!e && i === 0) premio = ' · +0,5 puntos';
+      if (!e && i === 1) premio = ' · +0,25 puntos';
+      lineas.push((i + 1) + '. ' + j.nombre + ' — ' + num(j.puntos) + ' puntos (' + aciertos(j.aciertos) + (j.desempates ? ', ganó desempate' : '') + ')' + premio);
+    });
+    if (e) lineas.push('', 'Aviso: empate pendiente en el ' + e.puesto + '.º puesto.');
+    return lineas.join('\n');
+  }
+
+  function copiar() {
+    var t = textoResultados(), aviso = document.getElementById('copiado');
+    function hecho(ok) { if (aviso) aviso.textContent = ok ? 'Resultados copiados. Pégalos donde quieras.' : 'No se ha podido copiar: selecciona el texto de abajo.'; }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(t).then(function () { hecho(true); }, function () { mostrarTexto(t); hecho(false); });
+    } else { mostrarTexto(t); hecho(false); }
+  }
+  function mostrarTexto(t) {
+    var zona = document.getElementById('texto-resultados');
+    if (zona) { zona.hidden = false; zona.value = t; zona.focus(); zona.select(); }
+  }
+
+  function imprimirTarjetas() {
+    var hoja = document.getElementById('hoja-tarjetas');
+    var colores = ['#d01c3a', '#1366c4', '#a87300', '#24800c'];
+    hoja.innerHTML = FORMAS.map(function (f, i) {
+      return '<div class="tarjeta-imp"><div style="fill:' + colores[i] + '">' + f.replace('<svg ', '<svg width="210" height="210" ') + '</div><div class="n" style="color:' + colores[i] + '">' + (i + 1) + '</div><div class="p">Concurso · Tema 2 · recorta por la línea</div></div>';
+    }).join('');
+    document.body.classList.add('imprimir-tarjetas');
+    window.print();
+  }
+  window.addEventListener('afterprint', function () { document.body.classList.remove('imprimir-tarjetas'); });
+
+  function pantallaCompleta() {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+  }
+
+  /* ------------------------------------------------------------ vistas */
+  function barra(texto, detalle) {
+    return '<header class="barra"><span class="estado">' + texto + (detalle ? '<small>' + detalle + '</small>' : '') + '</span>' +
+      '<div class="barra-acciones">' +
+      '<button type="button" class="sec" data-acc="sonido" aria-pressed="' + sonido + '">' + (sonido ? 'Sonido: sí' : 'Sonido: no') + '</button>' +
+      '<button type="button" class="sec" data-acc="pantalla">Pantalla completa</button>' +
+      (S.fase !== 'podio' ? '<button type="button" class="peligro" data-acc="terminar">Terminar partida</button>' : '') +
+      '</div></header>';
+  }
+
+  function vistaConfig() {
+    var lista = leer(CLAVE_LISTA) || '';
+    var nOpc = [10, 15, 20, 0].map(function (n) { return '<option value="' + n + '"' + (S.nPreg === n ? ' selected' : '') + '>' + (n ? n : 'Todas (' + Q.length + ')') + '</option>'; }).join('');
+    var tOpc = [15, 20, 30, 45].map(function (n) { return '<option value="' + n + '"' + (S.tiempo === n ? ' selected' : '') + '>' + n + ' s</option>'; }).join('');
+    return '<section class="config">' +
+      '<h1>Concurso · Tema 2</h1>' +
+      '<p class="sub">Estructura funcional del ordenador y arquitectura de buses · 0221 Montaje y mantenimiento</p>' +
+      '<div class="config-grid">' +
+        '<div class="panel"><h2>Participantes</h2>' +
+          '<label for="lista">Un nombre por línea (alumnos o equipos)</label>' +
+          '<textarea id="lista" spellcheck="false" placeholder="Ana&#10;Bruno&#10;Carla&#10;…">' + esc(lista) + '</textarea>' +
+          '<p class="nota" id="cuenta"></p></div>' +
+        '<div class="panel"><h2>Cómo se responde</h2>' +
+          '<label class="opcion-modo"><input type="radio" name="modo" value="tarjetas"' + (S.modo !== 'mano' ? ' checked' : '') + '><div><strong>Todos responden (tarjetas o dedos)</strong><span>Cada uno levanta la tarjeta de su respuesta. Tú pulsas su nombre según la levanta.</span></div></label>' +
+          '<label class="opcion-modo"><input type="radio" name="modo" value="mano"' + (S.modo === 'mano' ? ' checked' : '') + '><div><strong>Mano alzada</strong><span>Responde el primero que levanta la mano. Si falla, rebote para los demás.</span></div></label>' +
+          '<div class="fila-ajuste"><label for="rapidez">Más puntos al que responde antes</label><input type="checkbox" id="rapidez"' + (S.rapidez ? ' checked' : '') + '></div>' +
+          '<div class="fila-ajuste"><label for="npreg">Número de preguntas</label><select id="npreg">' + nOpc + '</select></div>' +
+          '<div class="fila-ajuste"><label for="tiempo">Tiempo por pregunta</label><select id="tiempo">' + tOpc + '</select></div>' +
+          '<div class="fila-ajuste"><label for="mezclar">Preguntas al azar</label><input type="checkbox" id="mezclar"' + (S.mezclar ? ' checked' : '') + '></div>' +
+          '<p class="nota">Las preguntas de cálculo tienen como mínimo 30 s.</p>' +
+          '<button type="button" class="sec" data-acc="tarjetas">Imprimir tarjetas de respuesta</button></div>' +
+      '</div>' +
+      '<details class="ayuda"><summary>Cómo se juega sin red</summary><ol>' +
+        '<li>Proyecta esta página. Solo la maneja el profesor; el alumnado no necesita dispositivo.</li>' +
+        '<li><strong>Tarjetas:</strong> imprime una hoja por alumno (o por equipo) y que recorten las cuatro tarjetas. Si no hay tarjetas, que levanten <strong>1, 2, 3 o 4 dedos</strong>: cada respuesta lleva su número.</li>' +
+        '<li>Cuando alguien levanta su tarjeta, pulsa su nombre: queda apuntado el orden y el momento. Para que no cambien de idea, la tarjeta no se baja hasta revelar.</li>' +
+        '<li>Al revelar, marca en rojo a quien haya levantado una tarjeta equivocada (pulsa su nombre; cada pulsación cambia entre acierto, fallo y sin respuesta).</li>' +
+        '<li>Puntos como en Kahoot: hasta 1000 por acierto según la rapidez (mínimo 500). Sin la opción de rapidez, 1000 por acierto.</li>' +
+        '<li><strong>Mano alzada:</strong> pulsa el nombre del primero que levanta la mano (el tiempo se para), escucha la respuesta y pulsa <em>Correcta</em> o <em>Incorrecta</em>.</li>' +
+        '<li>Si hay empate en el 1.º o el 2.º puesto, el juego lanza preguntas de desempate a mano alzada solo para los empatados.</li>' +
+        '<li>Teclado: <kbd>Espacio</kbd> pulsa el botón principal (revelar, siguiente…). La partida se guarda en este navegador: si recargas, sigue donde estaba.</li>' +
+      '</ol></details>' +
+      '<div class="premios-linea"><span class="premio">🥇 1.º · +0,5 puntos</span><span class="premio">🥈 2.º · +0,25 puntos</span></div>' +
+      '<p class="error" id="error" role="alert"></p>' +
+      '<button type="button" class="principal" data-acc="empezar" data-principal>Empezar el concurso</button>' +
+    '</section>';
+  }
+
+  function vistaOpciones(q, revelada) {
+    return '<div class="opciones">' + q.o.map(function (txt, i) {
+      var cls = 'opcion c' + i + (revelada ? (i === q.c ? ' correcta' : ' apagada') : '');
+      return '<div class="' + cls + '" aria-label="Opción ' + (i + 1) + ', ' + COLORES[i] + ': ' + esc(txt) + (revelada && i === q.c ? ' (correcta)' : '') + '">' +
+        FORMAS[i] + '<span class="num">' + (i + 1) + '</span><span class="texto">' + esc(txt) + '</span>' + (revelada && i === q.c ? '<span class="marca-ok" aria-hidden="true">✓</span>' : '') + '</div>';
+    }).join('') + '</div>';
+  }
+
+  function vistaChips() {
+    return '<div class="chips">' + activos().map(function (j) {
+      var r = S.resp[j.id], cls = 'chip', ins = '', dis = false, etiqueta = j.nombre;
+      if (S.fase === 'pregunta') {
+        if (modoMano()) {
+          if (S.mano.turno === j.id) { cls += ' turno'; ins = '…'; etiqueta += ', responde ahora'; }
+          else if (S.mano.bloq.indexOf(j.id) >= 0) { cls += ' bloqueado'; ins = '✗'; dis = true; etiqueta += ', ha fallado'; }
+          dis = dis || S.crono.agotado || (!!S.mano.turno && S.mano.turno !== j.id);
+        } else {
+          if (r) { cls += ' respondido'; ins = r.orden + 'º'; etiqueta += ', ha respondido en ' + r.orden + 'º lugar'; }
+          dis = S.crono.agotado || !S.rapidez;
+        }
+      } else {
+        if (r && r.ok) { cls += ' ok'; ins = S.desempate ? '✓' : '+' + num(puntos(r)); etiqueta += ', acierto'; }
+        else if (r) { cls += ' fallo'; ins = '✗'; etiqueta += ', fallo'; }
+      }
+      return '<button type="button" class="' + cls + '" data-chip="' + j.id + '"' + (dis ? ' disabled' : '') + ' aria-label="' + esc(etiqueta) + '">' +
+        esc(j.nombre) + (ins ? '<span class="insignia">' + ins + '</span>' : '') + '</button>';
+    }).join('') + '</div>';
+  }
+
+  function vistaPregunta() {
+    var q = pregunta(), revelada = S.fase === 'revelada', ag = S.crono.agotado;
+    var titulo = S.desempate ? 'Desempate' : 'Pregunta ' + (S.i + 1) + ' de ' + S.cola.length;
+    var detalle = S.desempate ? 'por el ' + S.desempate.puesto + '.º puesto · gana quien acierte primero' : (modoMano() ? 'mano alzada' : 'todos responden');
+    var nResp = Object.keys(S.resp).length;
+    var centro = revelada
+      ? (q.e ? '<p class="explicacion">' + esc(q.e) + '</p>' : '')
+      : '<div class="centro"><div id="reloj" class="reloj' + (ag ? ' agotado' : '') + '" role="timer" aria-label="Tiempo restante">' + (ag ? '¡Tiempo!' : Math.ceil(S.crono.limite - transcurrido())) + '</div>' +
+        (modoMano() ? '' : '<div class="contador"><strong>' + nResp + '</strong>' + (S.rapidez ? 'han respondido' : (ag ? '¡Tarjetas arriba!' : 'pensando…')) + '</div>') + '</div>';
+
+    var ayuda, botones = '';
+    if (!revelada) {
+      if (modoMano()) {
+        ayuda = S.mano.turno ? 'Escucha la respuesta de ' + esc(jug(S.mano.turno).nombre) + ' y pulsa Correcta o Incorrecta.' : 'Pulsa el nombre del primero que levante la mano. El tiempo se para mientras responde.';
+        if (S.mano.turno) botones += '<span class="aviso-turno">Responde: ' + esc(jug(S.mano.turno).nombre) + '</span><button type="button" class="si" data-acc="correcta">✓ Correcta</button><button type="button" class="no" data-acc="incorrecta">✗ Incorrecta</button>';
+      } else {
+        ayuda = S.rapidez ? 'Pulsa el nombre de cada uno cuando levante su tarjeta. Si te equivocas, vuelve a pulsarlo.' : 'Cuando acabe el tiempo, todos levantan la tarjeta a la vez. Al revelar marcarás a quién acierta.';
+      }
+      botones += '<button type="button" class="sec" data-acc="mas10">+10 s</button>' +
+        '<button type="button" class="principal" data-acc="revelar"' + (S.mano.turno ? '' : ' data-principal') + '>Revelar respuesta</button>';
+    } else {
+      ayuda = modoMano() ? 'Respuesta correcta: ' + (q.c + 1) + '. Pulsa un nombre para corregir si hace falta.'
+        : 'Respuesta correcta: ' + (q.c + 1) + ' · ' + COLORES[q.c] + '. ' + (S.rapidez ? 'Pulsa el nombre de quien haya fallado para marcarlo en rojo.' : 'Pulsa el nombre de quien haya acertado.');
+      botones = '<button type="button" class="principal" data-acc="cerrar" data-principal>' + (S.desempate ? 'Continuar' : 'Ver marcador') + '</button>';
+    }
+    return barra(titulo, detalle) +
+      '<main class="escenario"><p class="enunciado">' + esc(q.p) + '</p>' + centro + vistaOpciones(q, revelada) + '</main>' +
+      '<section class="mesa" aria-label="Mesa del profesor"><p class="mesa-ayuda">' + ayuda + '</p>' + vistaChips() +
+      '<div class="mesa-botones">' + botones + '</div></section>';
+  }
+
+  function vistaMarcador() {
+    var r = ranking(), max = Math.max(1, r.length ? r[0].puntos : 1), ultima = S.i + 1 >= S.cola.length;
+    var filas = r.slice(0, 5).map(function (j, i) {
+      var antes = S.rankAnt.indexOf(j.id), sube = antes > i ? '<span class="sube" aria-label="sube ' + (antes - i) + '">▲' + (antes - i) + '</span>' : '';
+      var d = S.ultimos[j.id];
+      return '<div class="fila-marcador"><span class="barra-pts" style="width:' + (j.puntos / max * 100) + '%"></span>' +
+        '<span class="pos">' + (i + 1) + '.º</span><span class="nom">' + esc(j.nombre) + sube + '</span>' +
+        '<span class="pts">' + num(j.puntos) + (d ? '<span class="delta">+' + num(d) + '</span>' : '') + '</span></div>';
+    }).join('');
+    var resto = r.length > 5 ? '<details class="resto"><summary>Ver al resto (' + (r.length - 5) + ')</summary><ol start="6">' +
+      r.slice(5).map(function (j) { return '<li>' + esc(j.nombre) + ' · ' + num(j.puntos) + '</li>'; }).join('') + '</ol></details>' : '';
+    return barra('Marcador', 'tras la pregunta ' + (S.i + 1) + ' de ' + S.cola.length) +
+      '<main class="marcador"><h2>Marcador</h2>' + filas + resto +
+      '<div class="pie-acciones"><button type="button" class="principal" data-acc="siguiente" data-principal>' + (ultima ? 'Ver el podio' : 'Siguiente pregunta') + '</button></div></main>';
+  }
+
+  function vistaPodio() {
+    var r = ranking(), e = empate();
+    function peana(j, n) {
+      if (!j) return '<div class="peana p' + n + '"></div>';
+      var premio = !e && n === 1 ? '<small>+0,5 puntos</small>' : (!e && n === 2 ? '<small>+0,25 puntos</small>' : '');
+      return '<div class="peana p' + n + '"><div class="quien">' + esc(j.nombre) + '</div><div class="cuantos">' + num(j.puntos) + ' puntos · ' + aciertos(j.aciertos) + '</div>' +
+        '<div class="bloque">' + n + premio + '</div></div>';
+    }
+    var aviso = '';
+    if (e) {
+      var nombres = e.ids.map(function (id) { return esc(jug(id).nombre); }).join(', ');
+      aviso = '<div class="aviso-empate" role="alert">Empate en el ' + e.puesto + '.º puesto entre ' + nombres + '. ' +
+        (S.sinPreguntas ? 'No quedan preguntas de desempate: decididlo en clase.' : 'Hay que desempatar antes de dar los premios.') + '</div>';
+    } else if (S.ganadorDesempate) {
+      aviso = '<div class="aviso-empate">' + esc(S.ganadorDesempate) + ' gana el desempate (+1 punto).</div>';
+    }
+    var resto = r.length > 3 ? '<details class="resto"><summary>Clasificación completa</summary><ol>' +
+      r.map(function (j) { return '<li>' + esc(j.nombre) + ' · ' + num(j.puntos) + ' puntos · ' + aciertos(j.aciertos) + '</li>'; }).join('') + '</ol></details>' : '';
+    var botones = (e && !S.sinPreguntas ? '<button type="button" class="principal" data-acc="desempatar" data-principal>Pregunta de desempate</button>' : '') +
+      '<button type="button" class="' + (e && !S.sinPreguntas ? 'sec' : 'principal') + '" data-acc="copiar"' + (e && !S.sinPreguntas ? '' : ' data-principal') + '>Copiar resultados</button>' +
+      '<button type="button" class="sec" data-acc="imprimir">Imprimir clasificación</button>' +
+      '<button type="button" class="peligro" data-acc="nueva">Nueva partida</button>';
+    return barra('Resultado final') +
+      '<main class="podio-zona"><h2>¡Podio!</h2><div class="podio">' + peana(r[1], 2) + peana(r[0], 1) + peana(r[2], 3) + '</div>' + aviso + resto +
+      '<div class="pie-acciones">' + botones + '</div><p id="copiado" role="status" style="text-align:center"></p>' +
+      '<textarea id="texto-resultados" hidden rows="8" style="width:100%;font:inherit;color:#1b2733"></textarea></main>';
+  }
+
+  function render() {
+    var foco = document.activeElement && document.activeElement.getAttribute('data-chip');
+    if (S.fase === 'config') app.innerHTML = vistaConfig();
+    else if (S.fase === 'pregunta' || S.fase === 'revelada') app.innerHTML = vistaPregunta();
+    else if (S.fase === 'marcador') app.innerHTML = vistaMarcador();
+    else app.innerHTML = vistaPodio();
+    if (S.fase === 'config') {
+      var ta = document.getElementById('lista'), cuenta = document.getElementById('cuenta');
+      var contar = function () { var n = ta.value.split('\n').filter(function (l) { return l.trim(); }).length; cuenta.textContent = n + (n === 1 ? ' participante' : ' participantes'); };
+      ta.addEventListener('input', contar); contar();
+    }
+    if (foco) { var el = app.querySelector('[data-chip="' + foco + '"]'); if (el) el.focus(); }
+    if (S.fase === 'pregunta' && !S.crono.agotado) iniciarReloj(); else pararReloj();
+  }
+
+  /* ------------------------------------------------------------ eventos */
+  app.addEventListener('click', function (ev) {
+    var chip = ev.target.closest('[data-chip]');
+    if (chip) { pulsarChip(chip.getAttribute('data-chip')); return; }
+    var b = ev.target.closest('[data-acc]');
+    if (!b) return;
+    var acc = b.getAttribute('data-acc');
+    if (acc === 'empezar') empezar();
+    else if (acc === 'tarjetas') imprimirTarjetas();
+    else if (acc === 'revelar') revelar();
+    else if (acc === 'mas10') { S.crono.limite += 10; S.crono.agotado = false; guardar(); render(); }
+    else if (acc === 'correcta') contestar(true);
+    else if (acc === 'incorrecta') contestar(false);
+    else if (acc === 'cerrar') cerrarPregunta();
+    else if (acc === 'siguiente') siguiente();
+    else if (acc === 'desempatar') { var e = empate(); S.ganadorDesempate = null; S.desempate = { ids: e.ids, puesto: e.puesto }; preparar(); }
+    else if (acc === 'copiar') copiar();
+    else if (acc === 'imprimir') window.print();
+    else if (acc === 'pantalla') pantallaCompleta();
+    else if (acc === 'sonido') { sonido = !sonido; escribir(CLAVE_SONIDO, sonido ? 'si' : 'no'); render(); }
+    else if (acc === 'terminar') { if (confirm('¿Terminar la partida y ver el podio con los puntos actuales?')) { pararReloj(); S.desempate = null; S.fase = 'podio'; guardar(); render(); } }
+    else if (acc === 'nueva') { if (confirm('¿Empezar una partida nueva? Se borrarán los puntos de esta.')) { S = nuevo(S); guardar(); render(); } }
+  });
+  document.addEventListener('keydown', function (ev) {
+    /* Espacio = botón principal (aunque el foco esté en un nombre). Intro conserva su función normal. */
+    if (ev.key === ' ' && !ev.target.closest('textarea, input, select, summary')) {
+      var p = app.querySelector('[data-principal]');
+      if (p) { ev.preventDefault(); p.click(); }
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
