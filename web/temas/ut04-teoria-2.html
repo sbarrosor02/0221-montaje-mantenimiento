@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoría 2 · Tema 4 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/ut04.css">
+<script defer src="../assets/ut02-interactivos.js"></script>
+<script defer src="../assets/ut04-interactivos.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut04.html"><span>Tema 4</span>Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><a class="indice-material" href="../recursos.html?tema=4">Todo el material del tema 4</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-4-7">4.7 Herramientas y puesto de trabajo</a></li><li><a href="#apartado-4-8">4.8 Documentación y recepción del material</a></li><li><a href="#apartado-4-9">4.9 Almacenaje de componentes</a></li><li><a href="#apartado-4-10">4.10 Chasis y sistemas de fijación</a></li><li><a href="#apartado-4-11">4.11 El orden de montaje</a></li><li><a href="#apartado-4-12">4.12 Primer arranque y configuración</a></li><li><a href="#apartado-4-13">4.13 Utilidades de chequeo y diagnóstico</a></li><li><a href="#apartado-4-14">4.14 El informe de montaje</a></li><li><a href="#apartado-resumen">Resumen</a></li><li><a href="#apartado-autoevaluacion">Autoevaluación</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut04.html">Tema 4 · Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><span aria-hidden="true">›</span><span aria-current="page">Teoría 2: el montaje</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 4 (UT4 + UT5) · Teoría 2</p>
+    <h1>Teoría 2 — Ensamblaje del equipo</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA2 (a–j) · RA8 (b, e, h)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 4">
+    <a href="ut04.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut04-teoria.html">Teoría 1: discos y fuente</a>
+    <a href="ut04-teoria-2.html" aria-current="page">Teoría 2: el montaje</a>
+    <a href="ut04-ejercicios.html">Ejercicios</a>
+    <a href="ut04-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios cubre esta página</h2>
+    <p><strong>RA2.</strong> Ensambla un equipo microinformático, interpretando
+    manuales e instrucciones del fabricante aplicando técnicas de montaje.</p>
+    <ul>
+      <li><strong>a)</strong> Se han seleccionado las herramientas y útiles necesarios para el ensamblado de equipos microinformáticos.</li>
+      <li><strong>b)</strong> Se ha interpretado la documentación técnica que acompaña a los equipos, periféricos y componentes.</li>
+      <li><strong>c)</strong> Se han definido los procedimientos a seguir para comprobar que los equipos recibidos, componentes, periféricos, software, entre otros, se correspondan con las especificaciones pedidas y se encuentren en un correcto estado.</li>
+      <li><strong>d)</strong> Se han descrito las condiciones de almacenaje de equipos, componentes y periféricos.</li>
+      <li><strong>e)</strong> Se ha determinado el sistema de apertura/cierre del chasis y los distintos sistemas de fijación para ensamblar-desensamblar los elementos del equipo.</li>
+      <li><strong>f)</strong> Se han ensamblado diferentes conjuntos de placa base, microprocesador y elementos de refrigeración en diferentes modelos de chasis, según las especificaciones dadas.</li>
+      <li><strong>g)</strong> Se han ensamblado los módulos de memoria RAM, los discos duros, las unidades de lectura/grabación en soportes de memoria auxiliar y otros componentes.</li>
+      <li><strong>h)</strong> Se han configurado parámetros básicos del conjunto accediendo a la configuración de la placa base.</li>
+      <li><strong>i)</strong> Se han ejecutado utilidades de chequeo y diagnóstico para verificar las prestaciones del conjunto ensamblado.</li>
+      <li><strong>j)</strong> Se ha realizado un informe de montaje.</li>
+    </ul>
+    <p><strong>RA8.</strong> Cumple las normas de prevención de riesgos laborales y
+    de protección ambiental, identificando los riesgos asociados, las medidas y
+    equipos para prevenirlos.</p>
+    <ul>
+      <li><strong>b)</strong> Se han operado las máquinas respetando las normas de seguridad.</li>
+      <li><strong>e)</strong> Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos.</li>
+      <li><strong>h)</strong> Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos.</li>
+    </ul>
+  </details>
+
+  <section>
+    <h2 id="apartado-4-7">4.7 Herramientas y puesto de trabajo <span class="ce">RA2 a</span> <span class="ce">RA8 e</span> <span class="ce">RA8 h</span></h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Herramienta o útil</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td>Destornillador de estrella <strong>PH2</strong> (imantado)</td><td>Casi todos los tornillos del chasis, la placa y la fuente.</td></tr>
+        <tr><td>Destornilladores de precisión (PH0, PH1, Torx)</td><td>Tornillo del M.2, portátiles, disipadores pequeños.</td></tr>
+        <tr><td><strong>Pulsera antiestática</strong> y alfombrilla</td><td>Descargar la electricidad estática (tema 1). La pinza va a una parte metálica sin pintar del chasis.</td></tr>
+        <tr><td>Bridas o velcro y alicates de corte</td><td>Ordenar el cableado.</td></tr>
+        <tr><td>Linterna o frontal</td><td>Ver serigrafía y conectores dentro de la caja.</td></tr>
+        <tr><td>Pasta térmica, alcohol isopropílico y paños sin pelusa</td><td>Refrigeración del procesador (tema 3).</td></tr>
+        <tr><td>Polímetro y comprobador de fuentes</td><td>Medir tensiones y continuidad.</td></tr>
+        <tr><td>Bandeja o recipiente con compartimentos</td><td>Tornillos separados por tipo. Ninguno debe quedar suelto dentro de la caja.</td></tr>
+        <tr><td>Memoria USB con utilidades (Ventoy, MemTest86, instalador)</td><td>Diagnóstico y sistema operativo.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="clave">
+      <strong>Orden y limpieza: el primer factor de prevención</strong>
+      <ul style="margin-bottom:0">
+        <li>Mesa despejada: solo la caja, la pieza que montas y la herramienta que usas.</li>
+        <li>Cajas y bolsas antiestáticas fuera de la zona de trabajo, pero sin tirarlas: la garantía puede pedirlas.</li>
+        <li>Nada de comida ni bebida en el puesto. Cables al suelo recogidos para no tropezar.</li>
+        <li>Al acabar, tornillos sobrantes a su caja, herramientas a su sitio y embalajes al contenedor correspondiente (cartón y plástico por separado).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-8">4.8 Documentación y recepción del material <span class="ce">RA2 b</span> <span class="ce">RA2 c</span></h2>
+    <p>Antes de abrir una sola bolsa hay que <strong>leer los manuales</strong>, sobre
+    todo el de la placa base: ahí está el esquema con la posición de cada conector,
+    qué ranuras de memoria usar primero, qué M.2 desactiva puertos SATA y cómo se
+    conecta el panel frontal. También son útiles la <strong>lista de compatibilidad
+    (QVL)</strong> de memorias y la de procesadores admitidos, que se consultan en
+    la web del fabricante.</p>
+    <h3>Procedimiento de recepción</h3>
+    <ol>
+      <li><strong>Comprobar el albarán</strong> con el pedido: misma referencia, mismo
+      número de unidades.</li>
+      <li><strong>Inspeccionar el embalaje</strong>: golpes, humedad, precintos rotos.
+      Si llega dañado, se anota en el albarán del transportista antes de firmar.</li>
+      <li><strong>Comprobar cada componente</strong> contra las especificaciones
+      pedidas: modelo exacto, capacidad, socket, velocidad, formato. Un error
+      habitual es recibir una memoria DDR4 cuando se pidió DDR5, o una placa
+      Micro-ATX cuando la caja es Mini-ITX.</li>
+      <li><strong>Inspección visual</strong> de cada pieza: pines del socket (placas
+      LGA), contactos de las memorias, conectores sin doblar.</li>
+      <li><strong>Accesorios</strong>: tornillos, cables SATA, antena wifi, manual,
+      disipador de serie, licencias de software.</li>
+      <li><strong>Anotar números de serie</strong> para la garantía y el informe.</li>
+    </ol>
+    <p>Cualquier incidencia se comunica al proveedor <strong>antes de montar</strong>:
+    una pieza instalada y luego devuelta da muchos más problemas.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-9">4.9 Almacenaje de componentes <span class="ce">RA2 d</span></h2>
+    <ul>
+      <li><strong>Dentro de su bolsa antiestática</strong> (las plateadas o rosadas) y
+      en su caja original.</li>
+      <li><strong>Lugar seco y templado</strong>: lejos de la humedad, del sol directo
+      y de fuentes de calor. Si un equipo llega de un sitio frío, se espera a que
+      alcance la temperatura de la sala antes de encenderlo, para que no condense
+      agua dentro.</li>
+      <li><strong>Sin golpes</strong>: los discos duros son especialmente delicados.
+      No se apilan cajas pesadas encima de las ligeras ni se ponen de canto si el
+      embalaje indica otra cosa (flechas de «este lado arriba»).</li>
+      <li><strong>Ordenado e identificado</strong>: estanterías con etiquetas y
+      registro de entradas y salidas. Lo más antiguo se usa primero.</li>
+      <li><strong>Baterías</strong> (portátiles, SAI): con carga parcial, en lugar
+      fresco y nunca junto a material inflamable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-10">4.10 Chasis y sistemas de fijación <span class="ce">RA2 e</span></h2>
+    <h3>Apertura y cierre</h3>
+    <p>Los paneles laterales se sujetan con <strong>tornillos de cabeza moleteada</strong>
+    (se aflojan a mano) en la parte trasera, con <strong>pestañas a presión</strong> o
+    con <strong>bisagras</strong> en las cajas con cristal templado. El panel de cristal
+    se apoya siempre en horizontal, sobre una superficie blanda. Las cajas de marca
+    (Dell, HP, Lenovo) suelen abrirse sin herramientas con una palanca o un
+    pestillo.</p>
+    <h3>Elementos de fijación</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Elemento</th><th>Dónde se usa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Separadores (standoffs)</strong> M3 hembra-macho</td><td>Se roscan en la bandeja de la caja y sobre ellos se atornilla la placa. Solo donde la placa tiene agujero: un separador sobrante puede provocar un cortocircuito.</td></tr>
+        <tr><td>Tornillo <strong>6-32</strong> (rosca gruesa)</td><td>Fuente de alimentación, discos de 3,5″, tarjetas de expansión y, en muchas cajas, la placa.</td></tr>
+        <tr><td>Tornillo <strong>M3</strong> (rosca fina)</td><td>Discos y SSD de 2,5″, unidades ópticas, placa base en algunas cajas.</td></tr>
+        <tr><td>Tornillo <strong>M2</strong> pequeño o pestillo de plástico</td><td>Fijar el SSD M.2 a la placa.</td></tr>
+        <tr><td>Bahías sin herramientas, bandejas y raíles</td><td>Discos que se insertan a presión.</td></tr>
+        <tr><td>Tornillos de ventilador (autorroscantes)</td><td>Ventiladores de caja y radiadores.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Si un tornillo cuesta de entrar, <strong>no se fuerza</strong>: probablemente
+    es de otra rosca. Un 6-32 metido en una rosca M3 la estropea.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-11">4.11 El orden de montaje <span class="ce">RA2 f</span> <span class="ce">RA2 g</span> <span class="ce">RA8 b</span></h2>
+    <p>No hay un único orden válido, pero sí uno que evita tener que desmontar. La
+    idea clave: <strong>lo que es difícil de alcanzar dentro de la caja, se monta
+    fuera</strong>. Por eso procesador, refrigeración, memoria y M.2 se instalan con
+    la placa todavía sobre su caja de cartón.</p>
+    <div class="fases">
+      <div><h4>Fase 1 · Fuera de la caja</h4><p>Procesador, disipador, memorias y
+      SSD M.2 sobre la placa. Así se trabaja con espacio y buena luz.</p></div>
+      <div><h4>Fase 2 · Preparar la caja</h4><p>Quitar paneles, revisar
+      separadores, colocar el embellecedor (I/O shield) si la placa no lo lleva
+      integrado.</p></div>
+      <div><h4>Fase 3 · Dentro de la caja</h4><p>Placa, fuente, discos, tarjeta
+      gráfica y cables, de los menos accesibles a los más accesibles.</p></div>
+      <div><h4>Fase 4 · Comprobar</h4><p>Primer arranque, UEFI, tensiones,
+      diagnóstico. Solo entonces se ordenan los cables y se cierra.</p></div>
+    </div>
+    <div class="interactivo" data-widget="secuencia">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Ordena el montaje</h3>
+      <p class="instrucciones">Los pasos están desordenados. Usa las flechas para
+      ponerlos en un orden que no obligue a deshacer nada y pulsa «Comprobar».</p>
+      <ol class="secuencia">
+        <li data-orden="1">Leer el manual de la placa y comprobar el material recibido</li>
+        <li data-orden="2">Ponerse la pulsera antiestática y preparar el puesto</li>
+        <li data-orden="3">Instalar el procesador en el socket</li>
+        <li data-orden="4">Montar el disipador con la pasta térmica</li>
+        <li data-orden="5">Insertar los módulos de memoria y el SSD M.2</li>
+        <li data-orden="6">Revisar los separadores y colocar el embellecedor trasero</li>
+        <li data-orden="7">Atornillar la placa en la caja</li>
+        <li data-orden="8">Instalar la fuente y los discos SATA</li>
+        <li data-orden="9">Conectar 24 pines, EPS, SATA y panel frontal</li>
+        <li data-orden="10">Insertar la tarjeta gráfica y conectar su alimentación</li>
+        <li data-orden="11">Primer arranque: entrar en la UEFI y medir tensiones</li>
+        <li data-orden="12">Ordenar los cables con bridas y cerrar la caja</li>
+      </ol>
+    </div>
+
+    <h3>Detalles que conviene no olvidar</h3>
+    <ul>
+      <li><strong>Procesador</strong>: sin tocar los contactos, alineando el
+      triángulo de la esquina, y sin hacer fuerza (tema 3).</li>
+      <li><strong>Memorias</strong>: en las ranuras que indica el manual para doble
+      canal (normalmente A2 y B2), hasta oír el clic de las pestañas.</li>
+      <li><strong>M.2</strong>: entra inclinado unos 30°, se baja y se fija con su
+      tornillo. Si la placa trae disipador para el M.2, se quita el plástico
+      protector de la almohadilla térmica.</li>
+      <li><strong>Fuente</strong>: con el ventilador hacia abajo si la caja tiene
+      rejilla y filtro inferior; si no, hacia arriba. Interruptor en
+      <strong>O</strong> (apagado) mientras se monta.</li>
+      <li><strong>Disco SATA</strong>: cable de datos a la placa y alimentación SATA
+      de la fuente. Los dos conectores tienen forma de L: no se pueden poner al
+      revés si no se fuerza.</li>
+      <li><strong>Panel frontal</strong> (encendido, reset, LED): pines pequeños
+      según el esquema del manual. Los LED tienen polaridad (+ y –); los
+      pulsadores, no.</li>
+      <li><strong>Gráfica</strong>: en la ranura PCIe x16 superior, con su pestaña
+      encajada, tornillos en la trasera y todos sus conectores de alimentación.</li>
+      <li><strong>Cableado</strong>: por detrás de la bandeja de la placa, dejando
+      libre el paso del aire.</li>
+    </ul>
+    <div class="peligro-caja">
+      <strong>Seguridad durante el montaje</strong>
+      <p style="margin-bottom:0">Todo el montaje se hace con la fuente
+      <strong>desenchufada</strong>. Se enchufa solo para el primer arranque, con
+      el profesor presente y la caja sin tocar por dentro mientras está encendida.
+      Cuidado con los bordes de chapa de las cajas baratas: pueden cortar.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-12">4.12 Primer arranque y configuración <span class="ce">RA2 h</span></h2>
+    <p>Antes de enchufar, repasa: 24 pines y EPS bien encajados, disipador conectado
+    a <code>CPU_FAN</code>, memorias hasta el fondo, nada metálico suelto en la caja.
+    Después pulsa el botón de encendido. Si no aparece imagen, mira los
+    <strong>LED de diagnóstico</strong> de la placa (CPU, DRAM, VGA, BOOT) o los
+    pitidos (tema 3).</p>
+    <p>En la <strong>UEFI</strong>, que ya conoces del tema 3, se comprueba y se
+    configura lo básico:</p>
+    <ul>
+      <li>Que reconoce el <strong>procesador</strong>, toda la <strong>memoria</strong>
+      y todos los <strong>discos</strong>.</li>
+      <li>Fecha y hora.</li>
+      <li>Perfil de memoria <strong>XMP/EXPO</strong> activado, para que la RAM vaya
+      a su velocidad.</li>
+      <li>Temperatura del procesador en reposo (normalmente entre 30 y 45 °C) y
+      velocidad de los ventiladores.</li>
+      <li>Tensiones que muestra la placa (+12 V, +5 V, +3,3 V): se comparan con las
+      que mides con el polímetro.</li>
+      <li>Orden de arranque con la memoria USB primero, para instalar el sistema o
+      lanzar el diagnóstico.</li>
+      <li>Si hace falta, actualizar la UEFI con la herramienta del fabricante.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-13">4.13 Utilidades de chequeo y diagnóstico <span class="ce">RA2 i</span></h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Qué se comprueba</th><th>Herramienta</th><th>Resultado correcto</th></tr></thead>
+      <tbody>
+        <tr><td>Memoria RAM</td><td>MemTest86 (arranca desde USB) o el diagnóstico de memoria de Windows</td><td>0 errores tras al menos una pasada completa.</td></tr>
+        <tr><td>Salud de los discos</td><td>CrystalDiskInfo, <code>smartctl</code></td><td>Estado «Bueno», 0 sectores reasignados.</td></tr>
+        <tr><td>Velocidad de los discos</td><td>CrystalDiskMark</td><td>Cerca de lo que indica el fabricante para esa interfaz.</td></tr>
+        <tr><td>Identificación de componentes</td><td>CPU-Z, HWiNFO</td><td>Los modelos, la memoria en doble canal y su frecuencia coinciden con lo pedido.</td></tr>
+        <tr><td>Temperaturas y tensiones</td><td>HWiNFO, HWMonitor</td><td>Dentro de tolerancia y sin superar unos 85–90 °C con carga.</td></tr>
+        <tr><td>Estabilidad con carga</td><td>Cinebench, OCCT, Prime95</td><td>Sin cuelgues, reinicios ni errores durante la prueba.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Las pruebas de estrés calientan mucho el equipo: se hacen vigilando la
+    temperatura y se detienen si sube demasiado.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-14">4.14 El informe de montaje <span class="ce">RA2 j</span></h2>
+    <p>El <strong>informe de montaje</strong> es el documento que entregas al
+    cliente (o al responsable del taller) junto con el equipo. Permite saber qué
+    se montó, cómo y con qué resultado. Debe incluir:</p>
+    <ol>
+      <li><strong>Datos generales</strong>: técnico, fecha, cliente o puesto, uso
+      previsto del equipo.</li>
+      <li><strong>Lista de componentes</strong>: tipo, marca, modelo exacto y número
+      de serie.</li>
+      <li><strong>Comprobación de la recepción</strong>: incidencias encontradas.</li>
+      <li><strong>Proceso seguido</strong>: pasos, con fotos de los momentos
+      importantes, y problemas encontrados y cómo se resolvieron.</li>
+      <li><strong>Configuración de la UEFI</strong>: cambios realizados.</li>
+      <li><strong>Medidas eléctricas</strong>: tabla con las tensiones medidas y si
+      están dentro de tolerancia.</li>
+      <li><strong>Resultados del diagnóstico</strong>: capturas de las utilidades
+      con los valores obtenidos.</li>
+      <li><strong>Conclusión</strong>: el equipo es apto o no, y recomendaciones.</li>
+    </ol>
+    <p>En la práctica P12 tendrás una plantilla para completarlo.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-resumen">Resumen</h2>
+    <ul>
+      <li>Herramientas básicas: PH2 imantado, pulsera antiestática, bridas,
+      polímetro, bandeja de tornillos. Orden y limpieza ante todo.</li>
+      <li>Primero los manuales y la recepción: comprobar referencias, estado y
+      accesorios <em>antes</em> de montar.</li>
+      <li>Almacenaje: en bolsa antiestática, seco, templado, sin golpes e
+      identificado.</li>
+      <li>Fijación: separadores solo donde hay agujero, 6-32 (fuente, 3,5″), M3
+      (2,5″), M2 (M.2). Nunca se fuerza un tornillo.</li>
+      <li>Orden: lo difícil de alcanzar, fuera de la caja. Fuente desenchufada
+      hasta el primer arranque.</li>
+      <li>Después del montaje: UEFI, tensiones, MemTest86, SMART, estabilidad, e
+      informe de montaje.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-autoevaluacion">Autoevaluación</h2>
+    <p class="meta">No cuenta para la nota.</p>
+    <form class="quiz" onsubmit="return false">
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> ¿Por qué se instalan el procesador y la memoria antes de meter la placa en la caja?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w1" value="a"> Porque lo dice la garantía</label></li>
+          <li><label><input type="radio" name="w1" value="b"> Porque fuera hay más espacio, luz y menos riesgo de dañar la placa</label></li>
+          <li><label><input type="radio" name="w1" value="c"> Porque dentro de la caja no hay electricidad estática</label></li>
+          <li><label><input type="radio" name="w1" value="d"> No importa el orden</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Dentro de la caja el espacio es reducido y es fácil doblar pines o golpear componentes.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> ¿Qué tornillo fija normalmente la fuente de alimentación?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w2" value="a"> M2</label></li>
+          <li><label><input type="radio" name="w2" value="b"> M3</label></li>
+          <li><label><input type="radio" name="w2" value="c"> 6-32</label></li>
+          <li><label><input type="radio" name="w2" value="d"> Autorroscante de ventilador</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>6-32: rosca gruesa para fuente, discos de 3,5″ y tarjetas. M3 para 2,5″ y M2 para el M.2.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> La caja trae un separador en una posición donde la placa no tiene agujero. ¿Qué haces?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w3" value="a"> Lo quito: podría tocar las pistas de la placa y provocar un cortocircuito</label></li>
+          <li><label><input type="radio" name="w3" value="b"> Lo dejo: así la placa queda más firme</label></li>
+          <li><label><input type="radio" name="w3" value="c"> Hago un agujero en la placa</label></li>
+          <li><label><input type="radio" name="w3" value="d"> Pongo cinta aislante encima de la placa</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Los separadores van solo donde la placa tiene un agujero de fijación.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> Un equipo llega en pleno invierno desde un almacén sin calefacción. ¿Qué es lo correcto?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w4" value="a"> Encenderlo enseguida para que se caliente</label></li>
+          <li><label><input type="radio" name="w4" value="b"> Ponerlo junto al radiador</label></li>
+          <li><label><input type="radio" name="w4" value="c"> Abrirlo y secarlo con un secador</label></li>
+          <li><label><input type="radio" name="w4" value="d"> Esperar a que alcance la temperatura de la sala antes de encenderlo</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El cambio brusco de temperatura condensa humedad dentro del equipo.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> ¿Qué utilidad usarías para comprobar que la memoria RAM no tiene errores?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w5" value="a"> CrystalDiskInfo</label></li>
+          <li><label><input type="radio" name="w5" value="b"> MemTest86</label></li>
+          <li><label><input type="radio" name="w5" value="c"> CPU-Z</label></li>
+          <li><label><input type="radio" name="w5" value="d"> CrystalDiskMark</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>CPU-Z identifica la memoria, pero no la prueba. CrystalDisk es para discos.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> Al recibir el material, la memoria es DDR4 y la placa pedida usa DDR5. ¿Cuándo debes comunicarlo?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="w6" value="a"> Al terminar el montaje, en el informe</label></li>
+          <li><label><input type="radio" name="w6" value="b"> No hace falta: encajan igual</label></li>
+          <li><label><input type="radio" name="w6" value="c"> En la recepción, antes de montar nada</label></li>
+          <li><label><input type="radio" name="w6" value="d"> Solo si el cliente pregunta</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Las incidencias se comunican al proveedor antes de montar. Además, DDR4 y DDR5 no encajan en la misma ranura.</p>
+      </div>
+      <div class="acciones">
+        <button type="button" data-corregir>Corregir</button>
+        <button type="button" class="sec" data-reiniciar>Volver a empezar</button>
+      </div>
+      <p class="resultado oculto" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut04-teoria.html">&laquo; Teoría 1: discos y fuente</a>
+    <a href="ut04-ejercicios.html">Ejercicios &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

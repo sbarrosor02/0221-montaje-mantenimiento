@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoría 1 · Tema 4 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/ut04.css">
+<script defer src="../assets/ut02-interactivos.js"></script>
+<script defer src="../assets/ut04-interactivos.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut04.html"><span>Tema 4</span>Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><a class="indice-material" href="../recursos.html?tema=4">Todo el material del tema 4</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-4-1">4.1 Almacenamiento</a></li><li><a href="#apartado-4-2">4.2 Interfaces y controladoras</a></li><li><a href="#apartado-4-3">4.3 Cableado interno y externo</a></li><li><a href="#apartado-4-4">4.4 La fuente de alimentación ATX</a></li><li><a href="#apartado-4-5">4.5 Medir las tensiones de la fuente</a></li><li><a href="#apartado-4-6">4.6 El SAI, en lo esencial</a></li><li><a href="#apartado-resumen">Resumen</a></li><li><a href="#apartado-autoevaluacion">Autoevaluación</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut04.html">Tema 4 · Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><span aria-hidden="true">›</span><span aria-current="page">Teoría 1: discos y fuente</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 4 (UT4 + UT5) · Teoría 1</p>
+    <h1>Teoría 1 — Almacenamiento, cableado y fuente de alimentación</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA1 (h) · RA3 (f, g, h, i, j)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 4">
+    <a href="ut04.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut04-teoria.html" aria-current="page">Teoría 1: discos y fuente</a>
+    <a href="ut04-teoria-2.html">Teoría 2: el montaje</a>
+    <a href="ut04-ejercicios.html">Ejercicios</a>
+    <a href="ut04-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios cubre esta página</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones
+    de distintos fabricantes.</p>
+    <ul>
+      <li><strong>h)</strong> Se han identificado y manipulado los componentes básicos (módulos de memoria, discos duros y sus controladoras, soportes de memorias auxiliares, entre otros).</li>
+    </ul>
+    <p><strong>RA3.</strong> Mide parámetros eléctricos, identificando el tipo de
+    señal, relacionándola con sus unidades características e interpretando los
+    resultados.</p>
+    <ul>
+      <li><strong>f)</strong> Se han identificado los bloques de una fuente de alimentación (F.A.) para un ordenador personal.</li>
+      <li><strong>g)</strong> Se han enumerado las tensiones proporcionadas por una F.A. típica.</li>
+      <li><strong>h)</strong> Se han medido las tensiones en F.A. típicas de ordenadores personales.</li>
+      <li><strong>i)</strong> Se han identificado los bloques de un sistema de alimentación ininterrumpida.</li>
+      <li><strong>j)</strong> Se han medido las señales en los puntos significativos de un SAI.</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Este tema une dos unidades.</strong> Las UT4 (almacenamiento y fuente) y
+    UT5 (ensamblaje) de la programación se trabajan juntas: los discos y la fuente se
+    montan, y las tensiones se miden, dentro del propio proyecto de montaje. Esta
+    página es la base teórica; la <a href="ut04-teoria-2.html">teoría 2</a> explica el
+    montaje paso a paso.
+  </div>
+
+  <section>
+    <h2 id="apartado-4-1">4.1 Almacenamiento <span class="ce">RA1 h</span></h2>
+    <p>La memoria RAM pierde los datos al apagar. Para guardarlos de forma
+    permanente se usa la <strong>memoria secundaria</strong>: discos duros y
+    unidades de estado sólido. En el tema 2 viste su lugar en la jerarquía de
+    memoria; aquí aprenderás a reconocerlos, elegirlos y conectarlos.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>Disco duro (HDD)</th><th>SSD SATA</th><th>SSD NVMe (M.2)</th></tr></thead>
+      <tbody>
+        <tr><th>Cómo guarda</th><td>Magnéticamente, en platos que giran (5400 o 7200 rpm) leídos por cabezales</td><td colspan="2">En chips de memoria flash NAND, sin piezas móviles</td></tr>
+        <tr><th>Formato</th><td>3,5″ (sobremesa) o 2,5″ (portátil)</td><td>2,5″ (o M.2 con llave B+M)</td><td>Tarjeta M.2, normalmente 2280</td></tr>
+        <tr><th>Conexión</th><td>SATA (datos + alimentación)</td><td>SATA (datos + alimentación)</td><td>Ranura M.2: PCIe x4, sin cables</td></tr>
+        <tr><th>Velocidad típica</th><td>150–280 MB/s</td><td>Hasta unos 550 MB/s (límite de SATA)</td><td>3,5 GB/s (PCIe 3.0), 7 GB/s (4.0), 14 GB/s (5.0)</td></tr>
+        <tr><th>Tiempo de acceso</th><td>Milisegundos</td><td colspan="2">Microsegundos</td></tr>
+        <tr><th>Capacidad</th><td>Hasta más de 30 TB; el coste por TB más bajo</td><td colspan="2">De 256 GB a 8 TB habituales</td></tr>
+        <tr><th>Puntos débiles</th><td>Golpes con el disco girando, ruido, lentitud</td><td colspan="2">Escrituras limitadas (<strong>TBW</strong>: terabytes escritos que garantiza el fabricante); los NVMe rápidos se calientan y llevan disipador</td></tr>
+        <tr><th>Uso actual</th><td>Datos y copias de seguridad de gran tamaño</td><td>Actualizar equipos antiguos</td><td>Disco del sistema en cualquier equipo nuevo</td></tr>
+      </tbody>
+    </table></div>
+    <p>Datos que hay que saber leer en la ficha de un SSD: capacidad, interfaz
+    (SATA o NVMe PCIe 3.0/4.0/5.0), velocidades de lectura y escritura secuencial,
+    TBW, tipo de memoria (<strong>TLC</strong> es la habitual; <strong>QLC</strong>
+    es más barata y más lenta al escribir mucho) y si lleva caché DRAM. En un disco
+    duro: capacidad, rpm, caché y tecnología de grabación (las CMR son mejores que
+    las SMR para escrituras continuas).</p>
+    <p>Todos los discos llevan <strong>SMART</strong>: un registro interno de su
+    salud (sectores reasignados, horas de uso, temperatura, desgaste) que se lee
+    con programas como CrystalDiskInfo o <code>smartctl</code>. Lo usarás para
+    diagnosticar en el ensamblaje y en el mantenimiento.</p>
+
+    <h3>4.1.1 Unidades ópticas y soportes auxiliares</h3>
+    <ul>
+      <li><strong>Unidades ópticas</strong>: CD (700 MB), DVD (4,7 GB por capa) y
+      Blu-ray (25 GB por capa). Prácticamente han desaparecido de los equipos
+      nuevos. Si hacen falta, se usan grabadoras externas por USB. Las internas se
+      conectan por SATA en una bahía de 5,25″.</li>
+      <li><strong>Memorias USB y discos externos</strong>: almacenamiento portátil;
+      su velocidad depende del puerto USB y del propio dispositivo.</li>
+      <li><strong>Tarjetas de memoria</strong> (SD, microSD): cámaras, móviles,
+      mini PC. Su velocidad mínima se indica con la clase (U1, U3, V30…).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-2">4.2 Interfaces y controladoras <span class="ce">RA1 h</span></h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Interfaz</th><th>Velocidad</th><th>Qué conecta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>SATA III</strong></td><td>6 Gbit/s (≈ 600 MB/s)</td><td>Discos duros, SSD de 2,5″ y unidades ópticas. Dos cables: <strong>datos</strong> (7 contactos, en L) y <strong>alimentación</strong> (15 contactos, más ancho, con 3,3, 5 y 12 V).</td></tr>
+        <tr><td><strong>M.2 NVMe</strong></td><td>PCIe x4: hasta ≈ 15,8 GB/s en 5.0</td><td>SSD NVMe directamente en la placa (tema 3).</td></tr>
+        <tr><td><strong>USB 2.0</strong></td><td>480 Mbit/s</td><td>Teclado, ratón, memorias USB antiguas.</td></tr>
+        <tr><td><strong>USB 5 Gbps</strong> (USB 3.0 / 3.2 Gen 1)</td><td>5 Gbit/s</td><td>Memorias y discos externos. Conector USB-A azul por dentro.</td></tr>
+        <tr><td><strong>USB 10 y 20 Gbps</strong> (3.2 Gen 2 y Gen 2×2)</td><td>10 y 20 Gbit/s</td><td>SSD externos rápidos (el de 20 Gbps solo por USB-C).</td></tr>
+        <tr><td><strong>USB4 y Thunderbolt</strong></td><td>40 Gbit/s (USB4 v2 y Thunderbolt 5: 80 Gbit/s)</td><td>Docks, monitores, SSD externos y gráficas externas por USB-C.</td></tr>
+      </tbody>
+    </table></div>
+    <p>La <strong>controladora</strong> es el circuito que gestiona los discos: hoy
+    está en el chipset (puertos SATA) o en el procesador (M.2), y también puede
+    añadirse en una tarjeta PCIe. Los discos SATA trabajan en modo
+    <strong>AHCI</strong>; los SSD M.2, con el protocolo <strong>NVMe</strong>,
+    pensado para memoria flash. Algunas controladoras permiten
+    <strong>RAID</strong>: varios discos trabajando juntos, por ejemplo duplicados
+    (RAID 1) para no perder datos si uno falla. Lo verás en mantenimiento.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-3">4.3 Cableado interno y externo</h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>Cables</th><th>Cómo se comprueban</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Internos</strong></td><td>Alimentación (24 pines, EPS, PCIe, SATA, Molex), datos SATA, panel frontal, USB y audio frontales, ventiladores, iluminación.</td><td>Inspección visual (pines doblados, aislante dañado, clips rotos), que encajen a fondo y continuidad con el polímetro.</td></tr>
+        <tr><td><strong>Externos</strong></td><td>Corriente (IEC C13), vídeo (HDMI, DisplayPort), USB, red (RJ45, categoría 5e, 6 o 6A).</td><td>Continuidad, comprobador de cables de red, cambio por otro que funcione.</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Prueba de continuidad</strong>: con el cable desconectado de todo,
+    pon el polímetro en el modo de continuidad (el símbolo del altavoz) y toca los
+    dos extremos del mismo hilo. Si pita, el hilo está bien. Ya lo hiciste en el
+    tema 1 con la protoboard.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-4">4.4 La fuente de alimentación ATX <span class="ce">RA3 f</span> <span class="ce">RA3 g</span></h2>
+    <p>La <strong>fuente de alimentación</strong> convierte la corriente alterna de
+    la red (230 V, 50 Hz) en las <strong>tensiones continuas</strong> bajas que
+    necesitan los componentes. Las fuentes de los ordenadores son
+    <strong>conmutadas</strong>: trabajan a alta frecuencia para usar un
+    transformador pequeño y ligero.</p>
+
+    <h3>4.4.1 Bloques de una fuente conmutada <span class="ce">RA3 f</span></h3>
+    <ol>
+      <li><strong>Entrada y filtro EMI</strong>: conector, interruptor, fusible y
+      filtro que impide que el ruido eléctrico de la fuente vuelva a la red.</li>
+      <li><strong>Rectificador y PFC</strong>: un puente de diodos convierte la
+      alterna en continua. El <strong>PFC activo</strong> (corrector del factor de
+      potencia) hace que la fuente tome la corriente de la red de forma eficiente.
+      Queda una tensión continua de unos 400 V en el <strong>condensador
+      principal</strong>.</li>
+      <li><strong>Conmutación</strong>: transistores que encienden y apagan esa
+      tensión decenas de miles de veces por segundo, y un <strong>transformador de
+      alta frecuencia</strong> que la reduce y aísla la salida de la red.</li>
+      <li><strong>Rectificación y filtrado de salida</strong>: diodos o
+      rectificadores, bobinas y condensadores que dejan una continua limpia de 12 V.
+      Las fuentes modernas obtienen los 5 V y los 3,3 V a partir de los 12 V con
+      convertidores DC-DC.</li>
+      <li><strong>Control y protecciones</strong>: regulan las tensiones y apagan
+      la fuente ante sobretensión (OVP), subtensión (UVP), sobrecorriente (OCP),
+      exceso de potencia (OPP), cortocircuito (SCP) o temperatura (OTP).</li>
+      <li><strong>Ventilador</strong>: refrigera la fuente. Muchas lo paran con poca
+      carga (modo semipasivo).</li>
+    </ol>
+    <div class="peligro-caja">
+      <strong>Nunca abras una fuente de alimentación</strong>
+      <p style="margin-bottom:0">El condensador principal puede guardar cerca de
+      400 V durante minutos, incluso desenchufada. Una fuente averiada
+      <strong>se sustituye</strong>, no se repara en el taller.</p>
+    </div>
+
+    <h3>4.4.2 Tensiones y colores <span class="ce">RA3 g</span></h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Cable</th><th>Tensión</th><th>Tolerancia ATX</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td>Amarillo</td><td><strong>+12 V</strong></td><td>± 5 %</td><td>Procesador (por el VRM), gráfica, discos, ventiladores. Es la línea que más potencia da.</td></tr>
+        <tr><td>Rojo</td><td><strong>+5 V</strong></td><td>± 5 %</td><td>USB, lógica de la placa, discos de 2,5″.</td></tr>
+        <tr><td>Naranja</td><td><strong>+3,3 V</strong></td><td>± 5 %</td><td>Chips de la placa, ranuras M.2 y PCIe.</td></tr>
+        <tr><td>Morado</td><td><strong>+5 V de reposo (5VSB)</strong></td><td>± 5 %</td><td>Siempre presente si la fuente está enchufada: permite el encendido.</td></tr>
+        <tr><td>Azul</td><td><strong>–12 V</strong></td><td>± 10 %</td><td>Casi no se usa (puertos serie antiguos).</td></tr>
+        <tr><td>Verde</td><td>PS_ON#</td><td>—</td><td>Señal de encendido: a 0 V la fuente arranca.</td></tr>
+        <tr><td>Gris</td><td>PWR_OK</td><td>—</td><td>La fuente avisa de que las tensiones son estables.</td></tr>
+        <tr><td>Negro</td><td>Masa (0 V)</td><td>—</td><td>Referencia y retorno.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="interactivo" data-widget="atx24">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>El conector de 24 pines</h3>
+      <p class="instrucciones">Pulsa cada pin para ver su tensión y su función. En
+      <em>Encuéntralo</em>, localiza el pin que se pide.</p>
+    </div>
+
+    <h3>4.4.3 Conectores</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Conector</th><th>Tensiones</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td>ATX 24 pines (20+4)</td><td>3,3 / 5 / 12 / –12 / 5VSB</td><td>Placa base.</td></tr>
+        <tr><td>EPS 4+4 pines</td><td>12 V</td><td>Procesador. No confundir con el PCIe de 8 pines: tienen otra forma y otra distribución.</td></tr>
+        <tr><td>PCIe 6+2 pines</td><td>12 V</td><td>Tarjeta gráfica: 75 W (6 pines) o 150 W (8 pines).</td></tr>
+        <tr><td>12V-2×6 (16 pines)</td><td>12 V</td><td>Gráficas actuales de mucho consumo, hasta 600 W. Hay que encajarlo hasta el fondo.</td></tr>
+        <tr><td>SATA (15 contactos)</td><td>3,3 / 5 / 12</td><td>Discos y SSD de 2,5″, unidades ópticas, algunos accesorios.</td></tr>
+        <tr><td>Molex (4 pines)</td><td>5 / 12</td><td>Antiguo: ventiladores, iluminación, adaptadores. Muy cómodo para medir tensiones.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>4.4.4 Potencia, eficiencia y formato</h3>
+    <ul>
+      <li><strong>Potencia</strong> (W): la máxima que puede entregar en continua.
+      Se elige con un margen del 25–30 % sobre el consumo máximo del equipo. Lo que
+      importa es la potencia en la línea de <strong>12 V</strong>, que figura en la
+      etiqueta.</li>
+      <li><strong>Eficiencia</strong>: qué parte de lo que toma del enchufe llega a
+      los componentes; el resto se convierte en calor. La certificación
+      <strong>80 PLUS</strong> (blanco, Bronze, Silver, Gold, Platinum, Titanium)
+      garantiza un mínimo: una Gold ronda el 90 % a media carga.</li>
+      <li><strong>Formato</strong>: ATX (el normal) o SFX (pequeño, para cajas
+      Mini-ITX). Las fuentes <strong>ATX 3.x</strong> están preparadas para los picos
+      de consumo de las gráficas actuales y traen el conector 12V-2×6.</li>
+      <li><strong>Cableado</strong>: fijo, semimodular o <strong>modular</strong> (los
+      cables se conectan según se necesiten). Nunca se mezclan cables modulares de
+      fuentes distintas: aunque encajen, la distribución de pines puede cambiar y
+      quemar componentes.</li>
+    </ul>
+    <div class="interactivo" data-widget="potencia">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>¿Qué fuente necesita este equipo?</h3>
+      <p class="instrucciones">Escribe el consumo de cada parte y elige la
+      certificación.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-5">4.5 Medir las tensiones de la fuente <span class="ce">RA3 h</span></h2>
+    <p>Aplicas lo del tema 1: el polímetro en <strong>tensión continua (V⎓)</strong>
+    con un rango de 20 V, la punta <strong>negra en masa</strong> (un cable negro) y
+    la <strong>roja en la línea</strong> que se mide. El voltímetro va en paralelo y
+    no hace falta cortar nada.</p>
+    <h3>Dos maneras de medir</h3>
+    <div class="columnas">
+      <div>
+        <h4>En el equipo montado (la habitual)</h4>
+        <p>Con el equipo encendido, mide en un conector que esté libre (Molex o
+        SATA) o introduciendo con cuidado las puntas por detrás del conector de 24
+        pines, sin desconectarlo. Así la fuente trabaja con carga real. Es lo que
+        harás en la práctica de montaje.</p>
+      </div>
+      <div>
+        <h4>Con la fuente suelta</h4>
+        <p>Una fuente desconectada de la placa no arranca. Para probarla se une el
+        cable <strong>verde (PS_ON)</strong> con un <strong>negro</strong> con un
+        puente o un comprobador de fuentes, siempre con algún disco o ventilador
+        conectado como carga. Antes de enchufarla, coloca el puente con la fuente
+        desenchufada.</p>
+      </div>
+    </div>
+    <p>Para cada línea, anota la medida, compárala con el valor nominal y
+    comprueba que está <strong>dentro de la tolerancia</strong>. Una línea fuera de
+    tolerancia, o que baja mucho al poner carga, indica una fuente defectuosa: es
+    causa típica de reinicios y cuelgues.</p>
+    <div class="interactivo" data-widget="tolerancia">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>¿Está bien esta medida?</h3>
+      <p class="instrucciones">Elige la línea y escribe lo que marca el polímetro.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-4-6">4.6 El SAI, en lo esencial <span class="ce">RA3 i</span> <span class="ce">RA3 j</span></h2>
+    <p>Un <strong>SAI</strong> (sistema de alimentación ininterrumpida, en inglés
+    UPS) mantiene el equipo funcionando unos minutos cuando se va la luz, el tiempo
+    justo para guardar y apagar ordenadamente. También protege de picos y bajadas
+    de tensión.</p>
+    <p><strong>Bloques</strong> <span class="ce">RA3 i</span>:
+    <strong>rectificador-cargador</strong> (carga la batería con la red) →
+    <strong>batería</strong> (normalmente de plomo de 12 V) → <strong>inversor</strong>
+    (convierte la continua de la batería en alterna de 230 V) →
+    <strong>conmutador</strong> (elige entre la red y el inversor), con filtros y
+    protecciones.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Tipo</th><th>Cómo funciona</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td>Off-line (standby)</td><td>La carga va por la red; si falla, conmuta a la batería en unos milisegundos.</td><td>Equipos domésticos, el más barato.</td></tr>
+        <tr><td>Interactivo (line-interactive)</td><td>Igual, pero además corrige subidas y bajadas de tensión sin gastar batería (AVR).</td><td>Oficinas: el más habitual.</td></tr>
+        <tr><td>On-line (doble conversión)</td><td>La carga va siempre por el inversor: sin corte al conmutar y con salida senoidal pura.</td><td>Servidores y equipos críticos.</td></tr>
+      </tbody>
+    </table></div>
+    <p>La potencia se da en <strong>VA</strong> y en <strong>W</strong>: un SAI de
+    1000 VA suele dar unos 600 W. Lo que hay que comparar con el consumo del equipo
+    son los vatios.</p>
+    <p><strong>Medidas</strong> <span class="ce">RA3 j</span>, siempre con la
+    supervisión del profesor, el polímetro en <strong>V~</strong> (alterna) o
+    <strong>V⎓</strong> (continua) según el punto, y puntas con protección
+    CAT II o superior:</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Punto</th><th>Tipo de señal</th><th>Valor esperado</th></tr></thead>
+      <tbody>
+        <tr><td>Entrada (enchufe de red)</td><td>Alterna</td><td>≈ 230 V</td></tr>
+        <tr><td>Salida, con red</td><td>Alterna</td><td>≈ 230 V</td></tr>
+        <tr><td>Salida, con el SAI desenchufado (en batería)</td><td>Alterna (casi senoidal o senoidal)</td><td>≈ 230 V. Un polímetro que no sea <em>True RMS</em> puede marcar otro valor con onda casi senoidal.</td></tr>
+        <tr><td>Bornes de la batería (con el SAI apagado y abierto por el profesor)</td><td>Continua</td><td>12,6–13,8 V por batería de 12 V</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-resumen">Resumen</h2>
+    <ul>
+      <li>HDD: barato y grande, pero lento. SSD SATA: hasta unos 550 MB/s. NVMe en M.2:
+      de 3,5 a 14 GB/s. SMART informa de la salud del disco.</li>
+      <li>SATA: un cable de datos (7 contactos) y otro de alimentación (15). USB:
+      480 Mbit/s, 5, 10, 20, 40 y 80 Gbit/s según la versión.</li>
+      <li>Fuente conmutada: filtro EMI → rectificador y PFC → conmutación y
+      transformador → rectificación y filtrado → control y protecciones.
+      <strong>Nunca se abre.</strong></li>
+      <li>Tensiones: <strong>+12 V amarillo, +5 V rojo, +3,3 V naranja, 5VSB morado,
+      –12 V azul</strong>; verde PS_ON, gris PWR_OK, negro masa. Tolerancia ± 5 %
+      (–12 V: ± 10 %).</li>
+      <li>Medida: V⎓ en rango de 20 V, negra a masa y roja a la línea. Con la fuente
+      suelta, puente verde-negro y con carga.</li>
+      <li>SAI: cargador, batería, inversor y conmutador. Off-line, interactivo,
+      on-line. Se dimensiona en W.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-autoevaluacion">Autoevaluación</h2>
+    <p class="meta">No cuenta para la nota.</p>
+    <form class="quiz" onsubmit="return false">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> Un SSD SATA nunca supera unos 550 MB/s. ¿Por qué?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v1" value="a"> Porque la memoria flash no da más</label></li>
+          <li><label><input type="radio" name="v1" value="b"> Por la caché DRAM</label></li>
+          <li><label><input type="radio" name="v1" value="c"> Porque la interfaz SATA III tiene un límite de 6 Gbit/s</label></li>
+          <li><label><input type="radio" name="v1" value="d"> Porque gira a 7200 rpm</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El cuello de botella es SATA. Por eso los NVMe, conectados por PCIe, son muchas veces más rápidos.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">2.</span> ¿Qué cable lleva +12 V en una fuente ATX?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v2" value="a"> Amarillo</label></li>
+          <li><label><input type="radio" name="v2" value="b"> Rojo</label></li>
+          <li><label><input type="radio" name="v2" value="c"> Naranja</label></li>
+          <li><label><input type="radio" name="v2" value="d"> Morado</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Amarillo +12 V, rojo +5 V, naranja +3,3 V, morado +5 V de reposo.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">3.</span> Mides la línea de +5 V y el polímetro marca 4,62 V. ¿Qué concluyes?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v3" value="a"> Es normal: está cerca de 5 V</label></li>
+          <li><label><input type="radio" name="v3" value="b"> Es la línea de reposo</label></li>
+          <li><label><input type="radio" name="v3" value="c"> El polímetro está en alterna</label></li>
+          <li><label><input type="radio" name="v3" value="d"> Está fuera de tolerancia: el mínimo es 4,75 V</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>± 5 % de 5 V da un rango de 4,75 a 5,25 V. 4,62 V está por debajo.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">4.</span> Para encender una fuente suelta, sin placa, se une…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v4" value="a"> el gris con el morado</label></li>
+          <li><label><input type="radio" name="v4" value="b"> el verde (PS_ON) con un negro (masa)</label></li>
+          <li><label><input type="radio" name="v4" value="c"> el amarillo con el rojo</label></li>
+          <li><label><input type="radio" name="v4" value="d"> el naranja con un negro</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>PS_ON a 0 V es la orden de encendido. Cualquier otra unión sería un cortocircuito entre tensiones.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">5.</span> ¿Por qué no se debe abrir una fuente de alimentación?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v5" value="a"> Porque pierde la garantía, nada más</label></li>
+          <li><label><input type="radio" name="v5" value="b"> Porque el ventilador se desequilibra</label></li>
+          <li><label><input type="radio" name="v5" value="c"> Porque su condensador principal puede conservar cerca de 400 V aunque esté desenchufada</label></li>
+          <li><label><input type="radio" name="v5" value="d"> Porque se borra su firmware</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Es un riesgo eléctrico grave. Las fuentes averiadas se sustituyen.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">6.</span> ¿Qué bloque del SAI convierte la continua de la batería en alterna de 230 V?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v6" value="a"> El inversor</label></li>
+          <li><label><input type="radio" name="v6" value="b"> El rectificador</label></li>
+          <li><label><input type="radio" name="v6" value="c"> El conmutador</label></li>
+          <li><label><input type="radio" name="v6" value="d"> El filtro EMI</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El rectificador hace lo contrario (alterna a continua) para cargar la batería.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">7.</span> Un equipo consume 400 W. ¿Qué SAI elegirías?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v7" value="a"> 400 VA, porque coinciden los números</label></li>
+          <li><label><input type="radio" name="v7" value="b"> 500 VA</label></li>
+          <li><label><input type="radio" name="v7" value="c"> Cualquiera: todos dan igual</label></li>
+          <li><label><input type="radio" name="v7" value="d"> Uno que dé al menos 400 W, por ejemplo de 1000 VA / 600 W</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Los VA no son vatios. Hay que mirar los W que da el SAI, con margen.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">8.</span> ¿Qué dato de un SSD indica cuánto se puede escribir en él antes de que se gaste?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="v8" value="a"> Las rpm</label></li>
+          <li><label><input type="radio" name="v8" value="b"> El TBW</label></li>
+          <li><label><input type="radio" name="v8" value="c"> La interfaz</label></li>
+          <li><label><input type="radio" name="v8" value="d"> El formato 2280</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>TBW: terabytes escritos que garantiza el fabricante. Los SSD no tienen rpm.</p>
+      </div>
+      <div class="acciones">
+        <button type="button" data-corregir>Corregir</button>
+        <button type="button" class="sec" data-reiniciar>Volver a empezar</button>
+      </div>
+      <p class="resultado oculto" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut04.html">&laquo; Portada del tema 4</a>
+    <a href="ut04-teoria-2.html">Teoría 2: el montaje &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

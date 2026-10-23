@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicios · Tema 4 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/ut04.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut04.html"><span>Tema 4</span>Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><a class="indice-material" href="../recursos.html?tema=4">Todo el material del tema 4</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-mapa">Mapa de boletines</a></li><li><a href="#boletin-1">Boletín 1 · Almacenamiento e interfaces</a></li><li><a href="#boletin-2">Boletín 2 · Fuente de alimentación y SAI</a></li><li><a href="#boletin-3">Boletín 3 · Preparar y montar</a></li><li><a href="#boletin-4">Boletín 4 · Arranque, diagnóstico e informe</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut04.html">Tema 4 · Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 4 (UT4 + UT5) · Ejercicios</p>
+    <h1>Ejercicios — Almacenamiento, fuente y ensamblaje</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA1 · RA2 · RA3 · RA8</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 4">
+    <a href="ut04.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut04-teoria.html">Teoría 1: discos y fuente</a>
+    <a href="ut04-teoria-2.html">Teoría 2: el montaje</a>
+    <a href="ut04-ejercicios.html" aria-current="page">Ejercicios</a>
+    <a href="ut04-practicas.html">Prácticas</a>
+  </nav>
+
+  <div class="aviso">
+    <strong>Cómo trabajar los boletines.</strong> Hazlos en tu cuaderno o en
+    LibreOffice, con los cálculos completos y las unidades. Cada ejercicio indica el
+    criterio que entrena. Si buscas información real, anota la web de donde la
+    sacas. Los ejercicios no cuentan para la nota; el profesor dirá cuáles se
+    entregan.
+  </div>
+
+  <h2 id="apartado-mapa">Mapa de boletines</h2>
+  <ul class="mapa-boletines">
+    <li><a href="#boletin-1"><strong>Boletín 1 · Almacenamiento e interfaces</strong><span>HDD, SSD, NVMe, SATA, USB y SMART · RA1 h · 6 ejercicios</span></a></li>
+    <li><a href="#boletin-2"><strong>Boletín 2 · Fuente de alimentación y SAI</strong><span>Bloques, tensiones, tolerancias, potencia y SAI · RA3 f, g, h, i, j · 7 ejercicios</span></a></li>
+    <li><a href="#boletin-3"><strong>Boletín 3 · Preparar y montar</strong><span>Herramientas, recepción, almacenaje, fijaciones y orden · RA2 a–g · RA8 · 6 ejercicios</span></a></li>
+    <li><a href="#boletin-4"><strong>Boletín 4 · Arranque, diagnóstico e informe</strong><span>UEFI, utilidades y casos de avería · RA2 h, i, j · 5 ejercicios</span></a></li>
+  </ul>
+
+  <section>
+    <h2 id="boletin-1">Boletín 1 · Almacenamiento e interfaces</h2>
+    <p>Repasa los apartados <a href="ut04-teoria.html#apartado-4-1">4.1</a> y
+    <a href="ut04-teoria.html#apartado-4-2">4.2</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">1.1</span> <span class="ce">RA1 h</span> Elige el
+      dispositivo más adecuado (HDD, SSD SATA o SSD NVMe) para cada caso y justifícalo
+      en una línea:</p>
+      <ol type="a">
+        <li>Disco del sistema de un equipo nuevo para edición de vídeo.</li>
+        <li>Guardar 16 TB de copias de seguridad con el menor coste.</li>
+        <li>Acelerar un portátil de 2016 que solo tiene una bahía de 2,5″ con conector SATA.</li>
+        <li>Segundo disco para juegos en un equipo con una ranura M.2 libre.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.2</span> <span class="ce">RA1 h</span> Copia un archivo
+      de vídeo de 30 GB. Calcula cuánto tarda, en segundos, si la velocidad sostenida
+      es de: a) 180 MB/s (HDD), b) 520 MB/s (SSD SATA) y c) 5000 MB/s (NVMe PCIe 4.0).
+      Toma 1 GB = 1000 MB.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.3</span> <span class="ce">RA1 h</span> Un SSD de 1 TB
+      tiene una garantía de 600 TBW. Si su usuario escribe 40 GB al día, ¿cuántos años
+      tardaría en llegar a ese límite? Redondea a años enteros.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.4</span> <span class="ce">RA1 h</span> Un alumno ha
+      comprado un SSD «M.2 SATA» y otro «M.2 NVMe PCIe 4.0». Los dos tienen el formato
+      2280. ¿En qué se diferencian? ¿Funcionarán los dos en cualquier ranura M.2?
+      ¿Dónde lo comprobarías?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.5</span> <span class="ce">RA1 h</span> Relaciona cada
+      dispositivo con la interfaz y el cable o conector que usa: disco duro de 3,5″,
+      SSD NVMe, grabadora de Blu-ray interna, disco externo rápido de 20 Gbit/s,
+      memoria USB antigua de 480 Mbit/s.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.6</span> <span class="ce">RA1 h</span> Interpreta esta
+      lectura SMART de un disco duro y di si lo dejarías en el equipo de un cliente:</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Atributo</th><th>Valor bruto</th></tr></thead>
+        <tbody>
+          <tr><td>Sectores reasignados</td><td>148</td></tr>
+          <tr><td>Sectores pendientes</td><td>12</td></tr>
+          <tr><td>Horas de funcionamiento</td><td>31 250</td></tr>
+          <tr><td>Temperatura</td><td>41 °C</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="boletin-2">Boletín 2 · Fuente de alimentación y SAI</h2>
+    <p>Repasa los apartados <a href="ut04-teoria.html#apartado-4-4">4.4</a> a
+    <a href="ut04-teoria.html#apartado-4-6">4.6</a>. Puedes comprobar tus
+    resultados con los interactivos de esa página.</p>
+    <div class="ejercicio">
+      <p><span class="num">2.1</span> <span class="ce">RA3 f</span> Ordena los
+      bloques de una fuente conmutada desde el enchufe hasta los conectores y di en
+      una frase qué hace cada uno: conmutación y transformador, filtro EMI,
+      rectificación y filtrado de salida, rectificador y PFC.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.2</span> <span class="ce">RA3 g</span> Completa la tabla.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Color del cable</th><th>Tensión o señal</th><th>Un componente que la usa</th></tr></thead>
+        <tbody>
+          <tr><td>Amarillo</td><td></td><td></td></tr>
+          <tr><td>Rojo</td><td></td><td></td></tr>
+          <tr><td>Naranja</td><td></td><td></td></tr>
+          <tr><td>Morado</td><td></td><td></td></tr>
+          <tr><td>Verde</td><td></td><td>—</td></tr>
+          <tr><td>Gris</td><td></td><td>—</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.3</span> <span class="ce">RA3 g</span> Calcula el
+      rango admitido (mínimo y máximo) de las líneas de +12 V, +5 V y +3,3 V con una
+      tolerancia de ± 5 %, y el de –12 V con ± 10 %.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.4</span> <span class="ce">RA3 h</span> Estas son las
+      medidas de tres fuentes en el taller. Para cada línea, di si está dentro de
+      tolerancia y da un diagnóstico de cada fuente.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Fuente</th><th>+12 V</th><th>+5 V</th><th>+3,3 V</th><th>5VSB</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>12,11 V</td><td>5,04 V</td><td>3,35 V</td><td>5,02 V</td></tr>
+          <tr><td>B</td><td>11,21 V</td><td>4,98 V</td><td>3,31 V</td><td>5,05 V</td></tr>
+          <tr><td>C</td><td>12,06 V</td><td>5,27 V</td><td>3,11 V</td><td>4,96 V</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.5</span> <span class="ce">RA3 h</span> Un compañero
+      quiere medir la línea de +12 V de una fuente suelta. Explica, paso a paso, cómo
+      lo haría con seguridad: qué une para que arranque, qué conecta como carga, en
+      qué modo y rango pone el polímetro y dónde pone cada punta.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.6</span> <span class="ce">RA3 g</span> Un equipo tiene
+      un procesador de 125 W, una gráfica de 285 W y el resto consume 70 W.</p>
+      <ol type="a">
+        <li>¿Cuál es el consumo máximo?</li>
+        <li>¿Qué potencia de fuente recomendarías con un margen del 30 %, redondeando al múltiplo de 50 W superior?</li>
+        <li>Con una fuente 80 PLUS Gold (90 % de eficiencia), ¿cuánto toma del enchufe a plena carga? ¿Cuánto se pierde en calor?</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.7</span> <span class="ce">RA3 i</span> <span class="ce">RA3 j</span>
+      Sobre los SAI:</p>
+      <ol type="a">
+        <li>Dibuja el esquema de bloques de un SAI interactivo y señala por dónde va la energía con red y sin red.</li>
+        <li>Un servidor consume 450 W. ¿Sirve un SAI de 650 VA / 390 W? ¿Y uno de 1000 VA / 600 W?</li>
+        <li>Indica qué tipo de señal (continua o alterna) y qué valor aproximado esperas en la entrada, en la salida en batería y en los bornes de la batería.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="boletin-3">Boletín 3 · Preparar y montar</h2>
+    <p>Repasa los apartados <a href="ut04-teoria-2.html#apartado-4-7">4.7</a> a
+    <a href="ut04-teoria-2.html#apartado-4-11">4.11</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">3.1</span> <span class="ce">RA2 a</span> <span class="ce">RA8 e</span>
+      Prepara la lista de herramientas y útiles para montar un equipo con disipador
+      de serie, un SSD M.2 y un disco duro de 3,5″. Para cada uno, indica para qué lo
+      usarás y, si existe, qué medida de seguridad o protección va asociada.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.2</span> <span class="ce">RA2 b</span> Descarga el
+      manual de una placa base actual (el profesor te indicará el modelo) y localiza:
+      a) en qué ranuras se ponen dos módulos de memoria; b) qué ranura M.2 está
+      conectada al procesador; c) si usar alguna M.2 desactiva puertos SATA; d) el
+      esquema del panel frontal; e) dónde está el conector <code>CPU_FAN</code>.
+      Indica la página del manual de cada dato.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.3</span> <span class="ce">RA2 c</span> Llega este
+      pedido. Compara lo pedido con lo recibido y redacta qué harías con cada
+      incidencia.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Pedido</th><th>Recibido</th></tr></thead>
+        <tbody>
+          <tr><td>Placa B650 Micro-ATX, socket AM5</td><td>Placa B650 Micro-ATX, socket AM5, caja abollada</td></tr>
+          <tr><td>2 × 16 GB DDR5-6000</td><td>2 × 16 GB DDR4-3600</td></tr>
+          <tr><td>SSD NVMe 1 TB PCIe 4.0</td><td>SSD NVMe 1 TB PCIe 4.0</td></tr>
+          <tr><td>Fuente 650 W 80 PLUS Gold</td><td>Fuente 550 W 80 PLUS Bronze</td></tr>
+          <tr><td>Caja Micro-ATX con 2 ventiladores</td><td>Caja Micro-ATX, falta la bolsa de tornillos</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.4</span> <span class="ce">RA2 d</span> Te encargan
+      organizar el almacén del taller. Redacta cinco normas de almacenaje para
+      componentes, discos duros, equipos completos y baterías.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.5</span> <span class="ce">RA2 e</span> ¿Qué elemento
+      de fijación usarías para cada caso? a) Fuente de alimentación; b) SSD de 2,5″
+      en una bandeja; c) placa base sobre la bandeja de la caja; d) SSD M.2; e) disco
+      de 3,5″ en una bahía sin raíles; f) tarjeta gráfica a la trasera de la caja.
+      Explica qué pasa si confundes un tornillo 6-32 con uno M3.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.6</span> <span class="ce">RA2 f</span> <span class="ce">RA2 g</span> <span class="ce">RA8 b</span>
+      Un compañero ha seguido este orden. Señala los tres errores, explica qué
+      problema causa cada uno y corrígelo:</p>
+      <ol>
+        <li>Enchufa la fuente a la red para tenerla lista.</li>
+        <li>Atornilla la placa base en la caja.</li>
+        <li>Instala el procesador y el disipador dentro de la caja.</li>
+        <li>Coloca las memorias en las ranuras A1 y A2.</li>
+        <li>Conecta el 24 pines y el EPS.</li>
+        <li>Arranca el equipo.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="boletin-4">Boletín 4 · Arranque, diagnóstico e informe</h2>
+    <p>Repasa los apartados <a href="ut04-teoria-2.html#apartado-4-12">4.12</a> a
+    <a href="ut04-teoria-2.html#apartado-4-14">4.14</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">4.1</span> <span class="ce">RA2 h</span> Tras el primer
+      arranque, la UEFI muestra: 16 GB de memoria (instalaste 2 × 16 GB) a 4800 MHz
+      (los módulos son de 6000 MHz), el SSD NVMe reconocido y la fecha de 2023.
+      ¿Qué comprobarías o cambiarías en cada dato?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.2</span> <span class="ce">RA2 i</span> Elige una
+      utilidad para cada comprobación y di qué resultado esperas si todo está bien:
+      a) la memoria no tiene errores; b) el SSD alcanza su velocidad; c) el
+      procesador no se calienta demasiado con carga; d) la memoria trabaja en doble
+      canal; e) el disco duro está sano.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.3</span> <span class="ce">RA2 i</span> Diagnostica cada
+      caso y di qué harías:</p>
+      <ol type="a">
+        <li>El equipo enciende, los ventiladores giran, pero no hay imagen y el LED «DRAM» está encendido.</li>
+        <li>MemTest86 da 37 errores en la primera pasada.</li>
+        <li>Con Cinebench, el equipo se reinicia a los dos minutos. La temperatura máxima registrada es de 68 °C y la línea de +12 V baja hasta 11,2 V.</li>
+        <li>El procesador llega a 100 °C en cuanto empieza la prueba.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.4</span> <span class="ce">RA2 j</span> Enumera los
+      apartados de un informe de montaje e indica qué evidencia (foto, captura o
+      tabla) pondrías en cada uno.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.5</span> <span class="ce">RA2 j</span> Este fragmento
+      de informe tiene cuatro defectos. Encuéntralos y reescríbelo:
+      «Montado el PC. Placa ASUS, RAM 16, disco SSD. Funciona bien. Tensiones
+      correctas.»</p>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut04-teoria-2.html">&laquo; Teoría 2: el montaje</a>
+    <a href="ut04-practicas.html">Prácticas &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

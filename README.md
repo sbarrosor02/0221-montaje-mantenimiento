@@ -72,6 +72,14 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   conectores de vídeo), simulador de UEFI con misiones, configurador de
   compatibilidades, cuatro boletines y prácticas P5–P8. Solucionario generado con
   `scripts/generar_ut03_solucionario.py`; decisiones en `temario/ut03-placa-base.md`.
+- **Tema 4 — Almacenamiento, fuente de alimentación y ensamblaje del equipo**
+  (UT4 + UT5 de la programación; RA1 h, RA2 a–j, RA3 f–j, RA8 b, e, h): portada con
+  mapa de criterios, teoría de discos, cableado, fuente y SAI (conector de 24 pines
+  interactivo, calculadoras de tolerancias y de potencia), teoría del montaje (orden
+  de montaje ordenable), cuatro boletines y proyecto de montaje P9–P12, con las
+  tensiones de la fuente medidas dentro del montaje y una medida rápida del SAI.
+  Solucionario generado con `scripts/generar_ut04_solucionario.py`; decisiones en
+  `temario/ut04-almacenamiento-fuente-ensamblaje.md`.
 - Resto de temas: pendientes.
 
 ## Navegación del aula

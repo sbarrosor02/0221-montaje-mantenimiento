@@ -4,11 +4,18 @@
   "curso": "2026/2027",
   "destacados": [
     {
-      "ut": 3,
+      "ut": 4,
       "etiqueta": "Nuevo",
-      "titulo": "Empieza el tema 3: la placa base",
-      "texto": "Placa interactiva, procesadores, refrigeración, memoria y ranuras.",
-      "url": "temas/ut03.html"
+      "titulo": "Empieza el tema 4: montamos un equipo",
+      "texto": "Discos, fuente de alimentación y el proyecto de montaje P9-P12.",
+      "url": "temas/ut04.html"
+    },
+    {
+      "ut": 4,
+      "etiqueta": "Practica",
+      "titulo": "El conector de 24 pines",
+      "texto": "Encuentra cada tensión y comprueba tus medidas.",
+      "url": "temas/ut04-teoria.html#apartado-4-4"
     },
     {
       "ut": 3,
@@ -16,13 +23,6 @@
       "titulo": "Simulador de UEFI",
       "texto": "Configura una placa sin miedo: siete misiones.",
       "url": "temas/ut03-ejercicios-uefi.html"
-    },
-    {
-      "ut": 2,
-      "etiqueta": "Entrega",
-      "titulo": "Práctica P4: del bloque a la pieza",
-      "texto": "Enunciado y rúbrica de la práctica del tema 2.",
-      "url": "temas/ut02-practicas.html"
     }
   ],
   "temas": [
@@ -155,6 +155,39 @@
           "url": "temas/ut03-practicas.html",
           "evaluable": true,
           "nota": "P5 placa y manual (e, k), P6 procesador y pasta térmica (c, d), P7 UEFI (f), P8 adaptadores, monitor y chasis (g, i, j)"
+        }
+      ]
+    },
+    {
+      "ut": 4,
+      "titulo": "Almacenamiento, fuente de alimentación y ensamblaje del equipo",
+      "ra": "RA1, RA2, RA3, RA8",
+      "nota": "une la UT4 (18 h) y la UT5 (22 h) de la programación en un solo proyecto de montaje; discos y fuente se montan y se miden dentro de las prácticas P9-P12. RA1 h; RA2 a-j; RA3 f-j (SAI solo en lo esencial, con una medida rápida en P12); RA8 b, e, h",
+      "evaluacion": 1,
+      "horas": 40,
+      "estado": "publicado",
+      "actualizado": "2026-10-23",
+      "recursos": [
+        {
+          "titulo": "Teoría 1: almacenamiento, cableado, fuente de alimentación y SAI",
+          "url": "temas/ut04-teoria.html",
+          "nota": "RA1 h, RA3 f-j; conector de 24 pines interactivo, calculadoras de tolerancias y de potencia"
+        },
+        {
+          "titulo": "Teoría 2: ensamblaje del equipo",
+          "url": "temas/ut04-teoria-2.html",
+          "nota": "RA2 a-j, RA8 b, e, h; herramientas, recepción, almacenaje, fijaciones, orden de montaje (ordenable), UEFI, diagnóstico e informe"
+        },
+        {
+          "titulo": "Ejercicios: cuatro boletines",
+          "url": "temas/ut04-ejercicios.html",
+          "nota": "solucionario generado y contrastado con los interactivos por scripts/generar_ut04_solucionario.py"
+        },
+        {
+          "titulo": "Prácticas P9-P12: proyecto de montaje",
+          "url": "temas/ut04-practicas.html",
+          "evaluable": true,
+          "nota": "P9 recepción y preparación, P10 discos y fuente (medida de la fuente suelta), P11 ensamblaje con medida en el equipo, P12 UEFI, diagnóstico, SAI e informe de montaje"
         }
       ]
     }
