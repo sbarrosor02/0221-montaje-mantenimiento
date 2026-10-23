@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prácticas · Tema 4 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/ut04.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut04.html"><span>Tema 4</span>Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><a class="indice-material" href="../recursos.html?tema=4">Todo el material del tema 4</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-en-esta-pagina">En esta página</a></li><li><a href="#apartado-p9">P9 · Recepción del material y preparación del puesto</a></li><li><a href="#apartado-p10">P10 · Discos y fuente de alimentación: identificar y medir</a></li><li><a href="#apartado-p11">P11 · Ensamblaje del equipo</a></li><li><a href="#apartado-p12">P12 · Puesta en marcha, diagnóstico, SAI e informe</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut04.html">Tema 4 · Almacenamiento, fuente de alimentación y ensamblaje del equipo</a><span aria-hidden="true">›</span><span aria-current="page">Prácticas</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 4 (UT4 + UT5) · Prácticas</p>
+    <h1>Prácticas — Proyecto de montaje de un equipo</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · P9 a P12 · RA1 · RA2 · RA3 · RA8</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 4">
+    <a href="ut04.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut04-teoria.html">Teoría 1: discos y fuente</a>
+    <a href="ut04-teoria-2.html">Teoría 2: el montaje</a>
+    <a href="ut04-ejercicios.html">Ejercicios</a>
+    <a href="ut04-practicas.html" aria-current="page">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-acreditan">Qué criterios acreditan</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones
+    de distintos fabricantes.</p>
+    <ul>
+      <li><strong>h)</strong> Se han identificado y manipulado los componentes básicos (módulos de memoria, discos duros y sus controladoras, soportes de memorias auxiliares, entre otros). → P10, P11</li>
+    </ul>
+    <p><strong>RA2.</strong> Ensambla un equipo microinformático, interpretando
+    manuales e instrucciones del fabricante aplicando técnicas de montaje.</p>
+    <ul>
+      <li><strong>a)</strong> Se han seleccionado las herramientas y útiles necesarios para el ensamblado de equipos microinformáticos. → P9</li>
+      <li><strong>b)</strong> Se ha interpretado la documentación técnica que acompaña a los equipos, periféricos y componentes. → P9</li>
+      <li><strong>c)</strong> Se han definido los procedimientos a seguir para comprobar que los equipos recibidos, componentes, periféricos, software, entre otros, se correspondan con las especificaciones pedidas y se encuentren en un correcto estado. → P9</li>
+      <li><strong>d)</strong> Se han descrito las condiciones de almacenaje de equipos, componentes y periféricos. → P9</li>
+      <li><strong>e)</strong> Se ha determinado el sistema de apertura/cierre del chasis y los distintos sistemas de fijación para ensamblar-desensamblar los elementos del equipo. → P11</li>
+      <li><strong>f)</strong> Se han ensamblado diferentes conjuntos de placa base, microprocesador y elementos de refrigeración en diferentes modelos de chasis, según las especificaciones dadas. → P11</li>
+      <li><strong>g)</strong> Se han ensamblado los módulos de memoria RAM, los discos duros, las unidades de lectura/grabación en soportes de memoria auxiliar y otros componentes. → P11</li>
+      <li><strong>h)</strong> Se han configurado parámetros básicos del conjunto accediendo a la configuración de la placa base. → P12</li>
+      <li><strong>i)</strong> Se han ejecutado utilidades de chequeo y diagnóstico para verificar las prestaciones del conjunto ensamblado. → P12</li>
+      <li><strong>j)</strong> Se ha realizado un informe de montaje. → P12</li>
+    </ul>
+    <p><strong>RA3.</strong> Mide parámetros eléctricos, identificando el tipo de
+    señal, relacionándola con sus unidades características e interpretando los
+    resultados.</p>
+    <ul>
+      <li><strong>f)</strong> Se han identificado los bloques de una fuente de alimentación (F.A.) para un ordenador personal. → P10</li>
+      <li><strong>g)</strong> Se han enumerado las tensiones proporcionadas por una F.A. típica. → P10</li>
+      <li><strong>h)</strong> Se han medido las tensiones en F.A. típicas de ordenadores personales. → P10, P11</li>
+      <li><strong>i)</strong> Se han identificado los bloques de un sistema de alimentación ininterrumpida. → P12</li>
+      <li><strong>j)</strong> Se han medido las señales en los puntos significativos de un SAI. → P12</li>
+    </ul>
+    <p><strong>RA8.</strong> Cumple las normas de prevención de riesgos laborales y
+    de protección ambiental, identificando los riesgos asociados, las medidas y
+    equipos para prevenirlos.</p>
+    <ul>
+      <li><strong>b)</strong> Se han operado las máquinas respetando las normas de seguridad. → P10, P11</li>
+      <li><strong>e)</strong> Se ha relacionado la manipulación de materiales, herramientas y máquinas con las medidas de seguridad y protección personal requeridos. → P9</li>
+      <li><strong>h)</strong> Se ha valorado el orden y la limpieza de instalaciones y equipos como primer factor de prevención de riesgos. → P9 a P12</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Un solo proyecto en cuatro prácticas.</strong> Cada pareja recibe un
+    lote de componentes y lo convierte, de P9 a P12, en un equipo funcionando y
+    documentado. Los discos y la fuente se trabajan y se miden dentro del propio
+    montaje. Guarda todas las fotos y anotaciones desde el primer día: son la base
+    del informe de montaje de P12.
+  </div>
+
+  <div class="peligro-caja">
+    <strong>Normas del taller para todo el proyecto</strong>
+    <ul style="margin-bottom:0">
+      <li>Repasa <a href="ut01-prl.html">Seguridad y PRL</a> antes de empezar.</li>
+      <li>Se monta siempre con la fuente <strong>desenchufada</strong> y la pulsera
+      antiestática conectada al chasis.</li>
+      <li>Ningún equipo ni fuente se enchufa sin el visto bueno del profesor.</li>
+      <li>Nunca se abre una fuente ni un SAI.</li>
+      <li>Al final de cada sesión, el puesto queda recogido y el lote guardado en su caja.</li>
+    </ul>
+  </div>
+
+  <h2 id="apartado-en-esta-pagina">En esta página</h2>
+  <ul class="lista-temas">
+    <li><a href="#p9"><span class="ut">P9</span>Recepción del material y preparación del puesto<br><span class="etq">Taller, en parejas · 2 sesiones · RA2 a, b, c, d · RA8 e, h</span></a></li>
+    <li><a href="#p10"><span class="ut">P10</span>Discos y fuente de alimentación: identificar y medir<br><span class="etq">Taller, en parejas · 3 sesiones · RA1 h · RA3 f, g, h · RA8 b</span></a></li>
+    <li><a href="#p11"><span class="ut">P11</span>Ensamblaje del equipo<br><span class="etq">Taller, en parejas · 4–5 sesiones · RA2 e, f, g · RA1 h · RA3 h · RA8 b</span></a></li>
+    <li><a href="#p12"><span class="ut">P12</span>Puesta en marcha, diagnóstico, SAI e informe<br><span class="etq">Taller, en parejas · 3 sesiones · RA2 h, i, j · RA3 i, j</span></a></li>
+  </ul>
+
+  <!-- ==================== P9 ==================== -->
+  <section id="p9">
+    <h2 id="apartado-p9">P9 · Recepción del material y preparación del puesto <span class="ce">RA2 a</span> <span class="ce">RA2 b</span> <span class="ce">RA2 c</span> <span class="ce">RA2 d</span> <span class="ce">RA8 e</span> <span class="ce">RA8 h</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 2 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> recibir un lote de componentes como lo
+    haría un técnico: comprobar que es lo pedido y que está en buen estado, preparar
+    el puesto y planificar el montaje con los manuales.</p>
+    <h3>Material</h3>
+    <ul>
+      <li>El lote de tu pareja con su <strong>hoja de pedido</strong> (te la da el profesor).</li>
+      <li>Manuales de la placa base y de la caja (en papel o en PDF de la web del fabricante).</li>
+      <li>Herramientas del taller, pulsera antiestática, bandeja de tornillos.</li>
+    </ul>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Recepción <span class="ce">RA2 c</span></h3>
+      <p>Antes de abrir nada, escribe el <strong>procedimiento de recepción</strong>
+      que vas a seguir (pasos numerados). Después aplícalo y rellena esta tabla para
+      cada componente:</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Componente</th><th>Pedido</th><th>Recibido (marca, modelo)</th><th>N.º de serie</th><th>Estado</th><th>¿Coincide?</th></tr></thead>
+        <tbody><tr><td>Placa base</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>…</td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+      </table></div>
+      <p>Si encuentras una incidencia (el profesor puede haber «preparado» alguna),
+      redacta el mensaje que enviarías al proveedor.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Documentación <span class="ce">RA2 b</span></h3>
+      <p>Con el manual de la placa y el de la caja, prepara una <strong>ficha de
+      montaje</strong> con: ranuras de memoria que usarás, ranura M.2 elegida (y qué
+      desactiva, si algo), posición de los separadores, esquema del panel frontal,
+      conectores de ventilador, y cualquier aviso del fabricante. Indica la página
+      del manual de cada dato.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Herramientas y puesto <span class="ce">RA2 a</span> <span class="ce">RA8 e</span> <span class="ce">RA8 h</span></h3>
+      <p>Haz la lista de herramientas y útiles que necesitarás para <em>tu</em> lote,
+      con la medida de seguridad asociada a cada uno. Prepara el puesto y hazle una
+      foto: el profesor comprobará el orden antes de que empieces P10.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Almacenaje <span class="ce">RA2 d</span></h3>
+      <p>Durante el proyecto tu lote se guardará en el almacén del taller. Escribe
+      cómo lo vas a guardar al final de cada sesión y por qué (bolsas, cajas,
+      etiquetado, discos, condiciones del lugar).</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>PDF por pareja <code>P9_apellido1_apellido2.pdf</code> con el
+        procedimiento, la tabla de recepción, el mensaje de incidencia si lo hubo, la
+        ficha de montaje, la lista de herramientas, la foto del puesto y las normas de
+        almacenaje.</li>
+      </ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Procedimiento de recepción y tabla de comprobación</td><td>RA2 c)</td><td>3</td><td>Pasos completos y en orden. Todos los componentes comprobados, con número de serie. Incidencias detectadas y bien comunicadas.</td></tr>
+          <tr><td>Ficha de montaje a partir de los manuales</td><td>RA2 b)</td><td>3</td><td>Datos correctos y con página del manual.</td></tr>
+          <tr><td>Herramientas y medidas de seguridad</td><td>RA2 a) · RA8 e)</td><td>2</td><td>Lista adecuada al lote, con la protección de cada herramienta.</td></tr>
+          <tr><td>Condiciones de almacenaje</td><td>RA2 d)</td><td>1</td><td>Normas justificadas para cada tipo de material.</td></tr>
+          <tr><td>Orden y limpieza del puesto</td><td>RA8 h)</td><td>1</td><td>Puesto preparado y recogido en todas las sesiones.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P10 ==================== -->
+  <section id="p10">
+    <h2 id="apartado-p10">P10 · Discos y fuente de alimentación: identificar y medir <span class="ce">RA1 h</span> <span class="ce">RA3 f</span> <span class="ce">RA3 g</span> <span class="ce">RA3 h</span> <span class="ce">RA8 b</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 3 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> conocer a fondo los dispositivos de
+    almacenamiento y la fuente de tu lote antes de montarlos, y comprobar con el
+    polímetro que la fuente da las tensiones correctas.</p>
+    <h3>Material</h3>
+    <ul>
+      <li>Discos de tu lote y discos de la caja de despiece del taller (HDD de 3,5″ y
+      2,5″, SSD SATA, SSD M.2, unidad óptica).</li>
+      <li>La fuente de tu lote, un ventilador o disco viejo como carga, puente
+      PS_ON o comprobador de fuentes.</li>
+      <li>Polímetro digital y las fotos del interior de una fuente que te dará el
+      profesor.</li>
+    </ul>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Almacenamiento <span class="ce">RA1 h</span></h3>
+      <p>Para cada dispositivo de la caja de despiece y de tu lote, haz una foto de la
+      etiqueta y rellena: tipo, formato, interfaz, conectores de datos y de
+      alimentación, capacidad y un dato de rendimiento de su ficha técnica (rpm,
+      MB/s o TBW). Identifica en la placa de tu lote la controladora de cada uno: qué
+      puertos SATA y qué ranuras M.2 tiene y si dependen del chipset o del
+      procesador.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> La fuente por fuera <span class="ce">RA3 f</span> <span class="ce">RA3 g</span></h3>
+      <ol type="a">
+        <li>Copia los datos de la etiqueta: potencia total, corriente y potencia en
+        +12 V, +5 V y +3,3 V, certificación 80 PLUS y protecciones.</li>
+        <li>Haz el inventario de sus conectores (cuántos de cada tipo) y si es fija,
+        semimodular o modular.</li>
+        <li>Sobre las fotos del interior que te da el profesor, señala los bloques:
+        entrada y filtro EMI, rectificador y PFC, condensador principal,
+        transformador, rectificación y filtrado de salida, control y ventilador.</li>
+        <li>Haz una tabla con los colores de los cables del 24 pines y la tensión de
+        cada uno.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Medida de la fuente suelta <span class="ce">RA3 h</span> <span class="ce">RA8 b</span></h3>
+      <ol>
+        <li>Con la fuente <strong>desenchufada</strong> y el interruptor en O,
+        conecta la carga (ventilador o disco) y el puente entre <strong>PS_ON
+        (verde)</strong> y un <strong>negro</strong>, o el comprobador.</li>
+        <li>Pon el polímetro en <strong>V⎓</strong> con rango de 20 V. Pide al
+        profesor que revise el montaje.</li>
+        <li>Enchufa y enciende el interruptor. Sin tocar nada más que las puntas,
+        mide en el conector Molex o SATA libre: negra en un negro, roja en amarillo
+        y luego en rojo. Mide 3,3 V y 5VSB por detrás del 24 pines, introduciendo la
+        punta con cuidado.</li>
+        <li>Apaga, desenchufa y espera antes de retirar el puente.</li>
+      </ol>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Línea</th><th>Nominal</th><th>Rango admitido</th><th>Medida</th><th>Desviación (%)</th><th>¿Bien?</th></tr></thead>
+        <tbody>
+          <tr><td>+12 V</td><td>12 V</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>+5 V</td><td>5 V</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>+3,3 V</td><td>3,3 V</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>5VSB</td><td>5 V</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Puedes comprobar tus cálculos con el
+      <a href="ut04-teoria.html#apartado-4-5">interactivo de tolerancias</a>.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>PDF por pareja <code>P10_apellido1_apellido2.pdf</code> con las fichas de
+        los dispositivos, los datos y bloques de la fuente, la tabla de colores, la
+        tabla de medidas con los cálculos y una conclusión: ¿se puede montar esta
+        fuente?</li>
+      </ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Identificación de los dispositivos y sus controladoras</td><td>RA1 h)</td><td>3</td><td>Todos los dispositivos con datos correctos. Controladoras localizadas en la placa.</td></tr>
+          <tr><td>Bloques de la fuente</td><td>RA3 f)</td><td>2</td><td>Todos los bloques señalados y explicados.</td></tr>
+          <tr><td>Tensiones, colores y etiqueta</td><td>RA3 g)</td><td>1,5</td><td>Tabla completa y datos de la etiqueta bien interpretados.</td></tr>
+          <tr><td>Medida e interpretación</td><td>RA3 h)</td><td>2,5</td><td>Polímetro bien configurado, todas las líneas medidas, rangos y desviaciones bien calculados, conclusión razonada.</td></tr>
+          <tr><td>Seguridad en la medida</td><td>RA8 b)</td><td>1</td><td>Puente y carga con la fuente desenchufada, revisión del profesor, sin tocar nada con tensión.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P11 ==================== -->
+  <section id="p11">
+    <h2 id="apartado-p11">P11 · Ensamblaje del equipo <span class="ce">RA2 e</span> <span class="ce">RA2 f</span> <span class="ce">RA2 g</span> <span class="ce">RA1 h</span> <span class="ce">RA3 h</span> <span class="ce">RA8 b</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 4–5 sesiones · se entrega en el portafolio y se observa en el taller</p>
+    <p><strong>Qué vas a conseguir:</strong> montar el equipo completo siguiendo tu
+    ficha de montaje, sin forzar nada y sin tener que deshacer pasos, y medir las
+    tensiones de la fuente ya con el equipo funcionando.</p>
+    <p>El profesor observa el montaje en el taller con una lista de control. Haz
+    fotos de cada fase: las necesitarás en P12.</p>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> El chasis <span class="ce">RA2 e</span></h3>
+      <p>Abre la caja y describe su sistema de apertura y cierre. Haz una tabla de
+      sus sistemas de fijación: dónde va cada tipo de tornillo (6-32, M3, M2),
+      separadores, bahías y bandejas, raíles o pestañas. Revisa los separadores
+      según tu ficha de montaje.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Fuera de la caja <span class="ce">RA2 f</span> <span class="ce">RA2 g</span> <span class="ce">RA1 h</span></h3>
+      <p>Con la placa sobre su caja de cartón: procesador, pasta térmica y
+      disipador, memorias en las ranuras correctas y SSD M.2 con su tornillo o
+      pestillo.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Dentro de la caja <span class="ce">RA2 f</span> <span class="ce">RA2 g</span> <span class="ce">RA1 h</span></h3>
+      <p>Embellecedor trasero (si hace falta), placa, fuente, disco SATA (datos y
+      alimentación), unidad óptica si el lote la trae, tarjeta gráfica si la hay,
+      24 pines, EPS, panel frontal, USB y audio frontales y ventiladores. Comprueba
+      cada conexión con la ficha antes de pasar a la siguiente.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Revisión y medida en el equipo <span class="ce">RA3 h</span> <span class="ce">RA8 b</span></h3>
+      <ol>
+        <li>Repasa la lista: 24 pines y EPS encajados, disipador en <code>CPU_FAN</code>,
+        memorias hasta el fondo, nada suelto dentro de la caja.</li>
+        <li>Con el visto bueno del profesor, enchufa y arranca hasta la UEFI.</li>
+        <li>Mide en un Molex o SATA libre, o por detrás del 24 pines, las líneas de
+        +12 V, +5 V y +3,3 V <strong>en reposo</strong> (en la UEFI) y anota también
+        lo que indica la UEFI para cada una.</li>
+        <li>Compara con las medidas de P10 (fuente sin apenas carga). ¿Ha bajado
+        alguna línea? ¿Sigue dentro de tolerancia?</li>
+      </ol>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Línea</th><th>P10 (sin carga)</th><th>P11 polímetro</th><th>P11 UEFI</th><th>¿Bien?</th></tr></thead>
+        <tbody>
+          <tr><td>+12 V</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>+5 V</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>+3,3 V</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <p>Si todo funciona, apaga, desenchufa, ordena el cableado con bridas y cierra
+      la caja.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>PDF por pareja <code>P11_apellido1_apellido2.pdf</code> con la tabla de
+        fijaciones, una foto de cada fase y la tabla de tensiones con su
+        interpretación.</li>
+      </ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Apertura, cierre y sistemas de fijación</td><td>RA2 e)</td><td>1,5</td><td>Tabla completa. Cada tornillo en su sitio, separadores correctos.</td></tr>
+          <tr><td>Placa, procesador y refrigeración</td><td>RA2 f)</td><td>2,5</td><td>Procesador sin daños, pasta bien aplicada, disipador firme y conectado, placa bien fijada.</td></tr>
+          <tr><td>Memoria, discos y demás componentes</td><td>RA2 g) · RA1 h)</td><td>2,5</td><td>Memorias en doble canal, M.2 y SATA bien instalados, todo conectado según la ficha y a la primera.</td></tr>
+          <tr><td>Medida de tensiones en el equipo</td><td>RA3 h)</td><td>2</td><td>Medidas correctas y bien comparadas con P10 y con la UEFI.</td></tr>
+          <tr><td>Seguridad y cableado final</td><td>RA8 b)</td><td>1,5</td><td>Siempre desenchufado al montar, nada forzado, cableado ordenado sin tapar el flujo de aire.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P12 ==================== -->
+  <section id="p12">
+    <h2 id="apartado-p12">P12 · Puesta en marcha, diagnóstico, SAI e informe <span class="ce">RA2 h</span> <span class="ce">RA2 i</span> <span class="ce">RA2 j</span> <span class="ce">RA3 i</span> <span class="ce">RA3 j</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 3 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> dejar el equipo configurado y probado,
+    conectarlo a un SAI y entregar el informe de montaje completo.</p>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Configuración en la UEFI <span class="ce">RA2 h</span></h3>
+      <p>Comprueba que se reconocen el procesador, toda la memoria y todos los
+      discos. Ajusta fecha y hora, activa el perfil XMP/EXPO, revisa la curva de
+      ventiladores y pon la memoria USB del taller como primer dispositivo de
+      arranque. Haz una foto de cada pantalla antes y después del cambio.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Diagnóstico <span class="ce">RA2 i</span></h3>
+      <p>Arranca desde la memoria USB del taller y ejecuta, como mínimo:
+      MemTest86 (una pasada completa), una lectura SMART de cada disco y una prueba
+      de velocidad del SSD. Si el profesor ha instalado ya el sistema, añade CPU-Z
+      o HWiNFO (memoria en doble canal y frecuencia) y una prueba de estabilidad de
+      10 minutos vigilando temperaturas. Anota cada resultado y compáralo con lo
+      esperado.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> El SAI, en una sesión corta <span class="ce">RA3 i</span> <span class="ce">RA3 j</span></h3>
+      <p>Con el profesor presente y el polímetro en <strong>V~</strong>:</p>
+      <ol>
+        <li>Copia los datos de la etiqueta del SAI del taller (VA, W, tipo,
+        batería) y dibuja su esquema de bloques.</li>
+        <li>Mide la tensión de la red en la toma de pared y la de la salida del SAI
+        con red.</li>
+        <li>Conecta tu equipo al SAI y arráncalo. El profesor desenchufa el SAI de
+        la red: anota si el equipo sigue funcionando, qué hace el SAI (pitido, LED)
+        y mide de nuevo la tensión de salida.</li>
+        <li>El profesor muestra los bornes de la batería con el SAI apagado: anota la
+        tensión que mide en <strong>V⎓</strong>.</li>
+        <li>Calcula si este SAI sirve para tu equipo comparando sus W con el consumo
+        estimado en el ejercicio de potencia.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Informe de montaje <span class="ce">RA2 j</span></h3>
+      <p>Redacta el informe con los apartados de la
+      <a href="ut04-teoria-2.html#apartado-4-14">teoría (4.14)</a>, usando la
+      documentación de P9, P10 y P11 y los resultados de esta práctica:</p>
+      <ol>
+        <li>Datos generales.</li>
+        <li>Lista de componentes con número de serie.</li>
+        <li>Recepción e incidencias.</li>
+        <li>Proceso de montaje con fotos y problemas resueltos.</li>
+        <li>Configuración de la UEFI.</li>
+        <li>Medidas eléctricas (fuente y SAI).</li>
+        <li>Resultados del diagnóstico.</li>
+        <li>Conclusión y recomendaciones.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>PDF por pareja <code>P12_Informe_apellido1_apellido2.pdf</code>. Se
+        entrega también el equipo funcionando y el puesto recogido.</li>
+      </ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Configuración en la UEFI</td><td>RA2 h)</td><td>2</td><td>Todos los ajustes hechos y documentados con fotos.</td></tr>
+          <tr><td>Utilidades de diagnóstico</td><td>RA2 i)</td><td>2,5</td><td>Todas las pruebas ejecutadas y bien interpretadas.</td></tr>
+          <tr><td>Bloques del SAI</td><td>RA3 i)</td><td>1</td><td>Esquema correcto y datos de la etiqueta bien interpretados.</td></tr>
+          <tr><td>Medidas en el SAI</td><td>RA3 j)</td><td>1,5</td><td>Modo correcto en cada punto, valores anotados y dimensionado razonado.</td></tr>
+          <tr><td>Informe de montaje</td><td>RA2 j)</td><td>3</td><td>Todos los apartados, con evidencias, ordenado, bien escrito y con una conclusión clara.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut04-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut04.html">Portada del tema 4 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>
