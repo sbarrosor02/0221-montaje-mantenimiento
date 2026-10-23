@@ -24,29 +24,36 @@
   document.querySelector('.aula-busqueda').hidden = false;
   const entries = Array.from(document.querySelectorAll('[data-material]'));
   const buttons = Array.from(document.querySelectorAll('[data-filtro]'));
+  // Filtro por tema: opcional (solo existe si el catálogo marca cada material con data-tema).
+  const topicButtons = Array.from(document.querySelectorAll('[data-filtro-tema]'));
   const status = document.querySelector('#estado-busqueda');
   const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const parameters = new URLSearchParams(location.search);
   let category = parameters.get('tipo') || 'todos';
   if (!buttons.some(button => button.dataset.filtro === category)) category = 'todos';
+  let topic = parameters.get('tema') || 'todos';
+  if (!topicButtons.some(button => button.dataset.filtroTema === topic)) topic = 'todos';
   search.value = parameters.get('q') || '';
   function filter() {
     const words = normalize(search.value).trim().split(/\s+/).filter(Boolean);
     let count = 0;
     entries.forEach(entry => {
       const haystack = normalize(entry.textContent + ' ' + entry.dataset.busqueda);
-      const visible = (category === 'todos' || entry.dataset.material === category) && words.every(word => haystack.includes(word));
+      const visible = (category === 'todos' || entry.dataset.material === category) && (topic === 'todos' || entry.dataset.tema === topic) && words.every(word => haystack.includes(word));
       entry.hidden = !visible;
       if (visible) count++;
     });
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filtro === category)));
+    topicButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filtroTema === topic)));
     status.textContent = count ? count + ' materiales encontrados.' : 'No hay coincidencias. Prueba otra palabra o elige Todos.';
   }
   buttons.forEach(button => button.addEventListener('click', () => { category = button.dataset.filtro; filter(); }));
+  topicButtons.forEach(button => button.addEventListener('click', () => { topic = button.dataset.filtroTema; filter(); }));
   search.addEventListener('input', filter);
   document.querySelector('[data-limpiar]').addEventListener('click', () => {
     search.value = '';
     category = 'todos';
+    topic = 'todos';
     filter();
     search.focus();
   });

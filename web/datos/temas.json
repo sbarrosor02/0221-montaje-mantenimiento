@@ -7,19 +7,22 @@
       "etiqueta": "Examen · miércoles 14 de octubre",
       "titulo": "Repaso para el examen de circuitos",
       "texto": "Ejercicios con el formato del examen, resultados para comprobar y un simulacro.",
-      "url": "temas/ut01-ejercicios-repaso.html"
+      "url": "temas/ut01-ejercicios-repaso.html",
+      "ut": 1
     },
     {
       "etiqueta": "Entrega",
       "titulo": "Informe técnico de la P2",
       "texto": "Qué apartados lleva, ejemplos y lista de comprobación.",
-      "url": "temas/ut01-practicas-p2-informe.html"
+      "url": "temas/ut01-practicas-p2-informe.html",
+      "ut": 1
     },
     {
-      "etiqueta": "Tema 1",
+      "etiqueta": "Portada del tema",
       "titulo": "Todo el tema 1",
       "texto": "Teoría, ejercicios, taller de nudos y prácticas.",
-      "url": "temas/ut01.html"
+      "url": "temas/ut01.html",
+      "ut": 1
     }
   ],
   "temas": [
@@ -113,5 +116,5 @@
       ]
     }
   ],
-  "_destacados_nota": "destacados: avisos de la portada («Ahora en clase»). Editar o vaciar la lista y ejecutar scripts/actualizar_aula.py."
+  "_destacados_nota": "destacados: avisos de la portada («Ahora en clase»). 'ut' (opcional) antepone «Tema N ·» a la etiqueta. Editar o vaciar la lista y ejecutar scripts/actualizar_aula.py."
 }
