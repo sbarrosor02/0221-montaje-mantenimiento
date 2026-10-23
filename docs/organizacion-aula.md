@@ -89,3 +89,29 @@ Al alumnado le costaba encontrar el material. Cambios:
   8 materiales). Siguen disponibles dentro de cada ejercicio.
 - `assets/aula.css` recibe los estilos de `.aula-ahora`. Si se copia al
   repositorio de 0223, no le afecta mientras no use `destacados`.
+
+
+## Revisión del 23/10/2026 · a qué tema pertenece cada material
+
+Con varios temas publicados, en el catálogo y en las páginas no se veía de qué tema era
+cada cosa. Cambios, todos generados por `scripts/actualizar_aula.py`:
+
+- **Migas de pan** al principio de cada página de `temas/`: «Inicio › Tema N · título ›
+  Apartado» (y la subpágina, si la hay: «… › Ejercicios › Taller de nudos»). El apartado
+  se toma del enlace marcado en la barra `.subnav`: `aria-current="page"` para la página
+  y `aria-current="true"` para una subpágina, cuyo nombre sale del `<h1>` hasta « — ».
+- **Índice lateral**: tarjeta «Tema N · título» que lleva a la portada del tema y enlace
+  «Todo el material del tema N» (`recursos.html?tema=N`).
+- **Catálogo**: cada material lleva la etiqueta «Tema N» con el título del tema y su tipo;
+  se ordena por tema y, dentro de cada tema, apuntes, ejercicios, prácticas, consulta y
+  descargas. Nuevo filtro por tema, combinable con el de tipo y con la búsqueda, y
+  enlazable con `?tema=N`. Las descargas toman el tema de la página que las usa.
+- **Ahora en clase**: los destacados de `web/datos/temas.json` admiten `"ut": N`, que
+  antepone «Tema N ·» a la etiqueta.
+
+El tema se deduce del nombre del archivo (`utNN…html`) y su título de `temas.json`.
+Las migas se regeneran en cada ejecución (el script es idempotente).
+
+`assets/aula.css` y `assets/aula.js` (compartidos con 0223) reciben los estilos y el filtro
+por tema. El filtro solo actúa si el catálogo tiene botones `data-filtro-tema`, así que
+copiar estos dos archivos a 0223 no cambia nada allí hasta que su script genere esas marcas.

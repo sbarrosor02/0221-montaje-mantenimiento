@@ -99,3 +99,20 @@ figure { margin-inline: 0; }
   svg, img { break-inside: avoid; }
   a { color: black; }
 }
+
+/* Tema de cada página y de cada material (migas, índice lateral y catálogo) */
+.aula-migas { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .5rem; font-size: .9rem; margin: 0 0 1rem; color: var(--tinta-suave); }
+.aula-migas a { color: var(--acento); }
+.aula-migas [aria-current="page"] { color: var(--tinta); font-weight: 650; }
+.aula-indice .indice-tema { display: block; margin: 0 0 .5rem; padding: .6rem .7rem; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: 6px; background: white; color: var(--tinta); font-weight: 650; line-height: 1.35; }
+.aula-indice .indice-tema span { display: block; font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .04em; color: var(--acento); }
+.aula-indice .indice-material { border-left-color: transparent; font-size: .86rem; margin-bottom: .6rem; }
+.aula-etiquetas { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem .6rem; }
+.aula-tema { display: inline-block; background: var(--acento); color: white; font-size: .8rem; font-weight: 750; border-radius: 4px; padding: .1rem .5rem; }
+.aula-tema-titulo { font-size: .86rem; font-weight: 600; color: var(--tinta); }
+.aula-etiquetas .aula-tipo { border: 1px solid var(--linea); border-radius: 4px; padding: .05rem .45rem; }
+.aula-filtros-titulo { margin: .9rem 0 0; font-size: .85rem; font-weight: 650; color: var(--tinta-suave); }
+.aula-filtros-titulo + .aula-filtros { margin-top: .35rem; }
+.aula-filtros button[data-filtro-tema][aria-pressed="true"] { background: var(--acento); color: white; }
+.aula-filtros button[data-filtro-tema] { font-size: .92rem; padding: .5rem .7rem; color: var(--acento); background: white; border: 1px solid var(--linea); }
+@media print { .aula-migas { display: none; } }
