@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3)</p>
+    <h1>Tema 3 — Placa base, microprocesador, memoria, adaptadores y chasis</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA1 (criterios c, d, e, f, g, i, j, k)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema" aria-current="page">Portada del tema</a>
+    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html">Ejercicios</a>
+    <a href="ut03-practicas.html">Prácticas</a>
+  </nav>
+
+  <p>En el tema 2 viste el ordenador como bloques. Ahora toca <strong>la pieza
+  real</strong>: la placa base y lo que se conecta a ella. Aprenderás a leer sus
+  fichas técnicas, a comprobar que las piezas son compatibles, a configurar la
+  UEFI y a manipular procesador, disipador y tarjetas en el taller. Es la base para
+  montar un equipo completo en el tema 5.</p>
+
+  <h2 id="apartado-estudiar">Estudiar</h2>
+  <ul class="lista-temas">
+    <li><a href="ut03-teoria.html"><span class="ut">Teoría 1</span>Placa base, procesador, refrigeración, memoria y expansión
+      <br><span class="etq">CE c, d, e, j · placa interactiva, decodificador de procesadores, calculadoras de memoria y PCIe, autoevaluación</span></a></li>
+    <li><a href="ut03-teoria-2.html"><span class="ut">Teoría 2</span>BIOS/UEFI, gráfica y monitor, adaptadores, chasis y documentación
+      <br><span class="etq">CE f, g, i, j, k · calculadora de conectores de vídeo, autoevaluación</span></a></li>
+  </ul>
+
+  <h2 id="apartado-practicar">Practicar</h2>
+  <p class="meta">No cuenta para la nota. Sirve para coger soltura antes del taller.</p>
+  <ul class="lista-temas">
+    <li><a href="ut03-ejercicios-uefi.html"><span class="ut">Simulador</span>Simulador de UEFI
+      <br><span class="etq">Interactivo · CE f · siete misiones: arranque desde USB, XMP, Windows 11, virtualización, ventiladores…</span></a></li>
+    <li><a href="ut03-ejercicios-configurador.html"><span class="ut">Configurador</span>¿Son compatibles estas piezas?
+      <br><span class="etq">Interactivo · CE c, d, e, g, i · procesadores reales de Intel y AMD, cinco casos para diagnosticar</span></a></li>
+    <li><a href="ut03-ejercicios.html"><span class="ut">Ejercicios</span>Cuatro boletines
+      <br><span class="etq">Placa base · procesador y refrigeración · memoria y expansión · UEFI, gráfica, monitor y chasis</span></a></li>
+  </ul>
+
+  <h2 id="apartado-entregar">Entregar</h2>
+  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de empezar.</p>
+  <ul class="lista-temas">
+    <li><a href="ut03-practicas.html#p5"><span class="ut">P5</span>La placa base y su manual<br><span class="etq">CE e, k · en parejas · 2 sesiones</span></a></li>
+    <li><a href="ut03-practicas.html#p6"><span class="ut">P6</span>Procesador y refrigeración: cambio de pasta térmica<br><span class="etq">CE c, d · en parejas · 2 sesiones</span></a></li>
+    <li><a href="ut03-practicas.html#p7"><span class="ut">P7</span>La UEFI de un equipo real<br><span class="etq">CE f · individual · 2 sesiones</span></a></li>
+    <li><a href="ut03-practicas.html#p8"><span class="ut">P8</span>Adaptadores, monitor y chasis<br><span class="etq">CE g, i, j · en parejas · 2–3 sesiones</span></a></li>
+  </ul>
+
+  <h2 id="apartado-mapa-de-criterios">Mapa de criterios</h2>
+  <p>Dónde se trabaja cada criterio de evaluación del tema.</p>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="mapa-ce">
+    <thead><tr><th>CE</th><th>Teoría</th><th>Practicar</th><th>Práctica evaluable</th></tr></thead>
+    <tbody>
+      <tr><td><strong>c)</strong> Microprocesadores</td><td><a href="ut03-teoria.html#apartado-3-3">3.3</a></td><td>Boletín 2 · configurador</td><td>P6</td></tr>
+      <tr><td><strong>d)</strong> Disipadores y ventiladores</td><td><a href="ut03-teoria.html#apartado-3-5">3.5</a></td><td>Boletín 2 · configurador</td><td>P6</td></tr>
+      <tr><td><strong>e)</strong> Configuración de la placa base</td><td><a href="ut03-teoria.html#apartado-3-1">3.1</a>, <a href="ut03-teoria.html#apartado-3-2">3.2</a>, <a href="ut03-teoria.html#apartado-3-4">3.4</a>, <a href="ut03-teoria.html#apartado-3-6">3.6</a>, <a href="ut03-teoria.html#apartado-3-7">3.7</a></td><td>Boletines 1 y 3 · configurador</td><td>P5</td></tr>
+      <tr><td><strong>f)</strong> BIOS/UEFI</td><td><a href="ut03-teoria-2.html#apartado-3-8">3.8</a></td><td>Boletín 4 · simulador de UEFI</td><td>P7</td></tr>
+      <tr><td><strong>g)</strong> Chasis</td><td><a href="ut03-teoria.html#apartado-3-1">3.1</a>, <a href="ut03-teoria-2.html#apartado-3-12">3.12</a></td><td>Boletines 1 y 4 · configurador</td><td>P8</td></tr>
+      <tr><td><strong>i)</strong> Adaptador gráfico y monitor</td><td><a href="ut03-teoria-2.html#apartado-3-9">3.9</a>, <a href="ut03-teoria-2.html#apartado-3-10">3.10</a></td><td>Boletín 4 · configurador</td><td>P8</td></tr>
+      <tr><td><strong>j)</strong> Adaptadores</td><td><a href="ut03-teoria.html#apartado-3-7">3.7</a>, <a href="ut03-teoria-2.html#apartado-3-9">3.9</a>, <a href="ut03-teoria-2.html#apartado-3-11">3.11</a></td><td>Boletines 3 y 4</td><td>P8</td></tr>
+      <tr><td><strong>k)</strong> Documentación, controladores y utilidades</td><td><a href="ut03-teoria-2.html#apartado-3-13">3.13</a></td><td>Boletines 1, 3 y 4</td><td>P5</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="apartado-recorrido">Recorrido del tema</h2>
+  <p>Orden orientativo de las sesiones. El ritmo se ajustará a la marcha del
+  grupo.</p>
+  <ol>
+    <li>Formatos y mapa de la placa (3.1–3.2). Boletín 1.</li>
+    <li>Práctica P5: la placa del taller y su manual (2 sesiones).</li>
+    <li>El procesador y el chipset (3.3–3.4).</li>
+    <li>Refrigeración (3.5). Boletín 2.</li>
+    <li>Práctica P6: medidas y cambio de pasta térmica (2 sesiones).</li>
+    <li>Memoria y ranuras de expansión (3.6–3.7). Boletín 3.</li>
+    <li>BIOS y UEFI (3.8). Simulador de UEFI.</li>
+    <li>Práctica P7: la UEFI de un equipo real (2 sesiones).</li>
+    <li>Gráfica, monitor y otras tarjetas (3.9–3.11).</li>
+    <li>Chasis y documentación (3.12–3.13). Configurador. Boletín 4.</li>
+    <li>Práctica P8: adaptadores, monitor y chasis (2–3 sesiones).</li>
+    <li>Repaso y prueba del tema.</li>
+  </ol>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
+    <p>La UT3 trabaja ocho criterios del resultado de aprendizaje 1 del Decreto
+    272/2009:</p>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones
+    de distintos fabricantes.</p>
+    <ul>
+      <li><strong>c)</strong> Se han descrito las características de los tipos de microprocesadores (frecuencia, tensiones, potencia, zócalos, entre otros).</li>
+      <li><strong>d)</strong> Se ha descrito la función de los disipadores y ventiladores.</li>
+      <li><strong>e)</strong> Se han descrito las características y utilidades más importantes de la configuración de la placa base.</li>
+      <li><strong>f)</strong> Se ha explicado para qué sirve la BIOS de un ordenador y las características comunes de las BIOS de los ordenadores actuales.</li>
+      <li><strong>g)</strong> Se han evaluado tipos de chasis para la placa base y el resto de componentes.</li>
+      <li><strong>i)</strong> Se ha analizado la función del adaptador gráfico y el monitor.</li>
+      <li><strong>j)</strong> Se han identificado y manipulado distintos adaptadores (gráficos, red, entre otros).</li>
+      <li><strong>k)</strong> Se han identificado los elementos que acompañan a un componente de integración (documentación, controladores, cables y utilidades, entre otros).</li>
+    </ul>
+    <p style="margin-bottom:0"><em>La memoria se explica en este tema, pero el criterio
+    h) (identificar y manipular módulos de memoria, discos y sus controladoras) se
+    evalúa en el tema 4.</em></p>
+  </details>
+
+  <nav class="nav-temas">
+    <a href="ut02.html">&laquo; Tema 2</a>
+    <a href="../index.html">Índice del módulo</a>
+    <span>Siguiente &raquo; (Tema 4, próximamente)</span>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

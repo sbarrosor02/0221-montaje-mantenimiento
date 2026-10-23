@@ -1,0 +1,140 @@
+/* Estilos propios del tema 3 de 0221. Se cargan después de ut02.css (clases comunes:
+   .interactivo, .clave, .ejemplo, .tabla-datos, .columnas, .ejercicio, .rubrica…).
+   NO es un archivo compartido con 0223. */
+
+/* Marca de criterio de evaluación en títulos y ejercicios */
+.ce { display: inline-block; vertical-align: middle; font-size: .72rem; font-weight: 750; letter-spacing: .02em; color: var(--acento); background: var(--acento-claro); border: 1px solid #b7dccf; border-radius: 4px; padding: .05rem .4rem; margin-left: .4rem; white-space: nowrap; }
+h2 .ce, h3 .ce { position: relative; top: -.1em; }
+.ce-ue { color: #6b4b00; background: #fff3d6; border-color: #f0d48a; }
+
+/* Placa base interactiva */
+.placa-modos { display: flex; gap: .4rem; margin: .3rem 0 .7rem; }
+.placa-modos button { background: white; color: var(--acento); border: 1px solid var(--linea); padding: .4rem .9rem; font-size: .92rem; }
+.placa-modos button[aria-pressed="true"] { background: var(--acento); color: white; border-color: var(--acento); }
+.placa-reto { margin: 0 0 .6rem; padding: .5rem .8rem; background: #fff1c2; border-radius: 6px; }
+.placa-marcador { float: right; font-weight: 700; }
+.placa-zona { overflow-x: auto; }
+.placa-desliza { display: none; font-size: .85rem; color: var(--tinta-suave); margin: 0 0 .3rem; }
+@media (max-width: 560px) { .placa-desliza { display: block; } }
+.placa-svg { display: block; width: 100%; min-width: 30rem; height: auto; }
+.placa-pcb { fill: #24543f; stroke: #163a2b; stroke-width: 3; }
+.placa-agujero { fill: #d8c27a; stroke: #8f7a33; stroke-width: 2; pointer-events: none; }
+.placa-cpu { fill: #c9ced3; stroke: #8c949b; stroke-width: 2; pointer-events: none; }
+.placa-texto { font: 600 15px "Segoe UI", sans-serif; fill: #e9f3ee; pointer-events: none; }
+.placa-pieza { cursor: pointer; outline: none; }
+.placa-pieza rect, .placa-pieza circle { fill: #3d4a52; stroke: #c7d2d9; stroke-width: 2; transition: fill .15s; }
+.pieza-ram rect, .pieza-pcie16 rect, .pieza-pcie4 rect, .pieza-pcie1 rect { fill: #1d2328; }
+.pieza-vrm rect, .pieza-chipset rect { fill: #6c7a84; }
+.pieza-io rect { fill: #9aa5ad; }
+.pieza-m2a rect, .pieza-m2b rect { fill: #4a5a63; stroke-dasharray: 6 4; }
+.pieza-pila circle { fill: #d9dde0; }
+.pieza-atx24 rect, .pieza-eps rect { fill: #f2f2f2; }
+.pieza-usb3 rect { fill: #2d6fd1; }
+.pieza-argb rect { fill: #a33ec7; }
+.pieza-debug rect { fill: #e04a3a; }
+.placa-pieza:hover rect, .placa-pieza:hover circle, .placa-pieza:focus rect, .placa-pieza:focus circle { fill: #f2b705; }
+.placa-pieza.activa rect, .placa-pieza.activa circle { fill: #ffcf33; stroke: white; stroke-width: 4; }
+.placa-pieza.fallo rect, .placa-pieza.fallo circle { fill: #e0303a; }
+.placa-info { margin-top: .8rem; padding: .8rem 1rem; background: var(--fondo-suave); border-radius: var(--radio); min-height: 7rem; }
+.placa-info h4 { margin: 0 0 .3rem; color: var(--acento); font-size: 1.05rem; }
+.placa-info p { margin: .3rem 0; }
+.placa-ce { font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .04em; color: var(--tinta-suave); }
+.placa-bien { color: var(--ok); font-weight: 700; }
+.placa-mal { color: var(--mal); font-weight: 700; }
+
+/* Decodificador de nombres de CPU */
+.cpu-form { display: flex; flex-wrap: wrap; gap: .5rem; align-items: end; }
+.cpu-form label { flex-basis: 100%; font-weight: 600; }
+.cpu-form input { font: inherit; padding: .45rem .6rem; border: 1px solid #8192a5; border-radius: 5px; flex: 1 1 14rem; min-width: 0; }
+.cpu-ejemplos { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; font-size: .9rem; }
+.cpu-ejemplos button { font-size: .85rem; padding: .3rem .6rem; margin: 0; }
+.cpu-salida dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .3rem 1rem; margin: .6rem 0 0; }
+.cpu-salida dt { font-weight: 700; }
+.cpu-salida dd { margin: 0; }
+.cpu-error-txt { color: var(--mal); font-weight: 600; }
+@media (max-width: 560px) { .cpu-salida dl { grid-template-columns: 1fr; } .cpu-salida dd { margin-bottom: .4rem; } }
+
+/* Calculadoras */
+.calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .6rem .9rem; align-items: end; }
+.calc-grid label { display: flex; flex-direction: column; gap: .15rem; font-weight: 600; font-size: .95rem; }
+.calc-grid input, .calc-grid select { font: inherit; padding: .4rem .5rem; border: 1px solid #8192a5; border-radius: 5px; background: white; max-width: 100%; }
+.calc-grid fieldset { border: 1px solid var(--linea); border-radius: var(--radio); padding: .4rem .8rem .7rem; margin: 0; min-width: 0; display: grid; gap: .4rem; }
+.calc-grid legend { font-weight: 700; color: var(--acento); padding: 0 .3rem; }
+.calc-salida { margin-top: .8rem; padding: .6rem .9rem; background: var(--acento-claro); border-radius: 6px; }
+.calc-salida p { margin: .35rem 0; }
+.calc-nota { font-size: .9rem; color: var(--tinta-suave); }
+.calc-ejemplos { display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; margin: .8rem 0 0; font-size: .9rem; }
+.calc-ejemplos button { font-size: .85rem; padding: .3rem .6rem; margin: 0; }
+.calc-barra { height: .9rem; background: #d6e1e9; border-radius: 1rem; overflow: hidden; }
+.calc-barra span { display: block; height: 100%; background: var(--acento); }
+.conectores { list-style: none; padding: 0; margin: .5rem 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: .3rem .8rem; }
+.conectores li { margin: 0; padding: .3rem .5rem; border-radius: 5px; }
+.conectores li.si { background: #e7f5ec; }
+.conectores li.no { background: #fdecee; }
+.conectores li span[aria-hidden] { font-weight: 800; margin-right: .2rem; }
+.conectores small { color: var(--tinta-suave); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Ficha de pines (F_PANEL, ventiladores) */
+.pines { border-collapse: collapse; margin: .6rem auto; font-family: ui-monospace, Consolas, monospace; font-size: .85rem; }
+.pines td { border: 1px solid var(--linea); padding: .35rem .5rem; text-align: center; min-width: 6.5rem; background: white; }
+.pines td.vacio { background: repeating-linear-gradient(45deg, #eee, #eee 4px, #fff 4px, #fff 8px); color: var(--tinta-suave); }
+.pines td.led { background: #e8f1f9; } .pines td.sw { background: #fff3d6; }
+
+/* Mapa de criterios */
+.mapa-ce { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.mapa-ce th, .mapa-ce td { border: 1px solid var(--linea); padding: .4rem .55rem; text-align: left; vertical-align: top; }
+.mapa-ce thead th { background: var(--acento-claro); }
+
+/* Simulador UEFI */
+.uefi { background: #0f1a24; color: #dce6ee; border-radius: 10px; overflow: hidden; font-family: "Segoe UI", system-ui, sans-serif; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+.uefi-cab { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap; padding: .55rem .9rem; background: linear-gradient(90deg, #1e3b52, #133047); border-bottom: 2px solid #f2a33a; }
+.uefi-cab strong { letter-spacing: .06em; }
+.uefi-cab span { font-size: .85rem; color: #a9bccb; }
+.uefi-pestanas { display: flex; flex-wrap: wrap; background: #16283a; }
+.uefi-pestanas button { background: transparent; color: #a9bccb; border-radius: 0; padding: .55rem .9rem; font-size: .9rem; border-bottom: 3px solid transparent; }
+.uefi-pestanas button[aria-selected="true"] { color: white; border-bottom-color: #f2a33a; background: #1e3b52; }
+.uefi-cuerpo { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); min-height: 22rem; }
+.uefi-opciones { padding: .7rem .9rem; border-right: 1px solid #23394c; }
+.uefi-ayuda { padding: .8rem .9rem; font-size: .9rem; color: #c3d2de; background: #13212f; }
+.uefi-ayuda h4 { margin: 0 0 .4rem; color: #f2a33a; font-size: .95rem; }
+.uefi-fila { display: flex; justify-content: space-between; align-items: center; gap: .8rem; padding: .35rem .5rem; border-radius: 4px; }
+.uefi-fila:hover, .uefi-fila:focus-within { background: #1c3348; }
+.uefi-fila label, .uefi-fila .nombre { flex: 1; }
+.uefi-fila select, .uefi-fila input { font: inherit; font-size: .9rem; background: #0b141c; color: #f2f6f9; border: 1px solid #3b5468; border-radius: 4px; padding: .2rem .4rem; max-width: 12rem; }
+.uefi-fila .valor { font-family: ui-monospace, Consolas, monospace; color: #9fe0b5; }
+.uefi-sub { margin: .8rem .5rem .3rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: #f2a33a; }
+.uefi-orden { list-style: none; padding: 0; margin: 0; }
+.uefi-orden li { display: flex; align-items: center; gap: .4rem; padding: .3rem .5rem; margin: .2rem 0; background: #172b3d; border-radius: 4px; }
+.uefi-orden li span { flex: 1; }
+.uefi-orden button { padding: .1rem .45rem; font-size: .85rem; background: #2a4760; color: white; }
+.uefi-pie { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; padding: .5rem .9rem; background: #16283a; font-size: .82rem; color: #a9bccb; }
+.uefi-pie button { background: #f2a33a; color: #1b1b1b; padding: .35rem .8rem; font-size: .88rem; }
+.uefi-dialogo { margin: .8rem; padding: .8rem 1rem; border: 2px solid #f2a33a; border-radius: 8px; background: #13212f; }
+.uefi-grafica { width: 100%; height: auto; background: #0b141c; border-radius: 6px; }
+.misiones { list-style: none; padding: 0; margin: .5rem 0; }
+.misiones li { display: flex; gap: .6rem; align-items: flex-start; padding: .45rem .6rem; border: 1px solid var(--linea); border-radius: 6px; margin: .35rem 0; background: white; }
+.misiones li .estado { flex: none; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: #e3e9ee; color: var(--tinta-suave); }
+.misiones li.hecha { border-color: #9fd3b2; background: #f0faf3; }
+.misiones li.hecha .estado { background: var(--ok); color: white; }
+@media (max-width: 720px) {
+  .uefi-cuerpo { grid-template-columns: 1fr; }
+  .uefi-opciones { border-right: none; border-bottom: 1px solid #23394c; }
+  .uefi-fila { flex-wrap: wrap; }
+}
+
+/* Configurador */
+.config-pc { display: grid; grid-template-columns: minmax(0, 1fr); gap: .7rem; }
+.config-pc .ce { align-self: flex-start; margin-left: 0; }
+.config-pc label { display: flex; flex-direction: column; gap: .2rem; font-weight: 650; }
+.config-pc select { font: inherit; font-weight: 400; padding: .4rem .5rem; border: 1px solid #8192a5; border-radius: 5px; background: white; width: 100%; max-width: 100%; min-width: 0; }
+.config-pc .ficha { font-size: .82rem; font-weight: 400; color: var(--tinta-suave); min-height: 2.4em; }
+.comprobaciones { list-style: none; padding: 0; margin: .8rem 0; }
+.comprobaciones li { display: grid; grid-template-columns: 1.8rem minmax(0, 1fr); gap: .5rem; padding: .5rem .6rem; border-radius: 6px; margin: .35rem 0; }
+.comprobaciones li .ico { font-weight: 800; font-size: 1.05rem; text-align: center; }
+.comprobaciones li.ok { background: #e7f5ec; } .comprobaciones li.ok .ico { color: var(--ok); }
+.comprobaciones li.mal { background: #fdecee; } .comprobaciones li.mal .ico { color: var(--mal); }
+.comprobaciones li.aviso { background: #fff6e0; } .comprobaciones li.aviso .ico { color: var(--aviso); }
+.comprobaciones strong { display: block; }
+.veredicto { padding: .7rem 1rem; border-radius: var(--radio); font-weight: 700; margin-top: .6rem; }
+.veredicto.ok { background: var(--ok); color: white; } .veredicto.mal { background: var(--mal); color: white; } .veredicto.aviso { background: #ffcf8a; color: var(--tinta); }

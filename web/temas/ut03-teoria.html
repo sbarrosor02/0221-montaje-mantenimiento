@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoría 1 · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<script defer src="../assets/ut02-interactivos.js"></script>
+<script defer src="../assets/ut03-interactivos.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-3-1">3.1 La placa base y sus formatos</a></li><li><a href="#apartado-3-2">3.2 Mapa de la placa base</a></li><li><a href="#apartado-3-3">3.3 El microprocesador</a></li><li><a href="#apartado-3-4">3.4 El chipset</a></li><li><a href="#apartado-3-5">3.5 Refrigeración: disipadores y ventiladores</a></li><li><a href="#apartado-3-6">3.6 La memoria RAM: tipos y compatibilidad</a></li><li><a href="#apartado-3-7">3.7 Ranuras de expansión y M.2</a></li><li><a href="#apartado-resumen">Resumen</a></li><li><a href="#apartado-autoevaluacion">Autoevaluación</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Teoría 1: placa y procesador</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Teoría 1</p>
+    <h1>Teoría 1 — Placa base, procesador, refrigeración, memoria y expansión</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1 (c, d, e, j)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03-teoria.html" aria-current="page">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html">Ejercicios</a>
+    <a href="ut03-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios cubre esta página</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>c)</strong> Se han descrito las características de los tipos de microprocesadores (frecuencia, tensiones, potencia, zócalos, entre otros).</li>
+      <li><strong>d)</strong> Se ha descrito la función de los disipadores y ventiladores.</li>
+      <li><strong>e)</strong> Se han descrito las características y utilidades más importantes de la configuración de la placa base.</li>
+      <li><strong>j)</strong> Se han identificado y manipulado distintos adaptadores (gráficos, red, entre otros).</li>
+    </ul>
+    <p style="margin-bottom:0"><em>Cada apartado lleva una etiqueta con su criterio. La
+    memoria RAM se explica aquí, pero el criterio de manipular módulos de memoria
+    (h) se evalúa en el tema 4.</em></p>
+  </details>
+
+  <div class="aviso">
+    <strong>Cómo estudiar este tema.</strong> Es el tema de las piezas que vas a
+    tener en la mano en el taller. Ten cerca un equipo abierto o una placa base y
+    su manual, y busca en ellos cada cosa que leas. Las piezas marcadas como
+    <em>Pruébalo</em> te ayudan a practicar.
+  </div>
+
+  <section>
+    <h2 id="apartado-3-1">3.1 La placa base y sus formatos <span class="ce">CE e</span> <span class="ce">CE g</span></h2>
+    <p>La <strong>placa base</strong> (<em>motherboard</em>) es la placa de
+    circuito impreso a la que se conectan, directa o indirectamente, todos los
+    componentes del ordenador. Reparte la alimentación, comunica las piezas por
+    sus buses (lo viste en el tema 2) y guarda el firmware que arranca el
+    equipo.</p>
+    <p>Placas, cajas y fuentes las fabrican empresas distintas. Para que encajen
+    entre sí existe el <strong>factor de forma</strong>: una norma que fija el
+    tamaño de la placa, dónde van los tornillos de anclaje, dónde queda el panel
+    de conectores traseros y qué conector de alimentación usa.</p>
+
+    <h3>Formatos actuales</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Formato</th><th>Tamaño máximo</th><th>Ranuras de expansión</th><th>Ranuras de RAM</th><th>Uso típico</th></tr></thead>
+      <tbody>
+        <tr><td><strong>E-ATX</strong> (ATX extendido)</td><td>305 × 330 mm (varía según fabricante)</td><td>Hasta 7–8</td><td>4–8</td><td>Gama entusiasta y estaciones de trabajo. Necesita torre grande.</td></tr>
+        <tr><td><strong>ATX</strong></td><td>305 × 244 mm</td><td>Hasta 7</td><td>4 (2 en algunas placas para overclock)</td><td>El estándar de los sobremesa desde 1995.</td></tr>
+        <tr><td><strong>Micro-ATX</strong> (µATX, mATX)</td><td>244 × 244 mm</td><td>Hasta 4</td><td>2–4</td><td>Oficina y equipos económicos o compactos.</td></tr>
+        <tr><td><strong>Mini-ITX</strong></td><td>170 × 170 mm</td><td>1</td><td>2</td><td>Equipos pequeños (SFF), salón (HTPC), mini PC.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="clave">
+      <strong>La regla de compatibilidad</strong>
+      <p>Los agujeros de anclaje de ATX, micro-ATX y Mini-ITX coinciden en parte.
+      Por eso <strong>una caja admite su formato y todos los más pequeños</strong>:
+      en una caja ATX caben placas micro-ATX y Mini-ITX, pero una placa ATX no cabe
+      en una caja micro-ATX. La ficha de la caja dice qué formatos admite.</p>
+    </div>
+
+    <details class="tarjeta">
+      <summary><strong>Un poco de historia: formatos que ya no verás (o casi)</strong></summary>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Formato</th><th>Año</th><th>Qué aportó y por qué desapareció</th></tr></thead>
+        <tbody>
+          <tr><td>AT y Baby-AT</td><td>1984 y 1985</td><td>Primeros estándares (IBM PC/AT). Alimentación en dos conectores (P8 y P9) fáciles de poner al revés, solo el conector de teclado en la placa y mala ventilación. Los sustituyó ATX.</td></tr>
+          <tr><td>Flex-ATX</td><td>1999</td><td>229 × 191 mm, variante pequeña de micro-ATX para equipos de marca. Hoy es rara.</td></tr>
+          <tr><td>BTX</td><td>2004</td><td>Intel lo diseñó para mejorar el flujo de aire. No era compatible con las cajas ATX y se abandonó a los pocos años.</td></tr>
+          <tr><td>Nano-ITX y Pico-ITX</td><td>2005 y 2007</td><td>120 × 120 y 100 × 72 mm. Solo en sistemas industriales y embebidos.</td></tr>
+        </tbody>
+      </table></div>
+      <p style="margin-bottom:0">Lo importante de ATX (1995) es lo que sigue vigente: el
+      <strong>panel trasero de E/S</strong> integrado en la placa, el conector de
+      alimentación único con muesca (que no se puede poner al revés) y el
+      <strong>encendido por software</strong> (la fuente siempre da una pequeña
+      tensión de reposo, 5VSB, y la placa ordena el encendido).</p>
+    </details>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-2">3.2 Mapa de la placa base <span class="ce">CE e</span></h2>
+    <p>Todas las placas actuales se parecen mucho. Si sabes dónde suele estar
+    cada cosa, encontrarás cualquier componente en una placa que no hayas visto
+    nunca.</p>
+    <div class="interactivo" data-widget="placa">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Placa base interactiva</h3>
+      <p class="instrucciones">En <strong>Explorar</strong>, pulsa cada componente
+      para ver qué es y cómo reconocerlo. En <strong>Encuéntralo</strong>, la placa
+      te pide un componente y tienes que señalarlo.</p>
+    </div>
+
+    <h3>3.2.1 Conectores internos que debes conocer</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Conector</th><th>Rótulo habitual</th><th>Para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td>Alimentación principal, 24 pines (20+4)</td><td>ATX_PWR, ATX1</td><td>3,3 V, 5 V y 12 V para toda la placa.</td></tr>
+        <tr><td>Alimentación del procesador, 4+4 u 8 pines</td><td>CPU_PWR, ATX12V, EPS</td><td>12 V para el VRM del procesador. Las placas potentes llevan dos.</td></tr>
+        <tr><td>Ventiladores, 4 pines</td><td>CPU_FAN, CPU_OPT, SYS_FAN, CHA_FAN, AIO_PUMP</td><td>Alimentan los ventiladores y la bomba, y controlan su velocidad (apartado 3.6).</td></tr>
+        <tr><td>USB 2.0 interno, 9 pines</td><td>USB, F_USB</td><td>Dos puertos USB 2.0 del panel frontal o de un dispositivo interno.</td></tr>
+        <tr><td>USB 3.x interno, 19 pines (azul)</td><td>USB3, USB3_1</td><td>Dos puertos USB-A de 5 Gbit/s del panel frontal.</td></tr>
+        <tr><td>USB-C interno</td><td>USB_C, U32G2_C</td><td>Un puerto USB-C del panel frontal (10 o 20 Gbit/s).</td></tr>
+        <tr><td>Audio frontal</td><td>HD_AUDIO, AAFP</td><td>Auriculares y micrófono del panel frontal.</td></tr>
+        <tr><td>Panel frontal</td><td>F_PANEL, JFP1</td><td>Botones de encendido y reset, LED de encendido y de disco.</td></tr>
+        <tr><td>Iluminación</td><td>RGB (4 pines, 12 V) y ARGB (3 pines, 5 V)</td><td>Tiras y ventiladores con LED. Son incompatibles entre sí.</td></tr>
+        <tr><td>TPM</td><td>TPM, SPI_TPM</td><td>Módulo de seguridad externo (apartado 3.8, en la teoría 2).</td></tr>
+        <tr><td>Borrar CMOS</td><td>CLR_CMOS, CLRTC, JBAT1</td><td>Devuelve la UEFI a los valores de fábrica.</td></tr>
+        <tr><td>Altavoz interno</td><td>SPEAKER, BUZZER</td><td>Pitidos de diagnóstico al arrancar.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.2.2 El panel frontal (F_PANEL)</h3>
+    <p>Es el conector que más cuesta montar: los cables de la caja son
+    individuales y muy pequeños. La distribución más extendida es la de Intel,
+    aunque <strong>cada fabricante puede cambiarla</strong>. Antes de conectar,
+    comprueba siempre la serigrafía de la placa o el manual.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="pines" aria-label="Distribución habitual del conector F_PANEL, vista desde arriba">
+      <tbody>
+        <tr><td class="led">PWR_LED +<br>(2)</td><td class="led">PWR_LED –<br>(4)</td><td class="sw">PWR_SW<br>(6)</td><td class="sw">PWR_SW<br>(8)</td><td class="vacio">sin pin<br>(10)</td></tr>
+        <tr><td class="led">HDD_LED +<br>(1)</td><td class="led">HDD_LED –<br>(3)</td><td class="sw">RESET<br>(5)</td><td class="sw">RESET<br>(7)</td><td>+5 V (no se usa)<br>(9)</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>Los <strong>LED tienen polaridad</strong>: el cable de color (o marcado
+      con un triángulo) es el positivo. Si se ponen al revés no se rompen, pero no
+      se encienden.</li>
+      <li>Los <strong>botones no tienen polaridad</strong>: solo cierran un
+      contacto.</li>
+      <li>Muchas placas incluyen un adaptador (Q-Connector, M-Connector): conectas
+      los cables con calma fuera de la caja y luego enchufas el bloque entero.</li>
+      <li>Truco de taller: si no tienes botón, el equipo se enciende tocando
+      <strong>un instante</strong> los dos pines PWR_SW con un destornillador
+      aislado.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-3">3.3 El microprocesador <span class="ce">CE c</span></h2>
+    <p>El microprocesador es la CPU del tema 2 en un solo chip: unidades de
+    control, UAL, registros y caché. Los actuales incluyen además el controlador
+    de memoria, parte de los carriles PCI Express y, muchas veces, una gráfica
+    integrada. En sobremesa hay dos fabricantes: <strong>Intel</strong> y
+    <strong>AMD</strong>, que compiten modelo a modelo y no son compatibles entre
+    sí (cada uno usa sus zócalos y sus chipsets).</p>
+
+    <h3>3.3.1 Características que hay que saber leer</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Característica</th><th>Qué significa</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Núcleos</strong></td><td>Procesadores completos dentro del chip; cada uno ejecuta su propio programa. Intel mezcla núcleos de rendimiento (P) y de eficiencia (E).</td><td>8 núcleos; o 6P + 8E</td></tr>
+        <tr><td><strong>Hilos</strong></td><td>Tareas que puede atender a la vez. Con <em>SMT</em> (AMD) o <em>Hyper-Threading</em> (Intel), cada núcleo atiende dos hilos.</td><td>8 núcleos / 16 hilos</td></tr>
+        <tr><td><strong>Frecuencia base y turbo</strong></td><td>Ciclos de reloj por segundo (GHz). La base es la garantizada; la turbo, la máxima que alcanza si la temperatura y el consumo lo permiten. Solo se comparan frecuencias de la misma familia: un procesador puede hacer más trabajo por ciclo que otro (IPC).</td><td>3,8 GHz base, 5,1 GHz turbo</td></tr>
+        <tr><td><strong>Caché</strong></td><td>Memoria rapidísima dentro del procesador (L1, L2, L3), la jerarquía del tema 2. La L3 se suele anunciar en la ficha.</td><td>32 MB de L3</td></tr>
+        <tr><td><strong>Consumo (TDP)</strong></td><td>Calor que hay que disipar y potencia que consume, en vatios. Intel indica potencia base y potencia turbo máxima (PL1 y PL2). En AMD, el límite real (PPT) es 1,35 veces el TDP. Sirve para elegir el disipador y la fuente.</td><td>65 W (hasta 148 W en turbo)</td></tr>
+        <tr><td><strong>Tensión (Vcore)</strong></td><td>Tensión de alimentación de los núcleos: entre 0,7 y 1,5 V, según la carga. La genera el VRM de la placa a partir de los 12 V del conector EPS. Más tensión permite más frecuencia, pero también más calor.</td><td>1,1–1,35 V</td></tr>
+        <tr><td><strong>Litografía</strong></td><td>Tamaño de fabricación de los transistores. Cuanto más pequeña, más transistores caben y menos consumen. Hoy son nombres comerciales más que medidas reales.</td><td>«4 nm», «Intel 7»</td></tr>
+        <tr><td><strong>Gráfica integrada</strong></td><td>GPU dentro del procesador. Permite usar el equipo sin tarjeta gráfica. Los modelos <strong>F</strong> no la tienen.</td><td>Intel UHD 770, Radeon 780M</td></tr>
+        <tr><td><strong>Zócalo y memoria</strong></td><td>Zócalo físico y tipo de memoria que admite. Decide la placa base que se puede usar.</td><td>AM5, solo DDR5</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="ejemplo">
+      <strong>Comparar dos fabricantes con la ficha técnica</strong>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th></th><th>Intel Core i5-14400F</th><th>AMD Ryzen 5 7600</th></tr></thead>
+        <tbody>
+          <tr><th>Núcleos / hilos</th><td>10 (6P + 4E) / 16</td><td>6 / 12</td></tr>
+          <tr><th>Frecuencia base / turbo</th><td>2,5 / 4,7 GHz</td><td>3,8 / 5,1 GHz</td></tr>
+          <tr><th>Caché L3</th><td>20 MB</td><td>32 MB</td></tr>
+          <tr><th>Consumo</th><td>65 W base, 148 W turbo máximo</td><td>65 W TDP (88 W PPT)</td></tr>
+          <tr><th>Gráfica integrada</th><td>No (modelo F)</td><td>Sí, básica (Radeon, 2 núcleos gráficos)</td></tr>
+          <tr><th>Zócalo / memoria</th><td>LGA 1700 / DDR4 o DDR5</td><td>AM5 / DDR5</td></tr>
+        </tbody>
+      </table></div>
+      <p>Con la ficha no basta para saber cuál rinde más: hay que mirar
+      <strong>pruebas de rendimiento</strong> (<em>benchmarks</em>) con programas
+      reales, el <strong>precio</strong> del conjunto (procesador + placa + memoria)
+      y la <strong>actualización futura</strong>: AMD mantiene el zócalo AM5 para
+      varias generaciones, mientras que LGA 1700 ya no recibe procesadores
+      nuevos.</p>
+    </div>
+
+    <h3>3.3.2 Encapsulados y zócalos</h3>
+    <div class="columnas">
+      <div><h4>PGA</h4><p>Los <strong>pines están en el procesador</strong> y encajan en los agujeros del zócalo. Un pin doblado se puede enderezar con cuidado. Ejemplo: AMD AM4.</p></div>
+      <div><h4>LGA</h4><p>Los <strong>pines están en el zócalo</strong> y el procesador tiene contactos planos. Los pines del zócalo son muy frágiles: no se tocan y se protegen con su tapa. Ejemplos: Intel LGA 1700 y 1851, AMD AM5.</p></div>
+      <div><h4>BGA</h4><p>El procesador va <strong>soldado</strong> a la placa con bolitas de estaño. No se puede cambiar. Portátiles, mini PC y móviles.</p></div>
+    </div>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Zócalo</th><th>Tipo</th><th>Procesadores</th><th>Memoria</th><th>Chipsets</th></tr></thead>
+      <tbody>
+        <tr><td>Intel LGA 1200</td><td>LGA</td><td>Core de 10.ª y 11.ª generación (2020–2021)</td><td>DDR4</td><td>Series 400 y 500</td></tr>
+        <tr><td>Intel LGA 1700</td><td>LGA</td><td>Core de 12.ª, 13.ª y 14.ª generación (2021–2023)</td><td>DDR4 o DDR5 (según la placa)</td><td>Series 600 y 700</td></tr>
+        <tr><td>Intel LGA 1851</td><td>LGA</td><td>Core Ultra serie 200 de sobremesa (2024)</td><td>DDR5</td><td>Serie 800 (Z890, B860, H810)</td></tr>
+        <tr><td>Intel LGA 1954</td><td>LGA</td><td>Siguiente generación de sobremesa («Nova Lake»), anunciada para finales de 2026</td><td>DDR5</td><td>Serie 900</td></tr>
+        <tr><td>AMD AM4</td><td>PGA</td><td>Ryzen 1000 a 5000 (2017–2022)</td><td>DDR4</td><td>A320 a X570</td></tr>
+        <tr><td>AMD AM5</td><td>LGA (1718 contactos)</td><td>Ryzen 7000, 8000 y 9000 (desde 2022). AMD ha confirmado que la próxima generación (Zen 6) también usará AM5.</td><td>DDR5</td><td>A620, B650, X670, B850, X870…</td></tr>
+      </tbody>
+    </table></div>
+    <p>Que un procesador encaje en el zócalo no garantiza que funcione: la placa
+    puede necesitar una <strong>actualización de la UEFI</strong> para
+    reconocerlo. El fabricante de la placa publica la <strong>lista de
+    procesadores compatibles</strong> (<em>CPU support list</em>) con la versión
+    de UEFI mínima para cada uno.</p>
+
+    <h3>3.3.3 Cómo se leen los nombres</h3>
+    <p>El nombre comercial resume la gama, la generación y las características
+    especiales. Por ejemplo, en <strong>Core i5-14600KF</strong>: i5 es la gama
+    media, 14 la generación, 600 el modelo, K que está desbloqueado para
+    overclocking y F que no tiene gráfica integrada.</p>
+    <div class="interactivo" data-widget="cpu-nombre">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Decodificador de nombres</h3>
+      <p class="instrucciones">Escribe el nombre de un procesador de Intel o AMD
+      (o pulsa un ejemplo) y mira qué significa cada parte y qué zócalo
+      necesita.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-4">3.4 El chipset <span class="ce">CE e</span></h2>
+    <p>El <strong>chipset</strong> es el chip de la placa que amplía las
+    conexiones del procesador: añade más carriles PCI Express, puertos SATA y USB,
+    red y sonido. Hace años había dos chips, el <em>puente norte</em> (memoria y
+    gráfica) y el <em>puente sur</em> (periféricos). El puente norte acabó dentro
+    del procesador, y el chip que queda en la placa se llama <strong>PCH</strong>
+    (<em>Platform Controller Hub</em>).</p>
+    <p>La CPU y el chipset se comunican por un enlace propio: <strong>DMI</strong>
+    en Intel (equivale a 8 carriles PCIe 4.0) y <strong>4 carriles PCIe</strong>
+    en AMD. Todo lo que cuelga del chipset comparte ese enlace. Por eso la gráfica
+    y el SSD principal se conectan directamente a la CPU.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Gama</th><th>Intel (serie 800)</th><th>AMD (AM5)</th><th>Qué cambia</th></tr></thead>
+      <tbody>
+        <tr><td>Alta</td><td><strong>Z</strong>890</td><td><strong>X</strong>870E, X870, X670E</td><td>Más carriles y puertos. Permite overclock del procesador. Mejor VRM. PCIe 5.0 en gráfica y M.2.</td></tr>
+        <tr><td>Media</td><td><strong>B</strong>860</td><td><strong>B</strong>850, B650</td><td>Menos conexiones. En AMD permite overclock; en Intel solo el de la memoria.</td></tr>
+        <tr><td>Básica</td><td><strong>H</strong>810</td><td><strong>A</strong>620</td><td>Lo imprescindible, sin overclock del procesador. Para oficina.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Del chipset (y de cómo lo ha cableado el fabricante de la placa) dependen:
+    cuántos dispositivos M.2, SATA y USB se pueden conectar, qué versión de PCIe
+    tiene cada ranura, si se puede hacer overclock y cuánta memoria admite la
+    placa. En la ficha de una placa base, lo primero que se mira es
+    <strong>zócalo + chipset + formato</strong>.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-5">3.5 Refrigeración: disipadores y ventiladores <span class="ce">CE d</span></h2>
+    <p>Toda la energía eléctrica que consume un procesador acaba convertida en
+    calor. Un procesador de 125 W calienta como una pequeña estufa concentrada
+    en unos pocos centímetros cuadrados. Si no se retira ese calor:</p>
+    <ul>
+      <li>al llegar a su temperatura máxima (unos 95–105 °C, según el modelo) el
+      procesador <strong>baja la frecuencia</strong> para protegerse
+      (<em>thermal throttling</em>) y el equipo va más lento;</li>
+      <li>si sigue subiendo, el equipo <strong>se apaga</strong> de golpe;</li>
+      <li>trabajar siempre muy caliente acorta la vida de los componentes.</li>
+    </ul>
+
+    <h3>3.5.1 El disipador</h3>
+    <p>Un <strong>disipador</strong> lleva el calor desde el chip hasta el aire.
+    Tiene cuatro partes:</p>
+    <ol>
+      <li><strong>Base</strong> de cobre o aluminio, en contacto con el
+      procesador.</li>
+      <li><strong>Heatpipes</strong> (tubos de calor): tubos de cobre con un
+      líquido que se evapora en la parte caliente y se condensa en la fría. Mueven
+      el calor muy deprisa.</li>
+      <li><strong>Aletas</strong> de aluminio: mucha superficie para ceder el calor
+      al aire.</li>
+      <li><strong>Ventilador</strong>, que empuja el aire entre las aletas. Si no
+      hay ventilador, el disipador es <strong>pasivo</strong>.</li>
+    </ol>
+    <p>Entre el procesador y la base se pone <strong>pasta térmica</strong>.
+    Aunque parezcan lisas, las dos superficies tienen irregularidades
+    microscópicas llenas de aire, que es muy mal conductor del calor. La pasta
+    rellena esos huecos. Se pone poca: una gota del tamaño de un guisante en el
+    centro, y la presión del disipador la reparte. Al cambiar un disipador, la
+    pasta vieja se limpia con alcohol isopropílico y un paño que no suelte
+    pelusa. Los disipadores nuevos suelen traerla ya puesta.</p>
+
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Tipo</th><th>Cómo es</th><th>Cuándo se usa</th></tr></thead>
+      <tbody>
+        <tr><td>De serie (stock)</td><td>Disipador pequeño de aluminio con ventilador, incluido con algunos procesadores.</td><td>Procesadores de 65 W en uso normal. Hace ruido con carga alta.</td></tr>
+        <tr><td>De torre</td><td>Heatpipes y aletas en vertical, con uno o dos ventiladores de 120 o 140 mm. Mide entre 150 y 170 mm de alto.</td><td>La opción habitual: buena relación entre precio, ruido y rendimiento. Hay que comprobar que cabe en la caja.</td></tr>
+        <tr><td>De perfil bajo</td><td>Plano, de menos de 70 mm, con el ventilador encima.</td><td>Cajas pequeñas (Mini-ITX, HTPC).</td></tr>
+        <tr><td>Refrigeración líquida AIO</td><td>Bloque con bomba sobre el procesador, tubos y un radiador de 120 a 420 mm con ventiladores. Viene cerrada de fábrica (<em>all in one</em>).</td><td>Procesadores de mucho consumo o cuando el disipador de torre no cabe. Hay que comprobar dónde va el radiador en la caja.</td></tr>
+        <tr><td>Líquida a medida (custom)</td><td>Circuito montado pieza a pieza con depósito, bomba, bloques y radiadores.</td><td>Entusiastas. Cara y con mantenimiento.</td></tr>
+        <tr><td>Pasivo</td><td>Solo aletas, sin ventilador. Sin ruido.</td><td>Chipset, VRM, SSD M.2 y equipos de muy bajo consumo.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Para <strong>elegir el disipador</strong> se comprueban cuatro cosas: que
+    sea compatible con el <strong>zócalo</strong> (lleva sus anclajes), que pueda
+    disipar el <strong>consumo</strong> del procesador (el fabricante indica los
+    vatios que admite), que <strong>quepa en la caja</strong> (altura máxima del
+    disipador) y que no choque con módulos de memoria altos.</p>
+
+    <h3>3.5.2 Ventiladores</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Dato</th><th>Qué indica</th></tr></thead>
+      <tbody>
+        <tr><td>Tamaño</td><td>80, 92, 120 o 140 mm. A igual caudal, un ventilador grande gira más despacio y hace menos ruido.</td></tr>
+        <tr><td>Velocidad (RPM)</td><td>Revoluciones por minuto. La placa la lee y la regula.</td></tr>
+        <tr><td>Caudal (CFM o m³/h)</td><td>Aire que mueve. 1 CFM ≈ 1,7 m³/h. Importante para los ventiladores de la caja.</td></tr>
+        <tr><td>Presión estática (mmH₂O)</td><td>Fuerza para empujar el aire a través de un obstáculo. Importante en disipadores y radiadores.</td></tr>
+        <tr><td>Ruido (dBA)</td><td>Por debajo de 25 dBA es muy silencioso.</td></tr>
+        <tr><td>Rodamiento</td><td>De casquillo (barato, menos duradero), hidrodinámico (silencioso) o de bolas (duradero).</td></tr>
+      </tbody>
+    </table></div>
+    <div class="columnas">
+      <div>
+        <h4>3 pines (control DC)</h4>
+        <p>Masa, +12 V y tacómetro. La placa regula la velocidad
+        <strong>bajando la tensión</strong>. Por debajo de unos 5–7 V el ventilador
+        se para.</p>
+      </div>
+      <div>
+        <h4>4 pines (control PWM)</h4>
+        <p>Añade un cuarto pin de control. Recibe siempre 12 V y la placa le indica
+        la velocidad con una señal <strong>PWM</strong> (pulsos a 25 kHz). Permite
+        velocidades más bajas y más precisas.</p>
+      </div>
+    </div>
+    <p>Los conectores encajan entre sí: un ventilador de 3 pines en un conector
+    de 4 funciona, pero solo se puede controlar si el conector está en modo DC
+    (se elige en la UEFI). La velocidad se ajusta con una <strong>curva</strong>:
+    a qué porcentaje gira según la temperatura.</p>
+
+    <h3>3.5.3 El flujo de aire en la caja</h3>
+    <p>Los ventiladores de la caja tienen que formar una corriente ordenada:
+    <strong>entra aire fresco por delante (y por abajo) y sale el caliente por
+    detrás y por arriba</strong>, porque el aire caliente sube. Si entra algo más
+    aire del que sale (<em>presión positiva</em>), el aire sobrante sale por las
+    rendijas y entra menos polvo, siempre que las entradas tengan filtro. Los
+    cables recogidos y una caja con frontal de malla ayudan más que añadir
+    ventiladores.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-6">3.6 La memoria RAM: tipos y compatibilidad <span class="ce">CE e</span> <span class="ce ce-ue">CE h · tema 4</span></h2>
+    <p>La memoria principal del tema 2 se instala en módulos que se insertan en
+    las ranuras <strong>DIMM</strong> de la placa. Los portátiles y mini PC usan
+    módulos más cortos, <strong>SO-DIMM</strong>, o llevan la memoria soldada.
+    Aquí aprenderás a elegirla. Instalarla y comprobarla se hace en el tema 4.</p>
+    <p>Las siglas completas son <em>DDR SDRAM</em>: memoria dinámica (DRAM: cada
+    bit es un condensador que hay que refrescar), síncrona (va al ritmo de un
+    reloj) y de <strong>doble tasa de datos</strong> (DDR: transfiere dos veces
+    por ciclo de reloj).</p>
+
+    <h3>3.6.1 DDR4 y DDR5</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>DDR4 (2014)</th><th>DDR5 (2021)</th></tr></thead>
+      <tbody>
+        <tr><th>Contactos DIMM / SO-DIMM</th><td>288 / 260</td><td>288 / 262 (muesca en otro sitio: no se pueden intercambiar)</td></tr>
+        <tr><th>Tensión</th><td>1,2 V</td><td>1,1 V</td></tr>
+        <tr><th>Velocidades estándar (JEDEC)</th><td>1600 a 3200 MT/s</td><td>Desde 4800 MT/s y subiendo (la norma llega a 8800)</td></tr>
+        <tr><th>Canales por módulo</th><td>1 de 64 bits</td><td>2 subcanales independientes de 32 bits</td></tr>
+        <tr><th>Gestión de la tensión</th><td>En la placa base</td><td>En el propio módulo (chip <strong>PMIC</strong>)</td></tr>
+        <tr><th>Corrección de errores</th><td>Solo módulos ECC</td><td><em>On-die ECC</em> interna en cada chip. No sustituye a los módulos ECC de los servidores, que también protegen el camino hasta la CPU.</td></tr>
+        <tr><th>Capacidad por módulo habitual</th><td>4 a 32 GB</td><td>8 a 64 GB</td></tr>
+        <tr><th>Plataformas actuales</th><td>AM4, LGA 1700 con placa DDR4</td><td>AM5, LGA 1700 con placa DDR5, LGA 1851</td></tr>
+      </tbody>
+    </table></div>
+    <p>Una placa admite <strong>un solo tipo</strong>: o DDR4 o DDR5. Viene en la
+    ficha y en la forma de la ranura.</p>
+
+    <h3>3.6.2 Velocidad y latencia</h3>
+    <p>La velocidad se anuncia en <strong>MT/s</strong> (millones de
+    transferencias por segundo), aunque muchas tiendas escriben «MHz». Una
+    DDR5-6000 hace 6000 millones de transferencias por segundo con un reloj de
+    3000 MHz.</p>
+    <p>La <strong>latencia CAS (CL)</strong> es cuántos ciclos de reloj tarda el
+    módulo en entregar el primer dato de una columna pedida. Un número más bajo
+    es mejor, <strong>pero solo comparando a la misma velocidad</strong>: para
+    comparar módulos distintos hay que pasar los ciclos a nanosegundos.</p>
+    <p class="mono" style="text-align:center">latencia (ns) = CL × 2000 ÷ velocidad (MT/s)</p>
+    <p>Una DDR4-3200 CL16 y una DDR5-6000 CL30 tardan lo mismo: 10 ns. La DDR5
+    gana porque mueve casi el doble de datos por segundo.</p>
+    <div class="interactivo" data-widget="ram">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>Calculadora de memoria</h3>
+      <p class="instrucciones">Cambia la velocidad, la latencia y los canales, o
+      compara los ejemplos.</p>
+    </div>
+
+    <h3>3.6.3 Canales: dónde se ponen los módulos</h3>
+    <p>Los procesadores de sobremesa tienen <strong>dos canales</strong> de
+    memoria (A y B). Con un módulo en cada canal la CPU usa los dos a la vez
+    (<em>dual channel</em>) y el ancho de banda se duplica. Por eso es mejor
+    <strong>dos módulos de 16 GB que uno de 32 GB</strong>.</p>
+    <ul>
+      <li>Con cuatro ranuras, hay dos por canal. Con dos módulos se usan
+      normalmente <strong>A2 y B2</strong> (la segunda y la cuarta contando desde el
+      procesador). El manual de la placa siempre lo indica.</li>
+      <li>Lo ideal es comprar un <strong>kit</strong> (módulos vendidos juntos y
+      probados como pareja). Si se mezclan módulos distintos, todos funcionan a la
+      velocidad y latencia del más lento, y a veces no arrancan.</li>
+      <li>Con cuatro módulos DDR5 la velocidad máxima suele bajar bastante. Para
+      mucha memoria es mejor dos módulos grandes que cuatro pequeños.</li>
+      <li>Las estaciones de trabajo y servidores tienen 4, 8 o 12 canales
+      (<em>quad channel</em> y más).</li>
+    </ul>
+
+    <h3>3.6.4 Perfiles XMP y EXPO</h3>
+    <p>Un módulo DDR5-6000 arranca por defecto a la velocidad estándar (por
+    ejemplo, 4800 MT/s). Para que funcione a la velocidad anunciada hay que
+    activar en la UEFI su <strong>perfil</strong>: <strong>XMP</strong> (Intel) o
+    <strong>EXPO</strong> (AMD). Es una configuración que el fabricante del
+    módulo ha probado y que el sistema aplica automáticamente. Lo practicarás en
+    el <a href="ut03-ejercicios-uefi.html">simulador de UEFI</a>.</p>
+
+    <h3>3.6.5 Cómo saber si una memoria es compatible</h3>
+    <ol>
+      <li>Tipo que admite la placa (DDR4 o DDR5) y formato (DIMM o SO-DIMM).</li>
+      <li>Capacidad máxima de la placa y por ranura.</li>
+      <li>Velocidad: la placa y el procesador indican una máxima oficial; por
+      encima es overclock (XMP/EXPO), que no siempre es estable.</li>
+      <li>La <strong>QVL</strong> (<em>Qualified Vendor List</em>) del fabricante
+      de la placa: la lista de módulos concretos que ha probado. Si un kit está en
+      la QVL, funciona seguro.</li>
+      <li>Altura de los módulos si el disipador del procesador queda encima.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-7">3.7 Ranuras de expansión y M.2 <span class="ce">CE e</span> <span class="ce">CE j</span></h2>
+    <p>Las <strong>ranuras de expansión</strong> permiten añadir tarjetas: gráfica,
+    red, sonido, capturadora, controladoras… Han ido cambiando:
+    <strong>ISA</strong> (1981, 8 y 16 bits), <strong>PCI</strong> (1992, 32 bits,
+    bus compartido), <strong>AGP</strong> (1997, solo para la gráfica) y, desde
+    2003, <strong>PCI Express</strong>, la única que se usa hoy.</p>
+
+    <h3>3.7.1 PCI Express</h3>
+    <p>En el tema 2 viste que los buses actuales son serie y punto a punto. PCI
+    Express es el ejemplo perfecto: cada dispositivo tiene su propio enlace,
+    formado por uno o varios <strong>carriles</strong> (<em>lanes</em>). Cada
+    carril tiene dos pares de hilos: uno para enviar y otro para recibir, a la
+    vez. Las ranuras se nombran por sus carriles: <strong>x1, x4, x8 y
+    x16</strong>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Versión</th><th>Año</th><th>Por carril (cada sentido)</th><th>x4</th><th>x16</th></tr></thead>
+      <tbody>
+        <tr><td>PCIe 1.0</td><td>2003</td><td>0,25 GB/s</td><td>1 GB/s</td><td>4 GB/s</td></tr>
+        <tr><td>PCIe 2.0</td><td>2007</td><td>0,5 GB/s</td><td>2 GB/s</td><td>8 GB/s</td></tr>
+        <tr><td>PCIe 3.0</td><td>2010</td><td>≈ 1 GB/s</td><td>≈ 3,9 GB/s</td><td>≈ 15,8 GB/s</td></tr>
+        <tr><td>PCIe 4.0</td><td>2017</td><td>≈ 2 GB/s</td><td>≈ 7,9 GB/s</td><td>≈ 31,5 GB/s</td></tr>
+        <tr><td>PCIe 5.0</td><td>2019</td><td>≈ 3,9 GB/s</td><td>≈ 15,8 GB/s</td><td>≈ 63 GB/s</td></tr>
+        <tr><td>PCIe 6.0</td><td>2022</td><td>≈ 7,6 GB/s</td><td>≈ 30 GB/s</td><td>≈ 121 GB/s</td></tr>
+        <tr><td>PCIe 7.0</td><td>2025</td><td>≈ 15 GB/s</td><td>≈ 60 GB/s</td><td>≈ 242 GB/s</td></tr>
+      </tbody>
+    </table></div>
+    <p>Cada versión duplica la velocidad de la anterior. Hoy los equipos de
+    sobremesa llegan a PCIe 5.0. Las versiones 6.0 y 7.0 se usan, de momento,
+    en servidores y centros de datos.</p>
+    <ul>
+      <li><strong>Compatibilidad total</strong>: cualquier tarjeta PCIe funciona en
+      cualquier ranura PCIe en la que quepa físicamente. El enlace usa la versión
+      más baja de las dos y el menor número de carriles.</li>
+      <li><strong>Tamaño físico frente a carriles reales</strong>: una ranura puede
+      tener tamaño x16 pero solo 4 carriles conectados. La serigrafía o el manual
+      lo indican: «PCIEX16 (x4)».</li>
+      <li>Una ranura da hasta <strong>75 W</strong>. Las gráficas que consumen más
+      llevan conectores de alimentación propios.</li>
+      <li>El procesador tiene entre 20 y 28 carriles: 16 para la gráfica y el resto
+      para M.2 y el enlace con el chipset. Si un M.2 comparte carriles con la
+      ranura de la gráfica, al usarlo la gráfica puede pasar a x8. El manual lo
+      explica en la tabla de «configuración de carriles».</li>
+    </ul>
+    <div class="interactivo" data-widget="pcie">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>¿A qué velocidad irá esta tarjeta?</h3>
+      <p class="instrucciones">Elige la versión y los carriles de la tarjeta y de
+      la ranura, o prueba los casos típicos.</p>
+    </div>
+
+    <h3>3.7.2 Ranuras M.2</h3>
+    <p><strong>M.2</strong> es un formato de tarjeta pequeña que se atornilla en
+    plano sobre la placa. Se usa sobre todo para SSD (los verás en el tema 4) y
+    para tarjetas Wi-Fi. Dos datos identifican una tarjeta M.2:</p>
+    <ul>
+      <li><strong>Tamaño</strong>: anchura y longitud en milímetros. 2280 = 22 mm
+      de ancho × 80 mm de largo (el más común). También 2230, 2242, 2260 y 22110.
+      La placa indica qué longitudes admite cada ranura.</li>
+      <li><strong>Llave</strong> (<em>key</em>): la muesca del conector, que
+      indica qué conexiones lleva. <strong>M</strong>: hasta PCIe x4 (SSD NVMe).
+      <strong>B</strong>: SATA o PCIe x2 (algunos SSD SATA, módems). <strong>B+M</strong>:
+      SSD SATA que entran en ambas ranuras. <strong>E</strong>: Wi-Fi y
+      Bluetooth.</li>
+    </ul>
+    <div class="clave">
+      <strong>Que encaje no significa que funcione</strong>
+      <p>Un SSD M.2 SATA (llave B+M) entra en una ranura M, pero si esa ranura solo
+      admite PCIe no lo detectará. Al revés, usar una ranura M.2 puede
+      <strong>desactivar puertos SATA</strong> que comparten conexión con ella.
+      Todo esto está en el manual de la placa.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-resumen">Resumen</h2>
+    <ul>
+      <li>Formatos actuales: <strong>E-ATX, ATX, micro-ATX y Mini-ITX</strong>. Una
+      caja admite su formato y los más pequeños.</li>
+      <li>En la ficha de una placa se mira primero <strong>zócalo + chipset +
+      formato</strong>, y después memoria, ranuras y conectores.</li>
+      <li>El procesador se describe por núcleos e hilos, frecuencias, caché,
+      consumo (TDP), tensión, litografía, gráfica integrada y zócalo.</li>
+      <li>Zócalos actuales: <strong>LGA 1700 y LGA 1851</strong> (Intel),
+      <strong>AM4 y AM5</strong> (AMD). PGA, LGA o BGA según dónde estén los pines.</li>
+      <li>El <strong>chipset</strong> (Z/B/H en Intel, X/B/A en AMD) amplía las
+      conexiones y decide qué permite la placa.</li>
+      <li>Disipador (base, heatpipes, aletas, ventilador) + pasta térmica. Se elige
+      por zócalo, consumo y altura. Ventiladores de 3 pines (DC) o 4 pines (PWM).
+      El aire entra por delante y sale por detrás y por arriba.</li>
+      <li>RAM: DDR4 o DDR5, nunca mezcladas. Latencia en ns = CL × 2000 ÷ MT/s.
+      Dos módulos en <strong>dual channel</strong>. Perfil XMP/EXPO. Comprobar la
+      QVL.</li>
+      <li><strong>PCIe</strong>: carriles x1 a x16; cada versión duplica la
+      velocidad; compatible hacia atrás y hacia delante. M.2: tamaño (2280) y llave
+      (M, B, E).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-autoevaluacion">Autoevaluación</h2>
+    <p class="meta">No cuenta para la nota.</p>
+    <form class="quiz" onsubmit="return false">
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">1.</span> ¿Qué placa base cabe en una caja que admite micro-ATX como formato máximo?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t1" value="a"> ATX</label></li>
+          <li><label><input type="radio" name="t1" value="b"> E-ATX</label></li>
+          <li><label><input type="radio" name="t1" value="c"> Mini-ITX</label></li>
+          <li><label><input type="radio" name="t1" value="d"> Ninguna de las anteriores</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Una caja admite su formato y los más pequeños: micro-ATX y Mini-ITX.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">2.</span> Un procesador con zócalo LGA tiene…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t2" value="a"> los pines en el procesador</label></li>
+          <li><label><input type="radio" name="t2" value="b"> los pines en el zócalo de la placa</label></li>
+          <li><label><input type="radio" name="t2" value="c"> el procesador soldado a la placa</label></li>
+          <li><label><input type="radio" name="t2" value="d"> los pines en el disipador</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>En LGA el procesador tiene contactos planos y los pines (muy frágiles) están en el zócalo. PGA es al revés; BGA va soldado.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">3.</span> ¿Qué significa la F de un Intel Core i5-14400F?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t3" value="a"> Que permite overclocking</label></li>
+          <li><label><input type="radio" name="t3" value="b"> Que es para portátiles</label></li>
+          <li><label><input type="radio" name="t3" value="c"> Que es de bajo consumo</label></li>
+          <li><label><input type="radio" name="t3" value="d"> Que no tiene gráfica integrada</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Sin gráfica integrada: el equipo necesita una tarjeta gráfica dedicada para dar imagen.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">4.</span> ¿Para qué sirve la pasta térmica?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t4" value="a"> Para rellenar los huecos microscópicos entre el procesador y el disipador</label></li>
+          <li><label><input type="radio" name="t4" value="b"> Para pegar el disipador al procesador</label></li>
+          <li><label><input type="radio" name="t4" value="c"> Para aislar eléctricamente el procesador</label></li>
+          <li><label><input type="radio" name="t4" value="d"> Para que el ventilador haga menos ruido</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Sustituye el aire de esos huecos, que conduce muy mal el calor. No pega: el disipador se sujeta con sus anclajes.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">5.</span> Un ventilador de 4 pines regula su velocidad…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t5" value="a"> bajando la tensión de 12 V</label></li>
+          <li><label><input type="radio" name="t5" value="b"> no se puede regular</label></li>
+          <li><label><input type="radio" name="t5" value="c"> con una señal PWM en el cuarto pin</label></li>
+          <li><label><input type="radio" name="t5" value="d"> con el tacómetro</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Recibe siempre 12 V y la velocidad la marca la señal PWM. El tacómetro solo informa de la velocidad.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">6.</span> ¿Qué módulos tienen menos latencia real: DDR4-3200 CL16 o DDR5-6400 CL32?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t6" value="a"> La DDR4, porque su CL es menor</label></li>
+          <li><label><input type="radio" name="t6" value="b"> Tardan lo mismo: 10 ns</label></li>
+          <li><label><input type="radio" name="t6" value="c"> La DDR5, porque es más moderna</label></li>
+          <li><label><input type="radio" name="t6" value="d"> No se puede saber</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>16 × 2000 ÷ 3200 = 10 ns y 32 × 2000 ÷ 6400 = 10 ns.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Tienes dos módulos y cuatro ranuras. Lo normal es ponerlos…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t7" value="a"> en A2 y B2, uno en cada canal (según el manual)</label></li>
+          <li><label><input type="radio" name="t7" value="b"> en A1 y A2, juntos en el mismo canal</label></li>
+          <li><label><input type="radio" name="t7" value="c"> en cualquier ranura: da igual</label></li>
+          <li><label><input type="radio" name="t7" value="d"> en las dos más cercanas al procesador</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Uno en cada canal para trabajar en dual channel. Normalmente A2 y B2, pero manda el manual.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> Una gráfica PCIe 5.0 x16 en una ranura PCIe 4.0 x16…</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t8" value="a"> no encaja</label></li>
+          <li><label><input type="radio" name="t8" value="b"> encaja pero no funciona</label></li>
+          <li><label><input type="radio" name="t8" value="c"> funciona a PCIe 5.0</label></li>
+          <li><label><input type="radio" name="t8" value="d"> funciona a PCIe 4.0 x16</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>PCIe es compatible en ambos sentidos; el enlace usa la versión más baja.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">9.</span> ¿Qué indica «2280» en una tarjeta M.2?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t9" value="a"> Su velocidad en MB/s</label></li>
+          <li><label><input type="radio" name="t9" value="b"> Su capacidad en GB</label></li>
+          <li><label><input type="radio" name="t9" value="c"> 22 mm de ancho y 80 mm de largo</label></li>
+          <li><label><input type="radio" name="t9" value="d"> El tipo de llave</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Son sus medidas. La llave (M, B, E) es la muesca del conector.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">10.</span> ¿Qué elemento de la placa convierte los 12 V de la fuente en la tensión del procesador?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="t10" value="a"> El chipset</label></li>
+          <li><label><input type="radio" name="t10" value="b"> El VRM</label></li>
+          <li><label><input type="radio" name="t10" value="c"> La pila CR2032</label></li>
+          <li><label><input type="radio" name="t10" value="d"> El conector ATX de 24 pines</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El VRM (módulo regulador de tensión), que rodea el zócalo con sus disipadores.</p>
+      </div>
+      <div class="acciones">
+        <button type="button" data-corregir>Corregir</button>
+        <button type="button" class="sec" data-reiniciar>Volver a empezar</button>
+      </div>
+      <p class="resultado oculto" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03.html">&laquo; Portada del tema 3</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prácticas · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-en-esta-pagina">En esta página</a></li><li><a href="#apartado-p5">P5 · La placa base y su manual</a></li><li><a href="#apartado-p6">P6 · Procesador y refrigeración: cambio de pasta térmica</a></li><li><a href="#apartado-p7">P7 · La UEFI de un equipo real</a></li><li><a href="#apartado-p8">P8 · Adaptadores, monitor y chasis</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Prácticas</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Prácticas</p>
+    <h1>Prácticas — Placa base, procesador, UEFI, adaptadores y chasis</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1 (c, d, e, f, g, i, j, k)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html">Ejercicios</a>
+    <a href="ut03-practicas.html" aria-current="page">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-acreditan">Qué criterios acreditan</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones de
+    distintos fabricantes.</p>
+    <ul>
+      <li><strong>c)</strong> Se han descrito las características de los tipos de microprocesadores (frecuencia, tensiones, potencia, zócalos, entre otros). → P6</li>
+      <li><strong>d)</strong> Se ha descrito la función de los disipadores y ventiladores. → P6</li>
+      <li><strong>e)</strong> Se han descrito las características y utilidades más importantes de la configuración de la placa base. → P5</li>
+      <li><strong>f)</strong> Se ha explicado para qué sirve la BIOS de un ordenador y las características comunes de las BIOS de los ordenadores actuales. → P7</li>
+      <li><strong>g)</strong> Se han evaluado tipos de chasis para la placa base y el resto de componentes. → P8</li>
+      <li><strong>i)</strong> Se ha analizado la función del adaptador gráfico y el monitor. → P8</li>
+      <li><strong>j)</strong> Se han identificado y manipulado distintos adaptadores (gráficos, red, entre otros). → P8</li>
+      <li><strong>k)</strong> Se han identificado los elementos que acompañan a un componente de integración (documentación, controladores, cables y utilidades, entre otros). → P5</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Antes de tocar nada.</strong> Repasa <a href="ut01-prl.html">Seguridad y
+    PRL</a>. Equipo apagado y <strong>desenchufado</strong>, pulsera antiestática
+    conectada al chasis, alfombrilla y tornillos en una bandeja. No se actualiza la
+    UEFI ni se desmonta el procesador sin que el profesor lo indique.
+  </div>
+
+  <h2 id="apartado-en-esta-pagina">En esta página</h2>
+  <ul class="lista-temas">
+    <li><a href="#p5"><span class="ut">P5</span>La placa base y su manual<br><span class="etq">Taller, en parejas · 2 sesiones · CE e, k</span></a></li>
+    <li><a href="#p6"><span class="ut">P6</span>Procesador y refrigeración: cambio de pasta térmica<br><span class="etq">Taller, en parejas · 2 sesiones · CE c, d</span></a></li>
+    <li><a href="#p7"><span class="ut">P7</span>La UEFI de un equipo real<br><span class="etq">Taller, individual · 2 sesiones · CE f</span></a></li>
+    <li><a href="#p8"><span class="ut">P8</span>Adaptadores, monitor y chasis<br><span class="etq">Taller, en parejas · 2–3 sesiones · CE g, i, j</span></a></li>
+  </ul>
+
+  <!-- ==================== P5 ==================== -->
+  <section id="p5">
+    <h2 id="apartado-p5">P5 · La placa base y su manual <span class="ce">CE e</span> <span class="ce">CE k</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 2 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> identificar en una placa real todo lo que
+    has visto en la teoría y aprender a sacar del manual la información que necesita
+    un técnico.</p>
+    <h3>Material</h3>
+    <ul>
+      <li>La placa base de tu puesto (dentro del equipo o suelta) y, si la hay, su caja
+      con los accesorios.</li>
+      <li>El manual en PDF, descargado de la web del fabricante con el modelo y la
+      revisión que aparecen serigrafiados en la placa.</li>
+      <li>Móvil para las fotos, linterna, pulsera antiestática.</li>
+    </ul>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Identificación</h3>
+      <p>Anota el fabricante, el modelo y la revisión (por ejemplo, «REV 1.1»). Haz una
+      foto cenital de la placa y rotula en ella, con números, al menos: zócalo, VRM,
+      conectores EPS y ATX, ranuras de memoria (con su nombre: A1, A2…), chipset,
+      ranuras PCIe (indicando x16, x4, x1), ranuras M.2, puertos SATA, chip de la BIOS,
+      pila, CLR_CMOS, F_PANEL, USB internos, HD_AUDIO, conectores de ventilador e
+      iluminación, panel trasero.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Lo que dice el manual</h3>
+      <p>Busca en el manual y anota la página donde lo encuentras:</p>
+      <ol type="a">
+        <li>Formato y medidas. Zócalo y chipset. Procesadores admitidos (busca la lista
+        de compatibilidad en la web).</li>
+        <li>Tipo de memoria, capacidad máxima, velocidades y en qué ranuras van dos
+        módulos.</li>
+        <li>Tabla de carriles: ¿qué ranura M.2 o PCIe comparte con qué? ¿Qué se
+        desactiva al usarla?</li>
+        <li>Distribución de pines del F_PANEL. ¿Coincide con la habitual?</li>
+        <li>Significado de los LED o códigos de diagnóstico.</li>
+        <li>Cómo hacer Clear CMOS en esta placa.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Lo que acompaña a la placa</h3>
+      <p>Haz el inventario de todo lo que trae la caja (o, si no está, de lo que
+      <em>debería</em> traer según el manual). Para cada elemento indica para qué
+      sirve. Después, entra en la web del fabricante y localiza: el último
+      controlador de chipset, el de red y el de sonido, la última versión de la UEFI
+      (con su fecha y qué corrige) y las utilidades que ofrece. Haz una tabla con
+      nombre, versión, fecha y utilidad de cada uno.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul>
+        <li>PDF por pareja <code>P5_apellido1_apellido2.pdf</code> con la foto
+        rotulada, las respuestas de la parte 2 (con número de página), el inventario y
+        la tabla de controladores.</li>
+      </ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Identificación de componentes en la foto</td><td>e)</td><td>3</td><td>Todos los elementos pedidos, bien rotulados, con el nombre de las ranuras.</td></tr>
+          <tr><td>Información extraída del manual</td><td>e)</td><td>3</td><td>Respuestas completas y correctas, con página. Tabla de carriles bien interpretada.</td></tr>
+          <tr><td>Inventario de accesorios y su utilidad</td><td>k)</td><td>2</td><td>Todos los elementos con su función.</td></tr>
+          <tr><td>Controladores, UEFI y utilidades del fabricante</td><td>k)</td><td>1,5</td><td>Versiones y fechas actuales, de la web oficial, con lo que hace cada uno.</td></tr>
+          <tr><td>Seguridad y orden</td><td>—</td><td>0,5</td><td>Pulsera, equipo desenchufado, puesto recogido.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P6 ==================== -->
+  <section id="p6">
+    <h2 id="apartado-p6">P6 · Procesador y refrigeración: cambio de pasta térmica <span class="ce">CE c</span> <span class="ce">CE d</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 2 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> conocer el procesador de tu equipo,
+    medir cómo se calienta y comprobar con datos qué aporta un buen mantenimiento de
+    la refrigeración.</p>
+    <div class="aviso">
+      <strong>Cuidado.</strong> No toques los contactos del procesador ni los pines del
+      zócalo. Si el procesador sale pegado al disipador, no tires: gira suavemente el
+      disipador y avisa al profesor. Durante la prueba de carga, si la temperatura pasa
+      de 90 °C, detenla.
+    </div>
+    <h3>Material</h3>
+    <ul>
+      <li>Equipo de tu puesto, pasta térmica, alcohol isopropílico (90 % o más), paños
+      sin pelusa o filtros de café, destornillador, pulsera antiestática.</li>
+      <li>Programas: CPU-Z y HWiNFO (o HWMonitor) y una prueba de carga
+      (Cinebench, OCCT o <code>stress</code> en Linux).</li>
+    </ul>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Ficha del procesador</h3>
+      <p>Con CPU-Z y la web del fabricante, completa: modelo, zócalo, núcleos e hilos,
+      frecuencia base y turbo, caché L2 y L3, consumo (TDP o potencia base y turbo),
+      litografía, gráfica integrada, memoria que admite. Explica el nombre parte por
+      parte.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Medidas antes</h3>
+      <p>Con el equipo en reposo 5 minutos, anota la temperatura del procesador, la
+      frecuencia, la tensión (Vcore), el consumo (<em>CPU Package Power</em>) y las RPM
+      del ventilador. Lanza la prueba de carga 10 minutos y anota los mismos datos al
+      final. ¿Baja la frecuencia en algún momento (<em>thermal throttling</em>)?</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Cambio de pasta</h3>
+      <p>Con el equipo apagado y desenchufado: identifica el tipo de disipador y su
+      sistema de anclaje, desconecta CPU_FAN, desmonta el disipador, haz una foto de
+      la pasta vieja, limpia procesador y base, aplica pasta nueva, monta el
+      disipador apretando en cruz y vuelve a conectar el ventilador. Documenta cada
+      paso con una foto.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Medidas después y conclusiones</h3>
+      <p>Repite las medidas de la parte 2 en las mismas condiciones. Haz una tabla
+      antes/después y explica la diferencia. Responde: ¿qué conector usa el ventilador
+      (3 o 4 pines) y cómo se controla? ¿Cuál es el consumo máximo que has medido y cómo
+      se compara con el TDP de la ficha? ¿Qué disipador recomendarías si el cliente
+      quisiera un equipo más silencioso?</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul><li>PDF por pareja <code>P6_apellido1_apellido2.pdf</code> con la ficha, las
+      capturas de las medidas, las fotos del proceso, la tabla antes/después y las
+      conclusiones.</li></ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Ficha del procesador y explicación del nombre</td><td>c)</td><td>2,5</td><td>Todos los datos correctos y comprobados en la web oficial.</td></tr>
+          <tr><td>Medidas de temperatura, frecuencia, tensión y consumo</td><td>c), d)</td><td>2</td><td>Medidas completas antes y después, en las mismas condiciones, con capturas.</td></tr>
+          <tr><td>Procedimiento de cambio de pasta</td><td>d)</td><td>3</td><td>Pasos correctos y documentados: limpieza completa, cantidad adecuada, apriete en cruz, ventilador conectado.</td></tr>
+          <tr><td>Conclusiones sobre refrigeración y ventiladores</td><td>d)</td><td>2</td><td>Interpreta los datos, explica el tipo de control del ventilador y razona la recomendación.</td></tr>
+          <tr><td>Seguridad y orden</td><td>—</td><td>0,5</td><td>Pulsera, sin tocar contactos, puesto recogido.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P7 ==================== -->
+  <section id="p7">
+    <h2 id="apartado-p7">P7 · La UEFI de un equipo real <span class="ce">CE f</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, individual · 2 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> moverte con soltura por una UEFI real,
+    cambiar los ajustes que más se usan en el trabajo y saber volver atrás si algo
+    sale mal. Antes, completa las misiones del <a href="ut03-ejercicios-uefi.html">simulador</a>.</p>
+    <div class="aviso">
+      <strong>Normas.</strong> No se actualiza el firmware, no se ponen contraseñas y
+      no se tocan frecuencias ni tensiones. Antes de empezar, haz una foto de cada
+      pantalla para poder dejarlo todo como estaba.
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Reconocimiento</h3>
+      <p>Entra en la UEFI (¿qué tecla?). Anota: fabricante del firmware, versión y
+      fecha, procesador y memoria detectados (¿a qué velocidad va la memoria?), si es
+      UEFI con modo fácil y avanzado. Haz un mapa de las pestañas con lo más
+      importante de cada una.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Configuración</h3>
+      <ol type="a">
+        <li>Comprueba el estado de: TPM (PTT/fTPM), CSM, Secure Boot y virtualización.
+        ¿Cumple este equipo los requisitos de Windows 11?</li>
+        <li>Activa la virtualización si no lo está.</li>
+        <li>Cambia el orden de arranque para arrancar desde una memoria USB con un
+        sistema en vivo (la que te dé el profesor). Arráncalo y haz una foto. Después,
+        usa el <strong>menú de arranque</strong> (F8/F11/F12) para hacer lo mismo sin
+        cambiar el orden. ¿Qué diferencia hay?</li>
+        <li>En el monitor del hardware, anota temperaturas, tensiones y RPM. Cambia el
+        perfil o la curva del ventilador de la CPU y comprueba el efecto.</li>
+        <li>¿Tiene perfil XMP/EXPO? ¿Está activado? ¿Qué velocidad tendría la memoria
+        con él?</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> Volver atrás</h3>
+      <p>Carga los valores por defecto desde la UEFI y comprueba qué ha cambiado.
+      Después, con el equipo <strong>desenchufado</strong>, haz Clear CMOS como indica
+      el manual (puente, botón o pila). Al arrancar, ¿qué se ha perdido? Deja la
+      configuración como estaba al principio usando tus fotos.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Preguntas</h3>
+      <ol>
+        <li>¿Dónde se guarda el firmware y dónde los ajustes? ¿Qué papel tiene la pila?</li>
+        <li>¿Qué diferencias has visto entre esta UEFI y una BIOS Legacy?</li>
+        <li>¿Cómo se actualizaría la UEFI de esta placa? Busca en la web la última
+        versión y qué cambios trae. ¿Merece la pena actualizar?</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul><li>PDF individual <code>P7_apellido_nombre.pdf</code> con fotos de las
+      pantallas, el mapa de pestañas, las respuestas y la captura del simulador con
+      las misiones completadas.</li></ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Reconocimiento y mapa de la UEFI</td><td>f)</td><td>2</td><td>Datos completos y mapa claro de las pestañas.</td></tr>
+          <tr><td>Configuración: seguridad, virtualización, arranque, ventiladores, memoria</td><td>f)</td><td>3,5</td><td>Todos los ajustes hechos y comprobados, con fotos.</td></tr>
+          <tr><td>Valores por defecto, Clear CMOS y restauración</td><td>f)</td><td>2</td><td>Procedimiento seguro y equipo restaurado.</td></tr>
+          <tr><td>Respuestas razonadas</td><td>f)</td><td>2</td><td>Explica con precisión firmware, CMOS, pila, UEFI frente a Legacy y actualización.</td></tr>
+          <tr><td>Cumplimiento de las normas</td><td>—</td><td>0,5</td><td>Sin tocar lo prohibido. Equipo devuelto a su estado inicial.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- ==================== P8 ==================== -->
+  <section id="p8">
+    <h2 id="apartado-p8">P8 · Adaptadores, monitor y chasis <span class="ce">CE g</span> <span class="ce">CE i</span> <span class="ce">CE j</span></h2>
+    <p class="meta"><strong>Evaluable</strong> · taller, en parejas · 2–3 sesiones · se entrega en el portafolio</p>
+    <p><strong>Qué vas a conseguir:</strong> instalar y quitar tarjetas de expansión
+    con seguridad, dejar que el sistema las reconozca, analizar un monitor real y
+    evaluar una caja.</p>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 1.</span> Tarjeta gráfica <span class="ce">CE i</span> <span class="ce">CE j</span></h3>
+      <ol type="a">
+        <li>Identifica la tarjeta gráfica del equipo (o la que te dé el profesor):
+        fabricante del chip y de la tarjeta, modelo, VRAM, ancho de bus, consumo,
+        conectores de alimentación, salidas, longitud y ranuras que ocupa. Usa GPU-Z y
+        la web.</li>
+        <li>Desmóntala y vuelve a montarla siguiendo el procedimiento de la teoría.
+        Conecta el monitor a la salida correcta.</li>
+        <li>Comprueba en GPU-Z a qué velocidad trabaja su enlace PCIe (por ejemplo,
+        «PCIe x16 4.0 @ x16 4.0»). Si no es el máximo, explica por qué.</li>
+        <li>Instala o actualiza su controlador desde la web del fabricante.</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 2.</span> Tarjeta de red o Wi-Fi <span class="ce">CE j</span></h3>
+      <p>Instala una tarjeta de red PCIe (Ethernet o Wi-Fi con antenas). Comprueba que
+      el sistema la reconoce (Administrador de dispositivos o <code>lspci</code>),
+      instala su controlador y verifica que conecta (velocidad del enlace o red Wi-Fi).
+      Si es Wi-Fi con Bluetooth, ¿qué cable interno necesita? Desmóntala al terminar.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 3.</span> El monitor <span class="ce">CE i</span></h3>
+      <p>Con la etiqueta trasera, el menú del monitor y la web del fabricante, completa:
+      tamaño (mídelo en diagonal), resolución, densidad en ppp (calcúlala), frecuencia
+      de refresco, tipo de panel, tiempo de respuesta, brillo, entradas y su versión,
+      anclaje VESA. ¿Qué conector y qué cable usarías para aprovecharlo? ¿Es adecuado
+      para ofimática, diseño o juegos? Razónalo.</p>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Parte 4.</span> Evaluación del chasis <span class="ce">CE g</span></h3>
+      <ol type="a">
+        <li>Clasifica la caja de tu puesto (tipo y formatos admitidos). Mide con una
+        regla el hueco para la gráfica y para el disipador. Cuenta las bahías, las
+        ranuras de expansión y los ventiladores, e indica el sentido del aire.</li>
+        <li>Revisa el panel frontal: qué puertos tiene y a qué conector de la placa va
+        cada uno.</li>
+        <li>Busca dos cajas actuales de fabricantes distintos, del mismo precio
+        aproximado, y compáralas en una tabla con los criterios del apartado 3.12.1.
+        ¿Cuál elegirías para el equipo de tu puesto y por qué?</li>
+      </ol>
+    </div>
+    <div class="ejercicio">
+      <h3><span class="num">Entrega</span></h3>
+      <ul><li>PDF por pareja <code>P8_apellido1_apellido2.pdf</code> con fotos de cada
+      montaje, capturas (GPU-Z, Administrador de dispositivos), la ficha del monitor y
+      la evaluación y comparación de cajas.</li></ul>
+      <h3>Cómo se evalúa (10 puntos)</h3>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+        <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+        <tbody>
+          <tr><td>Análisis de la tarjeta gráfica y de su enlace PCIe</td><td>i)</td><td>2</td><td>Ficha completa y correcta; explica el modo del enlace.</td></tr>
+          <tr><td>Montaje y desmontaje de la gráfica y de la tarjeta de red, con controladores</td><td>j)</td><td>2,5</td><td>Procedimiento seguro y correcto; el sistema reconoce las tarjetas y funcionan.</td></tr>
+          <tr><td>Análisis del monitor</td><td>i)</td><td>2</td><td>Datos completos, densidad bien calculada y uso recomendado razonado.</td></tr>
+          <tr><td>Evaluación y comparación de chasis</td><td>g)</td><td>3</td><td>Medidas reales, clasificación correcta y comparación con criterios y decisión razonada.</td></tr>
+          <tr><td>Seguridad y orden</td><td>—</td><td>0,5</td><td>Pulsera, equipo desenchufado, tarjetas cogidas por los bordes, puesto recogido.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut03.html">Portada del tema 3</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

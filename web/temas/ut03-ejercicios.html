@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicios · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-mapa">Mapa de boletines</a></li><li><a href="#boletin-1">Boletín 1 · Placa base</a></li><li><a href="#boletin-2">Boletín 2 · Procesador y refrigeración</a></li><li><a href="#boletin-3">Boletín 3 · Memoria y expansión</a></li><li><a href="#boletin-4">Boletín 4 · UEFI, gráfica, monitor y chasis</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Ejercicios</p>
+    <h1>Ejercicios — Placa base, procesador, memoria, adaptadores y chasis</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html" aria-current="page">Ejercicios</a>
+    <a href="ut03-practicas.html">Prácticas</a>
+  </nav>
+
+  <div class="aviso">
+    <strong>Cómo trabajar los boletines.</strong> Hazlos en tu cuaderno o en
+    LibreOffice, con los cálculos completos y las unidades. Cada ejercicio indica el
+    criterio que entrena. Algunos piden buscar información real: anota siempre la
+    web de donde la sacas. Los ejercicios no cuentan para la nota; el profesor dirá
+    cuáles se entregan.
+  </div>
+
+  <h2 id="apartado-mapa">Mapa de boletines</h2>
+  <ul class="mapa-boletines">
+    <li><a href="#boletin-1"><strong>Boletín 1 · Placa base</strong><span>Formatos, conectores, panel frontal y manual · CE e, g · 5 ejercicios</span></a></li>
+    <li><a href="#boletin-2"><strong>Boletín 2 · Procesador y refrigeración</strong><span>Nombres, zócalos, consumo, disipadores y ventiladores · CE c, d · 8 ejercicios</span></a></li>
+    <li><a href="#boletin-3"><strong>Boletín 3 · Memoria y expansión</strong><span>Latencia, canales, PCIe y M.2 · CE e, j · 7 ejercicios</span></a></li>
+    <li><a href="#boletin-4"><strong>Boletín 4 · UEFI, gráfica, monitor y chasis</strong><span>Diagnóstico, alimentación, ancho de banda, cajas y accesorios · CE f, g, i, j, k · 10 ejercicios</span></a></li>
+  </ul>
+
+  <section>
+    <h2 id="boletin-1">Boletín 1 · Placa base</h2>
+    <p>Repasa los apartados <a href="ut03-teoria.html#apartado-3-1">3.1</a> y
+    <a href="ut03-teoria.html#apartado-3-2">3.2</a> y practica con la placa
+    interactiva.</p>
+    <div class="ejercicio">
+      <p><span class="num">1.1</span> <span class="ce">CE e</span> ¿Qué formato tiene una
+      placa de cada una de estas medidas? 305 × 244 mm · 244 × 244 mm · 170 × 170 mm
+      · 305 × 330 mm.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.2</span> <span class="ce">CE g</span> Indica si cada placa
+      cabe en cada caja y explica la regla que aplicas.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Placa</th><th>Caja que admite como máximo…</th></tr></thead>
+        <tbody>
+          <tr><td>a) Micro-ATX</td><td>ATX</td></tr>
+          <tr><td>b) ATX</td><td>Micro-ATX</td></tr>
+          <tr><td>c) Mini-ITX</td><td>Micro-ATX</td></tr>
+          <tr><td>d) E-ATX</td><td>ATX</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.3</span> <span class="ce">CE e</span> Encuentras estos
+      rótulos serigrafiados en una placa. Para cada uno, di qué se conecta ahí:
+      <code>CPU_FAN</code>, <code>ATX12V</code>, <code>JFP1</code>,
+      <code>USB3_1</code>, <code>HD_AUDIO</code>, <code>CLR_CMOS</code>,
+      <code>ADD_GEN2</code>, <code>SYS_FAN2</code>.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.4</span> <span class="ce">CE e</span> Del panel frontal de
+      una caja salen estos cables: POWER SW, RESET SW, POWER LED +, POWER LED –,
+      HDD LED + y HDD LED –. Con la distribución habitual del apartado 3.2.2, indica en
+      qué pin va cada uno. ¿Cuáles tienen polaridad? ¿Qué pasa si un LED se conecta
+      al revés?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">1.5</span> <span class="ce">CE e</span> <span class="ce">CE k</span>
+      Descarga el manual de una placa base real con chipset B650 o B760 (de ASUS,
+      MSI, Gigabyte o ASRock) y completa: formato y medidas; chipset y zócalo;
+      número de ranuras de memoria y capacidad máxima; ranuras M.2 (a qué van
+      conectadas y cuáles comparten con SATA o PCIe); puertos SATA; conectores de
+      ventilador; ¿tiene botón de BIOS Flashback?</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-2">Boletín 2 · Procesador y refrigeración</h2>
+    <p>Repasa los apartados <a href="ut03-teoria.html#apartado-3-3">3.3</a>,
+    <a href="ut03-teoria.html#apartado-3-4">3.4</a> y
+    <a href="ut03-teoria.html#apartado-3-5">3.5</a>. Puedes comprobar los nombres con
+    el decodificador de la teoría <strong>después</strong> de pensarlos.</p>
+    <div class="ejercicio">
+      <p><span class="num">2.1</span> <span class="ce">CE c</span> Explica qué significa
+      cada parte de estos nombres y qué zócalo usa cada procesador: Core i7-14700KF ·
+      Core Ultra 9 285K · Ryzen 5 7600X · Ryzen 7 5700X3D · Core i5-13420H · Ryzen 5
+      8500G.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.2</span> <span class="ce">CE c</span> Observa la tabla y
+      responde.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th></th><th>Procesador A</th><th>Procesador B</th></tr></thead>
+        <tbody>
+          <tr><th>Nombre</th><td>Core i5-14600KF</td><td>Ryzen 5 8600G</td></tr>
+          <tr><th>Núcleos / hilos</th><td>14 (6P + 8E) / 20</td><td>6 / 12</td></tr>
+          <tr><th>Frecuencia turbo</th><td>5,3 GHz</td><td>5,0 GHz</td></tr>
+          <tr><th>Consumo</th><td>125 W base, 181 W turbo</td><td>65 W TDP</td></tr>
+          <tr><th>Gráfica integrada</th><td>—</td><td>Radeon 760M</td></tr>
+        </tbody>
+      </table></div>
+      <p>a) ¿Cuál puede funcionar sin tarjeta gráfica? b) ¿Cuál necesita una
+      refrigeración más potente? c) ¿Qué placa (zócalo y gama de chipset) elegirías
+      para aprovechar la K del procesador A? d) ¿Es justo comparar sus frecuencias
+      turbo para saber cuál es más rápido? ¿Por qué?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.3</span> <span class="ce">CE c</span> Al montar un equipo,
+      ¿qué es más delicado de manipular, un procesador PGA o un zócalo LGA? ¿Qué se
+      hace con la tapa protectora de un zócalo LGA? ¿Por qué no puedes cambiar el
+      procesador de un portátil?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.4</span> <span class="ce">CE c</span> En AMD, el consumo
+      máximo real (PPT) es 1,35 veces el TDP. Calcula el PPT de procesadores con TDP
+      de 65 W, 105 W, 120 W y 170 W.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.5</span> <span class="ce">CE d</span> <span class="ce">CE g</span>
+      Un procesador consume 125 W de base y 253 W en turbo. La caja admite
+      disipadores de hasta 165 mm y radiadores de hasta 280 mm. Opciones: a) básico,
+      55 mm, hasta 95 W; b) torre, 155 mm, hasta 180 W; c) doble torre, 168 mm, hasta
+      250 W; d) AIO de 360 mm, hasta 300 W. ¿Cuáles se pueden montar? ¿Cuál elegirías
+      y qué consecuencia tendrá? ¿Qué propondrías al cliente?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.6</span> <span class="ce">CE d</span> Conectas un
+      ventilador de 3 pines a un conector de 4 pines configurado en modo PWM. ¿Qué
+      hará el ventilador? ¿Qué cambiarías en la UEFI?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.7</span> <span class="ce">CE d</span> Una caja tiene tres
+      ventiladores delanteros, uno trasero y dos superiores, todos de 60 CFM. a) ¿Cuáles
+      deberían meter aire y cuáles sacarlo? b) ¿Qué presión resulta (positiva o
+      negativa)? c) ¿Cuántos m³/h entran?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">2.8</span> <span class="ce">CE d</span> Escribe el
+      procedimiento completo para cambiar la pasta térmica de un procesador: material,
+      pasos y precauciones.</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-3">Boletín 3 · Memoria y expansión</h2>
+    <p>Repasa los apartados <a href="ut03-teoria.html#apartado-3-6">3.6</a> y
+    <a href="ut03-teoria.html#apartado-3-7">3.7</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">3.1</span> <span class="ce">CE e</span> Calcula la latencia
+      real en nanosegundos y ordena de menor a mayor: DDR4-2666 CL19 · DDR4-3200 CL16 ·
+      DDR5-5200 CL40 · DDR5-6000 CL36 · DDR5-6400 CL32.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.2</span> <span class="ce">CE e</span> Calcula el ancho de
+      banda máximo: a) DDR5-5600 en doble canal; b) el mismo con un solo módulo;
+      c) DDR4-3200 en doble canal.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.3</span> <span class="ce">CE e</span> <span class="ce">CE f</span>
+      Un cliente ha comprado un kit DDR5-6000 y CPU-Z le muestra «DRAM Frequency:
+      2400 MHz». ¿A cuántos MT/s está funcionando? ¿Está estropeado? ¿Qué hay que
+      hacer?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.4</span> <span class="ce">CE e</span> Una placa tiene las
+      ranuras A1, A2, B1 y B2. ¿Dónde pondrías uno, dos y cuatro módulos? ¿Qué es mejor
+      para 32 GB: un módulo de 32 GB o dos de 16 GB? ¿Y para 64 GB con DDR5: dos de
+      32 GB o cuatro de 16 GB?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.5</span> <span class="ce">CE j</span> Calcula el ancho de
+      banda por sentido: a) SSD PCIe 4.0 x4; b) SSD PCIe 5.0 x4; c) gráfica PCIe 4.0 x8
+      en una ranura PCIe 3.0 x16; d) gráfica PCIe 5.0 x16 en la ranura x16 inferior de
+      la placa, que es PCIe 4.0 x4.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.6</span> <span class="ce">CE e</span> <span class="ce">CE k</span>
+      Fragmento del manual de una placa: «<em>M2_2 comparte el ancho de banda con
+      SATA6G_5 y SATA6G_6. Si se instala un SSD SATA en M2_2, SATA6G_5 se desactiva.
+      Si se instala un SSD PCIe en M2_2, SATA6G_5 y SATA6G_6 se desactivan. Si se ocupa
+      M2_3, PCIEX16_2 funciona en modo x2</em>». El cliente tiene un SSD NVMe en M2_1,
+      otro en M2_2, dos discos duros y una tarjeta de captura PCIe x4. ¿Dónde
+      conectas cada cosa para que todo funcione?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.7</span> <span class="ce">CE e</span> <span class="ce">CE j</span>
+      ¿Qué llave M.2 tiene cada dispositivo y en qué ranura lo pondrías? a) SSD NVMe
+      2280; b) tarjeta Wi-Fi 7 con Bluetooth para un mini PC; c) SSD M.2 SATA. ¿Cabe un
+      SSD 22110 en una ranura que admite 2242, 2260 y 2280?</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-4">Boletín 4 · UEFI, gráfica, monitor y chasis</h2>
+    <p>Repasa la <a href="ut03-teoria-2.html">teoría 2</a> y el
+    <a href="ut03-ejercicios-uefi.html">simulador de UEFI</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">4.1</span> <span class="ce">CE f</span> ¿Dónde se guardan el
+      firmware, los ajustes de la UEFI y la hora? ¿Qué se pierde si se agota la pila?
+      ¿Qué hace Clear CMOS?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.2</span> <span class="ce">CE f</span> Diagnostica cada
+      caso: a) se queda encendido el LED CPU después de cambiar el procesador por uno
+      de una generación más nueva; b) se queda el LED DRAM después de activar XMP;
+      c) se queda el LED VGA en un equipo con Ryzen 5 5600 y sin tarjeta gráfica;
+      d) se queda el LED BOOT tras desconectar un SSD.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.3</span> <span class="ce">CE f</span> a) ¿Puede arrancar
+      Windows desde un disco de 3 TB con tabla MBR? b) ¿Qué tres opciones de la UEFI
+      revisarías para instalar Windows 11? c) ¿Por qué hay que desactivar el CSM para
+      usar Secure Boot?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.4</span> <span class="ce">CE i</span> <span class="ce">CE j</span>
+      ¿Reciben suficiente potencia estas tarjetas gráficas? a) 250 W con dos
+      conectores de 8 pines; b) 140 W con uno de 6 pines; c) 75 W sin conector;
+      d) 320 W con un conector de 8 pines.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.5</span> <span class="ce">CE i</span> Calcula el ancho de
+      banda de la VRAM (ancho de bus ÷ 8 × velocidad por pin): a) 128 bits, GDDR6 a
+      18 Gbit/s; b) 192 bits, GDDR6X a 21 Gbit/s; c) 256 bits, GDDR7 a 30 Gbit/s.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.6</span> <span class="ce">CE i</span> Calcula la densidad
+      en píxeles por pulgada: a) 24″ Full HD; b) 27″ QHD; c) 27″ 4K; d) 32″ 4K. ¿Cuál se
+      ve más nítido?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.7</span> <span class="ce">CE i</span> ¿Qué conector usarías
+      sin compresión para cada monitor? a) 4K a 144 Hz con HDR de 10 bits; b) QHD a
+      240 Hz con 8 bits; c) Full HD a 360 Hz con 8 bits. Usa la fórmula del apartado
+      3.10.1 (añade un 7 %) y compruébalo con la calculadora.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.8</span> <span class="ce">CE g</span> Compara dos cajas para
+      este equipo: placa ATX, gráfica de 320 mm, disipador de torre de 158 mm y dos
+      discos de 3,5″.</p>
+      <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th></th><th>Caja 1</th><th>Caja 2</th></tr></thead>
+        <tbody>
+          <tr><th>Formatos</th><td>ATX, micro-ATX, Mini-ITX</td><td>ATX, micro-ATX, Mini-ITX</td></tr>
+          <tr><th>Gráfica máxima</th><td>330 mm</td><td>360 mm</td></tr>
+          <tr><th>Disipador máximo</th><td>155 mm</td><td>165 mm</td></tr>
+          <tr><th>Bahías 3,5″</th><td>2</td><td>1 (+ 2 de 2,5″)</td></tr>
+          <tr><th>Panel frontal</th><td>2 × USB-A 5 Gbit/s, audio</td><td>2 × USB-A, 1 × USB-C 10 Gbit/s, audio</td></tr>
+          <tr><th>Frontal</th><td>Cristal cerrado</td><td>Malla con filtro</td></tr>
+        </tbody>
+      </table></div>
+      <p>¿Cuál sirve? Si ninguna sirve del todo, ¿qué cambiarías? ¿Qué conector
+      necesita la placa para el USB-C frontal de la caja 2?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.9</span> <span class="ce">CE k</span> Haz una lista de todo
+      lo que esperas encontrar al abrir la caja de una placa base, de una tarjeta
+      gráfica y de un disipador de torre, con la utilidad de cada cosa. ¿Qué
+      controladores instalarías después de montar el equipo, y en qué orden?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">4.10</span> <span class="ce">CE g</span> ¿Cuánto mide de alto
+      un servidor de 2U? ¿Y un armario de 42U, contando solo el espacio para
+      equipos?</p>
+    </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-ejercicios-configurador.html">&laquo; Configurador</a>
+    <a href="ut03-practicas.html">Prácticas &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

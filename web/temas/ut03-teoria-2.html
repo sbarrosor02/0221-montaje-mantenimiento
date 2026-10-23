@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teoría 2 · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<script defer src="../assets/ut02-interactivos.js"></script>
+<script defer src="../assets/ut03-interactivos.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-3-8">3.8 BIOS y UEFI</a></li><li><a href="#apartado-3-9">3.9 El adaptador gráfico</a></li><li><a href="#apartado-3-10">3.10 El monitor</a></li><li><a href="#apartado-3-11">3.11 Otras tarjetas de expansión</a></li><li><a href="#apartado-3-12">3.12 El chasis</a></li><li><a href="#apartado-3-13">3.13 Lo que acompaña a un componente</a></li><li><a href="#apartado-resumen">Resumen</a></li><li><a href="#apartado-autoevaluacion">Autoevaluación</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Teoría 2: BIOS, gráfica y chasis</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Teoría 2</p>
+    <h1>Teoría 2 — BIOS/UEFI, gráfica y monitor, adaptadores y chasis</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1 (f, g, i, j, k)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html" aria-current="page">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html">Ejercicios</a>
+    <a href="ut03-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios cubre esta página</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>f)</strong> Se ha explicado para qué sirve la BIOS de un ordenador y las características comunes de las BIOS de los ordenadores actuales.</li>
+      <li><strong>g)</strong> Se han evaluado tipos de chasis para la placa base y el resto de componentes.</li>
+      <li><strong>i)</strong> Se ha analizado la función del adaptador gráfico y el monitor.</li>
+      <li><strong>j)</strong> Se han identificado y manipulado distintos adaptadores (gráficos, red, entre otros).</li>
+      <li><strong>k)</strong> Se han identificado los elementos que acompañan a un componente de integración (documentación, controladores, cables y utilidades, entre otros).</li>
+    </ul>
+  </details>
+
+  <section>
+    <h2 id="apartado-3-8">3.8 BIOS y UEFI <span class="ce">CE f</span></h2>
+    <p>Al pulsar el botón de encendido, el procesador no sabe nada: ni qué memoria
+    hay, ni dónde está el sistema operativo. Lo primero que ejecuta es un programa
+    grabado en la propia placa, el <strong>firmware</strong>. Durante décadas fue
+    la <strong>BIOS</strong> (<em>Basic Input/Output System</em>). Desde hace unos
+    diez años es <strong>UEFI</strong> (<em>Unified Extensible Firmware
+    Interface</em>), aunque todo el mundo lo sigue llamando «la BIOS».</p>
+
+    <h3>3.8.1 Qué hace</h3>
+    <ol>
+      <li><strong>POST</strong> (<em>Power-On Self-Test</em>): comprueba e
+      inicializa el procesador, la memoria y la gráfica. Si falla algo, avisa con
+      pitidos o luces.</li>
+      <li><strong>Configura el hardware</strong> según los ajustes guardados:
+      frecuencias, memoria, ventiladores, puertos activados…</li>
+      <li><strong>Busca un dispositivo de arranque</strong> según el orden
+      configurado y le pasa el control al gestor de arranque del sistema operativo
+      (Windows Boot Manager, GRUB…).</li>
+      <li>Ofrece el <strong>programa de configuración</strong> (<em>setup</em>)
+      para cambiar todo lo anterior.</li>
+    </ol>
+
+    <h3>3.8.2 Dónde se guarda cada cosa</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Qué</th><th>Dónde</th><th>¿Se pierde sin corriente?</th></tr></thead>
+      <tbody>
+        <tr><td>El firmware (el programa)</td><td>Chip de memoria <strong>flash</strong> de la placa</td><td>No. Solo cambia al actualizarlo.</td></tr>
+        <tr><td>Los ajustes (orden de arranque, XMP…)</td><td>Memoria <strong>CMOS/NVRAM</strong></td><td>Depende de la placa: en muchas se borran si se agota la pila o se hace Clear CMOS.</td></tr>
+        <tr><td>La fecha y la hora</td><td>Reloj de tiempo real (RTC)</td><td>Sí: lo mantiene la <strong>pila CR2032</strong>. Si la hora se retrasa cada vez que desenchufas el equipo, toca cambiar la pila.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.8.3 BIOS clásica (Legacy) frente a UEFI</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>BIOS Legacy</th><th>UEFI</th></tr></thead>
+      <tbody>
+        <tr><th>Interfaz</th><td>Texto, solo teclado</td><td>Gráfica, con ratón; modo fácil y avanzado</td></tr>
+        <tr><th>Tabla de particiones del disco de arranque</th><td>MBR: discos de hasta 2 TB y 4 particiones primarias</td><td>GPT: discos enormes y hasta 128 particiones</td></tr>
+        <tr><th>Arranque</th><td>Lee el primer sector del disco</td><td>Carga archivos <code>.efi</code> de una partición del sistema (ESP). Más rápido.</td></tr>
+        <tr><th>Seguridad</th><td>Ninguna en el arranque</td><td><strong>Secure Boot</strong>: solo arranca gestores firmados, lo que bloquea malware de arranque</td></tr>
+        <tr><th>Extras</th><td>—</td><td>Red, actualización desde internet o USB, controladores propios</td></tr>
+      </tbody>
+    </table></div>
+    <p>Las placas actuales pueden arrancar sistemas antiguos en modo BIOS gracias
+    al <strong>CSM</strong> (<em>Compatibility Support Module</em>). Para Secure
+    Boot hay que desactivar el CSM. <strong>Windows 11 exige UEFI, Secure Boot y
+    TPM 2.0</strong>.</p>
+    <p>El <strong>TPM</strong> (<em>Trusted Platform Module</em>) es un chip de
+    seguridad que guarda claves de cifrado (BitLocker, Windows Hello…). Hoy viene
+    integrado en el procesador y se activa en la UEFI: en Intel se llama
+    <strong>PTT</strong> y en AMD <strong>fTPM</strong>. Algunas placas admiten
+    además un módulo externo en el conector TPM.</p>
+
+    <h3>3.8.4 Cómo se entra y qué se puede configurar</h3>
+    <p>Se entra pulsando <kbd>Supr</kbd> o <kbd>F2</kbd> justo al encender. El
+    <strong>menú de arranque</strong>, para elegir solo una vez desde qué
+    dispositivo arrancar, suele estar en <kbd>F8</kbd>, <kbd>F11</kbd> o
+    <kbd>F12</kbd>. Si el arranque rápido no deja tiempo para pulsar la tecla, desde
+    Windows: <em>Configuración › Sistema › Recuperación › Inicio avanzado ›
+    Solucionar problemas › Opciones avanzadas › Configuración de firmware
+    UEFI</em>.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Pestaña (nombres habituales)</th><th>Qué contiene</th></tr></thead>
+      <tbody>
+        <tr><td>Main / Principal</td><td>Fecha y hora, versión de la UEFI, procesador y memoria detectados.</td></tr>
+        <tr><td>Ai Tweaker / OC / Tweaker</td><td>Perfil de memoria <strong>XMP/EXPO</strong>, frecuencias, tensiones, límites de consumo. Aquí se hace el overclock.</td></tr>
+        <tr><td>Advanced / Avanzado</td><td>Modo de los discos (AHCI), virtualización (<strong>VT-x</strong> en Intel, <strong>SVM</strong> en AMD), TPM, periféricos integrados (audio, red, USB), Resizable BAR.</td></tr>
+        <tr><td>Monitor / H/W Monitor</td><td>Temperaturas, tensiones, velocidad de los ventiladores y sus <strong>curvas</strong>.</td></tr>
+        <tr><td>Boot / Arranque</td><td><strong>Orden de arranque</strong>, arranque rápido, CSM, Secure Boot.</td></tr>
+        <tr><td>Security / Seguridad</td><td>Contraseñas de administrador (para entrar en la configuración) y de usuario (para arrancar), Secure Boot, TPM.</td></tr>
+        <tr><td>Exit / Salir</td><td><strong>Guardar y salir</strong> (<kbd>F10</kbd>), salir sin guardar, <strong>cargar valores por defecto</strong>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="aviso">
+      <strong>Practica sin miedo.</strong> En el
+      <a href="ut03-ejercicios-uefi.html">simulador de UEFI</a> tienes misiones para
+      cambiar el orden de arranque, activar XMP, configurar ventiladores o Secure
+      Boot sin arriesgar ningún equipo.
+    </div>
+
+    <h3>3.8.5 Diagnóstico al arrancar</h3>
+    <p>Si el POST falla, la placa avisa de tres maneras posibles:</p>
+    <ul>
+      <li><strong>Pitidos</strong> por el altavoz interno. Su significado depende del
+      fabricante del firmware (AMI, Phoenix…) y está en el manual de la placa. Un
+      pitido corto suele significar que todo va bien.</li>
+      <li><strong>LED de diagnóstico</strong> (Q-LED, EZ Debug LED): se queda
+      encendido el del paso que falla.</li>
+      <li><strong>Visor de códigos</strong> (Q-Code, Debug LED): dos cifras
+      hexadecimales que se buscan en la tabla del manual.</li>
+    </ul>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>LED encendido</th><th>Causas más habituales</th></tr></thead>
+      <tbody>
+        <tr><td>CPU</td><td>Procesador mal colocado, conector EPS sin enchufar, UEFI que no reconoce el procesador (hay que actualizarla), pines doblados.</td></tr>
+        <tr><td>DRAM</td><td>Módulo mal insertado o en ranuras equivocadas, memoria incompatible, XMP inestable. Con DDR5, la primera vez la placa tarda en «entrenar» la memoria: hay que esperar unos minutos.</td></tr>
+        <tr><td>VGA</td><td>Sin gráfica (procesador F sin tarjeta), tarjeta mal insertada o sin alimentación.</td></tr>
+        <tr><td>BOOT</td><td>No encuentra un sistema operativo: disco desconectado, orden de arranque o modo (UEFI/CSM) incorrecto.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.8.6 Actualizar y restablecer</h3>
+    <p><strong>Actualizar la UEFI</strong> sirve para admitir procesadores nuevos,
+    mejorar la compatibilidad con la memoria y corregir fallos de seguridad. Se hace
+    así:</p>
+    <ol>
+      <li>Descargar el archivo de la web del fabricante, para el <strong>modelo y
+      la revisión exactos</strong> de la placa (vienen serigrafiados en ella).</li>
+      <li>Copiarlo a una memoria USB en FAT32.</li>
+      <li>Usar la herramienta integrada en la UEFI (EZ Flash, M-Flash, Q-Flash,
+      Instant Flash…). Algunas placas tienen <strong>BIOS Flashback</strong>: un
+      botón trasero que actualiza incluso sin procesador ni memoria.</li>
+      <li><strong>No apagar ni cortar la corriente</strong> durante el proceso. Si
+      se interrumpe, la placa puede quedar inservible. Las placas con
+      <strong>Dual BIOS</strong> guardan una copia de seguridad.</li>
+    </ol>
+    <p><strong>Restablecer la configuración</strong>, si el equipo no arranca tras
+    un cambio:</p>
+    <ul>
+      <li>Desde la propia UEFI: <em>Load Optimized Defaults</em> (cargar valores por
+      defecto).</li>
+      <li><strong>Clear CMOS</strong> con el equipo desenchufado: puentear los pines
+      CLR_CMOS unos segundos, pulsar el botón Clear CMOS del panel trasero o sacar
+      la pila unos minutos.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-9">3.9 El adaptador gráfico <span class="ce">CE i</span> <span class="ce">CE j</span></h2>
+    <p>El <strong>adaptador gráfico</strong> genera la imagen que se ve en el
+    monitor. Su procesador, la <strong>GPU</strong>, tiene miles de núcleos
+    sencillos que trabajan en paralelo. Por eso también se usa para editar vídeo,
+    hacer cálculos científicos y entrenar inteligencia artificial.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th></th><th>Gráfica integrada (iGPU)</th><th>Tarjeta gráfica dedicada (dGPU)</th></tr></thead>
+      <tbody>
+        <tr><th>Dónde está</th><td>Dentro del procesador</td><td>En una tarjeta en la ranura PCIe x16</td></tr>
+        <tr><th>Memoria</th><td>Usa parte de la RAM del sistema</td><td>Tiene la suya: <strong>VRAM</strong> (GDDR6, GDDR7), mucho más rápida</td></tr>
+        <tr><th>Rendimiento</th><td>Suficiente para ofimática, vídeo e internet</td><td>Necesaria para juegos, diseño 3D, edición de vídeo e IA</td></tr>
+        <tr><th>Consumo</th><td>Muy bajo</td><td>De 75 a más de 500 W</td></tr>
+        <tr><th>Salidas de vídeo</th><td>Las del panel trasero de la placa</td><td>Las de la propia tarjeta</td></tr>
+      </tbody>
+    </table></div>
+    <div class="clave">
+      <strong>Error típico de taller</strong>
+      <p>Si el equipo tiene tarjeta gráfica, el monitor se conecta <strong>a la
+      tarjeta</strong>, no a las salidas de la placa base. Conectado a la placa no
+      dará imagen o usará la gráfica integrada, mucho menos potente. Y si el
+      procesador es un modelo F, las salidas de la placa no funcionan nunca.</p>
+    </div>
+
+    <h3>3.9.1 Partes y características de una tarjeta gráfica</h3>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Elemento</th><th>Qué hay que mirar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GPU</strong></td><td>Modelo y arquitectura. Número de núcleos (CUDA en NVIDIA, procesadores de flujo en AMD, núcleos Xe en Intel) y frecuencia.</td></tr>
+        <tr><td><strong>VRAM</strong></td><td>Capacidad (8, 12, 16 GB…), tipo (GDDR6, GDDR7) y <strong>ancho de bus</strong> (128, 192, 256 bits). Juntos dan el ancho de banda: bus ÷ 8 × velocidad por pin.</td></tr>
+        <tr><td><strong>Consumo</strong> (TGP o TBP)</td><td>Vatios que consume la tarjeta. El fabricante recomienda una potencia mínima de fuente.</td></tr>
+        <tr><td><strong>Alimentación</strong></td><td>La ranura da hasta 75 W. El resto llega por conectores: 6 pines (75 W), 8 pines (150 W) o <strong>12V-2×6</strong> de 16 pines (hasta 600 W, hay que encajarlo hasta el fondo).</td></tr>
+        <tr><td><strong>Dimensiones</strong></td><td>Longitud (mm), grosor (2, 2,5 o 3 ranuras) y altura. Hay que comprobar que caben en la caja.</td></tr>
+        <tr><td><strong>Interfaz</strong></td><td>PCIe 4.0 o 5.0, normalmente x16 (algunas de gama baja usan x8).</td></tr>
+        <tr><td><strong>Salidas</strong></td><td>HDMI y DisplayPort, con su versión (apartado 3.10).</td></tr>
+        <tr><td><strong>Refrigeración</strong></td><td>Disipador con 2 o 3 ventiladores que se paran cuando la gráfica no trabaja (modo 0 dB). La placa trasera (<em>backplate</em>) le da rigidez.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="ejemplo">
+      <strong>Ejemplo · ¿Basta la alimentación?</strong>
+      <p>Una tarjeta consume 220 W y tiene un conector de 8 pines. La ranura da 75 W
+      y el conector 150 W: 75 + 150 = 225 W ≥ 220 W. Le basta, pero la fuente tiene
+      que tener un cable PCIe de 8 pines libre y potencia de sobra para todo el
+      equipo.</p>
+    </div>
+    <p><strong>¿Quién fabrica qué?</strong> El chip lo diseñan
+    <strong>NVIDIA</strong> (GeForce RTX), <strong>AMD</strong> (Radeon RX) e
+    <strong>Intel</strong> (Arc). Las tarjetas las fabrican ensambladores como
+    ASUS, MSI, Gigabyte, Sapphire, PowerColor o Zotac, cada uno con su propio
+    disipador, frecuencias y garantía. Dos tarjetas con el mismo chip pueden
+    diferenciarse en ruido, temperatura, tamaño y precio: se comparan con
+    análisis y pruebas de rendimiento. Antes se podían unir dos tarjetas
+    (SLI, CrossFire), pero hoy esa técnica está abandonada en los equipos de
+    consumo.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-10">3.10 El monitor <span class="ce">CE i</span></h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Característica</th><th>Qué significa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Tamaño</strong></td><td>Diagonal de la pantalla en pulgadas (1″ = 2,54 cm): 24″, 27″, 32″…</td></tr>
+        <tr><td><strong>Relación de aspecto</strong></td><td>Proporción ancho : alto. 16:9 es la habitual; 21:9, ultrapanorámico; 16:10, algo más alto (bueno para ofimática).</td></tr>
+        <tr><td><strong>Resolución</strong></td><td>Píxeles en horizontal × vertical: Full HD 1920 × 1080, QHD 2560 × 1440, 4K UHD 3840 × 2160.</td></tr>
+        <tr><td><strong>Densidad</strong> (ppp)</td><td>Píxeles por pulgada: diagonal en píxeles ÷ diagonal en pulgadas. Un 24″ Full HD tiene unos 92 ppp; un 27″ QHD, unos 109. A más densidad, imagen más nítida.</td></tr>
+        <tr><td><strong>Frecuencia de refresco</strong></td><td>Imágenes por segundo (Hz): 60 Hz para oficina; 144, 165, 240 Hz o más para juegos. La gráfica tiene que poder generar esas imágenes.</td></tr>
+        <tr><td><strong>Tiempo de respuesta</strong></td><td>Lo que tarda un píxel en cambiar de color, en ms (GtG). Menos de 5 ms evita estelas en movimiento.</td></tr>
+        <tr><td><strong>Brillo y contraste</strong></td><td>Brillo en cd/m² (nits): 250–350 en uso normal, más de 600 para HDR real. Contraste: relación entre el blanco y el negro.</td></tr>
+        <tr><td><strong>HDR y color</strong></td><td>HDR amplía el rango entre zonas claras y oscuras: la certificación VESA DisplayHDR 400, 600, 1000… indica el brillo máximo. Gama de color: porcentaje de sRGB o DCI-P3 que cubre. 8 o 10 bits por color.</td></tr>
+        <tr><td><strong>Sincronización adaptativa</strong></td><td>FreeSync (AMD), G-SYNC (NVIDIA) o Adaptive-Sync: el monitor se adapta a las imágenes por segundo de la gráfica y evita los cortes horizontales (<em>tearing</em>).</td></tr>
+        <tr><td><strong>Ergonomía</strong></td><td>Ajuste de altura, inclinación y giro; anclaje <strong>VESA</strong> (75 × 75 o 100 × 100 mm) para brazos y soportes.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Panel</th><th>Ventajas</th><th>Inconvenientes</th></tr></thead>
+      <tbody>
+        <tr><td>TN</td><td>Muy rápido y barato</td><td>Colores y ángulos de visión pobres. Casi desaparecido.</td></tr>
+        <tr><td>IPS</td><td>Buenos colores y ángulos de visión. El más equilibrado.</td><td>Negros grisáceos; contraste en torno a 1000:1</td></tr>
+        <tr><td>VA</td><td>Mucho contraste (3000:1) y buenos negros</td><td>Algo más lento; estelas en escenas oscuras</td></tr>
+        <tr><td>OLED (WOLED, QD-OLED)</td><td>Cada píxel emite su luz: negro perfecto, respuesta casi instantánea</td><td>Caro; riesgo de marcas (<em>burn-in</em>) con imágenes fijas durante mucho tiempo</td></tr>
+        <tr><td>Mini-LED</td><td>LCD con cientos de zonas de retroiluminación: mucho brillo, buen HDR</td><td>Halos alrededor de objetos brillantes; caro</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.10.1 Conectores de vídeo</h3>
+    <p>Para mover la imagen hace falta ancho de banda: píxeles × imágenes por
+    segundo × bits por píxel. Cada versión de conector tiene un máximo.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Conector</th><th>Datos útiles</th><th>Ejemplo de uso</th></tr></thead>
+      <tbody>
+        <tr><td>HDMI 2.0</td><td>14,4 Gbit/s</td><td>4K a 60 Hz, QHD a 144 Hz</td></tr>
+        <tr><td>HDMI 2.1</td><td>42,6 Gbit/s</td><td>4K a 144 Hz con HDR. El habitual en gráficas y televisores actuales.</td></tr>
+        <tr><td>HDMI 2.2</td><td>≈ 85 Gbit/s</td><td>Norma de 2025; los primeros equipos y cables «Ultra96» están llegando.</td></tr>
+        <tr><td>DisplayPort 1.4</td><td>25,9 Gbit/s</td><td>QHD a 240 Hz; 4K a 144 Hz con compresión DSC</td></tr>
+        <tr><td>DisplayPort 2.1</td><td>Hasta 77,4 Gbit/s (UHBR20)</td><td>4K a 240 Hz, 8K</td></tr>
+        <tr><td>USB-C con DisplayPort</td><td>El del DisplayPort que transporte</td><td>Portátiles y monitores con un solo cable (imagen, datos y carga)</td></tr>
+        <tr><td>VGA y DVI</td><td>—</td><td>Antiguos (analógico y digital). Solo en equipos y proyectores viejos.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="interactivo" data-widget="monitor">
+      <span class="etiqueta-int">Pruébalo</span>
+      <h3>¿Qué conector necesita este monitor?</h3>
+      <p class="instrucciones">Elige la resolución, los hercios y el color, y mira
+      qué conectores pueden con ello sin compresión.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-11">3.11 Otras tarjetas de expansión <span class="ce">CE j</span></h2>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Tarjeta</th><th>Para qué y qué mirar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Red cableada</strong> (Ethernet)</td><td>Cuando la integrada falla o se necesita más velocidad: 1, 2,5, 5 o 10 Gbit/s. PCIe x1 o x4. Conector RJ45.</td></tr>
+        <tr><td><strong>Red inalámbrica</strong> (Wi-Fi + Bluetooth)</td><td>Wi-Fi 6, 6E o 7. PCIe x1 o M.2 con llave E. Lleva <strong>antenas</strong> y, en las PCIe, un cable al conector USB 2.0 interno para el Bluetooth (sin él, el Bluetooth no funciona).</td></tr>
+        <tr><td><strong>Sonido</strong></td><td>El sonido integrado (un códec en la placa) basta en casi todos los casos. Una tarjeta o interfaz USB mejora la calidad y el ruido. Datos: relación señal/ruido (dB, más es mejor), resolución (24 bits / 192 kHz), canales (2.0, 5.1, 7.1). Colores de los jacks: <strong>verde</strong> salida, <strong>rosa</strong> micrófono, <strong>azul</strong> entrada de línea.</td></tr>
+        <tr><td><strong>Capturadora</strong></td><td>Graba o emite la señal HDMI de otro equipo o consola.</td></tr>
+        <tr><td><strong>Controladoras</strong></td><td>Añaden puertos USB, SATA o RAID, o ranuras M.2 extra (adaptador PCIe a M.2).</td></tr>
+        <tr><td><strong>Puertos serie y paralelo</strong></td><td>Para maquinaria e instrumentos industriales antiguos que siguen en uso.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.11.1 Cómo se instala una tarjeta</h3>
+    <ol>
+      <li>Apaga el equipo, <strong>desenchufa</strong> el cable de corriente y ponte
+      la pulsera antiestática (tema 1).</li>
+      <li>Elige la ranura según los carriles que necesita la tarjeta y lo que dice el
+      manual sobre carriles compartidos.</li>
+      <li>Quita la chapa (o chapas) de la parte trasera de la caja que corresponden a
+      esa ranura.</li>
+      <li>Coge la tarjeta por los bordes, sin tocar los contactos dorados. Insértala
+      recta y firme hasta que la pestaña de la ranura haga clic.</li>
+      <li>Atorníllala a la caja. Si es pesada, añade el soporte antipandeo.</li>
+      <li>Conecta su alimentación, antenas o cables internos, si los lleva.</li>
+      <li>Enciende, comprueba que el sistema la detecta (Administrador de
+      dispositivos en Windows, <code>lspci</code> en Linux) e instala el
+      <strong>controlador</strong> más reciente de la web del fabricante.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-12">3.12 El chasis <span class="ce">CE g</span></h2>
+    <p>El <strong>chasis</strong> (caja o torre) sujeta y protege los componentes.
+    Además organiza el flujo de aire, amortigua el ruido, apantalla las
+    interferencias electromagnéticas y lleva el panel frontal con botones y
+    puertos.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Tipo</th><th>Placa</th><th>Características</th></tr></thead>
+      <tbody>
+        <tr><td>Torre completa (<em>full tower</em>)</td><td>E-ATX, ATX</td><td>Más de 60 L. Mucho espacio para refrigeración líquida, varias gráficas y discos.</td></tr>
+        <tr><td>Semitorre (<em>mid tower</em>)</td><td>ATX y menores</td><td>40–60 L. La más vendida: equilibrio entre tamaño y capacidad.</td></tr>
+        <tr><td>Minitorre</td><td>Micro-ATX, Mini-ITX</td><td>25–40 L. Equipos de oficina y económicos.</td></tr>
+        <tr><td>Formato pequeño (SFF)</td><td>Mini-ITX</td><td>Menos de 20 L. Muy compactas; hay que medir cada componente y suelen usar fuentes SFX.</td></tr>
+        <tr><td>Sobremesa / HTPC</td><td>Micro-ATX, Mini-ITX</td><td>Horizontales, para el salón o bajo el monitor. Gráficas y disipadores de perfil bajo.</td></tr>
+        <tr><td>Rack de 19″</td><td>Placas de servidor</td><td>Para armarios de servidores. La altura se mide en <strong>U</strong> (1U = 44,45 mm).</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>3.12.1 Cómo se evalúa un chasis</h3>
+    <p>Para elegir caja hay que cruzar su ficha con la de los demás componentes:</p>
+    <ul>
+      <li><strong>Formatos de placa</strong> admitidos.</li>
+      <li><strong>Longitud máxima de la gráfica</strong> (mm) y número de ranuras de
+      expansión.</li>
+      <li><strong>Altura máxima del disipador</strong> del procesador (mm).</li>
+      <li><strong>Radiadores</strong> admitidos y dónde (frontal 240/280/360 mm,
+      superior…).</li>
+      <li><strong>Fuente</strong>: formato (ATX o SFX), longitud máxima y posición
+      (abajo, tapada por una cubierta, es lo habitual).</li>
+      <li><strong>Bahías</strong> para discos de 3,5″ y 2,5″. Las de 5,25″ (unidades
+      ópticas) casi han desaparecido.</li>
+      <li><strong>Panel frontal</strong>: cuántos USB-A, si tiene USB-C y audio. La
+      placa necesita los conectores internos correspondientes.</li>
+      <li><strong>Refrigeración</strong>: ventiladores incluidos, huecos para más,
+      frontal de malla o cerrado, <strong>filtros de polvo</strong>.</li>
+      <li><strong>Montaje</strong>: espacio para pasar cables por detrás de la
+      bandeja, anclajes sin herramientas, separadores ya puestos.</li>
+      <li><strong>Materiales</strong>: acero (resistente, pesado), aluminio
+      (ligero, caro), cristal templado (estético, frágil) y calidad de los
+      remates.</li>
+    </ul>
+    <div class="ejemplo">
+      <strong>Ejemplo · ¿Cabe?</strong>
+      <p>Una caja admite gráficas de hasta 330 mm y disipadores de hasta 160 mm.
+      Una gráfica de 336 mm <strong>no cabe</strong>. Un disipador de torre de
+      155 mm <strong>sí</strong>, con 5 mm de margen. Antes de comprar, compara
+      siempre las dos fichas. Lo practicarás en el
+      <a href="ut03-ejercicios-configurador.html">configurador</a>.</p>
+    </div>
+    <p>Una tendencia reciente son las placas con los conectores <strong>por la
+    parte de atrás</strong> (ASUS BTF, MSI Project Zero): los cables quedan
+    ocultos, pero necesitan una caja compatible con un hueco en la bandeja.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-3-13">3.13 Lo que acompaña a un componente <span class="ce">CE k</span></h2>
+    <p>Un componente no es solo la pieza. Al abrir la caja de una placa base, una
+    gráfica o un disipador, hay que identificar y guardar todo lo que trae, porque
+    se necesita para montarlo, configurarlo, reclamar la garantía y
+    mantenerlo.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Elemento</th><th>Qué es y para qué sirve</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Manual</strong></td><td>Especificaciones, esquema de la placa, instalación paso a paso, distribución de pines, tabla de carriles compartidos, códigos de error. Hoy muchas veces solo en PDF en la web del fabricante.</td></tr>
+        <tr><td><strong>Listas de compatibilidad</strong></td><td>QVL de memoria y lista de procesadores admitidos (con la versión de UEFI necesaria). En la web, siempre actualizadas.</td></tr>
+        <tr><td><strong>Controladores</strong> (<em>drivers</em>)</td><td>Programas para que el sistema operativo maneje el hardware: chipset, red, Wi-Fi y Bluetooth, sonido, gráficos. Mejor descargar la última versión de la web que usar el disco o USB de la caja. En una placa se instala primero el del chipset.</td></tr>
+        <tr><td><strong>Utilidades</strong></td><td>Programas del fabricante: actualizar la UEFI, monitorizar temperaturas, controlar ventiladores e iluminación, hacer overclock. Y genéricas para identificar y diagnosticar: CPU-Z, GPU-Z, HWiNFO, MemTest86.</td></tr>
+        <tr><td><strong>Cables y accesorios</strong></td><td>Placa: cables SATA, tornillos y separadores M.2, antenas Wi-Fi, adaptador del panel frontal, embellecedor trasero si no viene integrado. Gráfica: adaptador de alimentación, soporte antipandeo. Disipador: anclajes para cada zócalo y pasta térmica. Caja: tornillos, separadores, bridas.</td></tr>
+        <tr><td><strong>Garantía y documentación legal</strong></td><td>Tarjeta o condiciones de garantía, número de serie (pegatina en la pieza: no se quita), marcado CE y símbolo de residuo eléctrico (RAEE, tema 1). La garantía legal en España es de 3 años para productos nuevos.</td></tr>
+        <tr><td><strong>Embalaje</strong></td><td>Bolsa antiestática y espumas. Hay que guardarlas para transportar o devolver la pieza.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2 id="apartado-resumen">Resumen</h2>
+    <ul>
+      <li>El <strong>firmware</strong> (BIOS o UEFI) hace el POST, configura el
+      hardware y arranca el sistema. Está en una memoria flash. Los ajustes se
+      guardan en la CMOS/NVRAM y la pila mantiene el reloj.</li>
+      <li>UEFI: interfaz gráfica, discos GPT, Secure Boot. CSM para sistemas
+      antiguos. Windows 11 necesita UEFI, Secure Boot y TPM 2.0.</li>
+      <li>Diagnóstico: pitidos, LED (CPU, DRAM, VGA, BOOT) o códigos.
+      Clear CMOS para volver a los valores de fábrica.</li>
+      <li>Gráfica integrada o dedicada (VRAM, consumo, alimentación, tamaño,
+      salidas). El monitor se conecta a la tarjeta.</li>
+      <li>Monitor: tamaño, resolución, densidad, Hz, tiempo de respuesta, panel
+      (IPS, VA, OLED…), HDR, sincronización. El conector tiene que dar el ancho de
+      banda necesario.</li>
+      <li>Tarjetas de red, Wi-Fi, sonido y controladoras: elegir ranura, instalar
+      con seguridad y poner el controlador.</li>
+      <li>Chasis: tipo y formatos, longitud de gráfica, altura de disipador,
+      radiadores, fuente, bahías, panel frontal, flujo de aire.</li>
+      <li>Cada componente trae manual, listas de compatibilidad, controladores,
+      utilidades, accesorios y garantía.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="apartado-autoevaluacion">Autoevaluación</h2>
+    <p class="meta">No cuenta para la nota.</p>
+    <form class="quiz" onsubmit="return false">
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">1.</span> Cada vez que desenchufas el equipo, la hora se retrasa. ¿Qué cambiarías?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u1" value="a"> El chip de la BIOS</label></li>
+          <li><label><input type="radio" name="u1" value="b"> La pila CR2032</label></li>
+          <li><label><input type="radio" name="u1" value="c"> La fuente de alimentación</label></li>
+          <li><label><input type="radio" name="u1" value="d"> La memoria RAM</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>La pila mantiene el reloj (RTC) cuando no hay corriente. El firmware está en la flash y no se pierde.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">2.</span> ¿Qué es Secure Boot?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u2" value="a"> Una contraseña para entrar en la UEFI</label></li>
+          <li><label><input type="radio" name="u2" value="b"> Un arranque más rápido</label></li>
+          <li><label><input type="radio" name="u2" value="c"> Que solo arranquen gestores de arranque firmados</label></li>
+          <li><label><input type="radio" name="u2" value="d"> Una copia de seguridad del firmware</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Comprueba la firma digital del gestor de arranque. Bloquea el malware que intenta cargarse antes del sistema operativo.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">3.</span> Al encender, se queda encendido el LED DRAM de la placa. ¿Qué compruebas primero?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u3" value="a"> Que los módulos de memoria estén bien insertados y en las ranuras correctas</label></li>
+          <li><label><input type="radio" name="u3" value="b"> El cable del monitor</label></li>
+          <li><label><input type="radio" name="u3" value="c"> El orden de arranque</label></li>
+          <li><label><input type="radio" name="u3" value="d"> La pasta térmica</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El LED DRAM indica un fallo de memoria. Lo más habitual es un módulo mal encajado, en ranuras incorrectas o con XMP inestable.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">4.</span> Un equipo con un Core i5-14400F y tarjeta gráfica no da imagen. El monitor está conectado al HDMI del panel trasero de la placa. ¿Qué pasa?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u4" value="a"> La placa está rota</label></li>
+          <li><label><input type="radio" name="u4" value="b"> Hay que actualizar la UEFI</label></li>
+          <li><label><input type="radio" name="u4" value="c"> Falta el controlador de la gráfica</label></li>
+          <li><label><input type="radio" name="u4" value="d"> El procesador no tiene gráfica integrada: hay que conectar el monitor a la tarjeta</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Los modelos F no tienen gráfica integrada, así que las salidas de la placa no funcionan.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">5.</span> Una tarjeta gráfica consume 280 W. ¿Le basta con un conector de 8 pines?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u5" value="a"> Sí: 8 pines dan 300 W</label></li>
+          <li><label><input type="radio" name="u5" value="b"> No: ranura (75 W) + 8 pines (150 W) = 225 W</label></li>
+          <li><label><input type="radio" name="u5" value="c"> Sí, toda la potencia llega por la ranura</label></li>
+          <li><label><input type="radio" name="u5" value="d"> No se puede saber</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Necesitaría dos conectores de 8 pines (75 + 2 × 150 = 375 W) o uno 12V-2×6.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">6.</span> ¿Qué tipo de panel tiene el negro perfecto porque cada píxel emite su propia luz?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u6" value="a"> IPS</label></li>
+          <li><label><input type="radio" name="u6" value="b"> VA</label></li>
+          <li><label><input type="radio" name="u6" value="c"> OLED</label></li>
+          <li><label><input type="radio" name="u6" value="d"> TN</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>En OLED cada píxel se apaga del todo. Los LCD (TN, IPS, VA) necesitan una retroiluminación detrás.</p>
+      </div>
+      <div class="pregunta" data-correcta="a">
+        <p class="enunciado"><span class="num">7.</span> Instalas una tarjeta Wi-Fi PCIe con Bluetooth y el Bluetooth no aparece. ¿Qué falta?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u7" value="a"> Conectar su cable al conector USB 2.0 interno de la placa</label></li>
+          <li><label><input type="radio" name="u7" value="b"> Ponerle las antenas</label></li>
+          <li><label><input type="radio" name="u7" value="c"> Moverla a la ranura x16</label></li>
+          <li><label><input type="radio" name="u7" value="d"> Activar Secure Boot</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El Bluetooth de esas tarjetas funciona por USB, a través del cable al conector interno.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">8.</span> Una caja admite disipadores de hasta 160 mm. ¿Qué disipador NO cabe?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u8" value="a"> Uno de serie de 60 mm</label></li>
+          <li><label><input type="radio" name="u8" value="b"> Una torre de 155 mm</label></li>
+          <li><label><input type="radio" name="u8" value="c"> Uno de perfil bajo de 47 mm</label></li>
+          <li><label><input type="radio" name="u8" value="d"> Una doble torre de 165 mm</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>165 mm > 160 mm. Siempre se compara la altura del disipador con el máximo de la caja.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">9.</span> ¿Dónde es mejor conseguir los controladores de una placa base nueva?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u9" value="a"> En el disco que viene en la caja, siempre</label></li>
+          <li><label><input type="radio" name="u9" value="b"> En la web del fabricante, para el modelo exacto: suelen ser más recientes</label></li>
+          <li><label><input type="radio" name="u9" value="c"> En cualquier web de descargas</label></li>
+          <li><label><input type="radio" name="u9" value="d"> No hacen falta controladores</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El disco de la caja puede tener años. Las webs de terceros pueden traer malware.</p>
+      </div>
+      <div class="pregunta" data-correcta="c">
+        <p class="enunciado"><span class="num">10.</span> ¿Qué se debe hacer durante una actualización de la UEFI?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u10" value="a"> Reiniciar si tarda mucho</label></li>
+          <li><label><input type="radio" name="u10" value="b"> Usar el archivo de cualquier placa del mismo chipset</label></li>
+          <li><label><input type="radio" name="u10" value="c"> No cortar la corriente hasta que termine</label></li>
+          <li><label><input type="radio" name="u10" value="d"> Quitar la pila</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Si se interrumpe, el firmware queda incompleto y la placa puede no volver a arrancar. El archivo tiene que ser del modelo y la revisión exactos.</p>
+      </div>
+      <div class="acciones">
+        <button type="button" data-corregir>Corregir</button>
+        <button type="button" class="sec" data-reiniciar>Volver a empezar</button>
+      </div>
+      <p class="resultado oculto" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-teoria.html">&laquo; Teoría 1</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador UEFI &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

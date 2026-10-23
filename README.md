@@ -66,6 +66,12 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   responde (tarjetas de colores o dedos, o mano alzada), con marcador, podio,
   desempate y premios de +0,5 y +0,25. Archivo autónomo: funciona desde un USB sin
   conexión. No se enlaza desde las páginas del alumnado.
+- **Tema 3 — Placa base, microprocesador, memoria, adaptadores y chasis**
+  (RA1 c, d, e, f, g, i, j, k): portada con mapa de criterios, dos páginas de teoría
+  (placa interactiva, decodificador de procesadores, calculadoras de memoria, PCIe y
+  conectores de vídeo), simulador de UEFI con misiones, configurador de
+  compatibilidades, cuatro boletines y prácticas P5–P8. Solucionario generado con
+  `scripts/generar_ut03_solucionario.py`; decisiones en `temario/ut03-placa-base.md`.
 - Resto de temas: pendientes.
 
 ## Navegación del aula
