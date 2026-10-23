@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de UEFI · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<script defer src="../assets/ut03-uefi.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-misiones">Misiones</a></li><li><a href="#apartado-uefi">La UEFI</a></li><li><a href="#apartado-preguntas">Para pensar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Simulador UEFI</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Simulador</p>
+    <h1>Simulador de UEFI — configura una placa sin miedo a romper nada</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1 (f)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
+    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
+    <a href="ut03-ejercicios-uefi.html" aria-current="page">Simulador UEFI</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador</a>
+    <a href="ut03-ejercicios.html">Ejercicios</a>
+    <a href="ut03-practicas.html">Prácticas</a>
+  </nav>
+
+  <p>Esta UEFI imita la de una placa real del taller. Navega por las pestañas,
+  lee la ayuda de cada opción (columna derecha) y completa las misiones. Igual que
+  en un equipo de verdad, <strong>los cambios no se aplican hasta que guardas con
+  F10</strong>. Antes de la práctica P7, que se hace con los equipos del taller,
+  repasa el <a href="ut03-teoria-2.html#apartado-3-8">apartado 3.8 de la
+  teoría</a>.</p>
+
+  <section>
+    <h2 id="apartado-misiones">Misiones <span class="ce">CE f</span></h2>
+    <ol class="misiones" data-misiones></ol>
+    <p id="misiones-resumen" role="status"></p>
+  </section>
+
+  <section>
+    <h2 id="apartado-uefi">La UEFI</h2>
+    <div class="uefi-sim"><p>Este simulador necesita JavaScript.</p></div>
+    <p class="meta">Teclado: <kbd>F10</kbd> guardar y salir, <kbd>F5</kbd> valores por
+    defecto, <kbd>Esc</kbd> descartar cambios (con el foco dentro de la UEFI). Tu
+    progreso se guarda en este navegador.</p>
+  </section>
+
+  <section>
+    <h2 id="apartado-preguntas">Para pensar</h2>
+    <div class="ejercicio"><p><span class="num">1.</span> Has activado Secure Boot,
+    pero el equipo sigue arrancando una memoria USB antigua sin firmar. ¿Qué te has
+    olvidado de hacer?</p></div>
+    <div class="ejercicio"><p><span class="num">2.</span> ¿Por qué la UEFI no te deja
+    activar Secure Boot mientras el CSM está activado?</p></div>
+    <div class="ejercicio"><p><span class="num">3.</span> Pulsas <kbd>F5</kbd> y luego
+    <kbd>Esc</kbd>. ¿Qué configuración queda? Compruébalo en el simulador.</p></div>
+    <div class="ejercicio"><p><span class="num">4.</span> Pones el ventilador de la CPU
+    en modo silencioso y, al jugar, la temperatura llega a 95 °C. ¿Qué hace el
+    procesador para protegerse? ¿Qué cambiarías?</p></div>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut03-teoria-2.html">&laquo; Teoría 2</a>
+    <a href="ut03-ejercicios-configurador.html">Configurador &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

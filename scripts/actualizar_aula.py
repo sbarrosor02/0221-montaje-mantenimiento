@@ -17,8 +17,12 @@ def slug(value):
     value = unicodedata.normalize('NFKD', plain(value)).encode('ascii', 'ignore').decode().lower()
     return re.sub('[^a-z0-9]+', '-', value).strip('-')
 
+def sin_ce(value):
+    """Quita las etiquetas de criterio (<span class="ce">CE e</span>) de un título."""
+    return re.sub(r'<span class="ce[^"]*">.*?</span>', '', value, flags=re.S)
+
 def headings(source):
-    return [(match[0], plain(match[1])) for match in re.findall(r'<h2\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>', source, re.S)]
+    return [(match[0], plain(sin_ce(match[1]))) for match in re.findall(r'<h2\b[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>', source, re.S)]
 
 def identify(source):
     used = set(re.findall(r'\bid="([^"]+)"', source))
@@ -162,7 +166,7 @@ for repo in REPOS:
             description = 'Practica y comprueba lo aprendido. Actividades formativas; no cuentan para la nota.'
         if category == 'practicas':
             description = 'Consulta el enunciado, las condiciones de entrega y la rúbrica.'
-        search_terms = ' '.join(plain(text) for text in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', source, re.S))
+        search_terms = ' '.join(plain(sin_ce(text)) for text in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', source, re.S))
         cards.append(card(category, title, 'temas/' + name, description, search_terms, shortcuts, tema_de(name)))
         if category == 'apuntes':
             for target, label in section_list:
