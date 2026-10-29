@@ -154,3 +154,30 @@ nuevas y a las existentes cuando se revisen.
   pruebas de estrés, criterios de corrección) siguen en `temario/soluciones/`.
 - Los estilos están al final de `assets/aula.css`, en el bloque «Recuadro Entrega».
   Es compartido: cualquier cambio se replica en el otro repositorio.
+
+### Nombres de los archivos de entrega
+
+El recuadro da el **nombre exacto** de cada archivo según las normas de entrega del
+módulo (`<usuario>` es el usuario del alumno):
+
+| Qué se entrega | Nombre |
+|---|---|
+| Práctica en PDF | `<usuario>_pNN.pdf` (tema y número de práctica: `sbarrosor02_p01.pdf`) |
+| Práctica en ZIP | `<usuario>_pNN.zip`, con `<usuario>_pNN.pdf` en la raíz si se pide memoria |
+| Bloque de un boletín | `<usuario>_E<tema><bloque>.zip` (`sbarrosor02_E23.zip`), con la memoria `<usuario>_E23.pdf` en la raíz |
+| Ejercicio de los apuntes | `<usuario>_ENN.pdf` |
+| Archivo de una actividad dentro del ZIP | `<usuario>_aNN.<ext>`; NN es el número del ejercicio o actividad dentro del bloque o práctica |
+| Varios archivos de una actividad con la misma extensión | `<usuario>_a01_1.jpg`, `<usuario>_a01_2.jpg`… |
+| Entrega en grupo | `<usuario1>_<usuario2>_pNN.<ext>`; todos los integrantes la suben |
+
+- Si un archivo recoge varios ejercicios, lleva el número del último ejercicio
+  obligatorio que lo modifica.
+- En una entrega individual de una actividad por parejas (como el bloque 2.6 de 0223),
+  cada alumno sube su ZIP con su usuario.
+- La memoria cumple las normas de presentación: portada, índice con hiperenlaces,
+  páginas numeradas, enunciado en negrita y respuesta en normal, `Figura N: …`,
+  comandos en texto monoespaciado, trabajo a mano fotografiado, sin faltas y capturas
+  de pantalla completa con fecha y nombre del archivo.
+- El recuadro incluye una tabla «En tu carpeta → Nombre dentro del ZIP» y la lista de
+  capturas que no pueden faltar en la memoria. Los boletines llevan además, antes del
+  primer bloque, un apartado «Cómo se entrega cada bloque» con estas normas.
