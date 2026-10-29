@@ -170,5 +170,13 @@ figure { margin-inline: 0; }
 .capas-gimp b { font-weight: 400; color: #aaa; text-align: center; }
 .paleta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; }
 .paleta div { border-radius: 4px; padding: .45rem; min-height: 5rem; display: flex; flex-direction: column; justify-content: flex-end; font: .72rem/1.35 Consolas, monospace; }
+.entrega-zip { margin: .2rem 0 .5rem; font-weight: 600; }
+.entrega-zip code { font-size: .95em; background: var(--acento-claro); color: var(--acento); padding: .1rem .4rem; border-radius: 4px; }
+.entrega-nombres { border-collapse: collapse; width: 100%; font-size: .9rem; }
+.entrega-nombres th { text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tinta-suave); border-bottom: 2px solid var(--linea); padding: .35rem .5rem; }
+.entrega-nombres td { border-bottom: 1px solid var(--linea); padding: .35rem .5rem; vertical-align: top; }
+.entrega-nombres td:nth-child(2) code { color: var(--acento); font-weight: 600; }
+.entrega-normas > h2 { margin: 0 0 .4rem; font-size: 1.25rem; }
+.entrega-normas ol { margin: .3rem 0 0; padding-left: 1.3rem; }
 @media (max-width: 520px) { .paleta { grid-template-columns: repeat(2, minmax(0, 1fr)); } .entrega { padding: 1rem; } }
 @media print { .entrega { break-inside: avoid-page; } }
