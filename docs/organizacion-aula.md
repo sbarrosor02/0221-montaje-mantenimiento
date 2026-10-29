@@ -115,3 +115,42 @@ Las migas se regeneran en cada ejecución (el script es idempotente).
 `assets/aula.css` y `assets/aula.js` (compartidos con 0223) reciben los estilos y el filtro
 por tema. El filtro solo actúa si el catálogo tiene botones `data-filtro-tema`, así que
 copiar estos dos archivos a 0223 no cambia nada allí hasta que su script genere esas marcas.
+
+
+## Regla del 29/10/2026 · recuadro «Entrega» en boletines y prácticas
+
+Todo boletín de ejercicios y toda práctica termina **cada bloque** con un recuadro
+para el alumnado que dice qué se entrega y cómo debe quedar. Se aplica a las páginas
+nuevas y a las existentes cuando se revisen.
+
+```html
+<section class="entrega" aria-labelledby="entrega-2-3">
+  <h3 id="entrega-2-3">Qué entregas del bloque 2.3</h3>
+  <p class="entrega-sub">Una línea con lo que se entrega.</p>
+  <ul class="entrega-archivos"><li>montaje-equipo.pdf</li></ul>
+  <h4>Comprueba antes de entregar</h4>
+  <ul class="entrega-lista"><li>…</li></ul>
+  <h4>Cómo debe quedar</h4>
+  <div class="entrega-ejemplos">
+    <figure class="bien">…maqueta…<figcaption>…</figcaption></figure>
+    <figure class="mal">…<figcaption>…</figcaption></figure>
+  </div>
+  <p class="entrega-ojo"><strong>Fallo más común:</strong> …</p>
+</section>
+```
+
+- Va **dentro** del `<section>` del bloque, justo antes de su cierre, con un `id`
+  `entrega-N-M` propio (el generador solo numera los `<h2>`).
+- **Archivos**: nombres exactos, con la carpeta si importa. Si un archivo no queda
+  en la carpeta de trabajo (por ejemplo, una plantilla de Word o una captura guardada por defecto en otra carpeta), se dice dónde está
+  y que hay que copiarlo.
+- **Comprueba antes de entregar**: comprobaciones que el alumno pueda hacer solo, en
+  segunda persona, con la ruta de menú cuando haga falta.
+- **Cómo debe quedar**: maquetas en HTML/CSS o SVG (`.hoja`, `.panel-word`,
+  `.codigo-vba`, `.capas-gimp`, `.paleta`, `.arbol`), capturas reales o los esquemas SVG de los boletines. Un esquema eléctrico de resultado sigue la regla de los circuitos: generado por script y verificado por análisis nodal. `bien` y
+  `mal` añaden la etiqueta ✓/✗; `entrega-ancho` ocupa toda la fila.
+- **Se muestra el resultado completo**, incluidos valores calculados, recuentos y
+  respuestas modelo. Los solucionarios detallados para el profesor (valores medidos,
+  pruebas de estrés, criterios de corrección) siguen en `temario/soluciones/`.
+- Los estilos están al final de `assets/aula.css`, en el bloque «Recuadro Entrega».
+  Es compartido: cualquier cambio se replica en el otro repositorio.
