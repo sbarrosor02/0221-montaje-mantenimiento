@@ -4,6 +4,13 @@
   "curso": "2026/2027",
   "destacados": [
     {
+      "ut": 2,
+      "etiqueta": "Repasa",
+      "titulo": "Test y ejercicios del tema 2 en la web",
+      "texto": "Circuitos con valores, trazas de programas y un test que se corrigen solos.",
+      "url": "temas/ut02-test.html"
+    },
+    {
       "ut": 4,
       "etiqueta": "Nuevo",
       "titulo": "Empieza el tema 4: montamos un equipo",
@@ -16,13 +23,6 @@
       "titulo": "El conector de 24 pines",
       "texto": "Encuentra cada tensión y comprueba tus medidas.",
       "url": "temas/ut04-teoria.html#apartado-4-4"
-    },
-    {
-      "ut": 3,
-      "etiqueta": "Practica",
-      "titulo": "Simulador de UEFI",
-      "texto": "Configura una placa sin miedo: siete misiones.",
-      "url": "temas/ut03-ejercicios-uefi.html"
     }
   ],
   "temas": [
@@ -90,7 +90,7 @@
       "evaluacion": 1,
       "horas": 6,
       "estado": "publicado",
-      "actualizado": "2026-10-14",
+      "actualizado": "2026-10-30",
       "recursos": [
         {
           "titulo": "Teoría: representación, puertas lógicas, Von Neumann, buses y ciclo de instrucción",
@@ -106,6 +106,16 @@
           "titulo": "Ejercicios: cuatro boletines",
           "url": "temas/ut02-ejercicios.html",
           "nota": "representación (10), circuitos lógicos (7, esquemas generados y verificados con scripts/generar_circuitos_logicos.py), arquitectura y buses (9), ejecución de programas (6). Solucionarios en temario/soluciones/"
+        },
+        {
+          "titulo": "Ejercicios en la web: circuitos con valores y ejecución de programas",
+          "url": "temas/ut02-ejercicios-web.html",
+          "nota": "autocorregibles; bloque 5: 8 circuitos con las entradas ya dadas y botón de otros valores; bloque 6: 6 programas con la traza CP, RI, RD, RM y AC; generados y contrastados con la web por scripts/generar_ut02_autocorregibles.py"
+        },
+        {
+          "titulo": "Test del tema 2",
+          "url": "temas/ut02-test.html",
+          "nota": "banco de 56 preguntas por apartados (RA1 a y b), preguntas y opciones al azar, nota sobre 10 con penalización opcional"
         },
         {
           "titulo": "Práctica P4: del bloque a la pieza",

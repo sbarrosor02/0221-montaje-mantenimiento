@@ -66,6 +66,11 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   responde (tarjetas de colores o dedos, o mano alzada), con marcador, podio,
   desempate y premios de +0,5 y +0,25. Archivo autónomo: funciona desde un USB sin
   conexión. No se enlaza desde las páginas del alumnado.
+  **Ejercicios en la web** (`web/temas/ut02-ejercicios-web.html`): bloque 5 con 8
+  circuitos de valores dados (sin álgebra de Boole) y bloque 6 con 6 programas para
+  rellenar la traza; se corrigen en la página. Generados y contrastados con la web por
+  `scripts/generar_ut02_autocorregibles.py`. **Test del tema** (`web/temas/ut02-test.html`):
+  banco de 56 preguntas por apartados, al azar y con penalización opcional.
 - **Tema 3 — Placa base, microprocesador, memoria, adaptadores y chasis**
   (RA1 c, d, e, f, g, i, j, k): portada con mapa de criterios, dos páginas de teoría
   (placa interactiva, decodificador de procesadores, calculadoras de memoria, PCIe y

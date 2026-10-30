@@ -1,0 +1,87 @@
+/* Ejercicios autocorregibles y test del tema 2 de 0221 (ut02-ejercicios-web.html, ut02-test.html). */
+
+/* ---------- comunes */
+.practica-nivel { display: inline-block; margin: 0 0 .5rem; font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--acento); background: var(--acento-claro); border-radius: 999px; padding: .15rem .6rem; }
+.practica-progreso { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--ok); border-radius: var(--radio); padding: .7rem 1rem; margin: 1rem 0; }
+.practica-progreso p { margin: 0 0 .3rem; }
+.practica-progreso ul { display: flex; flex-wrap: wrap; gap: .3rem .9rem; list-style: none; padding: 0; margin: 0; font-size: .9rem; color: var(--tinta-suave); }
+.practica-progreso li.hecho { color: var(--ok); font-weight: 600; }
+
+/* ---------- circuitos */
+.practica-valores { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: .6rem; }
+.practica-entradas { margin: 0 auto 0 0; font-size: 1.05rem; }
+.practica-valores button { padding: .35rem .8rem; font-size: .9rem; }
+.practica-circuito .figura { overflow-x: auto; }
+.practica-circuito .figura svg { width: 100%; max-width: 34rem; display: block; margin: auto; }
+.practica-entradas strong { white-space: nowrap; }
+.practica-circuito .puerta-num.ok circle { fill: #dff2e6; stroke: var(--ok); }
+.practica-circuito .puerta-num.ok text { fill: var(--ok); }
+.practica-circuito .puerta-num.mal circle { fill: #fcebec; stroke: var(--mal); }
+.practica-circuito .puerta-num.mal text { fill: var(--mal); }
+.practica-respuestas { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .4rem .8rem; margin: .8rem 0 .4rem; }
+.practica-fila { display: flex; align-items: center; gap: .5rem; padding: .3rem .5rem; border: 1px solid var(--linea); border-radius: 8px; background: white; }
+.practica-fila.ok { border-color: #9fd3b2; background: #eef8f1; }
+.practica-fila.mal { border-color: #f0a8ae; background: #fdf0f1; }
+.practica-nombre { min-width: 6.5rem; }
+.practica-bits { display: inline-flex; gap: .3rem; }
+.practica-bits button { width: 2.6rem; height: 2.4rem; padding: 0; font-size: 1.1rem; font-weight: 700; background: white; color: var(--acento); border: 2px solid var(--linea); border-radius: 6px; }
+.practica-bits button[aria-checked="true"] { background: var(--acento); color: white; border-color: var(--acento); }
+.practica-marca { margin-left: auto; font-weight: 700; }
+.practica-fila.ok .practica-marca { color: var(--ok); }
+.practica-fila.mal .practica-marca { color: var(--mal); }
+.practica-pista { margin: .5rem 0 0; font-size: .92rem; }
+.practica-pista summary { cursor: pointer; color: var(--acento); font-weight: 600; }
+
+/* ---------- programas */
+.practica-mem { margin-bottom: .4rem; }
+.practica-traza-zona { overflow-x: auto; }
+.practica-traza { border-collapse: collapse; font-family: ui-monospace, Consolas, monospace; margin: .4rem 0; }
+.practica-traza caption { font-family: "Segoe UI", sans-serif; font-weight: 700; text-align: left; padding-bottom: .3rem; }
+.practica-traza th, .practica-traza td { border: 1px solid var(--linea); padding: .2rem .3rem; text-align: center; }
+.practica-traza thead th { background: var(--acento-claro); font-family: "Segoe UI", sans-serif; font-size: .85rem; }
+.practica-traza tbody th { background: var(--fondo-suave); padding: .2rem .5rem; }
+.practica-traza input, .practica-final input { width: 4.6rem; font: inherit; font-family: ui-monospace, Consolas, monospace; text-align: center; padding: .3rem .2rem; border: 1px solid #b8c3cf; border-radius: 4px; }
+.practica-programa input.ok { background: #e7f5ec; border-color: var(--ok); }
+.practica-programa input.mal { background: #fdecee; border-color: var(--mal); }
+.practica-final-tit { margin: .8rem 0 .3rem; }
+.practica-final { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+.practica-final label { font-family: ui-monospace, Consolas, monospace; font-weight: 700; }
+.juego-instr { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .2rem 1rem; font-family: ui-monospace, Consolas, monospace; font-size: .92rem; background: var(--fondo-suave); border-radius: var(--radio); padding: .6rem .9rem; margin: .5rem 0 1rem; }
+
+/* ---------- maquetas del recuadro Entrega */
+.maqueta-captura { background: white; border: 1px solid #c9d2da; border-radius: 6px; font-size: .78rem; overflow: hidden; }
+.maqueta-captura .barra { background: #e9edf1; padding: .2rem .5rem; color: var(--tinta-suave); display: flex; justify-content: space-between; gap: .5rem; }
+.maqueta-captura .cuerpo { padding: .5rem .6rem; display: grid; gap: .25rem; }
+.maqueta-captura .fila { border-radius: 4px; padding: .15rem .4rem; border: 1px solid #9fd3b2; background: #eef8f1; display: flex; justify-content: space-between; }
+.maqueta-captura .fila.mal { border-color: #f0a8ae; background: #fdf0f1; }
+.maqueta-captura .msg { background: var(--acento-claro); border-radius: 4px; padding: .25rem .4rem; font-weight: 600; }
+
+/* ---------- test */
+.test-opciones { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; align-items: end; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .9rem 1rem; }
+.test-opciones label { display: flex; flex-direction: column; gap: .25rem; font-size: .9rem; font-weight: 600; }
+.test-opciones select { font: inherit; padding: .35rem .4rem; min-width: 0; max-width: 100%; }
+.test-opciones .test-check { flex-direction: row; align-items: center; font-weight: 400; }
+.test-apartados { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .3rem .9rem; flex-basis: 100%; }
+.test-apartados legend { font-size: .9rem; font-weight: 600; margin-bottom: .2rem; }
+.test-apartados label { flex-direction: row; align-items: center; gap: .3rem; font-weight: 400; }
+.test-cabecera { display: flex; flex-wrap: wrap; gap: .5rem 1rem; justify-content: space-between; align-items: center; margin: 1rem 0 .4rem; }
+.test-barra { flex: 1 1 10rem; height: .5rem; background: var(--linea); border-radius: 999px; overflow: hidden; }
+.test-barra span { display: block; height: 100%; background: var(--acento); width: 0; transition: width .2s; }
+.test-etq { font-size: .78rem; color: var(--tinta-suave); margin: 0 0 .2rem; }
+.test-nota { font-size: 1.6rem; font-weight: 700; margin: 0; }
+.test-resumen { background: white; border: 1px solid var(--linea); border-top: 4px solid var(--acento); border-radius: var(--radio); padding: 1rem; margin: 1rem 0; }
+.test-resumen table { border-collapse: collapse; margin-top: .5rem; font-size: .92rem; }
+.test-resumen th, .test-resumen td { border: 1px solid var(--linea); padding: .25rem .6rem; text-align: left; }
+.test-resumen td:nth-child(n+2) { text-align: center; }
+
+@media (max-width: 480px) {
+  .practica-respuestas { grid-template-columns: minmax(0, 1fr); }
+  .practica-traza { font-size: .85rem; }
+  .practica-traza input { width: 2.8rem; padding: .25rem 0; }
+  .practica-traza th, .practica-traza td { padding: 1px; }
+  .practica-traza tbody th { padding: 1px .25rem; }
+}
+.test-zona .opciones label.es-correcta { border-color: var(--ok); background: #eef8f1; }
+.test-zona .opciones label.elegida-mal { border-color: var(--mal); background: #fdf0f1; }
+.test-zona .pregunta.sin-respuesta .marca { color: var(--aviso); }
+.test-zona .acciones button + button { margin-left: .4rem; }

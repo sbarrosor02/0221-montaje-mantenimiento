@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 380 170" role="img" aria-labelledby="title desc">
+<title id="title">Circuito 5.3</title>
+<desc id="desc">Circuito combinacional con entradas A, B, C y salida F. Puerta 1: AND de A y B; Puerta 2: NOT de C; Puerta 3: OR de la salida de la puerta 1 y la salida de la puerta 2. F es la salida de la puerta 3. Un cruce con salto indica que los cables no están unidos.</desc>
+<style>.wire{fill:none;stroke:#24364a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.gate{fill:white;stroke:#24364a;stroke-width:2.2;stroke-linejoin:round}.node{fill:#24364a}.open{fill:white;stroke:#24364a;stroke-width:2}text{font:16px sans-serif;fill:#24364a}.dato{font-weight:700;fill:#8a3d00}</style>
+<style>.puerta-num circle{fill:#e8f1f9;stroke:#1f5c8f;stroke-width:1.5}.puerta-num text{font:bold 12px sans-serif;fill:#1f5c8f}.valor{font:bold 15px sans-serif;fill:#b4232c}</style>
+<rect x="-10" width="100%" height="100%" fill="white"/>
+<path class="wire" d="M30,40 L140,40"/>
+<path class="wire" d="M30,90 L110,90"/>
+<path class="wire" d="M110,90 L110,60"/>
+<path class="wire" d="M110,60 L140,60"/>
+<path class="wire" d="M30,140 L140,140"/>
+<path class="wire" d="M190,50 L220,50"/>
+<path class="wire" d="M220,50 L220,85"/>
+<path class="wire" d="M220,85 L250,85"/>
+<path class="wire" d="M180,140 L230,140"/>
+<path class="wire" d="M230,140 L230,105"/>
+<path class="wire" d="M230,105 L250,105"/>
+<path class="wire" d="M300,95 L330,95"/>
+<path class="gate" d="M140,32 H165 A25,18 0 0 1 165,68 H140 Z"/>
+<path class="gate" d="M140,127 L170,140 L140,153 Z"/>
+<circle class="gate" cx="174" cy="140" r="4"/>
+<path class="gate" d="M246,77 Q258,95 246,113 Q278,113 300,95 Q278,77 246,77 Z"/>
+<path class="wire" d="M250,85 h4"/>
+<path class="wire" d="M250,105 h4"/>
+<circle class="open" cx="30" cy="40" r="4"/>
+<text class="dato" x="22" y="45" text-anchor="end">A</text>
+<circle class="open" cx="30" cy="90" r="4"/>
+<text class="dato" x="22" y="95" text-anchor="end">B</text>
+<circle class="open" cx="30" cy="140" r="4"/>
+<text class="dato" x="22" y="145" text-anchor="end">C</text>
+<text class="dato" x="338" y="100">F</text>
+<g class="puerta-num" data-g="G1"><circle cx="165" cy="18" r="9"/><text x="165" y="22" text-anchor="middle">1</text></g>
+<g class="puerta-num" data-g="G2"><circle cx="156" cy="114" r="9"/><text x="156" y="118" text-anchor="middle">2</text></g>
+<g class="puerta-num" data-g="G3"><circle cx="275" cy="63" r="9"/><text x="275" y="67" text-anchor="middle">3</text></g>
+<text class="valor" data-in="A" x="38" y="34"></text>
+<text class="valor" data-in="B" x="38" y="84"></text>
+<text class="valor" data-in="C" x="38" y="134"></text>
+</svg>
