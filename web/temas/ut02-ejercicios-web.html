@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ejercicios en la web · Tema 2 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut02-practica.css">
+<script defer src="../assets/ut02-practica-datos.js"></script>
+<script defer src="../assets/ut02-practica.js"></script>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut02.html"><span>Tema 2</span>Estructura funcional del ordenador y arquitectura de buses</a><a class="indice-material" href="../recursos.html?tema=2">Todo el material del tema 2</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-se-entrega">Cómo se entrega cada bloque</a></li><li><a href="#bloque-5">Bloque 5 · Circuitos con valores</a></li><li><a href="#bloque-6">Bloque 6 · Ejecución de programas</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut02.html">Tema 2 · Estructura funcional del ordenador y arquitectura de buses</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios en la web</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2) · Ejercicios en la web</p>
+    <h1>Ejercicios en la web — Circuitos con valores y ejecución de programas</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT2 · RA1 (a, b)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 2">
+    <a href="ut02.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut02-teoria.html">Teoría</a>
+    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
+    <a href="ut02-ejercicios.html">Ejercicios</a>
+    <a href="ut02-ejercicios-web.html" aria-current="page">Ejercicios en la web</a>
+    <a href="ut02-test.html">Test</a>
+    <a href="ut02-practicas.html">Prácticas</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se trabaja · RA y criterios</summary>
+    <h2 id="que-criterios-cubre">Qué criterios trabaja esta página</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones
+    de distintos fabricantes.</p>
+    <ul>
+      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones. → bloques 5 y 6</li>
+      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses. → bloque 6</li>
+    </ul>
+  </details>
+
+  <div class="aviso">
+    <strong>Se resuelven y se corrigen aquí mismo.</strong> Escribe tus respuestas
+    y pulsa «Comprobar»: la página te dice qué está bien y dónde está el primer
+    fallo, pero no te da la solución. Haz los cálculos en papel antes de
+    responder. Tu progreso se guarda en este navegador.
+  </div>
+
+  <h2 id="apartado-como-se-entrega">Cómo se entrega cada bloque</h2>
+  <ul>
+    <li>Cada bloque se entrega como <code>&lt;usuario&gt;_E2N.zip</code> (N es el
+    número del bloque), con la memoria <code>&lt;usuario&gt;_E2N.pdf</code> en la
+    raíz. Solo se entrega si el profesor lo pide.</li>
+    <li>La memoria lleva portada, índice con hiperenlaces, páginas numeradas, el
+    enunciado en negrita y cada captura con su pie <em>Figura N: …</em>.</li>
+    <li>Las capturas son de <strong>pantalla completa</strong>, con la fecha y la
+    hora del sistema visibles.</li>
+  </ul>
+
+  <section>
+    <h2 id="bloque-5">Bloque 5 · Circuitos con valores</h2>
+    <p>Las entradas A, B y C ya tienen un valor, así que no hace falta álgebra de
+    Boole: <strong>calcula la salida de cada puerta, de izquierda a derecha</strong>,
+    hasta llegar a F. Cada puerta lleva su número en un círculo; los valores de las
+    entradas están en rojo junto a cada letra. Después pulsa «Otros valores» y
+    repite: así repasas otra fila de la tabla de verdad.</p>
+    <div class="clave">
+      <strong>Recuerda</strong>
+      <ul style="margin-bottom:0">
+        <li><strong>AND</strong>: 1 solo si todas sus entradas valen 1. <strong>OR</strong>: 1 si alguna vale 1. <strong>NOT</strong>: invierte.</li>
+        <li><strong>NAND</strong> y <strong>NOR</strong>: como AND y OR, pero con la salida invertida (el circulito).</li>
+        <li><strong>XOR</strong>: 1 cuando sus dos entradas son distintas.</li>
+        <li>Un punto une cables; un cruce con salto, no.</li>
+      </ul>
+    </div>
+    <p>Puedes repasar las puertas en el <a href="ut02-teoria.html#apartado-2-3">laboratorio de puertas de la teoría</a>.</p>
+    <div class="practica-progreso" data-tipo="circuitos" aria-live="polite"></div>
+
+    <div class="ejercicio">
+      <h3 id="ej-5-1"><span class="num">5.1</span> Circuito 5.1</h3>
+      <div class="practica-circuito" data-circuito="v1"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-2"><span class="num">5.2</span> Circuito 5.2</h3>
+      <div class="practica-circuito" data-circuito="v2"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-3"><span class="num">5.3</span> Circuito 5.3</h3>
+      <div class="practica-circuito" data-circuito="v3"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-4"><span class="num">5.4</span> Circuito 5.4</h3>
+      <div class="practica-circuito" data-circuito="v4"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-5"><span class="num">5.5</span> Circuito 5.5</h3>
+      <div class="practica-circuito" data-circuito="v5"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-6"><span class="num">5.6</span> Circuito 5.6</h3>
+      <div class="practica-circuito" data-circuito="v6"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-7"><span class="num">5.7</span> Circuito 5.7</h3>
+      <div class="practica-circuito" data-circuito="v7"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-5-8"><span class="num">5.8</span> Circuito 5.8</h3>
+      <div class="practica-circuito" data-circuito="v8"></div>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-5">
+      <h3 id="entrega-5">Qué entregas del bloque 5</h3>
+      <p class="entrega-sub">Un ZIP con la memoria de capturas de los ocho circuitos corregidos.</p>
+      <ul class="entrega-archivos"><li>&lt;usuario&gt;_E25.zip</li><li>&lt;usuario&gt;_E25.pdf (dentro del ZIP)</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Tienes dos capturas por circuito: una con los valores de partida y otra después de pulsar «Otros valores», las dos con el mensaje «¡Correcto!».</li>
+        <li>En cada captura se ven los valores de A, B y C, las puertas en verde y la fecha del sistema.</li>
+        <li>La última captura es el recuadro verde del principio del bloque con <strong>8 de 8</strong> resueltos.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien"><div class="maqueta-captura" aria-hidden="true"><div class="barra"><span>Ejemplo resuelto de la teoría</span><span>30/10/2026 10:42</span></div><div class="cuerpo">
+          <div>Valores: <strong>A = 1 · B = 0 · C = 1</strong></div>
+          <div class="fila"><span>Puerta 1 → 1</span><span>✓</span></div><div class="fila"><span>Puerta 2 → 0</span><span>✓</span></div><div class="fila"><span>Puerta 3 = F → 0</span><span>✓</span></div>
+          <div class="msg">¡Correcto! … la salida es F = 0.</div></div></div>
+          <figcaption>Valores, todas las puertas en verde, mensaje de correcto y fecha.</figcaption></figure>
+        <figure class="mal"><div class="maqueta-captura" aria-hidden="true"><div class="barra"><span>Ejemplo resuelto de la teoría</span><span></span></div><div class="cuerpo">
+          <div class="fila"><span>Puerta 1 → 1</span><span>✓</span></div><div class="fila mal"><span>Puerta 2 → 1</span><span>✗</span></div><div class="fila mal"><span>Puerta 3 = F → 1</span><span>✗</span></div>
+          <div class="msg">1 de 3 puertas bien. Revisa primero la puerta 2…</div></div></div>
+          <figcaption>Captura recortada, sin fecha ni valores y con fallos sin corregir.</figcaption></figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> responder F sin calcular las puertas intermedias. Si fallas una puerta, todas las que usan su salida suelen fallar también: corrige siempre la primera que esté en rojo.</p>
+    </section>
+    <p class="volver"><a href="#bloque-5">↑ Volver al principio del bloque</a></p>
+  </section>
+
+  <section>
+    <h2 id="bloque-6">Bloque 6 · Ejecución de programas</h2>
+    <p>Cada programa está en memoria con formato <strong>operación-dirección</strong>
+    (1 cifra de operación y 3 de dirección) y termina al llegar a una celda con
+    0000. Es la misma máquina del <a href="ut02-ejercicios-cpu.html">simulador de
+    CPU</a> y del boletín 4:</p>
+    <div class="juego-instr">
+      <span>1 → Cargar el AC desde memoria</span><span>2 → Almacenar el AC en memoria</span>
+      <span>3 → Sumar al AC el dato</span><span>4 → Restar al AC el dato</span>
+      <span>5 → Multiplicar el AC por el dato</span><span>6 → Dividir el AC entre el dato (división entera)</span>
+    </div>
+    <p>Para cada instrucción, escribe el valor de los registros <strong>al terminar
+    la instrucción</strong>: <strong>CP</strong> (dirección de la siguiente
+    instrucción), <strong>RI</strong> (la instrucción), <strong>RD</strong> (la
+    dirección del dato), <strong>RM</strong> (el dato leído o el que se escribe) y
+    <strong>AC</strong>. Al final, escribe cómo queda cada celda de datos. Puedes
+    escribir los números con o sin ceros a la izquierda (0013 o 13). Repasa el
+    <a href="ut02-teoria.html#apartado-2-7">ciclo de instrucción</a> si lo
+    necesitas.</p>
+    <div class="ejemplo">
+      <strong>Ejemplo · la instrucción 3611 en la dirección 601, con AC = 4 y 9 en la celda 611</strong>
+      Al terminar: CP = 602, RI = 3611, RD = 611, RM = 0009 (el dato leído) y
+      AC = 4 + 9 = 13. Si la instrucción es de almacenar (2…), el RM lleva el valor
+      del AC que se escribe en memoria y el AC no cambia.
+    </div>
+    <div class="practica-progreso" data-tipo="programas" aria-live="polite"></div>
+
+    <div class="ejercicio">
+      <h3 id="ej-6-1"><span class="num">6.1</span> Programa 6.1</h3>
+      <div class="practica-programa" data-programa="1"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-6-2"><span class="num">6.2</span> Programa 6.2</h3>
+      <div class="practica-programa" data-programa="2"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-6-3"><span class="num">6.3</span> Programa 6.3</h3>
+      <div class="practica-programa" data-programa="3"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-6-4"><span class="num">6.4</span> Programa 6.4</h3>
+      <div class="practica-programa" data-programa="4"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-6-5"><span class="num">6.5</span> Programa 6.5</h3>
+      <div class="practica-programa" data-programa="5"></div>
+    </div>
+    <div class="ejercicio">
+      <h3 id="ej-6-6"><span class="num">6.6</span> Programa 6.6</h3>
+      <div class="practica-programa" data-programa="6"></div>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-6">
+      <h3 id="entrega-6">Qué entregas del bloque 6</h3>
+      <p class="entrega-sub">Un ZIP con la memoria de capturas de los seis programas corregidos.</p>
+      <ul class="entrega-archivos"><li>&lt;usuario&gt;_E26.zip</li><li>&lt;usuario&gt;_E26.pdf (dentro del ZIP)</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Hay una captura por programa con todas las casillas en verde y el mensaje «¡Traza perfecta!».</li>
+        <li>Se ve completa la tabla de la memoria inicial junto a la traza (si no cabe, haz dos capturas).</li>
+        <li>La última captura es el recuadro verde del principio del bloque con <strong>6 de 6</strong> resueltos.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien"><div class="maqueta-captura" aria-hidden="true"><div class="barra"><span>Ejemplo · un programa de 3 instrucciones</span><span>30/10/2026 11:05</span></div><div class="cuerpo">
+          <div class="fila"><span>700 │ 701 │ 1710 │ 710 │ 0007 │ 0007</span><span>✓</span></div>
+          <div class="fila"><span>701 │ 702 │ 3711 │ 711 │ 0002 │ 0009</span><span>✓</span></div>
+          <div class="fila"><span>702 │ 703 │ 2712 │ 712 │ 0009 │ 0009</span><span>✓</span></div>
+          <div class="msg">¡Traza perfecta! El programa termina con AC = 9.</div></div></div>
+          <figcaption>Todas las casillas en verde (columnas: instrucción, CP, RI, RD, RM, AC).</figcaption></figure>
+        <figure class="mal"><div class="maqueta-captura" aria-hidden="true"><div class="barra"><span>Ejemplo · un programa de 3 instrucciones</span><span>30/10/2026 11:01</span></div><div class="cuerpo">
+          <div class="fila"><span>700 │ 701 │ 1710 │ 710 │ 0007 │ 0007</span><span>✓</span></div>
+          <div class="fila"><span>701 │ 702 │ 3711 │ 711 │ 0002 │ 0009</span><span>✓</span></div>
+          <div class="fila mal"><span>702 │ 703 │ 2712 │ 712 │ 0000 │ 0000</span><span>✗</span></div>
+          <div class="msg">El primer fallo está en la instrucción 702…</div></div></div>
+          <figcaption>Al almacenar, el AC no se vacía y el RM lleva el valor que se escribe.</figcaption></figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> poner en el CP la dirección de la instrucción que se acaba de ejecutar. Al terminar cada instrucción, el CP ya apunta a la siguiente.</p>
+    </section>
+    <p class="volver"><a href="#bloque-6">↑ Volver al principio del bloque</a></p>
+  </section>
+
+  <nav class="nav-temas">
+    <a href="ut02-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut02-test.html">Test del tema &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

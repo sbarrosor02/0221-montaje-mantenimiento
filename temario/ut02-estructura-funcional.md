@@ -69,9 +69,11 @@ Se corrigen:
 | Boletines 1–4 | `web/temas/ut02-ejercicios.html` | — |
 | Circuitos lógicos | `web/assets/img/logica/` | `scripts/generar_circuitos_logicos.py` |
 | Práctica P4 | `web/temas/ut02-practicas.html` | — |
+| Ejercicios en la web (bloques 5 y 6) | `web/temas/ut02-ejercicios-web.html`, `web/assets/ut02-practica.js`, `web/assets/ut02-practica-datos.js` | `scripts/generar_ut02_autocorregibles.py` (con Node contrasta la web) |
+| Test del tema | `web/temas/ut02-test.html`, `web/assets/ut02-test.js` | Pruebas de interacción en Chromium, 1440 y 390 px |
 | Solucionarios | `temario/soluciones/ut02-*.md` | Los de circuitos y programas se generan por script |
 
-`web/assets/ut02.css` y `web/assets/ut02-interactivos.js` son propios de este tema y **no**
+`web/assets/ut02.css`, `web/assets/ut02-practica.css` y los `web/assets/ut02-*.js` son propios de este tema y **no**
 forman parte de los archivos compartidos con 0223.
 
 ## Verificación de los circuitos lógicos
@@ -101,3 +103,25 @@ NAND. Los circuitos 3 y 4 dan F = 0 para cualquier entrada; se mantienen como es
 Programas del ejercicio 8 del boletín del profesor. Resultados: P1 AC = 23 en 301 · P2 3 en
 303 · P3 75 en 305 · P4 7 en 309 · P5 15 en 312 · P6 10 en 314. En el programa 5 la celda
 312 ya contenía 0015: la escritura no cambia su valor. Conviene comentarlo en clase.
+
+## Ejercicios en la web (bloques 5 y 6) y test
+
+Petición del 30/10/2026: ejercicios que todo el grupo pueda resolver y corregir en la web.
+
+- **Bloque 5 · circuitos con valores**: 8 circuitos (niveles 1–4) con las entradas ya
+  dadas, para calcular la salida de cada puerta sin álgebra de Boole. El botón «Otros
+  valores» cambia A, B y C al azar, así que cada circuito sirve para repasar toda su tabla
+  de verdad. Los esquemas pasan la misma verificación que los del boletín 2 y además se
+  comprueba que los números de puerta y los valores no pisan ningún cable.
+- **Bloque 6 · ejecución de programas**: 6 programas con el juego de instrucciones del
+  boletín 4. El alumnado rellena CP, RI, RD, RM y AC al terminar cada instrucción (la misma
+  convención que la traza del simulador) y el valor final de cada celda de datos. El 6.4
+  usa la división entera (17 ÷ 5 = 3); el 6.5 sobrescribe un dato y lo reutiliza; el 6.6
+  da resultados negativos.
+- La página corrige y señala el primer fallo, pero **no muestra la solución**. Solucionario
+  con todas las tablas en `temario/soluciones/ut02-autocorregibles-solucionario.md`.
+- Entrega (solo si se pide): `<usuario>_E25.zip` y `<usuario>_E26.zip` con la memoria de
+  capturas, según la regla del recuadro «Entrega».
+- **Test**: banco de 56 preguntas repartidas por los apartados 2.1–2.8 (2.6 → CE b; el
+  resto → CE a). Cada test saca 10, 20 o todas al azar, baraja las opciones y puede restar
+  1/3 por fallo. Es de repaso: no guarda notas. Las preguntas no repiten las del concurso.
