@@ -26,7 +26,7 @@
   /* ================================================================ placa */
   /* Coordenadas en milímetros sobre una placa ATX de 305 × 244 mm, vista con el panel trasero a la izquierda. */
   var ZONAS = [
-    { id: 'socket', n: 'Zócalo (socket) del procesador', ce: 'c', f: [['r', 58, 36, 54, 54]], t: 'Donde se instala el microprocesador. Cada familia de procesadores usa un zócalo concreto: un procesador solo encaja en su zócalo (LGA 1700, LGA 1851, AM4, AM5…).', v: 'Cuadrado grande cerca del centro-arriba, con una palanca y una tapa metálica de retención (LGA) o una rejilla de agujeros (PGA).' },
+    { id: 'socket', n: 'Zócalo (socket) del procesador', ce: 'c', f: [['r', 58, 36, 54, 54]], t: 'Donde se instala el microprocesador. Cada familia de procesadores usa un zócalo concreto: un procesador solo encaja en su zócalo (LGA 1700, LGA 1851, LGA 1954, AM4, AM5…).', v: 'Cuadrado grande cerca del centro-arriba, con una palanca y una tapa metálica de retención (LGA) o una rejilla de agujeros (PGA).' },
     { id: 'vrm', n: 'VRM y sus disipadores', ce: 'e', f: [['r', 26, 28, 14, 74], ['r', 40, 16, 72, 13]], t: 'Módulo regulador de tensión: convierte los 12 V de la fuente en la tensión baja que necesita el procesador (alrededor de 1 V). Un buen VRM es clave para procesadores de mucho consumo y para el overclocking.', v: 'Bloques de aluminio con aletas en forma de L alrededor del zócalo. Debajo hay bobinas (fases) y transistores.' },
     { id: 'eps', n: 'Conector EPS de 12 V (CPU)', ce: 'e', f: [['r', 24, 3, 20, 9]], t: 'Alimentación del procesador: 4+4 u 8 pines, solo 12 V. Sin él la placa no arranca. Las placas para procesadores potentes traen dos (8 + 4 u 8 + 8).', v: 'Arriba a la izquierda, junto al VRM. Rotulado CPU_PWR, ATX12V o EPS.' },
     { id: 'cpufan', n: 'Conector CPU_FAN', ce: 'd', f: [['r', 118, 18, 11, 5]], t: 'Conector de 4 pines para el ventilador del disipador del procesador. Muchas placas no arrancan o avisan si no detectan un ventilador conectado aquí. Puede haber otro CPU_OPT para un segundo ventilador.', v: 'Cerca del zócalo, rotulado CPU_FAN.' },
@@ -149,6 +149,7 @@
     '': ['Sin sufijo', 'Versión estándar, a menudo de menor consumo y frecuencia que la X.'],
     X: ['X', 'Más frecuencia y consumo que la versión sin X.'],
     X3D: ['X3D', 'Lleva caché 3D V-Cache (mucha más caché L3 apilada). Destaca en juegos.'],
+    X3D2: ['X3D2', 'Caché 3D V-Cache en los dos chiplets de núcleos (Ryzen 9 9950X3D2, 2026). Más caché y más consumo (200 W).'],
     XT: ['XT', 'Revisión con algo más de frecuencia que la X.'],
     G: ['G', 'APU: gráfica integrada potente. Puede funcionar sin tarjeta gráfica dedicada.'],
     GT: ['GT', 'APU de gama ajustada con gráfica integrada.'],
@@ -177,30 +178,43 @@
       else if (gen >= 8 && gen <= 9) socket = 'LGA 1151 (chipsets serie 300), DDR4.';
       else socket = 'Generación antigua: busca su zócalo en la ficha del fabricante.';
       if (gen > 14) avisos.push('Intel no lanzó «Core i» de ' + gen + '.ª generación: desde 2023 se llaman Core Ultra o Core 3/5/7.');
-    } else if ((m = /^(?:intel\s+)?core\s+ultra\s+([579])\s+(\d)(\d{2})([a-z]{0,2})$/i.exec(t))) {
+    } else if ((m = /^(?:intel\s+)?core\s+ultra\s+([579])\s+(\d)(\d{2})([a-z]{0,2})(\s*plus)?$/i.exec(t))) {
       var serie = parseInt(m[2], 10), sufU = m[4].toUpperCase();
       filas.push(['Fabricante', 'Intel']);
       filas.push(['Gama', 'Core Ultra ' + m[1] + ' (' + { 5: 'media', 7: 'media-alta', 9: 'alta' }[m[1]] + ')']);
-      filas.push(['Serie', 'Serie ' + serie + ' (la primera cifra del número). Con el nombre «Core Ultra», Intel cambió la numeración en 2023.']);
+      filas.push(['Serie', 'Serie ' + serie + '00 (la primera cifra del número). Con el nombre «Core Ultra», Intel dejó de contar generaciones en 2023: las series 1 y 3 son de portátil, la 2 tiene modelos de sobremesa (LGA 1851) y de portátil, y la 4 («Nova Lake») estrena LGA 1954.']);
       filas.push(['Modelo (SKU)', m[3] + ': más alto = más rendimiento dentro de la gama']);
       if (!(sufU in SUFIJOS_INTEL)) return { error: 'No reconozco el sufijo «' + sufU + '».' };
       filas.push(['Sufijo', SUFIJOS_INTEL[sufU][0] + ': ' + SUFIJOS_INTEL[sufU][1]]);
+      if (m[5]) filas.push(['Plus', 'Renovación (refresh) de marzo de 2026 de la serie 200 de sobremesa: más núcleos E y memoria más rápida. Mismo zócalo y mismas placas.']);
       if (PORTATIL.indexOf(sufU) >= 0 || serie === 1 || serie === 3) socket = 'BGA: procesador de portátil, soldado a la placa.';
       else if (serie === 2) socket = 'LGA 1851 (placas con chipset serie 800: Z890, B860, H810). Solo DDR5.';
-      else socket = 'Generación posterior: consulta su zócalo en la ficha de Intel (las siguientes de sobremesa usan LGA 1954).';
-    } else if ((m = /^(?:amd\s+)?ryzen\s+([3579])\s+(\d)(\d)(\d{2})(x3d|xt|x|gt|g|f|u|hs|hx|h)?$/i.exec(t))) {
+      else if (serie === 4) { socket = 'LGA 1954 (placas con chipset serie 900). Solo DDR5. No sirve en placas LGA 1851.'; avisos.push('Serie anunciada por Intel para finales de 2026; según las filtraciones, llegará a las tiendas a principios de 2027.'); }
+      else socket = 'Serie posterior: consulta su zócalo en la ficha de Intel.';
+    } else if ((m = /^(?:amd\s+)?ryzen\s+ai\s+(max\+?\s+)?(?:([3579])\s+)?(?:pro\s+)?(hx\s+)?(\d)(\d{2})(ge|g)?$/i.exec(t))) {
+      var sAi = parseInt(m[4], 10), sufAi = (m[6] || '').toUpperCase();
+      filas.push(['Fabricante', 'AMD']);
+      filas.push(['Familia', 'Ryzen AI' + (m[1] ? ' Max' : '') + ': procesador con NPU (unidad para inteligencia artificial) y gráfica integrada potente' + (m[1] ? ', con la memoria compartida entre CPU y gráfica' : '') + '.']);
+      if (m[2]) filas.push(['Gama', 'Ryzen AI ' + m[2] + ' (' + { 3: 'básica', 5: 'media', 7: 'media-alta', 9: 'alta' }[m[2]] + ')']);
+      filas.push(['Serie', sAi + '00 (primera cifra): 300 = 2024, 400 = 2026 (Zen 5 en las dos).']);
+      if (m[3]) filas.push(['HX', 'Portátil de máximo rendimiento.']);
+      if (sufAi) filas.push(['Sufijo', sufAi === 'G' ? 'G: versión de sobremesa (65 W).' : 'GE: versión de sobremesa de bajo consumo (35 W).']);
+      if (sufAi && !m[1]) { socket = 'AM5 (LGA 1718). Solo DDR5.'; avisos.push('Los Ryzen AI 400 de sobremesa salieron en 2026 solo en equipos de marca (Dell, HP, Lenovo…).'); }
+      else socket = 'BGA: procesador de portátil o mini PC, soldado a la placa.';
+    } else if ((m = /^(?:amd\s+)?ryzen\s+([3579])\s+(\d{1,2})(\d)(\d{2})(x3d2|x3d|xt|x|gt|g|f|u|hs|hx|h)?$/i.exec(t))) {
       var s = parseInt(m[2], 10), sufA = (m[5] || '').toUpperCase();
       filas.push(['Fabricante', 'AMD']);
       filas.push(['Gama', 'Ryzen ' + m[1] + ' (' + { 3: 'básica', 5: 'media', 7: 'media-alta', 9: 'alta' }[m[1]] + ')']);
-      filas.push(['Serie', s + '000 (primera cifra). Cada serie suele traer arquitectura nueva: 5000 = Zen 3, 7000 = Zen 4, 9000 = Zen 5. La serie 8000 de sobremesa es Zen 4, casi toda con gráfica integrada potente (G).']);
-      filas.push(['Segmento', m[3] + ' (segunda cifra): 1–3 básico, 4–6 medio, 7–9 alto']);
+      filas.push(['Serie', s + '000 (primeras cifras). Cada serie suele traer arquitectura nueva: 5000 = Zen 3, 7000 = Zen 4, 9000 = Zen 5 y 10000 = Zen 6 (prevista para 2027). La serie 8000 de sobremesa es Zen 4, casi toda con gráfica integrada potente (G).']);
+      filas.push(['Segmento', m[3] + ' (cifra siguiente): 1–3 básico, 4–6 medio, 7–9 alto']);
       filas.push(['Sufijo', SUFIJOS_AMD[sufA][0] + ': ' + SUFIJOS_AMD[sufA][1]]);
       if (PORTATIL.indexOf(sufA) >= 0) socket = 'BGA: procesador de portátil, soldado a la placa.';
       else if (s <= 5) socket = 'AM4 (PGA, pines en el procesador). DDR4. Chipsets A320 a X570.';
-      else if (s >= 7 && s <= 9) socket = 'AM5 (LGA 1718, contactos en la placa). Solo DDR5. Chipsets A620, B650, X670, B850, X870…';
+      else if (s >= 7 && s <= 10) socket = 'AM5 (LGA 1718, contactos en la placa). Solo DDR5. Chipsets A620, B840, B650, B850, X670, X870…';
       else socket = 'Consulta la ficha de AMD.';
+      if (s === 10) avisos.push('Serie todavía no a la venta: AMD ha confirmado que Zen 6 usará AM5, pero el nombre «Ryzen 10000» no es oficial. Habrá que actualizar la UEFI de la placa.');
     } else {
-      return { error: 'No lo reconozco. Prueba con un nombre como «Core i5-14400F», «Core Ultra 7 265K» o «Ryzen 7 7800X3D». Los nombres de portátil nuevos (Ryzen AI, Core Ultra serie 3) siguen otras reglas.' };
+      return { error: 'No lo reconozco. Prueba con un nombre como «Core i5-14400F», «Core Ultra 7 270K Plus», «Ryzen 7 9850X3D» o «Ryzen AI 7 450G».' };
     }
     return { filas: filas, socket: socket, avisos: avisos };
   }
@@ -212,7 +226,7 @@
     var b = el('button', { type: 'submit' }, 'Descifrar');
     form.appendChild(lab); form.appendChild(campo); form.appendChild(b);
     var ej = el('p', { class: 'cpu-ejemplos' }, 'Ejemplos: ');
-    ['Core i3-12100F', 'Core i7-14700K', 'Core Ultra 5 245K', 'Ryzen 5 7600', 'Ryzen 7 7800X3D', 'Ryzen 5 8600G', 'Ryzen 5 5600', 'Core i7-13700H'].forEach(function (n) {
+    ['Core i3-12100F', 'Core i7-14700K', 'Core Ultra 5 245K', 'Core Ultra 7 270K Plus', 'Ryzen 5 7600', 'Ryzen 7 9850X3D', 'Ryzen 5 8600G', 'Ryzen AI 7 450G', 'Ryzen 5 5600', 'Core i7-13700H'].forEach(function (n) {
       var x = el('button', { type: 'button', class: 'sec' }, n);
       x.addEventListener('click', function () { campo.value = n; pintar(); });
       ej.appendChild(x);
