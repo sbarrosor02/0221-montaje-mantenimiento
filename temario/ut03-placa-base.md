@@ -34,12 +34,12 @@ Las 16 h se amplían según el ritmo del grupo (unas 18–20 sesiones con las pr
 |---|---|---|---|
 | c) Microprocesadores | 3.3 | Boletín 2, configurador | P6 |
 | d) Disipadores y ventiladores | 3.5 | Boletín 2, configurador | P6 |
-| e) Configuración de la placa base | 3.1, 3.2, 3.4, 3.6, 3.7 | Boletines 1 y 3, configurador | P5 |
-| f) BIOS/UEFI | 3.8 | Boletín 4, simulador de UEFI | P7 |
+| e) Configuración de la placa base | 3.1, 3.2, 3.4, 3.6, 3.7 | Boletines 1, 3 y 5, configurador | P5 |
+| f) BIOS/UEFI | 3.8 | Boletines 4 y 5, simulador de UEFI | P7 |
 | g) Chasis | 3.1, 3.12 | Boletines 1 y 4, configurador | P8 |
 | i) Adaptador gráfico y monitor | 3.9, 3.10 | Boletín 4, configurador | P8 |
 | j) Adaptadores | 3.7, 3.9, 3.11 | Boletines 3 y 4 | P8 |
-| k) Documentación, controladores y utilidades | 3.13 | Boletines 1, 3 y 4 | P5 |
+| k) Documentación, controladores y utilidades | 3.13 | Boletines 1, 3, 4 y 5 | P5 |
 
 ## Cambios respecto a los apuntes de 2024/25
 
@@ -87,9 +87,24 @@ accesorios (CE k, no estaba).
 | Teoría 2 (f, g, i, j, k) | `web/temas/ut03-teoria-2.html` | Interacción en Chromium, 1440 y 390 px |
 | Simulador de UEFI | `web/temas/ut03-ejercicios-uefi.html`, `web/assets/ut03-uefi.js` | Misiones completadas automáticamente |
 | Configurador | `web/temas/ut03-ejercicios-configurador.html`, `web/assets/ut03-configurador.js` | Las 322 560 combinaciones sin errores; casos A–E |
-| Boletines 1–4 | `web/temas/ut03-ejercicios.html` | — |
+| Boletines 1–5 | `web/temas/ut03-ejercicios.html` | — |
 | Solucionario | `temario/soluciones/ut03-ejercicios-solucionario.md` | `scripts/generar_ut03_solucionario.py` contrasta tablas y fórmulas con la web |
 | Prácticas P5–P8 | `web/temas/ut03-practicas.html` | — |
+
+## Boletín 5 · Placas base reales
+
+Un ejercicio por placa real, con el esquema numerado de su manual (imagen en
+`web/assets/img/placas/`, recortada del PDF del fabricante y con la fuente citada en
+el pie). Cada placa lleva la tabla de los números del esquema y preguntas de lectura
+del manual (alimentación, memoria, ventiladores, panel frontal, reparto de carriles
+PCIe/M.2, Q-LED, panel trasero y BIOS Flashback). Las especificaciones que se dan en el
+enunciado se han contrastado con la ficha técnica del fabricante. Para añadir una
+placa: nuevo `ej-5-N` antes del recuadro «Entrega», su imagen en `img/placas/`, su
+solución en `scripts/generar_ut03_solucionario.py` y el recuento en el mapa de boletines.
+
+| Ejercicio | Placa | Fuente |
+|---|---|---|
+| 5.1 | ASUS TUF GAMING X870-PLUS WIFI (AM5, X870, ATX) | Manual de usuario, apartado 1.2; ficha técnica en asus.com |
 
 `ut03.css`, `ut03-interactivos.js`, `ut03-uefi.js` y `ut03-configurador.js` son propios
 de este tema. Las páginas también cargan `ut02.css` (clases comunes) y

@@ -1,4 +1,4 @@
-"""Solucionario del tema 3 (boletines 1-4 y retos del configurador).
+"""Solucionario del tema 3 (boletines 1-5 y retos del configurador).
 
 Uso:  python scripts/generar_ut03_solucionario.py
 
@@ -180,6 +180,73 @@ def main():
            'ventilador, llave o destornillador. Orden de controladores: chipset, red (para tener internet), gráfica, sonido, '
            'Wi-Fi/Bluetooth y utilidades.', '',
            f'**4.10** 2U = 2 × 44,45 = {es(2 * 44.45, 1)} mm. 42U = {es(42 * 44.45, 1)} mm ≈ {es(42 * 44.45 / 1000, 2)} m.', '']
+
+    # ------------------------------------------------------------ boletín 5
+    placa = [
+        (1, 'SOCKET AM5', 'Zócalo del procesador, LGA 1718', 'Procesador AMD Ryzen; encima va el disipador.'),
+        (2, 'DDR5 DIMM_A1, A2, B1, B2', 'Ranuras de memoria DDR5 (288 contactos)', 'Módulos DIMM DDR5; dos canales (A y B).'),
+        (3, 'PCIEX16(G5), PCIEX16(G4)', 'Ranuras PCIe de tamaño x16', 'Tarjeta gráfica (en la G5) y otras tarjetas de expansión.'),
+        (4, 'CPU_FAN, CPU_OPT, AIO_PUMP, CHA_FAN1–4, W_PUMP+', 'Conectores de ventilador y de bomba (4 pines)',
+         'CPU_FAN: ventilador del disipador · CPU_OPT: segundo ventilador del disipador · AIO_PUMP: bomba de una AIO · '
+         'CHA_FAN: ventiladores de la caja · W_PUMP+: bomba de una refrigeración líquida a medida.'),
+        (5, 'CPU_12V_1, CPU_12V_2, ATX_PWR', 'Conectores de alimentación',
+         'ATX_PWR: 24 pines, alimentación principal de la placa · CPU_12V: dos EPS de 8 pines para el VRM del procesador.'),
+        (6, 'M.2_1 a M.2_4 (SOCKET3)', 'Ranuras M.2 llave M', 'SSD NVMe (PCIe).'),
+        (7, 'SATA6G_1, SATA6G_2', 'Puertos SATA de 6 Gbit/s', 'Discos duros, SSD de 2,5″ y grabadoras con cable SATA.'),
+        (8, 'U20G_C6', 'Conector interno USB-C de 20 Gbit/s', 'USB-C del panel frontal de la caja.'),
+        (9, 'U5G_1011', 'Conector interno USB de 5 Gbit/s (19 pines)', 'Dos USB-A frontales de 5 Gbit/s (puertos 10 y 11).'),
+        (10, 'USB_1617, USB_1415', 'Conectores internos USB 2.0 (9 pines)', 'Dos puertos USB 2.0 cada uno: USB frontales lentos, lector de tarjetas, controladora de una AIO.'),
+        (11, 'ADD_GEN 2_1, 2_2, 2_3', 'Conectores ARGB Gen2 (5 V, 3 pines)', 'Tiras y ventiladores con iluminación direccionable.'),
+        (12, 'CHASSIS', 'Conector de intrusión del chasis', 'Sensor que avisa en la UEFI si se ha abierto la caja.'),
+        (13, 'CLRTC', 'Puente Clear CMOS (2 pines)', 'Borrar los ajustes de la UEFI y volver a los de fábrica.'),
+        (14, 'COM', 'Conector del puerto serie', 'Soporte con un puerto serie RS-232 (equipos industriales, consolas de red).'),
+        (15, 'F_AUDIO', 'Audio del panel frontal (HD Audio)', 'Auriculares y micrófono de la caja.'),
+        (16, 'F_PANEL', 'Panel frontal del sistema', 'Botones de encendido y reinicio y LED de encendido y de disco.'),
+        (17, 'T_SENSOR', 'Conector de sonda de temperatura', 'Termistor para medir la temperatura de un punto de la caja.'),
+        (18, 'CPU, DRAM, VGA, BOOT', 'LED de diagnóstico (Q-LED)', 'Indican en qué paso del POST se detiene el arranque.'),
+        (19, 'BIOS_FLBK, FLBK_LED', 'Botón y LED de BIOS FlashBack', 'Actualizar la UEFI desde un USB sin procesador ni memoria.'),
+    ]
+    assert [n for n, *_ in placa] == list(range(1, 20))
+    md += ['## Boletín 5 · Placas base reales', '',
+           '### 5.1 ASUS TUF GAMING X870-PLUS WIFI', '',
+           'Datos contrastados con la ficha técnica de asus.com y el manual de la placa.', '',
+           '**a)**', '', '| N.º | Rótulos | Qué es | Para qué sirve |', '|---|---|---|---|']
+    md += [f'| {n} | {r} | {q} | {s} |' for n, r, q, s in placa]
+    md += ['',
+           '**b)** Zócalo AM5, LGA 1718: los contactos están en el zócalo (la placa) y el procesador solo tiene superficies '
+           'de contacto. Chipset AMD X870, el cuadro «AMD X870» de la parte inferior derecha, bajo su disipador. Admite '
+           'Ryzen de las series 7000, 8000 y 9000.', '',
+           '**c)** ATX_PWR (24 pines) y CPU_12V_1 y CPU_12V_2 (EPS de 8 pines cada uno). El procesador puede consumir más de '
+           '200 W: el VRM convierte los 12 V de los EPS en la tensión de los núcleos (Vcore), y por el conector de 24 pines '
+           'no pasaría esa corriente.', '',
+           '**d)** Cuatro ranuras DDR5. Un módulo DDR4 no entra: la muesca está en otro sitio. Con dos módulos, A2 y B2, '
+           'las marcadas «1st» en el esquema (doble canal).', '',
+           '**e)** Disipador: CPU_FAN (y CPU_OPT si tiene un segundo ventilador). Bomba AIO: AIO_PUMP (va a máxima velocidad '
+           'por defecto). Ventiladores de caja sin divisor: 4 (CHA_FAN1 a CHA_FAN4). W_PUMP+: bomba de una refrigeración '
+           'líquida a medida, que admite más corriente.', '',
+           '**f)** Botones y LED → F_PANEL (16) · audio → F_AUDIO (15) · dos USB-A de 5 Gbit/s → U5G_1011 (9) · USB-C de '
+           '20 Gbit/s → U20G_C6 (8) · lector de tarjetas → USB_1415 o USB_1617 (10).', '',
+           '**g)** Gráfica → PCIEX16(G5), a x16. SSD PCIe 5.0 → M.2_1 (no en M.2_2: dejaría la gráfica en x8). SSD 22110 → '
+           'M.2_4, la única ranura que admite 110 mm; al usarla se desactiva PCIEX16(G4). Discos duros → SATA6G_1 y SATA6G_2. '
+           'La capturadora no tiene sitio: la única ranura libre, PCIEX16(G4), está desactivada por M.2_4. Solución: cambiar '
+           'el SSD 22110 por uno 2280 (clonándolo) y ponerlo en M.2_3; así M.2_4 queda libre y la capturadora va en '
+           'PCIEX16(G4) a x4, que le basta. G5 y G4 indican la generación PCIe: 5.0 y 4.0. La G4 tiene tamaño x16 pero '
+           'funciona a x4.', '',
+           '**h)** Falla la memoria. Por orden: esperar unos minutos (el primer arranque con DDR5 hace el entrenamiento de '
+           'memoria y tarda), comprobar que los módulos están bien insertados y con los pestillos cerrados, que están en A2 y '
+           'B2, probar con un solo módulo en A2 (y luego el otro), hacer Clear CMOS si se había activado EXPO, y consultar la '
+           'QVL de la placa.', '',
+           '**i)** LAN_U10G_34: RJ-45 de 2,5 Gbit/s y dos USB de 10 Gbit/s (puertos 3 y 4) · HDMI: salida de vídeo de la '
+           'gráfica integrada · USB_5: puerto USB 2.0 · U40G_EC1 y U40G_EC2: USB4 tipo C de 40 Gbit/s, también con salida de '
+           'vídeo DisplayPort · U10G_8: USB de 10 Gbit/s · U5G_E1234: cuatro USB de 5 Gbit/s · M.2(WIFI): conectores de la '
+           'antena Wi-Fi 7 y Bluetooth · AUDIO: conectores de audio · BIOS_FLBK: botón de BIOS FlashBack. El número es la '
+           'velocidad en Gbit/s y la C indica tipo C. Ryzen 7 9700X: sí, tiene gráfica integrada (HDMI o USB4). Ryzen 5 '
+           '7500F: no, la F indica que no tiene gráfica integrada; hace falta tarjeta gráfica.', '',
+           '**j)** El botón de BIOS FlashBack (19) actualiza la UEFI sin procesador ni memoria, solo con la fuente conectada. '
+           'Se usa cuando el procesador es más nuevo que la UEFI de fábrica (por ejemplo, un Ryzen 9000 en una placa con '
+           'firmware antiguo) o para recuperar una actualización fallida. Hace falta una memoria USB en FAT32 con el archivo '
+           'de la UEFI renombrado con la utilidad de ASUS; se conecta al puerto USB de FlashBack, se mantiene pulsado el botón '
+           'unos segundos y se espera a que el LED deje de parpadear.', '']
 
     # ------------------------------------------------------------ configurador
     md += ['## Retos del configurador (C1)', '', 'Problemas que detecta el configurador de la web en cada caso:', '']
