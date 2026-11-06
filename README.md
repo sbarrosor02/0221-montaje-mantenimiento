@@ -75,7 +75,8 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (RA1 c, d, e, f, g, i, j, k): portada con mapa de criterios, dos páginas de teoría
   (placa interactiva, decodificador de procesadores, calculadoras de memoria, PCIe y
   conectores de vídeo), simulador de UEFI con misiones, configurador de
-  compatibilidades, cuatro boletines y prácticas P5–P8. Solucionario generado con
+  compatibilidades, cinco boletines (el 5, con placas base reales para identificar
+  sus componentes con el esquema del manual) y prácticas P5–P8. Solucionario generado con
   `scripts/generar_ut03_solucionario.py`; decisiones en `temario/ut03-placa-base.md`.
 - **Tema 4 — Almacenamiento, fuente de alimentación y ensamblaje del equipo**
   (UT4 + UT5 de la programación; RA1 h, RA2 a–j, RA3 f–j, RA8 b, e, h): portada con

@@ -133,7 +133,7 @@
       "evaluacion": 1,
       "horas": 16,
       "estado": "publicado",
-      "actualizado": "2026-10-23",
+      "actualizado": "2026-11-06",
       "recursos": [
         {
           "titulo": "Teoría 1: placa base, procesador, chipset, refrigeración, memoria y expansión",
@@ -156,9 +156,9 @@
           "nota": "procesadores reales y componentes genéricos; cinco casos A-E; probado en las 322 560 combinaciones"
         },
         {
-          "titulo": "Ejercicios: cuatro boletines",
+          "titulo": "Ejercicios: cinco boletines",
           "url": "temas/ut03-ejercicios.html",
-          "nota": "solucionario generado y contrastado con las calculadoras por scripts/generar_ut03_solucionario.py"
+          "nota": "el boletín 5 trae placas base reales para identificar sus componentes; solucionario generado y contrastado con las calculadoras por scripts/generar_ut03_solucionario.py"
         },
         {
           "titulo": "Prácticas P5-P8",

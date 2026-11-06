@@ -12,7 +12,7 @@
 </head>
 <body data-modulo="0221">
 <a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-mapa">Mapa de boletines</a></li><li><a href="#boletin-1">Boletín 1 · Placa base</a></li><li><a href="#boletin-2">Boletín 2 · Procesador y refrigeración</a></li><li><a href="#boletin-3">Boletín 3 · Memoria y expansión</a></li><li><a href="#boletin-4">Boletín 4 · UEFI, gráfica, monitor y chasis</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios</span></nav>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-mapa">Mapa de boletines</a></li><li><a href="#boletin-1">Boletín 1 · Placa base</a></li><li><a href="#boletin-2">Boletín 2 · Procesador y refrigeración</a></li><li><a href="#boletin-3">Boletín 3 · Memoria y expansión</a></li><li><a href="#boletin-4">Boletín 4 · UEFI, gráfica, monitor y chasis</a></li><li><a href="#boletin-5">Boletín 5 · Placas base reales</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><span aria-current="page">Ejercicios</span></nav>
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Ejercicios</p>
@@ -45,6 +45,7 @@
     <li><a href="#boletin-2"><strong>Boletín 2 · Procesador y refrigeración</strong><span>Nombres, zócalos, consumo, disipadores y ventiladores · CE c, d · 8 ejercicios</span></a></li>
     <li><a href="#boletin-3"><strong>Boletín 3 · Memoria y expansión</strong><span>Latencia, canales, PCIe y M.2 · CE e, j · 7 ejercicios</span></a></li>
     <li><a href="#boletin-4"><strong>Boletín 4 · UEFI, gráfica, monitor y chasis</strong><span>Diagnóstico, alimentación, ancho de banda, cajas y accesorios · CE f, g, i, j, k · 10 ejercicios</span></a></li>
+    <li><a href="#boletin-5"><strong>Boletín 5 · Placas base reales</strong><span>Identificar los componentes con el esquema del manual · CE e, f, k · 1 placa</span></a></li>
   </ul>
 
   <section>
@@ -286,6 +287,137 @@
       un servidor de 2U? ¿Y un armario de 42U, contando solo el espacio para
       equipos?</p>
     </div>
+    <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
+  </section>
+
+  <section>
+    <h2 id="boletin-5">Boletín 5 · Placas base reales</h2>
+    <p>Cada ejercicio de este boletín es una placa base de verdad, con el esquema
+    que trae su manual. Es lo que harás en el taller cada vez que te llegue una
+    placa que no conoces: localizar cada conector con el esquema y la
+    serigrafía y saber para qué sirve. Repasa el
+    <a href="ut03-teoria.html#apartado-3-2">mapa de la placa base (3.2)</a> y
+    practica antes con la placa interactiva. Iremos añadiendo placas a lo largo
+    del tema.</p>
+
+    <div class="ejercicio">
+      <h3 id="ej-5-1"><span class="num">5.1</span> ASUS TUF GAMING X870-PLUS WIFI <span class="ce">CE e</span> <span class="ce">CE f</span> <span class="ce">CE k</span></h3>
+      <p>Este es el esquema de la placa que aparece en su manual (apartado 1.2,
+      <em>Motherboard layout</em>). Los números azules señalan cada grupo de
+      componentes; un mismo número puede aparecer en varios sitios cuando son
+      componentes del mismo tipo.</p>
+      <figure class="figura">
+        <a href="../assets/img/placas/asus-tuf-gaming-x870-plus-wifi.png"><img src="../assets/img/placas/asus-tuf-gaming-x870-plus-wifi.png" width="1701" height="2031" loading="lazy" alt="Esquema de la placa base ASUS TUF GAMING X870-PLUS WIFI con los componentes numerados del 1 al 19: zócalo AM5, cuatro ranuras DDR5, dos ranuras PCIe x16, cuatro ranuras M.2, conectores de alimentación, de ventiladores, SATA, USB internos, ARGB, panel frontal, audio frontal, COM, sensor de temperatura, intrusión del chasis, Clear CMOS, LED de diagnóstico y botón de BIOS Flashback."></a>
+        <figcaption>Esquema de la ASUS TUF GAMING X870-PLUS WIFI. Fuente: manual de usuario de ASUS.
+        <a href="../assets/img/placas/asus-tuf-gaming-x870-plus-wifi.png">Abrir la imagen a tamaño completo</a> (en el móvil, para ampliarla).</figcaption>
+      </figure>
+
+      <p><strong>a) Identifica los componentes.</strong> Copia esta tabla en
+      LibreOffice Writer y complétala para los 19 números. En «Rótulos» escribe
+      la serigrafía que aparece en el esquema; en «Qué es» y «Para qué sirve»,
+      con tus palabras.</p>
+      <div class="aula-tabla" role="region" aria-label="Plantilla de la tabla; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>N.º</th><th>Rótulos en el esquema</th><th>Qué es</th><th>Para qué sirve / qué se conecta</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td></td><td></td><td></td></tr>
+          <tr><td>2</td><td></td><td></td><td></td></tr>
+          <tr><td>…</td><td></td><td></td><td></td></tr>
+          <tr><td>19</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+      <div class="ejemplo">
+        <strong>Ejemplo · la pila (no tiene número en el esquema)</strong>
+        Rótulo: BATTERY. Qué es: pila de botón de litio, normalmente CR2032.
+        Para qué sirve: mantiene en marcha el reloj de la placa (RTC) cuando el
+        equipo está desenchufado. Si se agota, el equipo arranca con la fecha y la
+        hora mal.
+      </div>
+
+      <p><strong>b) Procesador y chipset.</strong> ¿Qué zócalo tiene la placa? ¿Los
+      contactos están en el zócalo o en el procesador? ¿Qué chipset lleva y dónde
+      está? ¿Qué familias de procesadores admite? (Búscalo en la web de ASUS y anota
+      la dirección.)</p>
+
+      <p><strong>c) Alimentación.</strong> ¿Qué conectores del número 5 salen de la
+      fuente? ¿Cuántos pines tiene cada uno? ¿Por qué el procesador tiene su propia
+      alimentación?</p>
+
+      <p><strong>d) Memoria.</strong> ¿Cuántas ranuras hay y de qué tipo de memoria?
+      ¿Podrías poner un módulo DDR4? Si el cliente trae dos módulos, ¿en qué
+      ranuras los pones? Fíjate en lo que indica el esquema junto al nombre de dos
+      de ellas.</p>
+
+      <p><strong>e) Ventiladores y bombas.</strong> Clasifica los conectores del
+      número 4: ¿dónde conectas el ventilador del disipador del procesador? ¿Y la
+      bomba de una refrigeración líquida AIO? ¿Cuántos ventiladores de caja puedes
+      conectar sin usar un divisor? ¿Para qué crees que es W_PUMP+?</p>
+
+      <p><strong>f) Panel frontal de la caja.</strong> La caja tiene botones de
+      encendido y reinicio, LED, audio, dos USB-A de 5 Gbit/s, un USB-C de
+      20 Gbit/s y un lector de tarjetas con conector USB 2.0. Indica en qué
+      conector de la placa (rótulo y número del esquema) va cada cable.</p>
+
+      <p><strong>g) Ranuras de expansión y M.2.</strong> Fragmento de las
+      especificaciones de la placa (con un Ryzen 7000 o 9000):</p>
+      <ul>
+        <li>PCIEX16(G5): PCIe 5.0 x16, conectada al procesador. Comparte ancho de
+        banda con M.2_2: si se usa M.2_2, la ranura funciona en modo x8.</li>
+        <li>PCIEX16(G4): PCIe 4.0, funciona en modo x4, conectada al chipset. Se
+        desactiva si se usa M.2_4.</li>
+        <li>M.2_1 y M.2_2: tipo 2280, PCIe 5.0 x4, conectadas al procesador.</li>
+        <li>M.2_3: tipo 2280, PCIe 4.0 x4, conectada al chipset.</li>
+        <li>M.2_4: tipos 2242, 2260, 2280 y 22110, PCIe 4.0 x4, conectada al chipset.</li>
+      </ul>
+      <p>El cliente tiene una tarjeta gráfica PCIe 5.0 x16, un SSD NVMe PCIe 5.0 de
+      tipo 2280, un SSD NVMe de tipo 22110 y dos discos duros SATA. ¿Dónde
+      conectas cada cosa para que todo vaya a su máxima velocidad? Después quiere
+      añadir una tarjeta capturadora PCIe x4: ¿dónde la pondrías y qué tendría que
+      cambiar? ¿Qué significan «G5» y «G4» en el nombre de las ranuras?</p>
+
+      <p><strong>h) Diagnóstico.</strong> Montas el equipo, lo enciendes y no se
+      ve imagen. Se queda encendido el LED DRAM del número 18. ¿Qué revisarías,
+      y en qué orden?</p>
+
+      <p><strong>i) Panel trasero.</strong> El panel trasero de E/S está a la
+      izquierda del esquema. Explica qué es cada rótulo (por ejemplo, U40G_EC1 o
+      U5G_E1234). Con un Ryzen 7 9700X y sin tarjeta gráfica, ¿puedes conectar el
+      monitor a esta placa? ¿Y con un Ryzen 5 7500F?</p>
+
+      <p><strong>j) BIOS Flashback.</strong> ¿Qué es el número 19? ¿En qué
+      situación lo usarías? ¿Qué necesitas y qué tendrías que hacer?</p>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-5-1">
+      <h3 id="entrega-5-1">Qué entregas del boletín 5</h3>
+      <p class="entrega-sub">Un ZIP con la memoria en PDF; en ella, un apartado por placa con la tabla de componentes y las respuestas.</p>
+      <ul class="entrega-archivos"><li>&lt;usuario&gt;_E35.zip</li><li>&lt;usuario&gt;_E35.pdf (dentro del ZIP)</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>La tabla tiene las 19 filas, y cada fila sus tres columnas rellenas.</li>
+        <li>Cuando un número señala varios componentes (el 3, el 4, el 5, el 6, el 10 o el 11), están todos sus rótulos y se explica la diferencia entre ellos.</li>
+        <li>En «Para qué sirve» dices qué se conecta (cable, tarjeta, dispositivo), no solo el nombre.</li>
+        <li>Has respondido de la b) a la j) con el enunciado en negrita y, en la b), la dirección de la web de ASUS que has consultado.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien"><div class="hoja" aria-hidden="true">
+          <p class="t1">5.1 a) Componentes de la ASUS TUF GAMING X870-PLUS WIFI</p>
+          <table><thead><tr><th>N.º</th><th>Rótulos</th><th>Qué es</th><th>Para qué sirve</th></tr></thead>
+          <tbody><tr><td>—</td><td>BATTERY</td><td>Pila de botón CR2032</td><td>Mantiene el reloj (RTC) con el equipo desenchufado</td></tr>
+          <tr><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table>
+          <p class="pie">Tabla 1: componentes numerados del esquema</p></div>
+          <figcaption>Una fila por número, con todos sus rótulos y qué se conecta en cada uno.</figcaption></figure>
+        <figure class="mal"><div class="hoja" aria-hidden="true">
+          <p class="t1">5.1 a)</p>
+          <table><thead><tr><th>N.º</th><th>Qué es</th></tr></thead>
+          <tbody><tr><td>4</td><td>Ventilador</td></tr><tr><td>6</td><td>M.2</td></tr></tbody></table></div>
+          <figcaption>Faltan columnas y rótulos; «ventilador» no dice cuál ni para qué.</figcaption></figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> confundir los conectores
+      que se parecen. Los tres conectores USB internos (8, 9 y 10) tienen tamaños y
+      velocidades distintos, y los ARGB (11) no son de ventilador aunque estén al lado.
+      Usa el rótulo de la serigrafía, no solo la forma.</p>
+    </section>
     <p class="volver"><a href="#apartado-mapa">↑ Volver al mapa de boletines</a></p>
   </section>
 
