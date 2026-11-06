@@ -90,6 +90,7 @@ accesorios (CE k, no estaba).
 | Boletines 1–5 | `web/temas/ut03-ejercicios.html` | — |
 | Solucionario | `temario/soluciones/ut03-ejercicios-solucionario.md` | `scripts/generar_ut03_solucionario.py` contrasta tablas y fórmulas con la web |
 | Prácticas P5–P8 | `web/temas/ut03-practicas.html` | — |
+| Concurso de clase (3.1–3.3.3) | `web/juegos/ut03-concurso.html` | Partida completa automática en Chromium, 1440 y 390 px |
 
 ## Boletín 5 · Placas base reales
 
@@ -109,6 +110,17 @@ solución en `scripts/generar_ut03_solucionario.py` y el recuento en el mapa de 
 `ut03.css`, `ut03-interactivos.js`, `ut03-uefi.js` y `ut03-configurador.js` son propios
 de este tema. Las páginas también cargan `ut02.css` (clases comunes) y
 `ut02-interactivos.js` (cuestionarios).
+
+## Concurso de clase
+
+Copia del motor de `web/juegos/ut02-concurso.html` (modos, puntuación, podio, premios y
+tarjetas imprimibles iguales) con su propio banco y sus propias claves de almacenamiento
+(`concurso-ut03-*`), así que no se mezcla con la partida del tema 2. Solo entra la teoría
+1 hasta el 3.3.3: 7 preguntas de formatos, 9 de conectores internos, 5 del panel frontal,
+7 de características del procesador, 7 de zócalos y 6 de nombres. No repite las preguntas
+de la autoevaluación de la teoría. Si se cambia el motor en uno de los dos concursos, hay
+que replicarlo en el otro. Las preguntas de zócalos y nombres usan los datos de la revisión
+del 06/11/2026 (Core Ultra 200S Plus, LGA 1954 y AM5 hasta 2029).
 
 ## Datos que caducan
 
