@@ -203,9 +203,10 @@
       <p>Con la ficha no basta para saber cuál rinde más: hay que mirar
       <strong>pruebas de rendimiento</strong> (<em>benchmarks</em>) con programas
       reales, el <strong>precio</strong> del conjunto (procesador + placa + memoria)
-      y la <strong>actualización futura</strong>: AMD mantiene el zócalo AM5 para
-      varias generaciones, mientras que LGA 1700 ya no recibe procesadores
-      nuevos.</p>
+      y la <strong>actualización futura</strong>. AMD mantiene el zócalo AM5 desde
+      2022 y ha confirmado que lo seguirá usando hasta 2029. Intel suele cambiar
+      de zócalo cada dos generaciones (LGA 1700 → LGA 1851 → LGA 1954), así que
+      para cambiar de generación hay que cambiar también la placa.</p>
     </div>
 
     <h3>3.3.2 Encapsulados y zócalos</h3>
@@ -218,11 +219,11 @@
       <thead><tr><th>Zócalo</th><th>Tipo</th><th>Procesadores</th><th>Memoria</th><th>Chipsets</th></tr></thead>
       <tbody>
         <tr><td>Intel LGA 1200</td><td>LGA</td><td>Core de 10.ª y 11.ª generación (2020–2021)</td><td>DDR4</td><td>Series 400 y 500</td></tr>
-        <tr><td>Intel LGA 1700</td><td>LGA</td><td>Core de 12.ª, 13.ª y 14.ª generación (2021–2023)</td><td>DDR4 o DDR5 (según la placa)</td><td>Series 600 y 700</td></tr>
-        <tr><td>Intel LGA 1851</td><td>LGA</td><td>Core Ultra serie 200 de sobremesa (2024)</td><td>DDR5</td><td>Serie 800 (Z890, B860, H810)</td></tr>
-        <tr><td>Intel LGA 1954</td><td>LGA</td><td>Siguiente generación de sobremesa («Nova Lake»), anunciada para finales de 2026</td><td>DDR5</td><td>Serie 900</td></tr>
+        <tr><td>Intel LGA 1700</td><td>LGA</td><td>Core de 12.ª, 13.ª y 14.ª generación (2021–2023). Muy habitual todavía en el taller.</td><td>DDR4 o DDR5 (según la placa)</td><td>Series 600 y 700</td></tr>
+        <tr><td>Intel LGA 1851</td><td>LGA</td><td>Core Ultra serie 200S («Arrow Lake», 2024) y su renovación Core Ultra 200S Plus (marzo de 2026: Core Ultra 5 250K Plus y Core Ultra 7 270K Plus). Es la plataforma actual de Intel.</td><td>DDR5</td><td>Serie 800 (Z890, B860, H810)</td></tr>
+        <tr><td>Intel LGA 1954</td><td>LGA</td><td>Core Ultra serie 400 («Nova Lake»). Intel la anunció para finales de 2026; según las filtraciones, llegará a las tiendas a principios de 2027. No es compatible con las placas LGA 1851.</td><td>DDR5</td><td>Serie 900 (filtrados: Z990, Z970, B960)</td></tr>
         <tr><td>AMD AM4</td><td>PGA</td><td>Ryzen 1000 a 5000 (2017–2022)</td><td>DDR4</td><td>A320 a X570</td></tr>
-        <tr><td>AMD AM5</td><td>LGA (1718 contactos)</td><td>Ryzen 7000, 8000 y 9000 (desde 2022). AMD ha confirmado que la próxima generación (Zen 6) también usará AM5.</td><td>DDR5</td><td>A620, B650, X670, B850, X870…</td></tr>
+        <tr><td>AMD AM5</td><td>LGA (1718 contactos)</td><td>Ryzen 7000, 8000 y 9000 (desde 2022), incluidos los 9850X3D y 9950X3D2 de 2026, y los Ryzen AI 400 de sobremesa (2026, de momento solo en equipos de marca). AMD ha confirmado que la siguiente generación (Zen 6, «Olympic Ridge», prevista para 2027) también usará AM5 y que mantendrá el zócalo hasta 2029.</td><td>DDR5</td><td>Series 600 y 800 (A620, B840, B650, B850, X670, X870…)</td></tr>
       </tbody>
     </table></div>
     <p>Que un procesador encaje en el zócalo no garantiza que funcione: la placa
@@ -236,6 +237,15 @@
     especiales. Por ejemplo, en <strong>Core i5-14600KF</strong>: i5 es la gama
     media, 14 la generación, 600 el modelo, K que está desbloqueado para
     overclocking y F que no tiene gráfica integrada.</p>
+    <p>Desde 2023 Intel ya no usa «Core i» ni generaciones (14.ª, 15.ª…): los
+    nombres nuevos son <strong>Core Ultra</strong> y la primera cifra es la
+    <strong>serie</strong>. En <strong>Core Ultra 7 270K Plus</strong>: Ultra 7 es
+    la gama, 2 la serie (200, los de sobremesa LGA 1851), 70 el modelo, K
+    desbloqueado y <em>Plus</em> la renovación de 2026. Las series 1 y 3 son de
+    portátil y la 4 será la primera de LGA 1954. En AMD, la primera cifra
+    también es la serie (9000 = Zen 5); los <strong>Ryzen AI</strong> (por ejemplo,
+    Ryzen AI 7 450G) son procesadores con NPU para inteligencia artificial: casi
+    todos de portátil, salvo los de sufijo G, que van en AM5.</p>
     <div class="interactivo" data-widget="cpu-nombre">
       <span class="etiqueta-int">Pruébalo</span>
       <h3>Decodificador de nombres</h3>
@@ -262,7 +272,7 @@
       <tbody>
         <tr><td>Alta</td><td><strong>Z</strong>890</td><td><strong>X</strong>870E, X870, X670E</td><td>Más carriles y puertos. Permite overclock del procesador. Mejor VRM. PCIe 5.0 en gráfica y M.2.</td></tr>
         <tr><td>Media</td><td><strong>B</strong>860</td><td><strong>B</strong>850, B650</td><td>Menos conexiones. En AMD permite overclock; en Intel solo el de la memoria.</td></tr>
-        <tr><td>Básica</td><td><strong>H</strong>810</td><td><strong>A</strong>620</td><td>Lo imprescindible, sin overclock del procesador. Para oficina.</td></tr>
+        <tr><td>Básica</td><td><strong>H</strong>810</td><td><strong>A</strong>620, B840</td><td>Lo imprescindible, sin overclock del procesador. Para oficina. Ojo: B840 lleva «B» pero es básica, con la ranura gráfica en PCIe 3.0.</td></tr>
       </tbody>
     </table></div>
     <p>Del chipset (y de cómo lo ha cableado el fabricante de la placa) dependen:
@@ -270,6 +280,9 @@
     tiene cada ranura, si se puede hacer overclock y cuánta memoria admite la
     placa. En la ficha de una placa base, lo primero que se mira es
     <strong>zócalo + chipset + formato</strong>.</p>
+    <p>Con el zócalo LGA 1954, Intel estrenará la <strong>serie 900</strong> de
+    chipsets. Según las filtraciones, la gama alta será Z990 (y Z970) y la media,
+    B960, sin chipset H de gama básica.</p>
   </section>
 
   <section>
@@ -387,7 +400,7 @@
         <tr><th>Gestión de la tensión</th><td>En la placa base</td><td>En el propio módulo (chip <strong>PMIC</strong>)</td></tr>
         <tr><th>Corrección de errores</th><td>Solo módulos ECC</td><td><em>On-die ECC</em> interna en cada chip. No sustituye a los módulos ECC de los servidores, que también protegen el camino hasta la CPU.</td></tr>
         <tr><th>Capacidad por módulo habitual</th><td>4 a 32 GB</td><td>8 a 64 GB</td></tr>
-        <tr><th>Plataformas actuales</th><td>AM4, LGA 1700 con placa DDR4</td><td>AM5, LGA 1700 con placa DDR5, LGA 1851</td></tr>
+        <tr><th>Plataformas actuales</th><td>AM4, LGA 1700 con placa DDR4</td><td>AM5, LGA 1700 con placa DDR5, LGA 1851 y LGA 1954</td></tr>
       </tbody>
     </table></div>
     <p>Una placa admite <strong>un solo tipo</strong>: o DDR4 o DDR5. Viene en la
@@ -534,8 +547,10 @@
       formato</strong>, y después memoria, ranuras y conectores.</li>
       <li>El procesador se describe por núcleos e hilos, frecuencias, caché,
       consumo (TDP), tensión, litografía, gráfica integrada y zócalo.</li>
-      <li>Zócalos actuales: <strong>LGA 1700 y LGA 1851</strong> (Intel),
-      <strong>AM4 y AM5</strong> (AMD). PGA, LGA o BGA según dónde estén los pines.</li>
+      <li>Zócalos actuales: <strong>LGA 1851</strong> (Intel, que pasará a
+      <strong>LGA 1954</strong> con los Core Ultra 400) y <strong>AM5</strong>
+      (AMD, hasta 2029). En el taller seguirás viendo mucho LGA 1700 y AM4. PGA,
+      LGA o BGA según dónde estén los pines.</li>
       <li>El <strong>chipset</strong> (Z/B/H en Intel, X/B/A en AMD) amplía las
       conexiones y decide qué permite la placa.</li>
       <li>Disipador (base, heatpipes, aletas, ventilador) + pasta térmica. Se elige

@@ -112,6 +112,20 @@ de este tema. Las páginas también cargan `ut02.css` (clases comunes) y
 
 ## Datos que caducan
 
-Revisar cada curso: zócalos y chipsets actuales (Intel LGA 1954 / serie 900 anunciados
-para finales de 2026; AMD Zen 6 sobre AM5, previsto para 2027), velocidades de DDR5,
-versiones de PCIe, HDMI 2.2 (equipos llegando) y los procesadores del configurador.
+Revisar cada curso: zócalos y chipsets actuales, velocidades de DDR5, versiones de PCIe,
+HDMI 2.2 (equipos llegando) y los procesadores del configurador.
+
+Revisión del 06/11/2026 (teoría 3.3–3.4, resumen y decodificador de nombres):
+
+- Intel: Core Ultra 200S Plus (250K Plus y 270K Plus, marzo de 2026) en LGA 1851.
+  Core Ultra 400 «Nova Lake» en LGA 1954 con chipsets serie 900: Intel la anunció para
+  finales de 2026; las filtraciones sitúan la venta a principios de 2027. Los nombres
+  Z990, Z970 y B960 son filtrados, no oficiales: confirmar cuando salgan.
+- AMD: Ryzen 7 9850X3D y Ryzen 9 9950X3D2 (2026) y Ryzen AI 400 de sobremesa (AM5, solo
+  en equipos de marca). Zen 6 «Olympic Ridge» confirmado en AM5, previsto para 2027; el
+  nombre Ryzen 10000 no es oficial. AM5 confirmado hasta 2029. Chipset B840 añadido
+  a la gama básica.
+- El decodificador reconoce «Plus», la serie 4 de Core Ultra, Ryzen de cinco cifras
+  (10000), X3D2 y Ryzen AI (G y GE en AM5; el resto, BGA).
+- No se ha tocado el configurador: sus procesadores siguen siendo válidos y cambiarlos
+  obliga a repetir la prueba de todas las combinaciones.
