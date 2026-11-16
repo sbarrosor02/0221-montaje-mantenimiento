@@ -45,7 +45,7 @@
     <li><a href="#boletin-2"><strong>Boletín 2 · Procesador y refrigeración</strong><span>Nombres, zócalos, consumo, disipadores y ventiladores · CE c, d · 8 ejercicios</span></a></li>
     <li><a href="#boletin-3"><strong>Boletín 3 · Memoria y expansión</strong><span>Latencia, canales, PCIe y M.2 · CE e, j · 7 ejercicios</span></a></li>
     <li><a href="#boletin-4"><strong>Boletín 4 · UEFI, gráfica, monitor y chasis</strong><span>Diagnóstico, alimentación, ancho de banda, cajas y accesorios · CE f, g, i, j, k · 10 ejercicios</span></a></li>
-    <li><a href="#boletin-5"><strong>Boletín 5 · Placas base reales</strong><span>Identificar los componentes con el esquema y leer la ficha técnica del manual · CE c, e, f, k · 1 placa</span></a></li>
+    <li><a href="#boletin-5"><strong>Boletín 5 · Placas base reales</strong><span>Identificar los componentes con el esquema y leer la ficha técnica del manual · CE c, e, f, k · 1 placa guiada y 3 para buscar</span></a></li>
   </ul>
 
   <section>
@@ -459,9 +459,103 @@
       </ol>
     </div>
 
+    <div class="ejercicio">
+      <h3 id="ej-5-2"><span class="num">5.2</span> Busca tú la documentación: tres placas <span class="ce">CE c</span> <span class="ce">CE e</span> <span class="ce">CE k</span></h3>
+      <p>Ahora nadie te da el esquema ni la ficha: los tienes que encontrar tú,
+      como en el taller. Repite las partes A y B del ejercicio 5.1 con estas tres
+      placas:</p>
+      <div class="aula-tabla" role="region" aria-label="Placas del ejercicio; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Placa</th><th>Fabricante</th></tr></thead>
+        <tbody>
+          <tr><td><strong>MAG B850 TOMAHAWK WIFI</strong></td><td>MSI</td></tr>
+          <tr><td><strong>PRO B760M-A WIFI DDR4</strong></td><td>MSI</td></tr>
+          <tr><td><strong>B860I AORUS PRO ICE</strong></td><td>GIGABYTE</td></tr>
+        </tbody>
+      </table></div>
+
+      <h4>Paso 1 · Encuentra el manual</h4>
+      <ol>
+        <li>Entra en la web oficial del fabricante (msi.com o gigabyte.com), busca la
+        placa y abre su página de <strong>Soporte</strong> (<em>Support</em>) →
+        <strong>Manual</strong> (o <em>Documentation</em>). Descarga el manual de
+        usuario en PDF, en español o en inglés.</li>
+        <li>Comprueba que es <strong>exactamente</strong> tu placa. Hay modelos con
+        nombres casi iguales (por ejemplo, MAG B850 TOMAHAWK <em>MAX</em> WIFI o PRO
+        B760M-A WIFI <em>DDR4 II</em>) y sus fichas cambian.</li>
+        <li>Dentro del manual, localiza la <strong>hoja de características</strong>
+        (<em>Specifications</em>) y el <strong>esquema de la placa</strong>
+        (<em>Motherboard layout</em>, <em>Overview of components</em> o similar).
+        Anota en qué páginas están.</li>
+      </ol>
+      <div class="ejemplo">
+        <strong>Truco</strong>
+        En el PDF, busca (Ctrl+F) «Specifications» y «layout». La página de producto
+        de la web también tiene una pestaña de especificaciones: úsala para comprobar
+        datos, pero responde con el manual.
+      </div>
+
+      <h4>Paso 2 · Parte A en cada placa: el esquema</h4>
+      <p>Haz una captura del esquema del manual y rodea y nombra en ella:</p>
+      <ul>
+        <li>el zócalo, las ranuras de memoria, las ranuras PCIe, las ranuras M.2 y
+        los puertos SATA;</li>
+        <li>los conectores de alimentación (24 pines y del procesador), el del
+        ventilador del procesador, el panel frontal, el audio frontal y los USB
+        internos (de cada tipo);</li>
+        <li>el chipset, la pila y el puente o botón de Clear CMOS.</li>
+      </ul>
+      <p>Debajo de cada captura, una tabla con el <strong>rótulo</strong> de cada
+      uno. Fíjate en que cada fabricante usa los suyos: lo que ASUS llama F_PANEL,
+      MSI lo llama JFP1. Indica también en qué ranuras pondrías dos módulos de
+      memoria según el manual.</p>
+
+      <h4>Paso 3 · Parte B en cada placa: la ficha técnica</h4>
+      <p>Completa esta tabla comparativa con los datos de la hoja de
+      características (una columna por placa):</p>
+      <div class="aula-tabla" role="region" aria-label="Plantilla de la tabla comparativa; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+        <thead><tr><th>Dato</th><th>B850 TOMAHAWK</th><th>B760M-A DDR4</th><th>B860I AORUS</th></tr></thead>
+        <tbody>
+          <tr><td>Páginas del manual (ficha y esquema)</td><td></td><td></td><td></td></tr>
+          <tr><td>Formato y medidas</td><td></td><td></td><td></td></tr>
+          <tr><td>Zócalo y procesadores compatibles</td><td></td><td></td><td></td></tr>
+          <tr><td>Chipset</td><td></td><td></td><td></td></tr>
+          <tr><td>Memoria: tipo, ranuras, capacidad máxima, velocidad máxima, canales</td><td></td><td></td><td></td></tr>
+          <tr><td>Salidas de vídeo (¿de quién es la gráfica?)</td><td></td><td></td><td></td></tr>
+          <tr><td>Ranuras PCIe: cuántas, versión y modo</td><td></td><td></td><td></td></tr>
+          <tr><td>M.2: cuántas, longitudes, versión PCIe, de dónde salen</td><td></td><td></td><td></td></tr>
+          <tr><td>Puertos SATA y velocidad</td><td></td><td></td><td></td></tr>
+          <tr><td>USB traseros por velocidad</td><td></td><td></td><td></td></tr>
+          <tr><td>Red cableada e inalámbrica</td><td></td><td></td><td></td></tr>
+          <tr><td>Códec de audio</td><td></td><td></td><td></td></tr>
+          <tr><td>Tamaño del chip de la BIOS</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table></div>
+
+      <h4>Paso 4 · Razona con las tres fichas</h4>
+      <ol class="preguntas-ficha">
+        <li>Un cliente quiere aprovechar sus dos módulos DDR4 de 16 GB. ¿En cuál de
+        las tres placas puede usarlos? ¿Por qué no en las otras?</li>
+        <li>Tiene una caja que admite como máximo micro-ATX. ¿Qué placas caben? ¿Y en
+        una caja Mini-ITX?</li>
+        <li>¿Qué placa necesitas para cada uno de estos procesadores: Intel Core
+        i5-14400F, Intel Core Ultra 5 245K y AMD Ryzen 7 9800X3D? ¿Podrías poner el
+        i5-14400F en la B860I?</li>
+        <li>La B860I tiene una de sus M.2 en un sitio poco habitual. ¿Dónde? ¿Qué
+        consecuencia tiene al montar o al cambiar ese SSD?</li>
+        <li>¿Cuántos discos duros SATA puedes conectar en cada placa? Si el cliente
+        tiene tres, ¿cuál descartarías?</li>
+        <li>¿Cuántas ranuras de expansión PCIe tiene cada placa? ¿Qué relación tiene
+        con su formato?</li>
+        <li>Elige una placa para cada cliente y justifícalo con datos de la ficha:
+        (1) oficina con un Core i3 de 13.ª generación y memoria DDR4 que ya tiene;
+        (2) equipo para juegos con un Ryzen y una gráfica PCIe 5.0; (3) equipo de
+        juegos muy pequeño para el salón con un Core Ultra.</li>
+      </ol>
+    </div>
+
     <section class="entrega" aria-labelledby="entrega-5-1">
       <h3 id="entrega-5-1">Qué entregas del boletín 5</h3>
-      <p class="entrega-sub">Un ZIP con la memoria en PDF; en ella, un apartado por placa con la parte A (tabla, captura y respuestas) y la parte B (respuestas a la ficha).</p>
+      <p class="entrega-sub">Un ZIP con la memoria en PDF: el 5.1 con sus partes A y B, y el 5.2 con un apartado por placa (enlace al manual, captura del esquema y tabla de rótulos), la tabla comparativa y las respuestas del paso 4.</p>
       <ul class="entrega-archivos"><li>&lt;usuario&gt;_E35.zip</li><li>&lt;usuario&gt;_E35.pdf (dentro del ZIP)</li></ul>
       <h4>Comprueba antes de entregar</h4>
       <ul class="entrega-lista">
@@ -470,6 +564,8 @@
         <li>En «Para qué sirve» dices qué se conecta (cable, tarjeta, dispositivo), no solo el nombre.</li>
         <li>La captura de A2 tiene rodeados el chipset (con su modelo) y la pila.</li>
         <li>En la parte B, cada respuesta dice de qué fila de la ficha sale el dato, y las preguntas 13, 14 y 19 explican el porqué.</li>
+        <li>En el 5.2, cada placa lleva la dirección web del manual que has usado y las páginas de la ficha y del esquema.</li>
+        <li>La tabla comparativa del 5.2 no tiene celdas vacías: si un dato no está en el manual, escribe «no lo indica».</li>
       </ul>
       <h4>Cómo debe quedar</h4>
       <div class="entrega-ejemplos">
