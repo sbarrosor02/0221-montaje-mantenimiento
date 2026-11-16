@@ -209,44 +209,83 @@ def main():
     assert [n for n, *_ in placa] == list(range(1, 20))
     md += ['## Boletín 5 · Placas base reales', '',
            '### 5.1 ASUS TUF GAMING X870-PLUS WIFI', '',
-           'Datos contrastados con la ficha técnica de asus.com y el manual de la placa.', '',
-           '**a)**', '', '| N.º | Rótulos | Qué es | Para qué sirve |', '|---|---|---|---|']
+           'Datos contrastados con el manual de la placa (esquema y *Specifications summary*) y con su página de '
+           'especificaciones en asus.com (noviembre de 2026).', '',
+           '#### Parte A · El esquema', '',
+           '**A1)**', '', '| N.º | Rótulos | Qué es | Para qué sirve |', '|---|---|---|---|']
     md += [f'| {n} | {r} | {q} | {s} |' for n, r, q, s in placa]
     md += ['',
-           '**b)** Zócalo AM5, LGA 1718: los contactos están en el zócalo (la placa) y el procesador solo tiene superficies '
-           'de contacto. Chipset AMD X870, el cuadro «AMD X870» de la parte inferior derecha, bajo su disipador. Admite '
-           'Ryzen de las series 7000, 8000 y 9000.', '',
-           '**c)** ATX_PWR (24 pines) y CPU_12V_1 y CPU_12V_2 (EPS de 8 pines cada uno). El procesador puede consumir más de '
+           '**A2)** Chipset AMD X870: el cuadrado «AMD X870» del centro a la derecha, entre la ranura M.2_2 (6) y los '
+           'puertos SATA (7); en la placa real va bajo un disipador. Pila (BATTERY): abajo a la izquierda, justo encima de '
+           'PCIEX16(G4) (3) y junto al anclaje 22110 de M.2_4 (6).', '',
+           '**A3)** Zócalo SOCKET AM5 de AMD, tipo LGA de 1718 contactos: los contactos están en el zócalo (en la placa) y el '
+           'procesador solo tiene superficies de contacto planas. Otros tipos: PGA, con los pines en el procesador (AM4, '
+           'Ryzen 5000 y anteriores); BGA, procesador soldado a la placa (portátiles y mini PC); otros LGA, como LGA 1700 '
+           'o LGA 1851 de Intel. En él se conecta el procesador; encima va el disipador, que se ancla a la placa. Admite '
+           'Ryzen 7000, 8000 y 9000 (y Zen 6 cuando salga, según AMD), siempre con la UEFI actualizada. Se abre con la '
+           'palanca, se coloca el procesador con el triángulo en la esquina marcada, sin hacer fuerza, y se cierra.', '',
+           '**A4)** ATX_PWR (24 pines) y CPU_12V_1 y CPU_12V_2 (EPS de 8 pines cada uno). El procesador puede consumir más de '
            '200 W: el VRM convierte los 12 V de los EPS en la tensión de los núcleos (Vcore), y por el conector de 24 pines '
            'no pasaría esa corriente.', '',
-           '**d)** Cuatro ranuras DDR5. Un módulo DDR4 no entra: la muesca está en otro sitio. Con dos módulos, A2 y B2, '
+           '**A5)** Cuatro ranuras DDR5. Un módulo DDR4 no entra: la muesca está en otro sitio. Con dos módulos, A2 y B2, '
            'las marcadas «1st» en el esquema (doble canal).', '',
-           '**e)** Disipador: CPU_FAN (y CPU_OPT si tiene un segundo ventilador). Bomba AIO: AIO_PUMP (va a máxima velocidad '
+           '**A6)** Disipador: CPU_FAN (y CPU_OPT si tiene un segundo ventilador). Bomba AIO: AIO_PUMP (va a máxima velocidad '
            'por defecto). Ventiladores de caja sin divisor: 4 (CHA_FAN1 a CHA_FAN4). W_PUMP+: bomba de una refrigeración '
            'líquida a medida, que admite más corriente.', '',
-           '**f)** Botones y LED → F_PANEL (16) · audio → F_AUDIO (15) · dos USB-A de 5 Gbit/s → U5G_1011 (9) · USB-C de '
+           '**A7)** Botones y LED → F_PANEL (16) · audio → F_AUDIO (15) · dos USB-A de 5 Gbit/s → U5G_1011 (9) · USB-C de '
            '20 Gbit/s → U20G_C6 (8) · lector de tarjetas → USB_1415 o USB_1617 (10).', '',
-           '**g)** Gráfica → PCIEX16(G5), a x16. SSD PCIe 5.0 → M.2_1 (no en M.2_2: dejaría la gráfica en x8). SSD 22110 → '
-           'M.2_4, la única ranura que admite 110 mm; al usarla se desactiva PCIEX16(G4). Discos duros → SATA6G_1 y SATA6G_2. '
-           'La capturadora no tiene sitio: la única ranura libre, PCIEX16(G4), está desactivada por M.2_4. Solución: cambiar '
-           'el SSD 22110 por uno 2280 (clonándolo) y ponerlo en M.2_3; así M.2_4 queda libre y la capturadora va en '
-           'PCIEX16(G4) a x4, que le basta. G5 y G4 indican la generación PCIe: 5.0 y 4.0. La G4 tiene tamaño x16 pero '
-           'funciona a x4.', '',
-           '**h)** Falla la memoria. Por orden: esperar unos minutos (el primer arranque con DDR5 hace el entrenamiento de '
+           '**A8)** Falla la memoria. Por orden: esperar unos minutos (el primer arranque con DDR5 hace el entrenamiento de '
            'memoria y tarda), comprobar que los módulos están bien insertados y con los pestillos cerrados, que están en A2 y '
            'B2, probar con un solo módulo en A2 (y luego el otro), hacer Clear CMOS si se había activado EXPO, y consultar la '
            'QVL de la placa.', '',
-           '**i)** LAN_U10G_34: RJ-45 de 2,5 Gbit/s y dos USB de 10 Gbit/s (puertos 3 y 4) · HDMI: salida de vídeo de la '
-           'gráfica integrada · USB_5: puerto USB 2.0 · U40G_EC1 y U40G_EC2: USB4 tipo C de 40 Gbit/s, también con salida de '
-           'vídeo DisplayPort · U10G_8: USB de 10 Gbit/s · U5G_E1234: cuatro USB de 5 Gbit/s · M.2(WIFI): conectores de la '
-           'antena Wi-Fi 7 y Bluetooth · AUDIO: conectores de audio · BIOS_FLBK: botón de BIOS FlashBack. El número es la '
-           'velocidad en Gbit/s y la C indica tipo C. Ryzen 7 9700X: sí, tiene gráfica integrada (HDMI o USB4). Ryzen 5 '
-           '7500F: no, la F indica que no tiene gráfica integrada; hace falta tarjeta gráfica.', '',
-           '**j)** El botón de BIOS FlashBack (19) actualiza la UEFI sin procesador ni memoria, solo con la fuente conectada. '
-           'Se usa cuando el procesador es más nuevo que la UEFI de fábrica (por ejemplo, un Ryzen 9000 en una placa con '
-           'firmware antiguo) o para recuperar una actualización fallida. Hace falta una memoria USB en FAT32 con el archivo '
-           'de la UEFI renombrado con la utilidad de ASUS; se conecta al puerto USB de FlashBack, se mantiene pulsado el botón '
-           'unos segundos y se espera a que el LED deje de parpadear.', '']
+           '**A9)** LAN_U10G_34: RJ-45 de 2,5 Gbit/s y dos USB de 10 Gbit/s (puertos 3 y 4) · HDMI · USB_5: el único USB 2.0 '
+           'trasero · U40G_EC1 y U40G_EC2: USB4 tipo C de 40 Gbit/s, también con salida de vídeo · U10G_8: USB de 10 Gbit/s · '
+           'U5G_E1234: cuatro USB de 5 Gbit/s · M.2(WIFI): conectores de la antena Wi-Fi 7 y Bluetooth · AUDIO: conectores de '
+           'audio · BIOS_FLBK: botón de BIOS FlashBack. El número es la velocidad en Gbit/s y la C indica tipo C. Cuadra con '
+           'la ficha: 3 USB de 10 Gbit/s (34 y 8), 4 de 5 Gbit/s y 1 USB 2.0.', '',
+           '#### Parte B · La ficha técnica', '',
+           '1. ATX, 30,5 × 24,4 cm (12 × 9,6 pulgadas). Fila «Formato».',
+           '2. AMD Ryzen 9000, 8000 y 7000 de sobremesa, porque son los que usan el zócalo AM5. Un Ryzen 5000 es AM4 (PGA, '
+           'DDR4) y un Intel usa otro zócalo (LGA 1700, 1851…). Fila «Procesador».',
+           '3. En la lista de procesadores compatibles (CPU support list) del centro de descargas de ASUS (nota de la fila '
+           '«Procesador»). Hace falta porque un procesador puede necesitar una versión mínima de la UEFI.',
+           '4. DDR5, ECC y no ECC, sin búfer (unbuffered). 4 ranuras DIMM. Fila «Memoria».',
+           '5. 256 GB según la web de ASUS (la primera edición del manual decía 192 GB). Con 4 ranuras, módulos de 64 GB '
+           '(4 × 64 GB). Se aceptan las dos cifras si se dice de dónde salen.',
+           '6. Hasta 8000+ MT/s (OC). «OC» quiere decir que esas velocidades son de overclocking: no están garantizadas y '
+           'dependen del procesador y de los módulos. EXPO es el perfil de AMD guardado en el módulo con su velocidad y '
+           'latencias: se activa en la UEFI para que la memoria funcione a la velocidad que pone en la caja (si no, va a la '
+           'velocidad estándar JEDEC).',
+           '7. Doble canal (dual channel), no quad channel. Como mínimo 2 módulos, uno en cada canal (A2 y B2).',
+           '8. AMD X870. No tiene puente norte y puente sur: el antiguo puente norte (controlador de memoria y PCIe para la '
+           'gráfica) está dentro del procesador, y el chipset X870 hace el papel del antiguo puente sur. Se ve en la ficha: '
+           'la memoria, PCIEX16(G5), M.2_1 y M.2_2 dependen del Ryzen; PCIEX16(G4), M.2_3, M.2_4 y los SATA, del chipset.',
+           '9. La gráfica integrada está en el procesador; la placa solo tiene las salidas: 1 HDMI 2.1 y 2 USB4 tipo C con '
+           'vídeo (fila «Gráficos»). Ryzen 7 9700X: sí, tiene gráfica integrada. Ryzen 5 7500F: no, la F indica que no tiene '
+           'gráfica integrada; hace falta tarjeta gráfica.',
+           '10. 2 puertos SATA de 6 Gb/s (fila «Almacenamiento»). Solo 2 discos duros SATA.',
+           '11. 4 M.2 de llave M. M.2_1, M.2_2 y M.2_3: tipo 2280. M.2_4: 2242, 2260, 2280 y 22110. M.2_1 y M.2_2, al '
+           'procesador (PCIe 5.0 x4); M.2_3 y M.2_4, al chipset (PCIe 4.0 x4).',
+           '12. Dos ranuras de tamaño x16: PCIEX16(G5), PCIe 5.0 x16 del procesador (x8 si se usa M.2_2) y PCIEX16(G4), '
+           'PCIe 4.0 en modo x4 del chipset (se desactiva si se usa M.2_4). G5 y G4 indican la generación PCIe: 5.0 y 4.0.',
+           '13. Gráfica → PCIEX16(G5), a x16. SSD PCIe 5.0 → M.2_1 (no en M.2_2: dejaría la gráfica en x8). SSD 22110 → '
+           'M.2_4, la única que admite 110 mm; al usarla se desactiva PCIEX16(G4). Discos duros → SATA6G_1 y SATA6G_2. La '
+           'capturadora no tiene sitio: la única ranura libre, PCIEX16(G4), está desactivada por M.2_4. Solución: cambiar el '
+           'SSD 22110 por uno 2280 (clonándolo) y ponerlo en M.2_3; así M.2_4 queda libre y la capturadora va en PCIEX16(G4) '
+           'a x4, que le basta.',
+           '14. Con un Ryzen 8000: la ranura PCIEX16(G5) pasa a PCIe 4.0 en modo x8/x4, M.2_1 pasa a PCIe 4.0 x4 y M.2_2 no '
+           'funciona. Lo del chipset (PCIEX16(G4), M.2_3, M.2_4 y SATA) no cambia.',
+           '15. 10 USB traseros: 2 USB4 de 40 Gbit/s (tipo C), 3 de 10 Gbit/s, 4 de 5 Gbit/s y 1 USB 2.0 (todos tipo A). El '
+           'USB 2.0 es el rotulado USB_5 en el esquema.',
+           '16. 7 frontales: 1 USB-C de 20 Gbit/s (conector U20G_C6), 2 de 5 Gbit/s (conector U5G_1011) y 4 USB 2.0 (dos '
+           'conectores, USB_1415 y USB_1617).',
+           '17. Ethernet Realtek de 2,5 Gbit/s, Wi-Fi 7 (802.11be) y Bluetooth 5.4. Códec de audio Realtek ALC1220P (7.1).',
+           '18. Flash ROM de 256 Mb (megabits, 32 MB). El archivo de la UEFI que se descarga de ASUS hay que renombrarlo '
+           'A5569.CAP para que la BIOS FlashBack lo reconozca en la memoria USB.',
+           '19. La opción 3: DDR5 (la única que admite la placa), dos módulos para el doble canal, a una velocidad dentro de '
+           'lo que admite y con perfil EXPO de AMD para activarla en la UEFI. Opción 1: DDR4, no encaja. Opción 2: un solo '
+           'módulo, pierde el doble canal. Opción 4: 8800 MT/s supera lo que garantiza la ficha (8000+ solo con overclock y '
+           'según procesador): más cara y puede no ser estable.', '']
 
     # ------------------------------------------------------------ configurador
     md += ['## Retos del configurador (C1)', '', 'Problemas que detecta el configurador de la web en cada caso:', '']
