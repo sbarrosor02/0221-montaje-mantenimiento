@@ -75,8 +75,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   (RA1 c, d, e, f, g, i, j, k): portada con mapa de criterios, dos páginas de teoría
   (placa interactiva, decodificador de procesadores, calculadoras de memoria, PCIe y
   conectores de vídeo), simulador de UEFI con misiones, configurador de
-  compatibilidades, cinco boletines (el 5, con placas base reales para identificar
-  sus componentes con el esquema del manual) y prácticas P5–P8. Solucionario generado con
+  compatibilidades, seis boletines (el 5, con placas base reales para identificar
+  sus componentes y leer su ficha técnica; el 6, con procesadores reales a partir de su
+  descripción comercial) y prácticas P5–P8. Solucionario generado con
   `scripts/generar_ut03_solucionario.py`; decisiones en `temario/ut03-placa-base.md`.
   **Concurso de clase** (`web/juegos/ut03-concurso.html`): el mismo juego tipo Kahoot del
   tema 2, con 41 preguntas de los apartados 3.1 a 3.3.3 (placa base, conectores, panel

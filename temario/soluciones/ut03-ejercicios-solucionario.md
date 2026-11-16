@@ -176,6 +176,55 @@ Claves para corregir, tomadas de las páginas de especificaciones y hojas de dat
 6. B850 TOMAHAWK: 3 (ATX). B760M-A: 3 (micro-ATX, hasta 4). B860I: 1 (Mini-ITX, siempre 1). Cuanto más pequeño el formato, menos ranuras caben.
 7. (1) PRO B760M-A WIFI DDR4: zócalo LGA 1700 para el Core de 13.ª y ranuras DDR4 para la memoria que ya tiene; si el i3 no es F, usa su gráfica integrada. (2) MAG B850 TOMAHAWK WIFI: AM5 y ranura PCIe 5.0 x16. (3) B860I AORUS PRO ICE: Mini-ITX y LGA 1851 para el Core Ultra; ranura PCIe 5.0 x16 para la gráfica.
 
+## Boletín 6 · Procesadores reales
+
+Datos de las páginas de producto de Intel y AMD y de análisis publicados (frecuencias, L3 y TDP vienen en el enunciado). «Radeon básica»: gráfica integrada de 2 núcleos de los Ryzen 7000 y 9000, para usar el escritorio, no para jugar. En Intel LGA 1700, DDR4 o DDR5 según la placa. Comprobar con la web del fabricante si algún alumno da otro dato del disipador: varía en algunas versiones.
+
+### 6.1 y 6.2 · Datos que hay que investigar
+
+| N.º | Procesador | Generación / serie | Zócalo | Núcleos / hilos | Gráfica integrada | Disipador en caja | Memoria |
+|---|---|---|---|---|---|---|---|
+| 1 | Core i9-14900K | 14.ª gen. (Raptor Lake Refresh) | LGA 1700 | 24 (8P+16E) / 32 | UHD 770 | No | DDR4 o DDR5 |
+| 2 | Core i7-14700F | 14.ª gen. | LGA 1700 | 20 (8P+12E) / 28 | No (F) | Sí | DDR4 o DDR5 |
+| 3 | Core i5-14600K | 14.ª gen. | LGA 1700 | 14 (6P+8E) / 20 | UHD 770 | No | DDR4 o DDR5 |
+| 4 | Core i5-14400 | 14.ª gen. | LGA 1700 | 10 (6P+4E) / 16 | UHD 730 | Sí | DDR4 o DDR5 |
+| 5 | Core i3-14100 | 14.ª gen. | LGA 1700 | 4 (4P) / 8 | UHD 730 | Sí | DDR4 o DDR5 |
+| 6 | Core i7-12700K | 12.ª gen. (Alder Lake) | LGA 1700 | 12 (8P+4E) / 20 | UHD 770 | No | DDR4 o DDR5 |
+| 7 | Core i5-12400F | 12.ª gen. | LGA 1700 | 6 (6P) / 12 | No (F) | Sí | DDR4 o DDR5 |
+| 8 | Ryzen 9 7950X | Serie 7000 (Zen 4) | AM5 | 16 / 32 | Radeon básica | No | DDR5 |
+| 9 | Ryzen 9 7900X | Serie 7000 (Zen 4) | AM5 | 12 / 24 | Radeon básica | No | DDR5 |
+| 10 | Ryzen 7 7800X3D | Serie 7000 (Zen 4, 3D V-Cache) | AM5 | 8 / 16 | Radeon básica | No | DDR5 |
+| 11 | Ryzen 7 7700 | Serie 7000 (Zen 4) | AM5 | 8 / 16 | Radeon básica | Sí | DDR5 |
+| 12 | Ryzen 5 7600 | Serie 7000 (Zen 4) | AM5 | 6 / 12 | Radeon básica | Sí | DDR5 |
+| 13 | Ryzen 5 5600X | Serie 5000 (Zen 3) | AM4 | 6 / 12 | No | Sí | DDR4 |
+| 14 | Ryzen 5 5500 | Serie 5000 (Zen 3, PCIe 3.0) | AM4 | 6 / 12 | No | Sí | DDR4 |
+| 15 | Ryzen 3 4100 | Serie 4000 (Zen 2, PCIe 3.0) | AM4 | 4 / 8 | No | Sí | DDR4 |
+| 16 | Pentium Gold G6405 | 10.ª gen. (Comet Lake) | LGA 1200 | 2 / 4 | UHD 610 | Sí | DDR4 |
+| 17 | Core i5-10400F | 10.ª gen. (Comet Lake) | LGA 1200 | 6 / 12 | No (F) | Sí | DDR4 |
+| 18 | Ryzen 7 5700G | Serie 5000 (Zen 3) | AM4 | 8 / 16 | Radeon Vega 8 | Sí | DDR4 |
+| 19 | Athlon 3000G | Zen (2019) | AM4 | 2 / 4 | Radeon Vega 3 | Sí | DDR4 |
+| 20 | Core Ultra 7 270K Plus | Serie 200S Plus (2026) | LGA 1851 | 24 (8P+16E) / 24 | Intel Graphics (Xe) y NPU | No | DDR5 |
+| 21 | Core Ultra 5 250K Plus | Serie 200S Plus (2026) | LGA 1851 | 18 (6P+12E) / 18 | Intel Graphics (Xe) y NPU | No | DDR5 |
+| 22 | Core Ultra 7 265K | Serie 200S (Arrow Lake, 2024) | LGA 1851 | 20 (8P+12E) / 20 | Intel Graphics (Xe) y NPU | No | DDR5 |
+| 23 | Ryzen 7 9850X3D | Serie 9000 (Zen 5, 3D V-Cache, 2026) | AM5 | 8 / 16 | Radeon básica | No | DDR5 |
+| 24 | Ryzen 7 9800X3D | Serie 9000 (Zen 5, 3D V-Cache) | AM5 | 8 / 16 | Radeon básica | No | DDR5 |
+| 25 | Ryzen 5 9600X | Serie 9000 (Zen 5) | AM5 | 6 / 12 | Radeon básica | No | DDR5 |
+| 26 | Ryzen 5 8600G | Serie 8000 (Zen 4) | AM5 | 6 / 12 | Radeon 760M | Sí | DDR5 |
+| 27 | Ryzen 9 9950X | Serie 9000 (Zen 5) | AM5 | 16 / 32 | Radeon básica | No | DDR5 |
+
+Placa: LGA 1700 → series 600 y 700 (Z690/Z790 para overclock de los K) · LGA 1200 → series 400 y 500 · LGA 1851 → serie 800 (Z890 para overclock) · AM4 → A320 a X570 (según la lista de compatibles) · AM5 → A620, B650, B850, X670, X870… Uso orientativo: i3, Pentium, Athlon, Ryzen 3 → ofimática; i5, Ryzen 5 → uso general y juegos; i7, i9, Ryzen 7 y 9, Core Ultra 7 → juegos exigentes y creación de contenido; X3D → juegos; G → equipos sin gráfica dedicada.
+
+### 6.3
+
+1. No pueden funcionar sin gráfica: i7-14700F, i5-12400F, i5-10400F (sufijo F de Intel) y Ryzen 5 5600X, Ryzen 5 5500 y Ryzen 3 4100 (Ryzen AM4 sin G). En AMD el sufijo no lo dice siempre: los AM4 solo tienen gráfica si llevan G (o son Athlon con G); los AM5 la llevan casi todos.
+2. Los Core Ultra serie 200 no tienen Hyper-Threading: cada núcleo atiende un hilo. El i9-14900K sí lo tiene en sus 8 núcleos P (8 × 2 + 16 = 32).
+3. En una placa AM4 B550 con DDR4: Ryzen 5 5600X, Ryzen 5 5500, Ryzen 3 4100 y Ryzen 7 5700G (con la UEFI actualizada). El Athlon 3000G también es AM4, pero las placas B550 no lo admiten (no está en su lista de compatibles). Los AM5 y los Intel no encajan.
+4. LGA 1200: Pentium Gold G6405, i5-10400F. LGA 1700: 1–7. AM4: 13–15, 18, 19. AM5: 8–12, 23–27. LGA 1851: 20–22. Ya no reciben procesadores nuevos de sobremesa: LGA 1200, LGA 1700 y AM4 (en AM4 AMD aún lanza alguna variante, pero sin arquitectura nueva). LGA 1851 tendrá relevo con LGA 1954.
+5. Traen disipador: i7-14700F, i5-14400, i3-14100, i5-12400F, Ryzen 7 7700, Ryzen 5 7600, los AM4 (5600X, 5500, 4100, 5700G, 3000G), Pentium G6405, i5-10400F y Ryzen 5 8600G. No lo traen: los Intel K, los Core Ultra, los Ryzen X/X3D de AM5 y toda la serie 9000. Regla: los modelos desbloqueados o de mucho consumo y la serie 9000 se venden sin disipador.
+6. 35 W → PPT ≈ 47 W (Athlon 3000G): disipador básico. 65 W → ≈ 88 W (7700, 7600, 5600X, 5500, 4100, 5700G, 9600X, 8600G): el de la caja o una torre sencilla. 120 W → 162 W (7800X3D, 9850X3D, 9800X3D): torre de gama media. 170 W → ≈ 230 W (7950X, 7900X, 9950X): torre doble o líquida AIO de 240–360 mm.
+7. Por la caché 3D V-Cache: 96 MB de L3 frente a 32 MB. Los juegos usan mucho la caché, y tener los datos cerca compensa la menor frecuencia. La caché apilada también limita la temperatura, por eso la frecuencia es menor.
+8. Orientativo, se valora la justificación: (1) Pentium Gold G6405 o i3-14100 (con gráfica y disipador); entre los actuales, nada tan barato. (2) Ryzen 7 9850X3D (o 9800X3D). (3) Ryzen 9 9950X (o i9-14900K / Core Ultra 7 270K Plus). (4) Ryzen 5 8600G (Radeon 760M). (5) Ryzen 7 5700G si no tiene gráfica dedicada, o Ryzen 5 5600X si la tiene, con la UEFI actualizada.
+
 ## Retos del configurador (C1)
 
 Problemas que detecta el configurador de la web en cada caso:

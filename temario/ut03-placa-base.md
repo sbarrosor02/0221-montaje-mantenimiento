@@ -32,8 +32,8 @@ Las 16 h se amplían según el ritmo del grupo (unas 18–20 sesiones con las pr
 
 | CE | Teoría | Practicar | Práctica |
 |---|---|---|---|
-| c) Microprocesadores | 3.3 | Boletín 2, configurador | P6 |
-| d) Disipadores y ventiladores | 3.5 | Boletín 2, configurador | P6 |
+| c) Microprocesadores | 3.3 | Boletines 2, 5 y 6, configurador | P6 |
+| d) Disipadores y ventiladores | 3.5 | Boletines 2 y 6, configurador | P6 |
 | e) Configuración de la placa base | 3.1, 3.2, 3.4, 3.6, 3.7 | Boletines 1, 3 y 5, configurador | P5 |
 | f) BIOS/UEFI | 3.8 | Boletines 4 y 5, simulador de UEFI | P7 |
 | g) Chasis | 3.1, 3.12 | Boletines 1 y 4, configurador | P8 |
@@ -87,7 +87,7 @@ accesorios (CE k, no estaba).
 | Teoría 2 (f, g, i, j, k) | `web/temas/ut03-teoria-2.html` | Interacción en Chromium, 1440 y 390 px |
 | Simulador de UEFI | `web/temas/ut03-ejercicios-uefi.html`, `web/assets/ut03-uefi.js` | Misiones completadas automáticamente |
 | Configurador | `web/temas/ut03-ejercicios-configurador.html`, `web/assets/ut03-configurador.js` | Las 322 560 combinaciones sin errores; casos A–E |
-| Boletines 1–5 | `web/temas/ut03-ejercicios.html` | — |
+| Boletines 1–6 | `web/temas/ut03-ejercicios.html` | — |
 | Solucionario | `temario/soluciones/ut03-ejercicios-solucionario.md` | `scripts/generar_ut03_solucionario.py` contrasta tablas y fórmulas con la web |
 | Prácticas P5–P8 | `web/temas/ut03-practicas.html` | — |
 | Concurso de clase (3.1–3.3.3) | `web/juegos/ut03-concurso.html` | Partida completa automática en Chromium, 1440 y 390 px |
@@ -130,6 +130,24 @@ memoria máxima pasó de 192 a 256 GB).
 `ut03.css`, `ut03-interactivos.js`, `ut03-uefi.js` y `ut03-configurador.js` son propios
 de este tema. Las páginas también cargan `ut02.css` (clases comunes) y
 `ut02-interactivos.js` (cuestionarios).
+
+## Boletín 6 · Procesadores reales
+
+Adaptación de la hoja «Análisis de especificaciones comerciales» de cursos anteriores (era
+del antiguo tema 4; ahora el procesador está en este tema). El alumnado saca toda la
+información de un procesador a partir de su descripción comercial
+(`nombre base/turbo GHz Box (L3: x MB, y W)`): lo que se deduce del nombre y lo que hay que
+investigar en intel.es o amd.com. La página explica cada parte de la descripción, da la
+ficha de análisis ampliada (sufijo, núcleos e hilos, disipador en caja, memoria y placa) y
+un ejemplo resuelto con un procesador que no está en las listas (Ryzen 7 9700X).
+
+- 6.1: los 19 procesadores de la hoja original, sin cambios (12.ª–14.ª gen. de Intel, LGA
+  1200, AM4 y Ryzen 7000): siguen llegando al taller.
+- 6.2: 8 actuales (Core Ultra 200S y 200S Plus, Ryzen 9000, 9000X3D y 8600G). Datos
+  contrastados con las páginas de producto y análisis publicados (noviembre de 2026).
+- 6.3: comparar y elegir (sin gráfica, Hyper-Threading en Core Ultra, compatibilidad AM4
+  B550, zócalos cerrados, disipador en caja, PPT y refrigeración, X3D, elección por cliente).
+- Entrega `<usuario>_E36.zip`. Solucionario con la tabla de datos de los 27.
 
 ## Concurso de clase
 
