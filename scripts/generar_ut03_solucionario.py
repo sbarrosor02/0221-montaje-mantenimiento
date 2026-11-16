@@ -287,6 +287,38 @@ def main():
            'módulo, pierde el doble canal. Opción 4: 8800 MT/s supera lo que garantiza la ficha (8000+ solo con overclock y '
            'según procesador): más cara y puede no ser estable.', '']
 
+    md += ['### 5.2 Busca tú la documentación: tres placas', '',
+           'Claves para corregir, tomadas de las páginas de especificaciones y hojas de datos de MSI y GIGABYTE '
+           '(noviembre de 2026). Los fabricantes revisan las fichas: si el alumno da otro dato y cita la versión del '
+           'manual que ha usado, se da por bueno. Detalles como el número exacto de USB se comprueban con su manual.', '',
+           '| Dato | MSI MAG B850 TOMAHAWK WIFI | MSI PRO B760M-A WIFI DDR4 | GIGABYTE B860I AORUS PRO ICE |',
+           '|---|---|---|---|',
+           '| Formato | ATX (30,5 × 24,4 cm) | Micro-ATX (24,4 × 24,4 cm) | Mini-ITX (17 × 17 cm) |',
+           '| Zócalo y procesadores | AM5 · Ryzen 9000, 8000 y 7000 | LGA 1700 · Core de 12.ª, 13.ª y 14.ª generación, Pentium Gold y Celeron | LGA 1851 · Core Ultra serie 2 (200S) |',
+           '| Chipset | AMD B850 | Intel B760 | Intel B860 |',
+           '| Memoria | 4 DIMM DDR5, doble canal, hasta 8200+ MT/s (OC) | 4 DIMM DDR4, máx. 128 GB, doble canal, hasta 5333+ MHz (OC), no ECC | 2 DIMM DDR5, máx. 128 GB (64 GB por ranura), doble canal |',
+           '| Vídeo (gráfica del procesador) | HDMI 2.1 | HDMI 2.1 y DisplayPort 1.4 | HDMI y DisplayPort (y USB4) |',
+           '| Ranuras PCIe | PCIe 5.0 x16 · PCIe 4.0 x4 · PCIe 3.0 x1 | PCIe 4.0 x16 · ranura x16 en modo PCIe 4.0 x4 · PCIe 3.0 x1 | 1 × PCIe 5.0 x16 |',
+           '| M.2 | 3: 1 PCIe 5.0 x4 y 2 PCIe 4.0 x4 | 2, PCIe 4.0 x4, tipos 2242/2260/2280: M.2_1 del procesador, M.2_2 del chipset (también SATA) | 2: 1 PCIe 5.0 (2280) delante y 1 PCIe 4.0 (2280) en la cara trasera de la placa |',
+           '| SATA | 4 × 6 Gb/s | 4 × 6 Gb/s | 2 × 6 Gb/s |',
+           '| Red | Realtek 5G LAN, Wi-Fi 7 | Realtek 2.5G LAN, Wi-Fi 6E, Bluetooth 5.3 | Realtek 2.5G LAN, Wi-Fi 7, Bluetooth 5.4 |',
+           '| Audio | Realtek, 7.1 (ver el manual para el modelo de códec) | Realtek, 7.1 (ver el manual) | Realtek ALC897, 7.1 |',
+           '| BIOS | Ver el manual | Ver el manual | 256 Mbit, UEFI AMI |', '',
+           '**Paso 4**', '',
+           '1. Solo en la PRO B760M-A WIFI DDR4: es la única con ranuras DDR4. Las otras son DDR5, con la muesca en otro '
+           'sitio: el módulo no entra.',
+           '2. En una caja micro-ATX caben la B760M-A (micro-ATX) y la B860I (Mini-ITX). En una caja Mini-ITX, solo la B860I.',
+           '3. i5-14400F → B760M-A (LGA 1700). Core Ultra 5 245K → B860I (LGA 1851). Ryzen 7 9800X3D → B850 TOMAHAWK (AM5). '
+           'El i5-14400F no sirve en la B860I: LGA 1700 y LGA 1851 son zócalos distintos.',
+           '4. En la cara trasera de la placa. Para instalar o cambiar ese SSD hay que sacar la placa de la caja (o tener '
+           'una caja con acceso por detrás), así que conviene montarlo antes de atornillar la placa.',
+           '5. B850 TOMAHAWK: 4. B760M-A: 4. B860I: 2. Con tres discos SATA se descarta la B860I.',
+           '6. B850 TOMAHAWK: 3 (ATX). B760M-A: 3 (micro-ATX, hasta 4). B860I: 1 (Mini-ITX, siempre 1). Cuanto más pequeño '
+           'el formato, menos ranuras caben.',
+           '7. (1) PRO B760M-A WIFI DDR4: zócalo LGA 1700 para el Core de 13.ª y ranuras DDR4 para la memoria que ya tiene; '
+           'si el i3 no es F, usa su gráfica integrada. (2) MAG B850 TOMAHAWK WIFI: AM5 y ranura PCIe 5.0 x16. (3) B860I '
+           'AORUS PRO ICE: Mini-ITX y LGA 1851 para el Core Ultra; ranura PCIe 5.0 x16 para la gráfica.', '']
+
     # ------------------------------------------------------------ configurador
     md += ['## Retos del configurador (C1)', '', 'Problemas que detecta el configurador de la web en cada caso:', '']
     cfg = node("require('./web/assets/ut03-configurador.js');const C=window.UT03_CONFIG;console.log(JSON.stringify(Object.entries(C.CASOS).map(([n,s])=>[n,C.comprobar(s)])))")

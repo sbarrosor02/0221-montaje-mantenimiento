@@ -108,6 +108,14 @@ esquema y de ficha técnica):
   norte/sur, gráfica integrada, SATA, M.2, PCIe y carriles compartidos, cambios con un
   Ryzen 8000, USB, BIOS y elección de memoria entre varias opciones).
 
+El 5.2 da solo los nombres de tres placas (MSI MAG B850 TOMAHAWK WIFI, MSI PRO
+B760M-A WIFI DDR4 y GIGABYTE B860I AORUS PRO ICE): el alumnado busca el manual, localiza la
+ficha y el esquema, repite las partes A y B, rellena una tabla comparativa y razona con las
+tres (compatibilidad de memoria, formato y caja, zócalo y procesador, M.2 trasera, SATA,
+elección por cliente). Se eligieron por variedad: AM5/ATX/DDR5, LGA 1700/micro-ATX/DDR4 y
+LGA 1851/Mini-ITX/DDR5, de dos fabricantes con rótulos distintos. Las dos MSI tienen
+variantes con nombre casi igual a propósito, para practicar buscar el modelo exacto.
+
 La placa del examen no se usa en la web (el repositorio es público). Para añadir una
 placa: nuevo `ej-5-N` con sus partes A y B antes del recuadro «Entrega», su imagen en
 `img/placas/`, su solución en `scripts/generar_ut03_solucionario.py` y el recuento en el
@@ -117,6 +125,7 @@ memoria máxima pasó de 192 a 256 GB).
 | Ejercicio | Placa | Fuente |
 |---|---|---|
 | 5.1 | ASUS TUF GAMING X870-PLUS WIFI (AM5, X870, ATX) | Manual de usuario, apartado 1.2; ficha técnica en asus.com |
+| 5.2 | MSI MAG B850 TOMAHAWK WIFI, MSI PRO B760M-A WIFI DDR4, GIGABYTE B860I AORUS PRO ICE | Las busca el alumnado; claves del solucionario según msi.com y gigabyte.com |
 
 `ut03.css`, `ut03-interactivos.js`, `ut03-uefi.js` y `ut03-configurador.js` son propios
 de este tema. Las páginas también cargan `ut02.css` (clases comunes) y
