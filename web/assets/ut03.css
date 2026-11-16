@@ -138,3 +138,15 @@ h2 .ce, h3 .ce { position: relative; top: -.1em; }
 .comprobaciones strong { display: block; }
 .veredicto { padding: .7rem 1rem; border-radius: var(--radio); font-weight: 700; margin-top: .6rem; }
 .veredicto.ok { background: var(--ok); color: white; } .veredicto.mal { background: var(--mal); color: white; } .veredicto.aviso { background: #ffcf8a; color: var(--tinta); }
+
+/* Boletín 5 · ficha técnica de una placa real */
+.ficha-placa caption { caption-side: top; text-align: left; font-weight: 700; padding: 0 0 .4rem; }
+.ficha-placa th[scope="row"] { width: 9.5rem; vertical-align: top; text-align: left; background: var(--fondo-suave); }
+.ficha-placa td { vertical-align: top; }
+.ficha-placa small { display: block; margin-top: .3rem; color: var(--tinta-suave); line-height: 1.4; }
+.preguntas-ficha > li { margin-bottom: .45rem; }
+@media (max-width: 600px) {
+  .aula-tabla table.ficha-placa { min-width: 0; width: 100%; }
+  .ficha-placa tr, .ficha-placa th[scope="row"], .ficha-placa td { display: block; width: auto; }
+  .ficha-placa th[scope="row"] { border-bottom: 0; padding-bottom: .2rem; }
+}

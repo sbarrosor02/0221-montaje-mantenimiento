@@ -94,14 +94,25 @@ accesorios (CE k, no estaba).
 
 ## Boletín 5 · Placas base reales
 
-Un ejercicio por placa real, con el esquema numerado de su manual (imagen en
-`web/assets/img/placas/`, recortada del PDF del fabricante y con la fuente citada en
-el pie). Cada placa lleva la tabla de los números del esquema y preguntas de lectura
-del manual (alimentación, memoria, ventiladores, panel frontal, reparto de carriles
-PCIe/M.2, Q-LED, panel trasero y BIOS Flashback). Las especificaciones que se dan en el
-enunciado se han contrastado con la ficha técnica del fabricante. Para añadir una
-placa: nuevo `ej-5-N` antes del recuadro «Entrega», su imagen en `img/placas/`, su
-solución en `scripts/generar_ut03_solucionario.py` y el recuento en el mapa de boletines.
+Un ejercicio por placa real, con el mismo formato que el examen del tema (ejercicios de
+esquema y de ficha técnica):
+
+- **Parte A · El esquema** (imagen recortada del *Motherboard layout* del manual, en
+  `web/assets/img/placas/`, con la fuente en el pie): tabla de los números, chipset y pila
+  rodeados en una captura (sin número en el esquema), «el componente 1 a fondo» (zócalo:
+  tipo, otros tipos, qué admite) y preguntas de alimentación, memoria, ventiladores, panel
+  frontal, Q-LED y panel trasero.
+- **Parte B · La ficha técnica**: el *Specifications summary* traducido y resumido en una
+  tabla, con sus notas, y unas 19 preguntas de búsqueda de datos y de razonamiento con
+  ellos (procesadores compatibles y por qué, memoria y doble canal, chipset frente a puente
+  norte/sur, gráfica integrada, SATA, M.2, PCIe y carriles compartidos, cambios con un
+  Ryzen 8000, USB, BIOS y elección de memoria entre varias opciones).
+
+La placa del examen no se usa en la web (el repositorio es público). Para añadir una
+placa: nuevo `ej-5-N` con sus partes A y B antes del recuadro «Entrega», su imagen en
+`img/placas/`, su solución en `scripts/generar_ut03_solucionario.py` y el recuento en el
+mapa de boletines. Contrastar la ficha con la web del fabricante: cambia (en la 5.1, la
+memoria máxima pasó de 192 a 256 GB).
 
 | Ejercicio | Placa | Fuente |
 |---|---|---|
