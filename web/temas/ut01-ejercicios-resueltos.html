@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resueltos · Tema 1 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 340px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; }
+  .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
+  @media print {
+    .ejercicio { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+    .figura { break-inside: avoid; }
+  }
+  .mapa-boletines { margin: 1.4rem 0 2rem; }
+  .mapa-boletines .mapa-titulo { font-weight: 700; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .mapa-boletines .mapa-destacado { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); padding: .6rem .9rem; }
+  .mapa-boletines ul { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .6rem; }
+  .mapa-boletines li { margin: 0; }
+  .mapa-boletines li a { display: flex; flex-direction: column; gap: .15rem; height: 100%; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem; text-decoration: none; color: var(--tinta); }
+  .mapa-boletines li a:hover { border-color: var(--acento); background: var(--acento-claro); }
+  .mapa-boletines li strong { color: var(--acento); line-height: 1.3; }
+  .mapa-boletines li span { font-size: .88rem; color: var(--tinta-suave); }
+  .mapa-boletines .nivel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .volver-mapa { font-size: .9rem; margin: 1rem 0 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-resueltos">Resueltos</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><a href="ut01-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Resueltos</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Resueltos</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
+  </nav>
+
+  <section>
+    <h2 id="apartado-resueltos">Resueltos</h2>
+
+    <div class="ejercicio">
+      <h3><span class="num">R1.</span> Circuito en serie</h3>
+      <p>Con V = 9 V y R₁ = 1 Ω, R₂ = 2 Ω, R₃ = 3 Ω, calcula la resistencia
+      total, la intensidad y el voltaje en cada resistencia.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 350 240" role="img" aria-label="Circuito en serie de 9 V con tres resistencias">
+          <path class="hilo" d="M50,30 L50,105 M50,135 L50,210 L250,210 L250,188 M250,152 L250,132 M250,96 L250,76 M250,40 L250,30 L50,30"/>
+          <circle class="comp" cx="50" cy="120" r="15"/>
+          <path class="comp" d="M50,131 L50,109 M45,115 L50,108 L55,115"/>
+          <path class="comp" d="M250,40 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,96 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,152 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <text class="et" x="40" y="124" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="62">R₁ = 1 Ω</text>
+          <text class="et" x="264" y="118">R₂ = 2 Ω</text>
+          <text class="et" x="264" y="174">R₃ = 3 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>R = 1 + 2 + 3 = <strong>6 Ω</strong></li>
+          <li>I = 9 / 6 = <strong>1,5 A</strong> (igual en todo el circuito)</li>
+          <li>V₁ = 1,5 V · V₂ = 3 V · V₃ = 4,5 V (suman 9 V ✔)</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R2.</span> Circuito en paralelo</h3>
+      <p>Con V = 9 V y R₁ = 3 Ω, R₂ = 4 Ω, R₃ = 12 Ω, calcula la resistencia
+      total, la intensidad de cada rama y el voltaje en cada resistencia.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 340 200" role="img" aria-label="Circuito en paralelo de 9 V con tres ramas">
+          <path class="hilo" d="M40,40 L40,90 M40,120 L40,170 L270,170 M40,40 L270,40"/>
+          <circle class="comp" cx="40" cy="105" r="15"/>
+          <path class="comp" d="M40,116 L40,94 M35,100 L40,93 L45,100"/>
+          <path class="hilo" d="M130,40 L130,75 M130,111 L130,170"/>
+          <path class="hilo" d="M200,40 L200,75 M200,111 L200,170"/>
+          <path class="hilo" d="M270,40 L270,75 M270,111 L270,170"/>
+          <path class="comp" d="M130,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M200,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M270,75 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="130" cy="40" r="3"/><circle class="nodo" cx="200" cy="40" r="3"/><circle class="nodo" cx="270" cy="40" r="3"/>
+          <circle class="nodo" cx="130" cy="170" r="3"/><circle class="nodo" cx="200" cy="170" r="3"/><circle class="nodo" cx="270" cy="170" r="3"/>
+          <text class="et" x="30" y="109" text-anchor="end">9 V</text>
+          <text class="et" x="116" y="97" text-anchor="middle">3 Ω</text>
+          <text class="et" x="186" y="97" text-anchor="middle">4 Ω</text>
+          <text class="et" x="286" y="97">12 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>1/R = 1/3 + 1/4 + 1/12 = 8/12 → R = <strong>1,5 Ω</strong></li>
+          <li>V en cada rama = <strong>9 V</strong></li>
+          <li>I₁ = 3 A · I₂ = 2,25 A · I₃ = 0,75 A (suman 6 A ✔)</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="ejercicio">
+      <h3><span class="num">R3.</span> Circuito mixto</h3>
+      <p>Con V = 9 V, R₁ = 3 Ω en serie con el paralelo de R₂ = 4 Ω y R₃ = 12 Ω,
+      calcula la resistencia del paralelo, la total, la intensidad total y los
+      voltajes en R₁ y en R₂/R₃.</p>
+      <div class="figura">
+        <svg class="circuito" viewBox="0 0 380 220" role="img" aria-label="Circuito mixto de 9 V">
+          <path class="hilo" d="M40,40 L40,100 M40,130 L40,190 L190,190 M40,40 L250,40 L250,50"/>
+          <circle class="comp" cx="40" cy="115" r="15"/>
+          <path class="comp" d="M40,126 L40,104 M35,110 L40,103 L45,110"/>
+          <path class="comp" d="M250,50 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="hilo" d="M250,86 L250,110 L190,110"/>
+          <path class="hilo" d="M190,110 L190,120 M190,156 L190,190"/>
+          <path class="hilo" d="M250,110 L250,120 M250,156 L250,175 L190,175"/>
+          <path class="comp" d="M190,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <path class="comp" d="M250,120 v6 l-8,3 l16,6 l-16,6 l16,6 l-8,3 v6"/>
+          <circle class="nodo" cx="250" cy="110" r="3"/><circle class="nodo" cx="190" cy="110" r="3"/>
+          <circle class="nodo" cx="190" cy="175" r="3"/><circle class="nodo" cx="250" cy="175" r="3"/>
+          <text class="et" x="30" y="119" text-anchor="end">9 V</text>
+          <text class="et" x="264" y="72">R₁ = 3 Ω</text>
+          <text class="et" x="176" y="142" text-anchor="end">R₂ = 4 Ω</text>
+          <text class="et" x="264" y="142">R₃ = 12 Ω</text>
+        </svg>
+      </div>
+      <details class="solucion">
+        <summary>Ver solución</summary>
+        <ul>
+          <li>R₂∥R₃ = (4·12)/(4+12) = <strong>3 Ω</strong></li>
+          <li>R total = 3 + 3 = <strong>6 Ω</strong> → I = 9/6 = <strong>1,5 A</strong></li>
+          <li>V(R₁) = 4,5 V · V(paralelo) = 4,5 V</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-ejercicios.html">&laquo; Ejercicios</a>
+    <a href="ut01-boletin-1.html">Boletín 1 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura). Circuitos redibujados como SVG
+    originales a partir de los boletines del curso 2023/24.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

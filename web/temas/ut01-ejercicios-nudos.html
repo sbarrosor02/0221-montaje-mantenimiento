@@ -83,9 +83,10 @@
 <script defer src="../assets/aula.js"></script>
 <script defer src="../assets/circuitos-nudos.js"></script>
 <script defer src="../assets/taller-nudos.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
 </head>
 <body data-modulo="0221">
-<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
 <div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-como-funciona">Cómo funciona</a></li><li><a href="#apartado-taller">Taller</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><a href="ut01-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Taller de nudos</span></nav>
 
   <header class="cab">
@@ -96,16 +97,15 @@
 
   <nav class="subnav" aria-label="Apartados del tema 1">
     <a href="ut01.html" class="inicio-tema">Portada del tema</a>
-    <a href="ut01-teoria.html">Teoría</a>
-    <a href="ut01-prl.html">Seguridad y PRL</a>
-    <a href="ut01-ejercicios.html" aria-current="true">Ejercicios</a>
-    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
-    <a href="ut01-practicas.html">Prácticas</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
   </nav>
 
   <section>
     <h2 id="apartado-como-funciona">Cómo funciona</h2>
-    <p>Practica con los circuitos del <a href="ut01-ejercicios.html#b5">boletín 5</a>,
+    <p>Practica con los circuitos del <a href="ut01-boletin-5.html#b5">boletín 5</a>,
     los que están dibujados para despistar. Lo vas a resolver en tres fases y el
     taller comprueba cada paso:</p>
     <ol>
@@ -121,7 +121,7 @@
 
   <section>
     <h2 id="apartado-taller">Taller</h2>
-    <noscript><p>Este taller necesita JavaScript. Mientras tanto, puedes resolver los mismos circuitos en el <a href="ut01-ejercicios.html#b5">boletín 5</a>.</p></noscript>
+    <noscript><p>Este taller necesita JavaScript. Mientras tanto, puedes resolver los mismos circuitos en el <a href="ut01-boletin-5.html#b5">boletín 5</a>.</p></noscript>
     <div id="taller" hidden>
       <div class="taller-circuitos" id="taller-circuitos" aria-label="Elige un circuito"></div>
       <h3 id="taller-titulo"></h3>
@@ -186,9 +186,8 @@
     </div>
   </section>
 
-  <nav class="nav-temas">
-    <a href="ut01-ejercicios.html#b5">&laquo; Boletín 5</a>
-    <a href="../index.html">Índice del módulo</a>
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-boletin-5.html">&laquo; Boletín 5</a>
     <a href="ut01-practicas.html">Prácticas &raquo;</a>
   </nav>
 

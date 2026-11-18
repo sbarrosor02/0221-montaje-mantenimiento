@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín 3 · Memoria y expansión · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#boletin-3">Boletín 3 · Memoria y expansión</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><a href="ut03-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Boletín 3</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Ejercicios</p>
+    <h1>Boletín 3 · Memoria y expansión</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut03-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut03-practicas.html" class="sec-practicas">Prácticas</a>
+    <a href="ut03-examen.html" class="sec-examen">Preparar el examen</a>
+    <a href="ut03.html#seccion-enclase" class="sec-enclase">En clase</a>
+  </nav>
+
+  <section>
+    <h2 id="boletin-3">Boletín 3 · Memoria y expansión</h2>
+    <p>Repasa los apartados <a href="ut03-teoria.html#apartado-3-6">3.6</a> y
+    <a href="ut03-teoria.html#apartado-3-7">3.7</a>.</p>
+    <div class="ejercicio">
+      <p><span class="num">3.1</span> <span class="ce">CE e</span> Calcula la latencia
+      real en nanosegundos y ordena de menor a mayor: DDR4-2666 CL19 · DDR4-3200 CL16 ·
+      DDR5-5200 CL40 · DDR5-6000 CL36 · DDR5-6400 CL32.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.2</span> <span class="ce">CE e</span> Calcula el ancho de
+      banda máximo: a) DDR5-5600 en doble canal; b) el mismo con un solo módulo;
+      c) DDR4-3200 en doble canal.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.3</span> <span class="ce">CE e</span> <span class="ce">CE f</span>
+      Un cliente ha comprado un kit DDR5-6000 y CPU-Z le muestra «DRAM Frequency:
+      2400 MHz». ¿A cuántos MT/s está funcionando? ¿Está estropeado? ¿Qué hay que
+      hacer?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.4</span> <span class="ce">CE e</span> Una placa tiene las
+      ranuras A1, A2, B1 y B2. ¿Dónde pondrías uno, dos y cuatro módulos? ¿Qué es mejor
+      para 32 GB: un módulo de 32 GB o dos de 16 GB? ¿Y para 64 GB con DDR5: dos de
+      32 GB o cuatro de 16 GB?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.5</span> <span class="ce">CE j</span> Calcula el ancho de
+      banda por sentido: a) SSD PCIe 4.0 x4; b) SSD PCIe 5.0 x4; c) gráfica PCIe 4.0 x8
+      en una ranura PCIe 3.0 x16; d) gráfica PCIe 5.0 x16 en la ranura x16 inferior de
+      la placa, que es PCIe 4.0 x4.</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.6</span> <span class="ce">CE e</span> <span class="ce">CE k</span>
+      Fragmento del manual de una placa: «<em>M2_2 comparte el ancho de banda con
+      SATA6G_5 y SATA6G_6. Si se instala un SSD SATA en M2_2, SATA6G_5 se desactiva.
+      Si se instala un SSD PCIe en M2_2, SATA6G_5 y SATA6G_6 se desactivan. Si se ocupa
+      M2_3, PCIEX16_2 funciona en modo x2</em>». El cliente tiene un SSD NVMe en M2_1,
+      otro en M2_2, dos discos duros y una tarjeta de captura PCIe x4. ¿Dónde
+      conectas cada cosa para que todo funcione?</p>
+    </div>
+    <div class="ejercicio">
+      <p><span class="num">3.7</span> <span class="ce">CE e</span> <span class="ce">CE j</span>
+      ¿Qué llave M.2 tiene cada dispositivo y en qué ranura lo pondrías? a) SSD NVMe
+      2280; b) tarjeta Wi-Fi 7 con Bluetooth para un mini PC; c) SSD M.2 SATA. ¿Cabe un
+      SSD 22110 en una ranura que admite 2242, 2260 y 2280?</p>
+    </div>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut03-boletin-2.html">&laquo; Boletín 2</a>
+    <a href="ut03-boletin-4.html">Boletín 4 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

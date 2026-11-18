@@ -1,0 +1,75 @@
+/* Organización del aula de 0221 (revisión del 18/11/2026).
+   Portada con solo los temas, portada de tema con cuatro secciones fijas y barra del tema reducida.
+   Archivo propio de este repositorio: no se comparte con 0223. */
+
+:root {
+  --sec-teoria: #22549a;     --sec-teoria-claro: #edf3fc;
+  --sec-ejercicios: #17685e; --sec-ejercicios-claro: #e6f4ef;
+  --sec-practicas: #a2551a;  --sec-practicas-claro: #fbefe5;
+  --sec-examen: #7a3d9a;     --sec-examen-claro: #f4ecf8;
+  --sec-enclase: #a8322a;    --sec-enclase-claro: #fbeceb;
+}
+.sec-teoria { --sec: var(--sec-teoria); --sec-claro: var(--sec-teoria-claro); --icono: "📘"; }
+.sec-ejercicios { --sec: var(--sec-ejercicios); --sec-claro: var(--sec-ejercicios-claro); --icono: "✏️"; }
+.sec-practicas { --sec: var(--sec-practicas); --sec-claro: var(--sec-practicas-claro); --icono: "🔧"; }
+.sec-examen { --sec: var(--sec-examen); --sec-claro: var(--sec-examen-claro); --icono: "🎯"; }
+.sec-enclase { --sec: var(--sec-enclase); --sec-claro: var(--sec-enclase-claro); --icono: "🏆"; }
+.sec-pdf { --sec: var(--tinta-suave); --sec-claro: var(--fondo-suave); --icono: "⬇"; }
+
+/* ---------- Portada del módulo: tarjetas de tema */
+.aula-portada-temas { list-style: none; margin: 1.25rem 0; padding: 0; display: grid; gap: 1rem; }
+.tarjeta-tema { margin: 0; background: white; border: 1px solid var(--linea); border-radius: 12px; overflow: hidden; }
+.tarjeta-tema .tema-principal { display: block; padding: 1rem 1.15rem .75rem; color: var(--tinta); text-decoration: none; }
+.tarjeta-tema .tema-principal:hover { background: var(--acento-claro); }
+.tarjeta-tema .tema-num { display: block; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--acento); }
+.tarjeta-tema strong { display: block; font-size: 1.15rem; line-height: 1.3; margin: .1rem 0 .3rem; }
+.tarjeta-tema .etq { display: block; font-size: .87rem; color: var(--tinta-suave); }
+.tema-accesos { display: flex; flex-wrap: wrap; gap: .4rem; padding: 0 1.15rem 1rem; }
+.tema-accesos a { display: inline-flex; align-items: center; gap: .3rem; font-size: .88rem; font-weight: 600; text-decoration: none;
+  color: var(--sec); background: var(--sec-claro); border: 1px solid transparent; border-radius: 99px; padding: .25rem .7rem; }
+.tema-accesos a::before { content: var(--icono); font-size: .95em; }
+.tema-accesos a:hover { border-color: var(--sec); }
+.aula-buscar-portada { margin-top: 1.25rem; }
+
+/* ---------- Barra del tema: portada + secciones con su color */
+.subnav a.sec-teoria, .subnav a.sec-ejercicios, .subnav a.sec-practicas, .subnav a.sec-examen, .subnav a.sec-enclase { border-left: 4px solid var(--sec); }
+.subnav a.sec-teoria::before, .subnav a.sec-ejercicios::before, .subnav a.sec-practicas::before, .subnav a.sec-examen::before, .subnav a.sec-enclase::before { content: var(--icono) " "; }
+.subnav a[aria-current="true"] { background: var(--sec-claro, var(--acento-claro)); font-weight: 600; }
+.subnav a.sec-teoria[aria-current="page"], .subnav a.sec-ejercicios[aria-current="page"], .subnav a.sec-practicas[aria-current="page"], .subnav a.sec-examen[aria-current="page"], .subnav a.sec-enclase[aria-current="page"] { background: var(--sec); border-color: var(--sec); color: white; }
+
+/* ---------- Portada del tema: las cuatro secciones */
+.aula-secciones { display: grid; gap: 1.1rem; margin: 1.5rem 0; }
+.aula-seccion { background: white; border: 1px solid var(--linea); border-top: 5px solid var(--sec); border-radius: 12px; padding: 1rem 1.15rem .6rem; }
+.aula-seccion > h2 { margin: 0 0 .1rem; color: var(--sec); border: 0; padding: 0; }
+.aula-seccion > h2::before { content: var(--icono) "  "; }
+.aula-seccion > .meta { margin: 0 0 .75rem; }
+.aula-seccion .lista-temas li { border-left: 3px solid var(--sec); }
+.aula-seccion .lista-temas .ut { color: var(--sec); }
+.aula-seccion .lista-temas a:hover { background: var(--sec-claro); }
+.aula-descarga, .aula-mas { margin: .4rem 0 .6rem; }
+.aula-descarga a::before { content: "⬇ "; }
+details.aula-plan { margin: 1.5rem 0 1rem; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .6rem 1rem; }
+details.aula-plan > summary { cursor: pointer; font-weight: 600; color: var(--acento); }
+details.aula-plan[open] > summary { margin-bottom: .5rem; }
+
+/* ---------- Herramientas: botón de la teoría en PDF */
+.aula-herramientas { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.aula-pdf { display: inline-block; font-weight: 600; text-decoration: none; color: white; background: var(--sec-teoria); border-radius: 6px; padding: .35rem .8rem; font-size: .9rem; }
+.aula-pdf::before { content: "⬇ "; }
+.aula-pdf:hover { filter: brightness(1.1); }
+
+/* ---------- Anterior / siguiente */
+.nav-temas { display: flex; justify-content: space-between; gap: .75rem; }
+.nav-temas > span { flex: 1; }
+
+@media (min-width: 760px) {
+  .aula-portada-temas { grid-template-columns: repeat(2, 1fr); }
+  .aula-secciones { grid-template-columns: repeat(2, 1fr); align-items: start; }
+}
+@media print {
+  .aula-pdf, .tema-accesos, details.aula-plan { display: none !important; }
+}
+
+/* Grupos dentro de Ejercicios: boletines y simuladores */
+.aula-grupo { margin: 1rem 0 .4rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-suave); }
+.aula-seccion .aula-grupo:first-of-type, .aula-grupo:first-child { margin-top: .4rem; }

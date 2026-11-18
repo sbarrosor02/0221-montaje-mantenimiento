@@ -11,10 +11,11 @@
   .ahora { border-left: 4px solid var(--acento); }
   .ahora ul { margin: .3rem 0 0; padding-left: 1.2rem; }
 </style>
+<link rel="stylesheet" href="../assets/organizacion.css">
 </head>
 <body data-modulo="0221">
-<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 1 · Elementos básicos eléctricos y electrónicos</span></nav>
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#seccion-teoria">Teoría</a></li><li><a href="#seccion-ejercicios">Ejercicios</a></li><li><a href="#seccion-practicas">Prácticas</a></li><li><a href="#seccion-examen">Preparar el examen</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 1 · Elementos básicos eléctricos y electrónicos</span></nav>
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1 (UT1)</p>
@@ -25,82 +26,27 @@
 
   <nav class="subnav" aria-label="Apartados del tema 1">
     <a href="ut01.html" class="inicio-tema" aria-current="page">Portada del tema</a>
-    <a href="ut01-teoria.html">Teoría</a>
-    <a href="ut01-prl.html">Seguridad y PRL</a>
-    <a href="ut01-ejercicios.html">Ejercicios</a>
-    <a href="ut01-ejercicios-repaso.html">Repaso examen</a>
-    <a href="ut01-practicas.html">Prácticas</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
   </nav>
 
   <p>Este tema es la <strong>base eléctrica de todo el módulo</strong>: sin
   entender voltaje, corriente, resistencia y la Ley de Ohm no se entiende cómo
   funciona un ordenador por dentro ni se puede diagnosticar una avería.</p>
 
-  <div class="tarjeta ahora">
-    <p><strong>Ahora mismo</strong></p>
-    <ul>
-      <li><strong>Examen de circuitos: miércoles 14 de octubre.</strong> Prepáralo con el <a href="ut01-ejercicios-repaso.html">repaso para el examen</a>, que incluye un simulacro.</li>
-      <li><strong>Entrega del informe de la P2.</strong> Sigue la <a href="ut01-practicas-p2-informe.html">guía del informe técnico</a>.</li>
-    </ul>
+
+  <!-- aula:secciones -->
+  <div class="aula-secciones">
+  <section class="aula-seccion sec-teoria" aria-labelledby="seccion-teoria"><h2 id="seccion-teoria">Teoría</h2><p class="meta">Los apuntes del tema.</p><ul class="lista-temas"><li><a href="ut01-teoria.html"><span class="ut">Teoría</span>Elementos eléctricos y electrónicos<br><span class="etq">Magnitudes, ley de Ohm, circuitos, componentes y medidas</span></a></li><li><a href="ut01-prl.html"><span class="ut">Seguridad</span>Seguridad y prevención de riesgos (PRL)<br><span class="etq">Antes de trabajar en el taller</span></a></li></ul><p class="aula-descarga"><a href="../descargas/teoria/ut01-teoria.pdf" download>Descargar toda la teoría del tema en PDF</a> <span class="meta">para leerla sin conexión o imprimirla</span></p></section>
+  <section class="aula-seccion sec-ejercicios" aria-labelledby="seccion-ejercicios"><h2 id="seccion-ejercicios">Ejercicios</h2><p class="meta">Para practicar. No cuentan para la nota salvo que el profesor diga que se entregan.</p><h3 class="aula-grupo grupo-boletines">Boletines</h3><ul class="lista-temas"><li><a href="ut01-ejercicios-resueltos.html"><span class="ut">Resueltos</span>Resueltos<br><span class="etq">Empieza aquí · 3 ejemplos resueltos: serie, paralelo y mixto</span></a></li><li><a href="ut01-boletin-1.html"><span class="ut">Boletín 1</span>Serie, paralelo y mixto<br><span class="etq">Básico · 10 ejercicios</span></a></li><li><a href="ut01-boletin-2.html"><span class="ut">Boletín 2</span>Circuitos mixtos<br><span class="etq">Medio · 5 ejercicios</span></a></li><li><a href="ut01-boletin-3.html"><span class="ut">Boletín 3</span>Potencia y energía<br><span class="etq">Medio · 3 resueltos y 12 ejercicios</span></a></li><li><a href="ut01-boletin-4.html"><span class="ut">Boletín 4</span>Mixtos avanzados<br><span class="etq">Avanzado · 6 ejercicios</span></a></li><li><a href="ut01-boletin-5.html"><span class="ut">Boletín 5</span>Circuitos enrevesados<br><span class="etq">Avanzado · 6 ejercicios dibujados para despistar</span></a></li></ul><h3 class="aula-grupo grupo-interactivo">Simuladores e interactivos</h3><ul class="lista-temas"><li><a href="ut01-ejercicios-nudos.html"><span class="ut">Taller</span>Taller de nudos<br><span class="etq">Interactivo · Reduce circuitos paso a paso con corrección</span></a></li></ul><p class="aula-mas"><a href="ut01-ejercicios.html">Cómo trabajar los ejercicios del tema</a></p></section>
+  <section class="aula-seccion sec-practicas" aria-labelledby="seccion-practicas"><h2 id="seccion-practicas">Prácticas</h2><p class="meta">Evaluables. Lee el enunciado completo y la rúbrica antes de empezar.</p><ul class="lista-temas"><li><a href="ut01-practicas.html"><span class="ut">Prácticas</span>Prácticas del tema 1<br><span class="etq">Enunciados, entregas y rúbricas</span></a></li><li><a href="ut01-practicas-p2-informe.html"><span class="ut">Informe</span>Guía del informe de la práctica 2<br><span class="etq">Cómo redactar el informe</span></a></li></ul></section>
+  <section class="aula-seccion sec-examen" aria-labelledby="seccion-examen"><h2 id="seccion-examen">Preparar el examen</h2><p class="meta">Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.</p><ul class="lista-temas"><li><a href="ut01-ejercicios-repaso.html"><span class="ut">Repaso</span>Repaso para el examen<br><span class="etq">Método paso a paso, tipos de ejercicio y simulacro de examen</span></a></li></ul></section>
   </div>
+  <!-- /aula:secciones -->
 
-  <h2 id="apartado-estudiar">Estudiar</h2>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut01-teoria.html">
-        <span class="ut">Teoría</span>Electricidad, componentes y medida
-        <br><span class="etq">RA3 · magnitudes y unidades, Ley de Ohm, serie y paralelo, resistencias, aparatos de medida</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut01-prl.html">
-        <span class="ut">Seguridad</span>Seguridad, PRL y medio ambiente
-        <br><span class="etq">RA8 · riesgos, EPI, seguridad eléctrica, residuos y RAEE · léela antes de trabajar en el taller</span>
-      </a>
-    </li>
-  </ul>
-
-  <h2 id="apartado-practicar">Practicar</h2>
-  <p class="meta">No cuenta para la nota. Sirve para coger soltura antes del examen.</p>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut01-ejercicios-repaso.html">
-        <span class="ut">Repaso</span>Repaso para el examen
-        <br><span class="etq">Ejercicios con el formato del examen, con resultados para comprobar y un simulacro de 50 minutos</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut01-ejercicios.html">
-        <span class="ut">Ejercicios</span>Circuitos y Ley de Ohm
-        <br><span class="etq">Resueltos y cinco boletines, de más fácil a más difícil: serie y paralelo, mixtos, potencia, mixtos avanzados y circuitos enrevesados</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut01-ejercicios-nudos.html">
-        <span class="ut">Taller</span>Taller de nudos
-        <br><span class="etq">Interactivo · colorea los nudos y reduce el circuito paso a paso; el taller te dice si vas bien</span>
-      </a>
-    </li>
-  </ul>
-
-  <h2 id="apartado-entregar">Entregar</h2>
-  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de entregar.</p>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut01-practicas.html">
-        <span class="ut">Prácticas</span>P1, P2 y P3: enunciados y rúbricas
-        <br><span class="etq">P1 Tinkercad y multímetro · P2 protoboard y polímetro · P3 código de colores</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut01-practicas-p2-informe.html">
-        <span class="ut">Informe</span>Cómo hacer el informe técnico de la P2
-        <br><span class="etq">Apartados, ejemplos, qué mira la rúbrica y lista de comprobación</span>
-      </a>
-    </li>
-  </ul>
-
-  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+  <details class="ra-ce aula-plan"><summary>Qué se evalúa y cómo se organiza el tema</summary>
     <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
     <p>La UT1 trabaja dos resultados de aprendizaje del Decreto 272/2009:</p>
     <p><strong>RA3.</strong> Mide parámetros eléctricos, identificando el tipo de
@@ -130,10 +76,9 @@
     Las prácticas evaluables se califican sobre RA3.</em></p>
   </details>
 
-  <nav class="nav-temas">
-    <a href="ut00.html">&laquo; Tema 0 (evaluación inicial)</a>
-    <a href="../index.html">Índice del módulo</a>
-    <a href="ut02.html">Tema 2 &raquo;</a>
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <span></span>
+    <a href="ut01-teoria.html">Teoría &raquo;</a>
   </nav>
 
   <footer class="pie">

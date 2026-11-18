@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín 5 · Circuitos enrevesados · Tema 1 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 340px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; }
+  .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
+  @media print {
+    .ejercicio { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+    .figura { break-inside: avoid; }
+  }
+  .mapa-boletines { margin: 1.4rem 0 2rem; }
+  .mapa-boletines .mapa-titulo { font-weight: 700; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .mapa-boletines .mapa-destacado { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); padding: .6rem .9rem; }
+  .mapa-boletines ul { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .6rem; }
+  .mapa-boletines li { margin: 0; }
+  .mapa-boletines li a { display: flex; flex-direction: column; gap: .15rem; height: 100%; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem; text-decoration: none; color: var(--tinta); }
+  .mapa-boletines li a:hover { border-color: var(--acento); background: var(--acento-claro); }
+  .mapa-boletines li strong { color: var(--acento); line-height: 1.3; }
+  .mapa-boletines li span { font-size: .88rem; color: var(--tinta-suave); }
+  .mapa-boletines .nivel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .volver-mapa { font-size: .9rem; margin: 1rem 0 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-boletin-5-circuitos-enrevesados">Boletín 5 · Circuitos enrevesados</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><a href="ut01-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Boletín 5</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Boletín 5 · Circuitos enrevesados</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
+  </nav>
+
+  <section id="b5">
+    <h2 id="apartado-boletin-5-circuitos-enrevesados">Boletín 5 · Circuitos enrevesados</h2>
+    <p>Estos circuitos están dibujados para despistar. Antes de calcular nada,
+    identifica los nudos. Puedes practicarlo en el
+    <a href="ut01-ejercicios-nudos.html">taller de nudos</a>, que comprueba
+    cada paso.</p>
+    <div class="aviso">
+      <strong>Antes de calcular nada</strong>
+      <ol>
+        <li>Pon una letra a cada <strong>nudo</strong>. Todo lo que está unido solo por cable, sin resistencias en medio, es el mismo nudo, aunque esté dibujado lejos.</li>
+        <li>Un cruce de cables <strong>sin punto</strong> no está conectado. Con punto, sí.</li>
+        <li>Anota entre qué dos nudos está cada resistencia. Dos resistencias están <strong>en paralelo</strong> si comparten los dos nudos, y <strong>en serie</strong> si comparten uno solo y de él no sale ninguna otra rama.</li>
+        <li>Si una resistencia tiene sus dos extremos en el mismo nudo, está <strong>cortocircuitada</strong>. Si tiene un extremo libre, es una <strong>rama abierta</strong>. En los dos casos no pasa corriente por ella.</li>
+        <li>Redibuja el circuito de forma ordenada y solo entonces aplica la Ley de Ohm.</li>
+      </ol>
+    </div>
+
+    <div class="ejercicio" id="b5-1">
+      <h3><span class="num">1.</span> La rama que parece paralela</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>Marca con una letra cada nudo. ¿Entre qué dos nudos está conectada cada resistencia?</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La intensidad por R₅ y la tensión en R₂.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-1.svg" width="812" height="360" alt="Fuente de 18 V y R1 de 3 ohmios en el cable superior. Del cable superior bajan R2 de 6 ohmios en vertical, R3 de 6 ohmios en diagonal y R4 de 12 ohmios en vertical. En el cable inferior, entre la bajada de R2 y la de R3, está R5 de 2 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-2">
+      <h3><span class="num">2.</span> Cortocircuito escondido y rama abierta</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>¿Qué corriente pasa por R₄? ¿Y por R₅? Justifica la respuesta.</li>
+        <li>La potencia que disipa cada resistencia y la que entrega la fuente.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-2.svg" width="918" height="391" alt="Fuente de 24 V. En el cable superior, R1 de 4 ohmios y el paralelo de R2 de 12 y R3 de 6 ohmios. Después baja R4 de 8 ohmios, cuyo extremo inferior se une con un cable que vuelve a subir al cable superior. R5 de 100 ohmios baja y termina en un extremo libre. R6 de 4 ohmios baja por la derecha hasta el cable de retorno.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-3">
+      <h3><span class="num">3.</span> La falsa estrella</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>Parece una estrella dentro de un triángulo. Sigue el cable que sale del centro: ¿a qué nudo llega? ¿Cuántos nudos distintos hay?</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La intensidad que pasa por cada una de las seis resistencias.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-3.svg" width="719" height="422" alt="Fuente de 18 V. Triángulo con R2 de 12 ohmios en el lado superior, R4 de 8 ohmios en el lado derecho y R5 de 12 ohmios en el izquierdo. Desde un punto central salen R3 de 6 ohmios hacia el vértice derecho y R6 de 6 ohmios hacia el inferior. Un cable une el punto central con el cable de la fuente y cruza R5 sin punto de conexión. R1 de 3 ohmios está en el cable inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-4">
+      <h3><span class="num">4.</span> En fila, pero no en serie</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>R₂, R₃ y R₄ están dibujadas una detrás de otra. ¿Están en serie? Razónalo con los nudos.</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>Si se retira R₃, ¿cuánto vale la nueva intensidad total?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-4.svg" width="843" height="360" alt="Fuente de 12 V con R1 de 3 ohmios arriba y R5 de 1 ohmio abajo. En el centro, R2 de 6, R3 de 12 y R4 de 4 ohmios están dibujadas en fila. Sus puntos de unión se conectan alternativamente al cable superior y al inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-5">
+      <h3><span class="num">5.</span> Diagonales cruzadas y fuentes enfrentadas</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>¿Qué tensión neta aplican las dos fuentes? Fíjate en su polaridad.</li>
+        <li>La resistencia equivalente y la intensidad total.</li>
+        <li>La potencia de cada resistencia. ¿Cuánta potencia entrega la fuente de 36 V y qué le ocurre a la de 6 V?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-5.svg" width="781" height="422" alt="Dos fuentes, de 36 V y de 6 V, enfrentadas en el lado izquierdo, con R1 de 2 ohmios en el cable inferior. Rectángulo con R2 de 8 ohmios arriba, R3 de 12 ohmios a la derecha y un cable abajo. Dos diagonales, R4 y R5 de 6 ohmios, se cruzan en el centro sin punto de conexión.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b5-6">
+      <h3><span class="num">6.</span> Reto: el puente equilibrado</h3>
+      <p>Resuelve:</p>
+      <ol>
+        <li>R₅ no está ni en serie ni en paralelo con ninguna otra. Calcula R₁/R₂ y R₃/R₄. ¿Qué observas?</li>
+        <li>Suponiendo que por R₅ no pasa corriente, calcula la resistencia equivalente y la intensidad total.</li>
+        <li>Comprueba que la tensión del vértice superior coincide con la del inferior (respecto al borne −).</li>
+        <li>Si R₄ fuese de 12 Ω, ¿seguiría sin pasar corriente por R₅?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 5, circuito 6; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-5-6.svg" width="781" height="496" alt="Fuente de 16 V con R6 de 2 ohmios. Rombo: R1 de 6 y R2 de 12 ohmios por arriba, R3 de 3 y R4 de 6 ohmios por abajo, y R5 de 10 ohmios en vertical entre el vértice superior y el inferior.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-5-6.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-5-6.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-boletin-4.html">&laquo; Boletín 4</a>
+    <a href="ut01-ejercicios-nudos.html">Taller de nudos &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura). Circuitos redibujados como SVG
+    originales a partir de los boletines del curso 2023/24.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

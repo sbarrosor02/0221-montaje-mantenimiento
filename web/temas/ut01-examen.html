@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preparar el examen · Tema 1 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 360px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  svg .et-med { fill: var(--tinta); font: 700 16px system-ui, sans-serif; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.8rem 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .tabla-datos { width: 100%; border-collapse: collapse; margin: 0.9rem 0; font-size: 0.93rem; }
+  .tabla-datos th, .tabla-datos td { border: 1px solid var(--linea); padding: 0.45rem 0.6rem; text-align: left; }
+  .tabla-datos th { background: var(--fondo-suave); font-weight: 600; }
+  .tabla-datos td.rellenar { background: #fffdf3; }
+  svg .et-peq { fill: var(--tinta-suave); font: 600 11px system-ui, sans-serif; }
+  svg .placa { fill: var(--fondo-suave); stroke: var(--tinta); stroke-width: 2; }
+  svg .bus-mas { fill: #f6dcde; stroke: var(--mal); stroke-width: 1.4; }
+  svg .bus-menos { fill: #dce8f4; stroke: var(--acento); stroke-width: 1.4; }
+  svg .col-pb { fill: #e3e8ee; stroke: var(--tinta-suave); stroke-width: 1.2; }
+  svg .cuerpo-r { fill: #e6d8bd; stroke: var(--tinta); stroke-width: 2; }
+  svg .banda { stroke: var(--tinta); stroke-width: 1; }
+  .muestra { display: inline-block; width: 14px; height: 14px; border: 1px solid var(--tinta);
+    border-radius: 3px; vertical-align: -2px; margin-right: 0.4rem; }
+  .paso-bloque { margin: 1.4rem 0 0; }
+  .paso-bloque h3 { margin: 0 0 0.3rem; }
+  .paso-bloque h3 .num { color: var(--acento); margin-right: 0.35rem; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><span aria-current="page">Preparar el examen</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Preparar el examen — Tema 1</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · RA3</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen" aria-current="page">Preparar el examen</a>
+  </nav>
+  <p>Aquí tienes todo lo que sirve para preparar el examen del tema: tests que se corrigen solos, repasos y autoevaluaciones. No cuenta para la nota: repítelo tantas veces como quieras.</p>
+
+  <!-- aula:indice -->
+  <ul class="lista-temas"><li><a href="ut01-ejercicios-repaso.html"><span class="ut">Repaso</span>Repaso para el examen<br><span class="etq">Método paso a paso, tipos de ejercicio y simulacro de examen</span></a></li></ul>
+  <!-- /aula:indice -->
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-practicas-p2-informe.html">&laquo; Guía del informe de la práctica 2</a>
+    <a href="ut01-ejercicios-repaso.html">Repaso para el examen &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

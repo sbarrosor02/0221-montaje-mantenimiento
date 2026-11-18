@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín 4 · Mixtos avanzados · Tema 1 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 340px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; }
+  .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
+  @media print {
+    .ejercicio { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+    .figura { break-inside: avoid; }
+  }
+  .mapa-boletines { margin: 1.4rem 0 2rem; }
+  .mapa-boletines .mapa-titulo { font-weight: 700; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .mapa-boletines .mapa-destacado { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); padding: .6rem .9rem; }
+  .mapa-boletines ul { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .6rem; }
+  .mapa-boletines li { margin: 0; }
+  .mapa-boletines li a { display: flex; flex-direction: column; gap: .15rem; height: 100%; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem; text-decoration: none; color: var(--tinta); }
+  .mapa-boletines li a:hover { border-color: var(--acento); background: var(--acento-claro); }
+  .mapa-boletines li strong { color: var(--acento); line-height: 1.3; }
+  .mapa-boletines li span { font-size: .88rem; color: var(--tinta-suave); }
+  .mapa-boletines .nivel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .volver-mapa { font-size: .9rem; margin: 1rem 0 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-boletin-4-mixtos-avanzados">Boletín 4 · Mixtos avanzados</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><a href="ut01-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Boletín 4</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Boletín 4 · Mixtos avanzados</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
+  </nav>
+
+  <section id="b4">
+    <h2 id="apartado-boletin-4-mixtos-avanzados">Boletín 4 · Mixtos avanzados</h2>
+    <p>Seis circuitos que amplían el boletín 2. Tienen más niveles de
+    anidamiento y piden algo más que la corriente de la fuente: intensidades
+    de rama, tensiones parciales, potencias y una resistencia desconocida.
+    Reduce siempre desde el bloque más interno hacia la fuente y comprueba
+    que las tensiones y las intensidades suman lo que deben.</p>
+
+    <div class="ejercicio" id="b4-1">
+      <h3><span class="num">1.</span> Tres niveles de anidamiento</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La resistencia equivalente y la intensidad que suministra la fuente.</li>
+        <li>La tensión en R₁, en el bloque central y en el paralelo R₆∥R₇.</li>
+        <li>La intensidad que atraviesa cada una de las siete resistencias.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-1.svg" width="734" height="260" alt="Fuente de 24 V. R1 de 2 ohmios en serie con dos ramas en paralelo (R2 de 4 ohmios en serie con el paralelo de R3 de 12 y R4 de 6; y R5 de 8 ohmios) y en serie con el paralelo de R6 de 3 y R7 de 6 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-2">
+      <h3><span class="num">2.</span> Tres ramas y once resistencias</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad suministrada por la fuente de 60 V.</li>
+        <li>La intensidad de cada una de las tres ramas del bloque central.</li>
+        <li>La tensión y la intensidad en R₉ y en R₁₀.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-2.svg" width="850" height="392" alt="Fuente de 60 V. R1 de 5 ohmios en serie con tres ramas en paralelo (R2 de 10 más el paralelo de R3 de 30 y R4 de 15; el paralelo de R5 y R6 de 20 más R7 de 10; y R8 de 10), el paralelo de R9 de 40 y R10 de 10, y R11 de 2 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-3">
+      <h3><span class="num">3.</span> Fuente desconocida y unidades mezcladas</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>El voltaje de la fuente, sabiendo que suministra <strong>5 mA</strong>.</li>
+        <li>La intensidad de cada rama del paralelo.</li>
+        <li>La intensidad que pasa por R₅ y por R₆.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-3.svg" width="810" height="260" alt="Fuente desconocida con una corriente total de 5 mA. R1 de 1,2 kiloohmios en serie con dos ramas en paralelo (R2 de 2,2 más R3 de 1,8 kiloohmios; y R4 de 1 kiloohmio más el paralelo de R5 de 6 y R6 de 3 kiloohmios más R7 de 1 kiloohmio) y en serie con R8 de 800 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-4">
+      <h3><span class="num">4.</span> Red en escalera</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad suministrada por la fuente de 36 V.</li>
+        <li>La intensidad que atraviesa R₇.</li>
+        <li>La tensión y la intensidad en R₉.</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-4.svg" width="890" height="392" alt="Fuente de 36 V. R1 de 6 ohmios en serie con una escalera: R2 de 6 en paralelo con R3 de 3 más el paralelo de R4 de 6 con R5 de 3 más el paralelo de R6 de 6 con R7 de 4 más el paralelo de R8 de 6 y R9 de 3 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-5">
+      <h3><span class="num">5.</span> Dos fuentes en serie y balance de potencias</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>La intensidad total que circula por las fuentes.</li>
+        <li>La potencia que disipa cada una de las nueve resistencias.</li>
+        <li>La potencia que entregan las fuentes. Comprueba la conservación de la potencia.</li>
+        <li>¿Qué resistencias no podrían ser de 1 W?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-5.svg" width="850" height="260" alt="Fuentes de 9 V y 15 V en serie. Primer bloque en paralelo: R1 de 8 más R2 de 4; R3 de 6; R4 de 4 ohmios. En serie con R5 de 4 ohmios y con el paralelo de R6 de 6 más el paralelo de R7 de 4 y R8 de 12, y R9 de 18 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b4-6">
+      <h3><span class="num">6.</span> Problema inverso: la resistencia que falta</h3>
+      <p>Calcula:</p>
+      <ol>
+        <li>El valor de Rₓ para que la fuente de 28 V suministre exactamente <strong>2 A</strong>.</li>
+        <li>La intensidad que pasa por Rₓ y la tensión entre sus terminales.</li>
+        <li>La potencia que disipa Rₓ. ¿Sirve una resistencia de ½ W?</li>
+      </ol>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Boletín 4, circuito 6; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-4-6.svg" width="850" height="260" alt="Fuente de 28 V con una corriente total de 2 A. R1 de 3 ohmios en serie con el paralelo de Rx desconocida más R2 de 4, y R3 de 12; en serie con el paralelo de R4 de 10 y R5 de 6 más el paralelo de R6 y R7 de 8 ohmios.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-4-6.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-4-6.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-boletin-3.html">&laquo; Boletín 3</a>
+    <a href="ut01-boletin-5.html">Boletín 5 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura). Circuitos redibujados como SVG
+    originales a partir de los boletines del curso 2023/24.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

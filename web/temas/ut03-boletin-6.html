@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín 6 · Procesadores reales · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#boletin-6">Boletín 6 · Procesadores reales</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><a href="ut03-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Boletín 6</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Ejercicios</p>
+    <h1>Boletín 6 · Procesadores reales</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut03-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut03-practicas.html" class="sec-practicas">Prácticas</a>
+    <a href="ut03-examen.html" class="sec-examen">Preparar el examen</a>
+    <a href="ut03.html#seccion-enclase" class="sec-enclase">En clase</a>
+  </nav>
+
+  <section>
+    <h2 id="boletin-6">Boletín 6 · Procesadores reales</h2>
+    <p>Cuando te llega un procesador al taller, o cuando lo buscas en una tienda,
+    lo primero que ves es su <strong>descripción comercial</strong>: una línea con el
+    nombre y cuatro datos. De esa línea puedes <strong>deducir</strong> mucho
+    (fabricante, gama, generación, zócalo…) y el resto lo tienes que
+    <strong>investigar</strong> en la web oficial del fabricante. Repasa el apartado
+    <a href="ut03-teoria.html#apartado-3-3">3.3</a> y comprueba los nombres con el
+    decodificador de la teoría <strong>después</strong> de pensarlos.</p>
+
+    <h3>Cómo se lee una descripción comercial</h3>
+    <p class="formula"><code>AMD Ryzen 7 9700X 3.8/5.5 GHz Box (L3: 32 MB, 65 W)</code></p>
+    <div class="aula-tabla" role="region" aria-label="Partes de la descripción comercial; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Parte</th><th>Qué es</th></tr></thead>
+      <tbody>
+        <tr><td>AMD Ryzen 7 9700X</td><td>Nombre: fabricante, familia, gama, serie, modelo y sufijo (apartado 3.3.3).</td></tr>
+        <tr><td>3.8/5.5 GHz</td><td>Frecuencia base / frecuencia turbo máxima. En Intel con núcleos P y E, es la de los núcleos P. Si solo hay una cifra, no tiene turbo.</td></tr>
+        <tr><td>Box</td><td>Versión en caja para la venta, con garantía del fabricante. Unas traen disipador y otras no: hay que comprobarlo. La versión sin caja se llama <em>tray</em> (bandeja).</td></tr>
+        <tr><td>L3: 32 MB</td><td>Memoria caché de nivel 3, compartida por todos los núcleos.</td></tr>
+        <tr><td>65 W</td><td>TDP (en Intel, <em>Processor Base Power</em>): el calor que debe disipar la refrigeración a frecuencia base. En turbo consume más.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Dónde investigar: la página del procesador en <strong>intel.es</strong>
+    (especificaciones, antes llamadas ARK) o en <strong>amd.com</strong> (busca el
+    modelo exacto). Ahí están los núcleos e hilos, la gráfica integrada, la memoria y
+    si la caja trae disipador.</p>
+
+    <h3>Ficha de análisis</h3>
+    <p>Copia esta ficha en LibreOffice Writer y rellena una por procesador.</p>
+    <div class="aula-tabla" role="region" aria-label="Ficha de análisis de procesador; desplazamiento horizontal" tabindex="0"><table class="tabla-datos ficha-placa">
+      <tbody>
+        <tr><th scope="row">Nombre comercial completo</th><td></td></tr>
+        <tr><th scope="row">Fabricante</th><td></td></tr>
+        <tr><th scope="row">Familia y gama</th><td>Core i3/i5/i7/i9, Core Ultra 5/7/9, Ryzen 3/5/7/9…</td></tr>
+        <tr><th scope="row">Generación o serie</th><td>14.ª generación, Core Ultra serie 200, Ryzen serie 7000… (y arquitectura, si la encuentras)</td></tr>
+        <tr><th scope="row">Sufijo y qué significa</th><td>K, F, KF, X, X3D, G… o «sin sufijo»</td></tr>
+        <tr><th scope="row">Zócalo</th><td>LGA 1200, LGA 1700, LGA 1851, AM4, AM5…</td></tr>
+        <tr><th scope="row">Núcleos e hilos</th><td>(investigar) En Intel, cuántos P y cuántos E</td></tr>
+        <tr><th scope="row">Frecuencia base / turbo</th><td></td></tr>
+        <tr><th scope="row">Caché L3</th><td></td></tr>
+        <tr><th scope="row">TDP</th><td>(en AMD, calcula también el PPT = TDP × 1,35)</td></tr>
+        <tr><th scope="row">Gráfica integrada</th><td>Sí (cuál) / No · ¿Necesita tarjeta gráfica?</td></tr>
+        <tr><th scope="row">¿Trae disipador en la caja?</th><td>(investigar)</td></tr>
+        <tr><th scope="row">Memoria compatible</th><td>DDR4, DDR5 o ambas según la placa</td></tr>
+        <tr><th scope="row">Placa que necesita</th><td>Zócalo y chipset (y cuál para hacer overclock, si se puede)</td></tr>
+        <tr><th scope="row">Uso recomendado</th><td>Ofimática, juegos, creación de contenido, equipo pequeño…</td></tr>
+        <tr><th scope="row">Ventajas</th><td></td></tr>
+        <tr><th scope="row">Limitaciones</th><td>Consumo, calor, sin gráfica, plataforma antigua, precio…</td></tr>
+        <tr><th scope="row">Resumen (2–3 líneas)</th><td></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo resuelto · AMD Ryzen 7 9700X 3.8/5.5 GHz Box (L3: 32 MB, 65 W)</strong>
+      AMD · Ryzen 7, gama media-alta · serie 9000 (arquitectura Zen 5, 2024) · sufijo
+      X: frecuencias más altas, desbloqueado · zócalo AM5 · 8 núcleos y 16 hilos ·
+      3,8 GHz base y 5,5 GHz turbo · 32 MB de L3 · TDP de 65 W (PPT = 65 × 1,35 ≈ 88 W) ·
+      gráfica integrada AMD Radeon básica: vale para usar el escritorio sin tarjeta
+      gráfica, no para jugar · la caja no trae disipador · solo DDR5 · placa AM5
+      (A620, B650, B850, X670, X870…; para overclock, mejor B o X) · uso: juegos y
+      trabajo general · ventajas: ocho núcleos con poco consumo y una plataforma con
+      futuro · limitaciones: hay que comprar disipador; desde un equipo AM4 hay que
+      cambiar placa y memoria · resumen: un procesador equilibrado para un equipo
+      de juegos o de trabajo que consuma poco.
+    </div>
+
+    <div class="ejercicio">
+      <h3 id="ej-6-1"><span class="num">6.1</span> Procesadores que te llegarán al taller <span class="ce">CE c</span></h3>
+      <p>Rellena la ficha de análisis de cada uno. Son procesadores de los últimos
+      años: muchos siguen en los equipos que llegan a reparar o a ampliar.</p>
+      <div class="lista-procesadores">
+        <ol>
+          <li value="1"><code>Intel Core i9-14900K 3.2/6.0 GHz Box (L3: 36 MB, 125 W)</code></li>
+          <li value="2"><code>Intel Core i7-14700F 2.1/5.4 GHz Box (L3: 33 MB, 65 W)</code></li>
+          <li value="3"><code>Intel Core i5-14600K 3.5/5.3 GHz Box (L3: 24 MB, 125 W)</code></li>
+          <li value="4"><code>Intel Core i5-14400 2.5/4.7 GHz Box (L3: 20 MB, 65 W)</code></li>
+          <li value="5"><code>Intel Core i3-14100 3.5/4.7 GHz Box (L3: 12 MB, 60 W)</code></li>
+          <li value="6"><code>Intel Core i7-12700K 3.6/5.0 GHz Box (L3: 25 MB, 125 W)</code></li>
+          <li value="7"><code>Intel Core i5-12400F 2.5/4.4 GHz Box (L3: 18 MB, 65 W)</code></li>
+          <li value="8"><code>AMD Ryzen 9 7950X 4.5/5.7 GHz Box (L3: 64 MB, 170 W)</code></li>
+          <li value="9"><code>AMD Ryzen 9 7900X 4.7/5.6 GHz Box (L3: 64 MB, 170 W)</code></li>
+          <li value="10"><code>AMD Ryzen 7 7800X3D 4.2/5.0 GHz Box (L3: 96 MB, 120 W)</code></li>
+          <li value="11"><code>AMD Ryzen 7 7700 3.8/5.3 GHz Box (L3: 32 MB, 65 W)</code></li>
+          <li value="12"><code>AMD Ryzen 5 7600 3.8/5.1 GHz Box (L3: 32 MB, 65 W)</code></li>
+          <li value="13"><code>AMD Ryzen 5 5600X 3.7/4.6 GHz Box (L3: 32 MB, 65 W)</code></li>
+          <li value="14"><code>AMD Ryzen 5 5500 3.6/4.2 GHz Box (L3: 16 MB, 65 W)</code></li>
+          <li value="15"><code>AMD Ryzen 3 4100 3.8/4.0 GHz Box (L3: 4 MB, 65 W)</code></li>
+          <li value="16"><code>Intel Pentium Gold G6405 4.1 GHz Box (L3: 4 MB, 58 W)</code></li>
+          <li value="17"><code>Intel Core i5-10400F 2.9/4.3 GHz Box (L3: 12 MB, 65 W)</code></li>
+          <li value="18"><code>AMD Ryzen 7 5700G 3.8/4.6 GHz Box (L3: 16 MB, 65 W)</code></li>
+          <li value="19"><code>AMD Athlon 3000G 3.5 GHz Box (L3: 4 MB, 35 W)</code></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3 id="ej-6-2"><span class="num">6.2</span> Procesadores actuales <span class="ce">CE c</span></h3>
+      <p>Rellena también la ficha de estos, los que se montan hoy en un equipo
+      nuevo.</p>
+      <div class="lista-procesadores">
+        <ol>
+          <li value="20"><code>Intel Core Ultra 7 270K Plus 3.7/5.5 GHz Box (L3: 36 MB, 125 W)</code></li>
+          <li value="21"><code>Intel Core Ultra 5 250K Plus 4.2/5.3 GHz Box (L3: 30 MB, 125 W)</code></li>
+          <li value="22"><code>Intel Core Ultra 7 265K 3.9/5.5 GHz Box (L3: 30 MB, 125 W)</code></li>
+          <li value="23"><code>AMD Ryzen 7 9850X3D 4.7/5.6 GHz Box (L3: 96 MB, 120 W)</code></li>
+          <li value="24"><code>AMD Ryzen 7 9800X3D 4.7/5.2 GHz Box (L3: 96 MB, 120 W)</code></li>
+          <li value="25"><code>AMD Ryzen 5 9600X 3.9/5.4 GHz Box (L3: 32 MB, 65 W)</code></li>
+          <li value="26"><code>AMD Ryzen 5 8600G 4.3/5.0 GHz Box (L3: 16 MB, 65 W)</code></li>
+          <li value="27"><code>AMD Ryzen 9 9950X 4.3/5.7 GHz Box (L3: 64 MB, 170 W)</code></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="ejercicio">
+      <h3 id="ej-6-3"><span class="num">6.3</span> Compara y elige <span class="ce">CE c</span> <span class="ce">CE d</span></h3>
+      <p>Responde con los datos de tus fichas.</p>
+      <ol class="preguntas-ficha">
+        <li>¿Cuáles de los 27 procesadores <strong>no</strong> pueden funcionar sin
+        tarjeta gráfica? ¿Qué tienen en común sus nombres?</li>
+        <li>El Core i9-14900K y el Core Ultra 7 270K Plus tienen 24 núcleos, pero el
+        primero atiende 32 hilos y el segundo 24. ¿Por qué?</li>
+        <li>Un cliente tiene una placa AM4 con chipset B550 y memoria DDR4. ¿Cuáles de
+        los 27 procesadores podrían ir en su placa? ¿Hay alguno AM4 que esa placa no
+        admita? (Consulta la lista de procesadores compatibles de una placa B550.)</li>
+        <li>Agrupa los procesadores por zócalo. ¿Qué zócalos ya no reciben
+        procesadores nuevos?</li>
+        <li>¿Qué procesadores traen disipador en la caja? ¿Ves alguna regla según el
+        sufijo o el TDP?</li>
+        <li>Ordena los procesadores AMD de las dos listas por TDP y calcula el PPT de
+        cada grupo (35, 65, 120 y 170 W). ¿Qué tipo de disipador propondrías para
+        cada grupo?</li>
+        <li>¿Por qué el Ryzen 7 7800X3D tiene menos frecuencia que el Ryzen 7 7700 y,
+        aun así, es mejor para jugar?</li>
+        <li>Elige un procesador de las listas para cada cliente y justifícalo:
+          (1) ordenador de oficina lo más barato posible; (2) equipo para jugar con
+          el mejor rendimiento; (3) edición de vídeo y renderizado; (4) equipo pequeño
+          para el salón que permita jugar a juegos ligeros sin tarjeta gráfica;
+          (5) mejorar un equipo AM4 sin cambiar la placa.</li>
+      </ol>
+    </div>
+
+    <section class="entrega" aria-labelledby="entrega-6">
+      <h3 id="entrega-6">Qué entregas del boletín 6</h3>
+      <p class="entrega-sub">Un ZIP con la memoria en PDF: una ficha por procesador (6.1 y 6.2) y las respuestas del 6.3.</p>
+      <ul class="entrega-archivos"><li>&lt;usuario&gt;_E36.zip</li><li>&lt;usuario&gt;_E36.pdf (dentro del ZIP)</li></ul>
+      <h4>Comprueba antes de entregar</h4>
+      <ul class="entrega-lista">
+        <li>Hay 27 fichas, con el nombre comercial completo como título de cada una.</li>
+        <li>Los datos que no salen de la descripción (núcleos, hilos, gráfica, disipador) están comprobados en la web del fabricante, y al final de la memoria hay una lista con las direcciones que has consultado.</li>
+        <li>El zócalo, la memoria y la placa encajan entre sí: un procesador LGA 1700 no va con una placa AM5.</li>
+        <li>Las respuestas del 6.3 citan los procesadores por su nombre y dan el porqué.</li>
+      </ul>
+      <h4>Cómo debe quedar</h4>
+      <div class="entrega-ejemplos">
+        <figure class="bien"><div class="hoja" aria-hidden="true">
+          <p class="t1">6.1 · 4. Intel Core i5-14400 2.5/4.7 GHz Box</p>
+          <table><tbody><tr><th>Zócalo</th><td>LGA 1700</td></tr><tr><th>Núcleos / hilos</th><td>… (6P + …) / …</td></tr><tr><th>Gráfica integrada</th><td>Sí: Intel UHD …</td></tr><tr><th>…</th><td>…</td></tr></tbody></table></div>
+          <figcaption>Una ficha por procesador, con todas las filas y datos comprobados.</figcaption></figure>
+        <figure class="mal"><div class="hoja" aria-hidden="true">
+          <p class="t1">Ejercicio 4</p>
+          <p>Es un i5 de Intel, gama media, 65 W. Sirve para todo.</p></div>
+          <figcaption>Sin ficha, sin zócalo ni núcleos, y «sirve para todo» no es un uso recomendado.</figcaption></figure>
+      </div>
+      <p class="entrega-ojo"><strong>Fallo más común:</strong> deducir que un procesador
+      tiene gráfica integrada o trae disipador sin comprobarlo. En la caja no lo pone
+      y cambia según el modelo: míralo siempre en la web del fabricante.</p>
+    </section>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut03-boletin-5.html">&laquo; Boletín 5</a>
+    <a href="ut03-ejercicios-uefi.html">Simulador de UEFI &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

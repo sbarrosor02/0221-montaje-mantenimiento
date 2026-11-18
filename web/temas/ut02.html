@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="../assets/ut02.css">
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
 </head>
 <body data-modulo="0221">
-<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut02.html"><span>Tema 2</span>Estructura funcional del ordenador y arquitectura de buses</a><a class="indice-material" href="../recursos.html?tema=2">Todo el material del tema 2</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 2 · Estructura funcional del ordenador y arquitectura de buses</span></nav>
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut02.html"><span>Tema 2</span>Estructura funcional del ordenador y arquitectura de buses</a><a class="indice-material" href="../recursos.html?tema=2">Todo el material del tema 2</a><details open><summary>En esta página</summary><ul><li><a href="#seccion-teoria">Teoría</a></li><li><a href="#seccion-ejercicios">Ejercicios</a></li><li><a href="#seccion-practicas">Prácticas</a></li><li><a href="#seccion-examen">Preparar el examen</a></li><li><a href="#seccion-enclase">En clase</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 2 · Estructura funcional del ordenador y arquitectura de buses</span></nav>
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 2 (UT2)</p>
@@ -22,12 +23,11 @@
 
   <nav class="subnav" aria-label="Apartados del tema 2">
     <a href="ut02.html" class="inicio-tema" aria-current="page">Portada del tema</a>
-    <a href="ut02-teoria.html">Teoría</a>
-    <a href="ut02-ejercicios-cpu.html">Simulador de CPU</a>
-    <a href="ut02-ejercicios.html">Ejercicios</a>
-    <a href="ut02-ejercicios-web.html">Ejercicios en la web</a>
-    <a href="ut02-test.html">Test</a>
-    <a href="ut02-practicas.html">Prácticas</a>
+    <a href="ut02-teoria.html" class="sec-teoria">Teoría</a>
+    <a href="ut02-ejercicios.html" class="sec-ejercicios">Ejercicios</a>
+    <a href="ut02-practicas.html" class="sec-practicas">Prácticas</a>
+    <a href="ut02-examen.html" class="sec-examen">Preparar el examen</a>
+    <a href="../juegos/ut02-concurso.html" class="sec-enclase">En clase</a>
   </nav>
 
   <p>En el tema 1 viste los componentes electrónicos. Ahora subimos un nivel:
@@ -36,56 +36,30 @@
   ellos por los <strong>buses</strong>. Es la base para elegir componentes en
   el tema 3 y para montar un equipo en el tema 4.</p>
 
-  <h2 id="apartado-estudiar">Estudiar</h2>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut02-teoria.html">
-        <span class="ut">Teoría</span>Del bit al ordenador completo
-        <br><span class="etq">Representación de la información, puertas lógicas, arquitectura de Von Neumann, unidades funcionales, buses y ciclo de instrucción · con piezas interactivas y autoevaluación</span>
-      </a>
-    </li>
-  </ul>
+  <!-- aula:secciones -->
+  <div class="aula-secciones">
+  <section class="aula-seccion sec-teoria" aria-labelledby="seccion-teoria"><h2 id="seccion-teoria">Teoría</h2><p class="meta">Los apuntes del tema.</p><ul class="lista-temas"><li><a href="ut02-teoria.html"><span class="ut">Teoría</span>Estructura funcional del ordenador y arquitectura de buses<br><span class="etq">Representación, puertas lógicas, Von Neumann, unidades funcionales, buses y ciclo de instrucción</span></a></li></ul><p class="aula-descarga"><a href="../descargas/teoria/ut02-teoria.pdf" download>Descargar toda la teoría del tema en PDF</a> <span class="meta">para leerla sin conexión o imprimirla</span></p></section>
+  <section class="aula-seccion sec-ejercicios" aria-labelledby="seccion-ejercicios"><h2 id="seccion-ejercicios">Ejercicios</h2><p class="meta">Para practicar. No cuentan para la nota salvo que el profesor diga que se entregan.</p><h3 class="aula-grupo grupo-boletines">Boletines</h3><ul class="lista-temas"><li><a href="ut02-boletin-1.html"><span class="ut">Boletín 1</span>Representación de la información<br><span class="etq">Bits, binario, hexadecimal y unidades · 10 ejercicios</span></a></li><li><a href="ut02-boletin-2.html"><span class="ut">Boletín 2</span>Circuitos lógicos<br><span class="etq">Expresión y tabla de verdad · 7 ejercicios</span></a></li><li><a href="ut02-boletin-3.html"><span class="ut">Boletín 3</span>Arquitectura y buses<br><span class="etq">Bloques, Von Neumann y cálculos de buses · 9 ejercicios</span></a></li><li><a href="ut02-boletin-4.html"><span class="ut">Boletín 4</span>Ejecución de programas<br><span class="etq">Simula la CPU instrucción a instrucción · 6 programas</span></a></li></ul><h3 class="aula-grupo grupo-interactivo">Simuladores e interactivos</h3><ul class="lista-temas"><li><a href="ut02-ejercicios-cpu.html"><span class="ut">Simulador</span>Simulador de CPU<br><span class="etq">Programa la máquina instrucción a instrucción</span></a></li></ul><p class="aula-mas"><a href="ut02-ejercicios.html">Cómo trabajar los ejercicios del tema</a></p></section>
+  <section class="aula-seccion sec-practicas" aria-labelledby="seccion-practicas"><h2 id="seccion-practicas">Prácticas</h2><p class="meta">Evaluables. Lee el enunciado completo y la rúbrica antes de empezar.</p><ul class="lista-temas"><li><a href="ut02-practicas.html"><span class="ut">Práctica</span>Práctica P4: del bloque a la pieza<br><span class="etq">Enunciado y rúbrica</span></a></li></ul></section>
+  <section class="aula-seccion sec-examen" aria-labelledby="seccion-examen"><h2 id="seccion-examen">Preparar el examen</h2><p class="meta">Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.</p><ul class="lista-temas"><li><a href="ut02-test.html"><span class="ut">Test</span>Test del tema 2<br><span class="etq">Preguntas al azar, se corrige solo</span></a></li><li><a href="ut02-ejercicios-web.html"><span class="ut">En la web</span>Circuitos y programas autocorregibles<br><span class="etq">Circuitos con valores y ejecución de programas, tipo examen</span></a></li><li><a href="ut02-teoria.html#apartado-autoevaluacion"><span class="ut">Autoevaluación</span>Autoevaluación de la teoría<br><span class="etq">Preguntas rápidas al final de los apuntes</span></a></li></ul></section>
+  <section class="aula-seccion sec-enclase" aria-labelledby="seccion-enclase"><h2 id="seccion-enclase">En clase</h2><p class="meta">Juegos y competiciones que hacemos en el aula. Los abre el profesor cuando toca.</p><ul class="lista-temas"><li><a href="../juegos/ut02-concurso.html"><span class="ut">Concurso</span>Concurso del tema 2<br><span class="etq">Preguntas por equipos con tiempo, tipo Kahoot · lo proyecta el profesor</span></a></li></ul></section>
+  </div>
+  <!-- /aula:secciones -->
 
-  <h2 id="apartado-practicar">Practicar</h2>
-  <p class="meta">No cuenta para la nota. Sirve para entender y coger soltura.</p>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut02-ejercicios-cpu.html">
-        <span class="ut">Simulador</span>Simulador de CPU
-        <br><span class="etq">Interactivo · ejecuta programas instrucción a instrucción y mira cómo cambian los registros y los buses; escribe tus propios programas</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut02-ejercicios.html">
-        <span class="ut">Ejercicios</span>Cuatro boletines
-        <br><span class="etq">Representación de la información, circuitos lógicos, arquitectura y buses, ejecución de programas</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut02-ejercicios-web.html">
-        <span class="ut">En la web</span>Circuitos con valores y ejecución de programas
-        <br><span class="etq">Autocorregibles · bloque 5: 8 circuitos con A, B y C ya dados (sin álgebra de Boole) · bloque 6: 6 programas para rellenar la traza de registros</span>
-      </a>
-    </li>
-    <li>
-      <a href="ut02-test.html">
-        <span class="ut">Test</span>Test del tema
-        <br><span class="etq">Autocorregible · banco de 56 preguntas por apartados, al azar y con opción de que los fallos resten</span>
-      </a>
-    </li>
-  </ul>
-
-  <h2 id="apartado-entregar">Entregar</h2>
-  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de empezar.</p>
-  <ul class="lista-temas">
-    <li>
-      <a href="ut02-practicas.html">
-        <span class="ut">Práctica</span>P4 · Del bloque a la pieza
-        <br><span class="etq">Taller, en parejas · identifica los bloques funcionales y los buses en un equipo real · rúbrica de 10 puntos</span>
-      </a>
-    </li>
-  </ul>
-
+  <details class="ra-ce aula-plan"><summary>Qué se evalúa y cómo se organiza el tema</summary>
+    <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
+    <p>La UT2 trabaja dos criterios del resultado de aprendizaje 1 del Decreto
+    272/2009:</p>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando
+    prestaciones de distintos fabricantes.</p>
+    <ul>
+      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones.</li>
+      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses.</li>
+    </ul>
+    <p style="margin-bottom:0"><em>El resto de criterios del RA1 (microprocesador,
+    placa base, BIOS, memoria, almacenamiento…) se trabajan en los temas 3 y
+    4.</em></p>
   <h2 id="apartado-recorrido">Recorrido del tema</h2>
   <p>Orden orientativo de las sesiones. El ritmo se ajustará a la marcha del
   grupo.</p>
@@ -101,27 +75,11 @@
     <li>Práctica P4 en el taller (2–3 sesiones).</li>
     <li>Repaso y prueba del tema.</li>
   </ol>
-
-  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
-    <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
-    <p>La UT2 trabaja dos criterios del resultado de aprendizaje 1 del Decreto
-    272/2009:</p>
-    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
-    microinformático estándar, describiendo sus funciones y comparando
-    prestaciones de distintos fabricantes.</p>
-    <ul>
-      <li><strong>a)</strong> Se han descrito los bloques que componen un equipo microinformático y sus funciones.</li>
-      <li><strong>b)</strong> Se ha reconocido la arquitectura de buses.</li>
-    </ul>
-    <p style="margin-bottom:0"><em>El resto de criterios del RA1 (microprocesador,
-    placa base, BIOS, memoria, almacenamiento…) se trabajan en los temas 3 y
-    4.</em></p>
   </details>
 
-  <nav class="nav-temas">
-    <a href="ut01.html">&laquo; Tema 1</a>
-    <a href="../index.html">Índice del módulo</a>
-    <a href="ut03.html">Tema 3 &raquo;</a>
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <span></span>
+    <a href="ut02-teoria.html">Teoría &raquo;</a>
   </nav>
 
   <footer class="pie">
