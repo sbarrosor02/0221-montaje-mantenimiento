@@ -212,9 +212,15 @@ destacados, mapas de boletines) y costaba encontrar las cosas.
   `estilo.css`, `aula.css` ni `aula.js` (compartidos con 0223); el generador solo
   aplica la nueva organización cuando el módulo es 0221.
 
+- **En clase (rojo, 🏆):** quinta sección para los juegos y competiciones del aula
+  (`web/juegos/`): gymkana de placas y concursos. Se enlazan con `../juegos/…`.
+  El ejercicio 5.2 sigue enlazando también a la gymkana.
+- **Simuladores:** dentro de Ejercicios van en su propio bloque, «Simuladores e
+  interactivos», separados de los boletines. Se marca con `"grupo": "interactivo"`.
+
 ### Dónde va cada material nuevo
 
 Añádelo en `temas.json` → tema → `secciones` → `teoria`, `ejercicios`,
-`practicas` o `examen` (`etiqueta`, `titulo`, `url`, `texto`) y ejecuta
+`practicas`, `examen` o `enclase` (`etiqueta`, `titulo`, `url`, `texto`) y ejecuta
 `python scripts/actualizar_aula.py`: crea la tarjeta, la barra del tema, el índice
 de la sección, las migas y el «anterior / siguiente».

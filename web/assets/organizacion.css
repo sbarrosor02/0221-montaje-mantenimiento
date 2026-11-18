@@ -7,11 +7,13 @@
   --sec-ejercicios: #17685e; --sec-ejercicios-claro: #e6f4ef;
   --sec-practicas: #a2551a;  --sec-practicas-claro: #fbefe5;
   --sec-examen: #7a3d9a;     --sec-examen-claro: #f4ecf8;
+  --sec-enclase: #a8322a;    --sec-enclase-claro: #fbeceb;
 }
 .sec-teoria { --sec: var(--sec-teoria); --sec-claro: var(--sec-teoria-claro); --icono: "📘"; }
 .sec-ejercicios { --sec: var(--sec-ejercicios); --sec-claro: var(--sec-ejercicios-claro); --icono: "✏️"; }
 .sec-practicas { --sec: var(--sec-practicas); --sec-claro: var(--sec-practicas-claro); --icono: "🔧"; }
 .sec-examen { --sec: var(--sec-examen); --sec-claro: var(--sec-examen-claro); --icono: "🎯"; }
+.sec-enclase { --sec: var(--sec-enclase); --sec-claro: var(--sec-enclase-claro); --icono: "🏆"; }
 .sec-pdf { --sec: var(--tinta-suave); --sec-claro: var(--fondo-suave); --icono: "⬇"; }
 
 /* ---------- Portada del módulo: tarjetas de tema */
@@ -30,10 +32,10 @@
 .aula-buscar-portada { margin-top: 1.25rem; }
 
 /* ---------- Barra del tema: portada + secciones con su color */
-.subnav a.sec-teoria, .subnav a.sec-ejercicios, .subnav a.sec-practicas, .subnav a.sec-examen { border-left: 4px solid var(--sec); }
-.subnav a.sec-teoria::before, .subnav a.sec-ejercicios::before, .subnav a.sec-practicas::before, .subnav a.sec-examen::before { content: var(--icono) " "; }
+.subnav a.sec-teoria, .subnav a.sec-ejercicios, .subnav a.sec-practicas, .subnav a.sec-examen, .subnav a.sec-enclase { border-left: 4px solid var(--sec); }
+.subnav a.sec-teoria::before, .subnav a.sec-ejercicios::before, .subnav a.sec-practicas::before, .subnav a.sec-examen::before, .subnav a.sec-enclase::before { content: var(--icono) " "; }
 .subnav a[aria-current="true"] { background: var(--sec-claro, var(--acento-claro)); font-weight: 600; }
-.subnav a.sec-teoria[aria-current="page"], .subnav a.sec-ejercicios[aria-current="page"], .subnav a.sec-practicas[aria-current="page"], .subnav a.sec-examen[aria-current="page"] { background: var(--sec); border-color: var(--sec); color: white; }
+.subnav a.sec-teoria[aria-current="page"], .subnav a.sec-ejercicios[aria-current="page"], .subnav a.sec-practicas[aria-current="page"], .subnav a.sec-examen[aria-current="page"], .subnav a.sec-enclase[aria-current="page"] { background: var(--sec); border-color: var(--sec); color: white; }
 
 /* ---------- Portada del tema: las cuatro secciones */
 .aula-secciones { display: grid; gap: 1.1rem; margin: 1.5rem 0; }
@@ -67,3 +69,7 @@ details.aula-plan[open] > summary { margin-bottom: .5rem; }
 @media print {
   .aula-pdf, .tema-accesos, details.aula-plan { display: none !important; }
 }
+
+/* Grupos dentro de Ejercicios: boletines y simuladores */
+.aula-grupo { margin: 1rem 0 .4rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-suave); }
+.aula-seccion .aula-grupo:first-of-type, .aula-grupo:first-child { margin-top: .4rem; }

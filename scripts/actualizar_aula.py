@@ -122,7 +122,11 @@ def shell(source, code, current, short_name, tema=None):
 SECCIONES = [('teoria', 'Teoría', 'Los apuntes del tema.'),
              ('ejercicios', 'Ejercicios', 'Para practicar. No cuentan para la nota salvo que el profesor diga que se entregan.'),
              ('practicas', 'Prácticas', 'Evaluables. Lee el enunciado completo y la rúbrica antes de empezar.'),
-             ('examen', 'Preparar el examen', 'Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.')]
+             ('examen', 'Preparar el examen', 'Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.'),
+             ('enclase', 'En clase', 'Juegos y competiciones que hacemos en el aula. Los abre el profesor cuando toca.')]
+
+# Dentro de Ejercicios, los elementos con "grupo": "interactivo" van aparte de los boletines.
+GRUPOS_EJERCICIOS = [('', 'Boletines'), ('interactivo', 'Simuladores e interactivos')]
 
 def base_url(u):
     return u.split('#')[0]
@@ -163,6 +167,16 @@ def tarjetas(lista, prefijo=''):
         '<li><a href="' + escape(prefijo + it['url']) + '"><span class="ut">' + escape(it['etiqueta']) + '</span>' + escape(it['titulo']) +
         ('<br><span class="etq">' + escape(it['texto']) + '</span>' if it.get('texto') else '') + '</a></li>' for it in lista) + '</ul>'
 
+def tarjetas_seccion(clave, lista, prefijo=''):
+    if clave != 'ejercicios' or not any(it.get('grupo') for it in lista):
+        return tarjetas(lista, prefijo)
+    html = ''
+    for grupo, titulo in GRUPOS_EJERCICIOS:
+        parte = [it for it in lista if it.get('grupo', '') == grupo]
+        if parte:
+            html += '<h3 class="aula-grupo grupo-' + (grupo or 'boletines') + '">' + titulo + '</h3>' + tarjetas(parte, prefijo)
+    return html
+
 def rellenar(source, marca, contenido):
     return re.sub(r'<!-- aula:' + marca + r' -->.*?<!-- /aula:' + marca + r' -->',
                   lambda m: '<!-- aula:' + marca + ' -->\n' + contenido + '\n  <!-- /aula:' + marca + ' -->', source, count=1, flags=re.S)
@@ -189,7 +203,7 @@ def organizar(source, nombre, ut, titulo, secc, web, ids_boletines):
             lista = secc.get(clave)
             if not lista:
                 continue
-            html_s += '\n  <section class="aula-seccion sec-' + clave + '" aria-labelledby="seccion-' + clave + '"><h2 id="seccion-' + clave + '">' + etiqueta + '</h2><p class="meta">' + ayuda + '</p>' + tarjetas(lista)
+            html_s += '\n  <section class="aula-seccion sec-' + clave + '" aria-labelledby="seccion-' + clave + '"><h2 id="seccion-' + clave + '">' + etiqueta + '</h2><p class="meta">' + ayuda + '</p>' + tarjetas_seccion(clave, lista)
             if clave == 'teoria' and pdf_teoria(web, ut):
                 html_s += '<p class="aula-descarga"><a href="../' + pdf_teoria(web, ut) + '" download>Descargar toda la teoría del tema en PDF</a> <span class="meta">para leerla sin conexión o imprimirla</span></p>'
             if clave == 'ejercicios':
@@ -199,7 +213,7 @@ def organizar(source, nombre, ut, titulo, secc, web, ids_boletines):
     # índices de ejercicios y de examen
     if nombre in ('ut%02d-ejercicios.html' % ut, 'ut%02d-examen.html' % ut):
         clave = 'ejercicios' if 'ejercicios' in nombre else 'examen'
-        contenido = '  ' + tarjetas(secc.get(clave, []))
+        contenido = '  ' + tarjetas_seccion(clave, secc.get(clave, []))
         if clave == 'ejercicios' and ids_boletines:
             contenido += ('\n  <script>/* Enlaces antiguos (ejercicios.html#ancla) a la página nueva de cada boletín */\n  (function () { var m = ' +
                           json.dumps(ids_boletines, ensure_ascii=False, sort_keys=True) +
@@ -368,7 +382,7 @@ for repo in REPOS:
         home += '<div class="aviso"><strong>Antes de trabajar en el taller</strong><p>Revisa <a href="temas/ut01-prl.html">Seguridad y PRL</a> y sigue las instrucciones del profesor.</p></div>'
     if code == '0221':
         home = ('<header class="cab"><p class="modulo">IES Valle del Jerte · CFGM SMR · ' + code + '</p><h1>' + escape(data['titulo']) + '</h1><p class="meta">2.º curso · 6 h/semana · Curso 2026/2027</p></header>'
-                '<p>Elige un tema. En cada uno encontrarás la teoría, los ejercicios, las prácticas y lo necesario para preparar el examen.</p><ul class="aula-portada-temas">')
+                '<p>Elige un tema. En cada uno encontrarás la teoría, los ejercicios, las prácticas, lo necesario para preparar el examen y los juegos que hacemos en clase.</p><ul class="aula-portada-temas">')
         for topic in data['temas']:
             if not (web / ('temas/ut%02d.html' % topic['ut'])).exists():
                 continue

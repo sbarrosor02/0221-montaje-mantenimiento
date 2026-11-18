@@ -101,7 +101,8 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
 La portada muestra solo los temas. Cada tema tiene su página (`web/temas/utNN.html`)
 con cuatro secciones: **Teoría**, **Ejercicios** (un enlace por boletín, índice en
 `utNN-ejercicios.html`), **Prácticas** y **Preparar el examen** (`utNN-examen.html`:
-tests, simulacros, autoevaluaciones y repasos). Las secciones se definen en
+tests, simulacros, autoevaluaciones y repasos) y **En clase** (gymkanas y concursos de
+`web/juegos/`). Los simuladores van en Ejercicios, en un bloque aparte. Las secciones se definen en
 `web/datos/temas.json` → `secciones`. La teoría de cada tema se descarga en PDF
 (`web/descargas/teoria/utNN-teoria.pdf`, generado con `scripts/generar_pdf_teoria.py`).
 El catálogo `web/recursos.html` reúne el material y las descargas con filtros y búsqueda.
