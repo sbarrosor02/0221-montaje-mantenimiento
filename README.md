@@ -83,6 +83,9 @@ Al crear o modificar un tema en `temario/` hay que: (1) generar/actualizar
   tema 2, con 41 preguntas de los apartados 3.1 a 3.3.3 (placa base, conectores, panel
   frontal, características del procesador, zócalos y nombres) y 5 de desempate. No se
   enlaza desde las páginas del alumnado.
+  **Gymkana de placas** (`web/juegos/ut03-gymkana-placas.html`, ejercicio 5.2): individual,
+  con los manuales de dos placas MSI; preguntas al azar de ficha y esquema, informe en PDF
+  y ranking por código. Se genera desde `examenes/gymkana-placas/` (privado).
 - **Tema 4 — Almacenamiento, fuente de alimentación y ensamblaje del equipo**
   (UT4 + UT5 de la programación; RA1 h, RA2 a–j, RA3 f–j, RA8 b, e, h): portada con
   mapa de criterios, teoría de discos, cableado, fuente y SAI (conector de 24 pines
