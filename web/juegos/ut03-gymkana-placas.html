@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gymkana de placas · Tema 3 · 0221 Montaje y mantenimiento</title>
+<meta name="robots" content="noindex">
+<style>
+:root {
+  --fondo: #f3f6f8; --papel: #ffffff; --tinta: #1b2733; --suave: #5d6f80; --linea: #d5dde4;
+  --acento: #17685e; --acento-claro: #e3f3ee; --oscuro: #1d2b36;
+  --ok: #1d8a4a; --ok-claro: #e4f5ea; --mal: #c0262f; --mal-claro: #fbe9ea; --oro: #b07d00; --oro-claro: #fff4d6;
+  --radio: 10px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: "Segoe UI", Calibri, system-ui, sans-serif; background: var(--fondo); color: var(--tinta); font-size: 16px; line-height: 1.5; }
+button, input { font: inherit; }
+button { cursor: pointer; border: 0; border-radius: 8px; padding: .55rem 1rem; background: var(--acento); color: #fff; font-weight: 600; }
+button.sec { background: var(--papel); color: var(--acento); border: 1px solid var(--acento); }
+button.peligro { background: var(--mal); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+button:focus-visible, input:focus-visible { outline: 3px solid #f0b400; outline-offset: 2px; }
+input[type=text], input[type=password], textarea { width: 100%; padding: .55rem .7rem; border: 1px solid var(--linea); border-radius: 8px; background: #fff; color: var(--tinta); font: inherit; }
+.barra { position: sticky; top: 0; z-index: 5; background: var(--oscuro); color: #fff; padding: .6rem 1rem; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; align-items: center; justify-content: space-between; }
+.barra h1 { font-size: 1.05rem; margin: 0; }
+.barra .datos { display: flex; gap: 1rem; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+.barra .datos b { color: #ffd34d; }
+main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+.tarjeta { background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem 1.1rem; margin: 0 0 1rem; }
+.tarjeta h2 { margin: 0 0 .5rem; font-size: 1.2rem; }
+.tarjeta h3 { margin: 0 0 .4rem; font-size: 1.05rem; }
+.suave { color: var(--suave); }
+.reglas li { margin-bottom: .25rem; }
+.fila { display: flex; gap: .6rem; flex-wrap: wrap; align-items: end; }
+.fila > label { flex: 1 1 14rem; }
+label span.et { display: block; font-weight: 600; margin-bottom: .2rem; }
+.aviso { padding: .55rem .8rem; border-radius: 8px; margin-top: .6rem; }
+.aviso.mal { background: var(--mal-claro); color: var(--mal); }
+.aviso.ok { background: var(--ok-claro); color: var(--ok); }
+.pestanas { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.pestanas button { background: var(--papel); color: var(--tinta); border: 1px solid var(--linea); }
+.pestanas button[aria-selected="true"] { background: var(--acento); color: #fff; border-color: var(--acento); }
+.pestanas .cuenta { font-weight: 400; opacity: .85; margin-left: .3rem; }
+.pregunta { border: 1px solid var(--linea); border-radius: var(--radio); padding: .8rem .9rem; margin-bottom: .8rem; background: #fff; }
+.pregunta.acertada { border-color: var(--ok); background: var(--ok-claro); }
+.pregunta.fallada { border-color: var(--mal); background: var(--mal-claro); }
+.pregunta .cab { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin-bottom: .35rem; }
+.chip { font-size: .78rem; font-weight: 700; padding: .1rem .5rem; border-radius: 99px; background: var(--acento-claro); color: var(--acento); }
+.chip.esquema { background: #e8eefc; color: #2c4fa8; }
+.chip.reto { background: var(--oro-claro); color: var(--oro); }
+.pregunta .enun { font-weight: 600; margin: 0 0 .5rem; }
+.opciones { display: grid; gap: .35rem; margin-bottom: .5rem; }
+.opciones label { display: flex; gap: .5rem; align-items: center; padding: .35rem .55rem; border: 1px solid var(--linea); border-radius: 8px; background: #fff; cursor: pointer; }
+.opciones input { width: 1.1rem; height: 1.1rem; }
+.acciones { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-top: .5rem; }
+.estado { font-size: .92rem; }
+.pista { margin-top: .4rem; padding: .4rem .6rem; background: var(--oro-claro); border-radius: 8px; font-size: .92rem; }
+.final { text-align: center; }
+.codigo { font-family: Consolas, "Courier New", monospace; font-size: 1.35rem; font-weight: 700; letter-spacing: .04em; background: var(--acento-claro); color: var(--acento); padding: .5rem .9rem; border-radius: 8px; display: inline-block; word-break: break-all; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { border: 1px solid var(--linea); padding: .35rem .45rem; text-align: left; vertical-align: top; }
+th { background: #eef2f5; }
+.tabla { overflow-x: auto; }
+.oculto { display: none !important; }
+.pie { text-align: center; font-size: .85rem; color: var(--suave); margin: 1.5rem 0; }
+.pie button { background: none; color: var(--suave); text-decoration: underline; padding: 0; font-weight: 400; }
+#informe .cab-informe { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+@media (max-width: 600px) { main { padding: .6rem; } .barra { padding: .5rem .7rem; } }
+@media print {
+  @page { size: A4; margin: 14mm 12mm; }
+  body { background: #fff; font-size: 10.5pt; }
+  .barra, .pie, .no-imprimir, #pantalla-inicio, #pantalla-juego, #panel-profe { display: none !important; }
+  main { max-width: none; padding: 0; }
+  .tarjeta { border: 0; padding: 0; }
+  #informe { display: block !important; }
+  table { font-size: 9pt; }
+  tr { break-inside: avoid; }
+  .codigo { font-size: 14pt; }
+}
+</style>
+</head>
+<body>
+<header class="barra">
+  <h1>Gymkana de placas · Tema 3</h1>
+  <div class="datos" aria-live="polite">
+    <span id="b-nombre"></span>
+    <span>Puntos: <b id="b-puntos">0</b></span>
+    <span>Tiempo: <b id="b-tiempo">00:00</b></span>
+    <span>Resueltas: <b id="b-progreso">0/0</b></span>
+  </div>
+</header>
+<main>
+
+<section id="pantalla-inicio" class="tarjeta">
+  <h2>Bienvenida a la gymkana</h2>
+  <p>Vas a competir con el manual de dos placas base reales. Primero tendrás que
+  <strong>encontrar cada manual</strong> en la web del fabricante y, después,
+  responder preguntas sobre su <strong>hoja de características</strong>
+  (<em>Specifications</em>) y su <strong>esquema</strong> (<em>Overview of
+  Components</em>). Cada persona tiene preguntas distintas, sacadas al azar, pero con
+  la misma dificultad.</p>
+  <h3>Reglas</h3>
+  <ul class="reglas">
+    <li>Trabajas solo. Puedes usar el navegador y los manuales en PDF.</li>
+    <li>Cada placa empieza <strong>bloqueada</strong>: se abre cuando demuestras que
+    tienes su manual. Cuando abras las dos, se desbloquean los <strong>retos
+    finales</strong>.</li>
+    <li><strong>10 puntos</strong> si aciertas a la primera, 6 a la segunda y 3 a la
+    tercera. Tienes 3 intentos en las preguntas de escribir y 2 en las de elegir
+    opción. La <strong>pista</strong> te dice dónde
+    buscar, pero cuesta 3 puntos de esa pregunta.</li>
+    <li>Si hay empate a puntos, gana quien haya tardado menos.</li>
+    <li>Al terminar, guarda el informe en PDF y entrégalo. Tu <strong>código de
+    ranking</strong> aparece en el informe: el profesor lo comprueba.</li>
+    <li>Premio: <strong>0,5 puntos más en el examen</strong> del tema para quien
+    gane.</li>
+  </ul>
+  <div class="fila">
+    <label><span class="et">Tu nombre y primer apellido</span><input type="text" id="in-nombre" autocomplete="off" maxlength="40"></label>
+    <label><span class="et">Clave de salida (te la dice el profesor)</span><input type="text" id="in-salida" autocomplete="off"></label>
+    <button id="bt-empezar">Empezar</button>
+  </div>
+  <div id="aviso-inicio" class="aviso mal oculto" role="alert"></div>
+</section>
+
+<section id="pantalla-juego" class="oculto">
+  <div class="pestanas" role="tablist" aria-label="Partes de la gymkana" id="pestanas"></div>
+  <div id="zona"></div>
+  <div class="tarjeta no-imprimir">
+    <h3>¿Has terminado?</h3>
+    <p class="suave">Cuando termines (o cuando el profesor diga que se acaba el tiempo),
+    pulsa el botón. Las preguntas que no hayas cerrado cuentan 0 puntos. Después no
+    se puede seguir jugando.</p>
+    <button class="peligro" id="bt-terminar">Terminar la gymkana</button>
+    <span id="confirmar-terminar" class="oculto"> <button class="peligro" id="bt-terminar-si">Sí, terminar</button> <button class="sec" id="bt-terminar-no">Seguir jugando</button></span>
+  </div>
+</section>
+
+<section id="informe" class="tarjeta oculto">
+  <div class="cab-informe">
+    <div>
+      <h2>Informe de la gymkana de placas</h2>
+      <p class="suave" style="margin:0">0221 Montaje y mantenimiento de equipo · Tema 3 · Boletín 5</p>
+    </div>
+    <div style="text-align:right">
+      <div>Código de ranking</div>
+      <div class="codigo" id="inf-codigo"></div>
+    </div>
+  </div>
+  <p id="inf-resumen"></p>
+  <div class="tabla"><table>
+    <thead><tr><th>#</th><th>Parte</th><th>Pregunta</th><th>Tu respuesta</th><th>Intentos</th><th>Pista</th><th>Puntos</th></tr></thead>
+    <tbody id="inf-filas"></tbody>
+  </table></div>
+  <div class="no-imprimir final" style="margin-top:1rem">
+    <p><strong>Ahora guarda este informe en PDF:</strong> pulsa el botón, elige
+    «Guardar como PDF» como impresora y llámalo <code>&lt;usuario&gt;_gymkana.pdf</code>.
+    Entrégalo en la tarea de Moodle.</p>
+    <button id="bt-pdf">Guardar el informe en PDF</button>
+  </div>
+</section>
+
+<section id="panel-profe" class="tarjeta oculto">
+  <h2>Panel del profesorado</h2>
+  <div id="profe-login" class="fila">
+    <label><span class="et">Clave del profesorado</span><input type="password" id="in-profe" autocomplete="off"></label>
+    <button id="bt-profe">Entrar</button>
+    <button class="sec" id="bt-profe-cerrar">Cerrar</button>
+  </div>
+  <div id="profe-zona" class="oculto">
+    <h3>Ranking</h3>
+    <p class="suave">Pega los códigos de ranking de los informes, uno por línea. Se
+    comprueba cada código y se ordena por puntos y, si hay empate, por tiempo.</p>
+    <textarea id="in-codigos" rows="6" placeholder="LAURA_GARCIA-152-71-K3F9A-7Q2XM"></textarea>
+    <div class="acciones"><button id="bt-ranking">Comprobar y ordenar</button></div>
+    <div id="ranking" class="tabla" style="margin-top:.8rem"></div>
+    <h3 style="margin-top:1.2rem">Este ordenador</h3>
+    <p class="suave">Para desbloquear una placa si el manual de un alumno tiene otra
+    numeración, escribe la clave del profesorado en el cuadro de desbloqueo de esa placa.</p>
+    <button class="peligro" id="bt-reiniciar">Borrar la partida de este ordenador</button>
+    <button class="sec" id="bt-profe-cerrar2">Cerrar el panel</button>
+  </div>
+  <div id="aviso-profe" class="aviso mal oculto" role="alert"></div>
+</section>
+
+<p class="pie no-imprimir"><button id="bt-abrir-profe">Profesorado</button></p>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var D = {"sal": "gk-placas-0221", "placas": {"b850": {"nombre": "MSI MAG B850 TOMAHAWK MAX WIFI", "corto": "B850 TOMAHAWK MAX", "web": "msi.com → busca «MAG B850 TOMAHAWK MAX WIFI» → Support → Manual", "h": 6354978672212425}, "b760": {"nombre": "MSI PRO B760M-A DDR4", "corto": "B760M-A DDR4", "web": "msi.com → busca «PRO B760M-A DDR4» → Support → Manual", "h": 5636851422356787}}, "preguntas": [{"id": "a01", "placa": "b850", "cat": "ficha", "p": "¿Qué zócalo tiene la placa?", "t": "txt", "pista": "Busca en «Specifications» → CPU.", "h": [557366212210212]}, {"id": "a02", "placa": "b850", "cat": "ficha", "p": "¿Qué chipset tiene?", "t": "txt", "pista": "Busca en «Specifications» → Chipset.", "h": [3204608064612946, 5954822097608916]}, {"id": "a03", "placa": "b850", "cat": "ficha", "p": "¿Cuál es la capacidad máxima de memoria, en GB?", "t": "num", "pista": "Busca en «Specifications» → Memory.", "h": [3008891752138017]}, {"id": "a04", "placa": "b850", "cat": "ficha", "p": "¿Cuántas ranuras M.2 tiene?", "t": "num", "pista": "Busca en «Specifications» → M.2 SSD Slots.", "h": [5625518989084092]}, {"id": "a05", "placa": "b850", "cat": "ficha", "p": "¿Qué ranura M.2 admite un SSD de 110 mm (tipo 22110)?", "t": "opc", "o": ["M2_1", "M2_2", "M2_3", "M2_4"], "pista": "Busca en «Specifications» → M.2 SSD Slots: mira los tamaños de cada ranura.", "h": [4303742677228769]}, {"id": "a06", "placa": "b850", "cat": "ficha", "p": "¿De dónde salen los 4 puertos SATA?", "t": "opc", "o": ["Del procesador", "Del chipset B850", "De un controlador ASMedia ASM1064", "De un controlador Realtek"], "pista": "Busca en «Specifications» → SATA Ports.", "h": [4951072891330356]}, {"id": "a07", "placa": "b850", "cat": "ficha", "p": "¿A qué velocidad va la red cableada, en Gbps?", "t": "num", "pista": "Busca en «Specifications» → LAN.", "h": [2270302625366932]}, {"id": "a08", "placa": "b850", "cat": "ficha", "p": "¿Qué códec de audio lleva?", "t": "opc", "o": ["Realtek ALC897", "Realtek ALC4080", "Realtek ALC1220P", "Realtek ALC892"], "pista": "Busca en «Specifications» → Audio.", "h": [8121392812241426]}, {"id": "a09", "placa": "b850", "cat": "ficha", "p": "¿Cuántos conectores de ventilador de 4 pines tiene en total (procesador, bomba y sistema)?", "t": "num", "pista": "Busca en «Specifications» → Fan Connectors: suma todos.", "h": [1979377128832500]}, {"id": "a10", "placa": "b850", "cat": "ficha", "p": "Con un Ryzen 5 8500G, ¿cómo funciona la ranura PCI_E1?", "t": "opc", "o": ["PCIe 5.0 x16", "PCIe 4.0 x8", "PCIe 4.0 x4", "PCIe 3.0 x1"], "pista": "Busca en «Specifications» → Expansion Slots: cambia según la serie del Ryzen.", "h": [7092486712072837]}, {"id": "a11", "placa": "b850", "cat": "ficha", "p": "Si instalas un SSD en M2_3, ¿a qué velocidad pasa a funcionar PCI_E3?", "t": "opc", "o": ["x1", "x2", "x4", "x8"], "pista": "Busca en «Specifications» → la nota con asterisco de Expansion Slots.", "h": [4883706762606290]}, {"id": "a12", "placa": "b850", "cat": "ficha", "p": "¿Cuántos puertos USB tipo C tiene el panel trasero?", "t": "num", "pista": "Busca en «Specifications» → Back Panel Connectors.", "h": [926245990120519]}, {"id": "a13", "placa": "b850", "cat": "ficha", "p": "¿Cuántos conectores de 8 pines +12 V para el procesador tiene?", "t": "num", "pista": "Busca en «Specifications» → Power Connectors.", "h": [791581263461233]}, {"id": "a14", "placa": "b850", "cat": "ficha", "p": "¿Qué capacidad tiene el chip de la BIOS, en Mb?", "t": "num", "pista": "Busca en «Specifications» → BIOS Features.", "h": [1814190635447242]}, {"id": "a15", "placa": "b850", "cat": "ficha", "p": "¿Qué salidas de vídeo tiene para la gráfica integrada del procesador?", "t": "opc", "o": ["1 HDMI", "2 HDMI y 2 DisplayPort", "1 DisplayPort", "Ninguna"], "pista": "Busca en «Specifications» → Onboard Graphics.", "h": [7830956381135039]}, {"id": "a16", "placa": "b850", "cat": "ficha", "p": "¿Qué versión de Wi-Fi tiene? (escribe solo el número)", "t": "num", "pista": "Busca en «Specifications» → Wi-Fi & Bluetooth.", "h": [4746024094160481]}, {"id": "a17", "placa": "b850", "cat": "ficha", "p": "¿Cuánto mide la placa?", "t": "opc", "o": ["244 × 244 mm", "244 × 305 mm", "170 × 170 mm", "305 × 330 mm"], "pista": "Busca en «Specifications» → Form Factor.", "h": [8039762842734383]}, {"id": "a18", "placa": "b850", "cat": "ficha", "p": "¿Qué niveles de RAID admite para SSD NVMe M.2?", "t": "opc", "o": ["RAID 0, 1 y 10", "RAID 0, 1, 5 y 10", "Solo RAID 1", "No admite RAID"], "pista": "Busca en «Specifications» → RAID.", "h": [4883570104956030]}, {"id": "b01", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector principal del panel frontal (botones y LED)?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Front Panel Connectors.", "h": [1330648526113040]}, {"id": "b02", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del audio frontal?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Front Audio Connector.", "h": [6647743368332265]}, {"id": "b03", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del USB-C frontal de 20 Gbps?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: USB 20Gbps Type-C Front Panel Connector.", "h": [1912054898847955]}, {"id": "b04", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulos tienen los conectores USB 2.0 internos?", "t": "opc", "o": ["JUSB2 y JUSB3", "JUSB4 y JUSB5", "JUSBC1", "JUSB1 y JUSB2"], "pista": "Busca en «Overview of Components» y sus apartados: USB 2.0 Connectors.", "h": [456956093444549]}, {"id": "b05", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el puente de Clear CMOS?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Clear CMOS (Reset BIOS) Jumper.", "h": [4422439191370992]}, {"id": "b06", "placa": "b850", "cat": "esquema", "p": "Si instalas dos módulos de memoria, ¿en qué ranuras van?", "t": "opc", "o": ["DIMMA1 y DIMMB1", "DIMMA2 y DIMMB2", "DIMMA1 y DIMMA2", "DIMMB1 y DIMMB2"], "pista": "Busca en «Overview of Components» y sus apartados: DDR5 DIMM Slots → Memory module installation recommendation.", "h": [4982344177417867]}, {"id": "b07", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector para la bomba de una refrigeración líquida AIO?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Fan Connectors.", "h": [530606745152057]}, {"id": "b08", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector de alimentación de 24 pines?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Power Connectors.", "h": [391739774095762]}, {"id": "b09", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector de intrusión del chasis?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Chassis Intrusion Connector.", "h": [7271984467123849]}, {"id": "b10", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el puente de arranque seguro para overclock (Safe Boot)?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Safe Boot Jumper.", "h": [8973498077407946]}, {"id": "b11", "placa": "b850", "cat": "esquema", "p": "¿Qué rótulo tiene el conector de alimentación PCIe adicional de la placa?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Power Connectors.", "h": [8773321588565050]}, {"id": "b12", "placa": "b850", "cat": "esquema", "p": "¿Cuántos conectores ARGB Gen2 (A-RAINBOW V2) tiene?", "t": "num", "pista": "Busca en «Overview of Components» y sus apartados: A-RAINBOW V2 LED connectors.", "h": [4034215838051481]}, {"id": "c01", "placa": "b760", "cat": "ficha", "p": "¿Qué zócalo tiene la placa?", "t": "txt", "pista": "Busca en «Specifications» → CPU.", "h": [555041793594595]}, {"id": "c02", "placa": "b760", "cat": "ficha", "p": "¿Qué chipset tiene?", "t": "txt", "pista": "Busca en «Specifications» → Chipset.", "h": [1656069723154078, 7581709601861312]}, {"id": "c03", "placa": "b760", "cat": "ficha", "p": "¿Cuál es la capacidad máxima de memoria, en GB?", "t": "num", "pista": "Busca en «Specifications» → Memory.", "h": [973102499956108]}, {"id": "c04", "placa": "b760", "cat": "ficha", "p": "¿Qué tipo de memoria admite?", "t": "opc", "o": ["DDR4", "DDR5", "DDR4 o DDR5", "DDR3"], "pista": "Busca en «Specifications» → Memory.", "h": [5845123060601715]}, {"id": "c05", "placa": "b760", "cat": "ficha", "p": "¿Cuántas ranuras M.2 tiene?", "t": "num", "pista": "Busca en «Specifications» → M.2 SSD Slots.", "h": [2244573471283849]}, {"id": "c06", "placa": "b760", "cat": "ficha", "p": "Si pones un SSD M.2 SATA en M2_2, ¿qué puerto SATA deja de funcionar?", "t": "txt", "pista": "Busca en «Specifications» → la nota con asterisco de SATA Ports.", "h": [5358568124283612, 8379464002965605]}, {"id": "c07", "placa": "b760", "cat": "ficha", "p": "¿Cuántas salidas de vídeo (HDMI + DisplayPort) tiene en total?", "t": "num", "pista": "Busca en «Specifications» → Onboard Graphics.", "h": [8685653438572621]}, {"id": "c08", "placa": "b760", "cat": "ficha", "p": "¿A qué velocidad va la red cableada, en Gbps?", "t": "num", "pista": "Busca en «Specifications» → LAN.", "h": [5225400178023889]}, {"id": "c09", "placa": "b760", "cat": "ficha", "p": "¿Qué códec de audio lleva?", "t": "opc", "o": ["Realtek ALC897", "Realtek ALC4080", "Realtek ALC1220P", "Realtek ALC892"], "pista": "Busca en «Specifications» → Audio.", "h": [4189802429307569]}, {"id": "c10", "placa": "b760", "cat": "ficha", "p": "¿Cuánto mide la placa?", "t": "opc", "o": ["244 × 244 mm", "244 × 305 mm", "170 × 170 mm", "305 × 244 mm"], "pista": "Busca en «Specifications» → Form Factor.", "h": [4251734081101197]}, {"id": "c11", "placa": "b760", "cat": "ficha", "p": "¿Qué conectores de alimentación tiene para el procesador?", "t": "opc", "o": ["1 de 8 pines", "1 de 8 pines y 1 de 4 pines", "2 de 8 pines", "1 de 4 pines"], "pista": "Busca en «Specifications» → Power Connectors.", "h": [7172481939188081]}, {"id": "c12", "placa": "b760", "cat": "ficha", "p": "¿Cuántos conectores de ventilador de 4 pines tiene en total?", "t": "num", "pista": "Busca en «Specifications» → Fan Connectors: suma todos.", "h": [9285143036011]}, {"id": "c13", "placa": "b760", "cat": "ficha", "p": "¿Hasta qué versión y carriles admite la ranura PCI_E3?", "t": "opc", "o": ["PCIe 4.0 x16", "PCIe 4.0 x4", "PCIe 3.0 x1", "PCIe 5.0 x4"], "pista": "Busca en «Specifications» → Expansion Slots.", "h": [807757896784388]}, {"id": "c14", "placa": "b760", "cat": "ficha", "p": "¿De dónde sale la ranura M2_1?", "t": "opc", "o": ["Del procesador", "Del chipset B760", "De un controlador ASMedia", "De un hub USB"], "pista": "Busca en «Specifications» → M.2 SSD Slots.", "h": [1827806224718624]}, {"id": "c15", "placa": "b760", "cat": "ficha", "p": "¿Qué puerto antiguo para teclado y ratón tiene en el panel trasero?", "t": "opc", "o": ["PS/2", "Puerto serie", "Puerto paralelo", "Ninguno"], "pista": "Busca en «Specifications» → Back Panel Connectors.", "h": [7794776967361007]}, {"id": "c16", "placa": "b760", "cat": "ficha", "p": "¿Velocidad máxima de memoria con overclock y un módulo por canal de una cara (1DPC 1R), en MHz?", "t": "num", "pista": "Busca en «Specifications» → Memory → Max. overclocking frequency.", "h": [8300193183377529]}, {"id": "c17", "placa": "b760", "cat": "ficha", "p": "¿Qué niveles de RAID admite para SATA?", "t": "opc", "o": ["RAID 0, 1, 5 y 10", "RAID 0, 1 y 10", "Solo RAID 0 y 1", "No admite RAID"], "pista": "Busca en «Specifications» → RAID.", "h": [1809140613447129]}, {"id": "c18", "placa": "b760", "cat": "ficha", "p": "¿Cuántos puertos USB 2.0 más se pueden añadir con sus conectores internos?", "t": "num", "pista": "Busca en «Specifications» → Internal USB Connectors.", "h": [1026943688718024]}, {"id": "d01", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector principal del panel frontal (botones y LED)?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Front Panel Connectors.", "h": [3034772450965611]}, {"id": "d02", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del audio frontal?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Front Audio Connector.", "h": [8832900220523442]}, {"id": "d03", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del USB-C frontal?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: USB 3.2 Gen 1 Type-C Front Panel Connector.", "h": [6442053834654000]}, {"id": "d04", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulos tienen los conectores USB 3.2 Gen 1 (5 Gbps) internos?", "t": "opc", "o": ["JUSB1 y JUSB2", "JUSB3 y JUSB4", "JUSB5", "JUSB2 y JUSB3"], "pista": "Busca en «Overview of Components» y sus apartados: USB 3.2 Gen 1 Connectors.", "h": [293383139577318]}, {"id": "d05", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del puerto serie?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Serial Port connector.", "h": [4921043651034300]}, {"id": "d06", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector del módulo TPM?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: TPM Module Connector.", "h": [3581936395649658]}, {"id": "d07", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el puente de Clear CMOS?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Clear CMOS (Reset BIOS) Jumper.", "h": [7494463095780732]}, {"id": "d08", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulo tiene el conector para la bomba de agua?", "t": "txt", "pista": "Busca en «Overview of Components» y sus apartados: Fan Connectors.", "h": [1135871389046986]}, {"id": "d09", "placa": "b760", "cat": "esquema", "p": "Si instalas dos módulos de memoria, ¿en qué ranuras van?", "t": "opc", "o": ["DIMMA1 y DIMMB1", "DIMMA2 y DIMMB2", "DIMMA1 y DIMMA2", "DIMMB1 y DIMMB2"], "pista": "Busca en «Overview of Components» y sus apartados: DIMM Slots → Memory module installation recommendation.", "h": [6266254081208111]}, {"id": "d10", "placa": "b760", "cat": "esquema", "p": "¿Cuántos conectores de ventilador de sistema (SYS_FAN) tiene?", "t": "num", "pista": "Busca en «Overview of Components» y sus apartados: Fan Connectors.", "h": [3414541663282045]}, {"id": "d11", "placa": "b760", "cat": "esquema", "p": "¿Qué rótulos tienen los puertos SATA?", "t": "opc", "o": ["SATA1 a SATA4", "SATA_5 a SATA_8", "SATA_A1 a SATA_A4", "SATA0 a SATA3"], "pista": "Busca en «Overview of Components» y sus apartados: SATA 6Gb/s Connectors.", "h": [2527823457985994]}, {"id": "d12", "placa": "b760", "cat": "esquema", "p": "¿Cuántos conectores ARGB Gen2 (A-RAINBOW V2) tiene?", "t": "num", "pista": "Busca en «Overview of Components» y sus apartados: A-RAINBOW V2 LED connectors.", "h": [7885683221293390]}, {"id": "r01", "placa": "reto", "cat": "reto", "p": "Un cliente quiere aprovechar sus dos módulos DDR4 de 16 GB. ¿Qué placa le montas?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Compara la memoria de las dos fichas.", "h": [7895443937574790]}, {"id": "r02", "placa": "reto", "cat": "reto", "p": "La caja del cliente admite como máximo placas micro-ATX. ¿Qué placa cabe?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Compara el formato (Form Factor) de las dos.", "h": [4046065501361827]}, {"id": "r03", "placa": "reto", "cat": "reto", "p": "El cliente ha comprado un AMD Ryzen 7 9800X3D. ¿Qué placa necesita?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Compara el zócalo de las dos.", "h": [1781991590924360]}, {"id": "r04", "placa": "reto", "cat": "reto", "p": "Quiere montar 4 SSD NVMe M.2 sin tarjetas adicionales. ¿Qué placa?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Cuenta las ranuras M.2 de cada una.", "h": [3043118939538429]}, {"id": "r05", "placa": "reto", "cat": "reto", "p": "Usará la gráfica integrada del procesador con dos monitores DisplayPort. ¿Qué placa?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Compara las salidas de vídeo (Onboard Graphics).", "h": [2314180394876615]}, {"id": "r06", "placa": "reto", "cat": "reto", "p": "Necesita conectar 7 ventiladores de caja sin divisores. ¿Qué placa?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Cuenta los conectores SYS_FAN de cada una.", "h": [3106333591426920]}, {"id": "r07", "placa": "reto", "cat": "reto", "p": "¿Qué placa tiene la red cableada más rápida?", "t": "opc", "o": ["MAG B850 TOMAHAWK MAX WIFI", "PRO B760M-A DDR4", "Las dos", "Ninguna"], "pista": "Compara el apartado LAN.", "h": [6036142574616195]}, {"id": "r08", "placa": "reto", "cat": "reto", "p": "¿Cuántos puertos SATA suman las dos placas juntas?", "t": "num", "pista": "Mira SATA Ports en las dos fichas.", "h": [2702169613215779]}], "reparto": {"ficha": 4, "esquema": 3, "reto": 3}, "hSalida": 5090779352806612, "hProfe": 7221828045126985};
+  var CLAVE = 'gymkana-placas-ut03-v1';
+  var PUNTOS = [10, 6, 3], COSTE_PISTA = 3;
+  function maxIntentos(q) { return q.t === 'opc' ? 2 : 3; }
+
+  function cyrb53(str, seed) {
+    seed = seed || 0;
+    var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+    for (var i = 0, ch; i < str.length; i++) {
+      ch = str.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677);
+    }
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507); h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507); h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+    return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+  }
+  function normTxt(s) { return String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function normNum(s) { var m = String(s).replace(/,/g, '.').match(/\d+(\.\d+)?/); return m ? String(parseFloat(m[0])) : ''; }
+  function huella(et, v) { return cyrb53(D.sal + '|' + et + '|' + v); }
+  function esProfe(v) { return huella('profe', normTxt(v)) === D.hProfe; }
+  function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function barajar(lista, rnd) { var a = lista.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rnd() * (i + 1)); var x = a[i]; a[i] = a[j]; a[j] = x; } return a; }
+  function $(id) { return document.getElementById(id); }
+  function el(tag, attrs, hijos) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === 'texto') e.textContent = attrs[k]; else if (k === 'clase') e.className = attrs[k];
+      else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), attrs[k]); else e.setAttribute(k, attrs[k]);
+    });
+    (hijos || []).forEach(function (h) { if (h) e.appendChild(typeof h === 'string' ? document.createTextNode(h) : h); });
+    return e;
+  }
+  var PREG = {}; D.preguntas.forEach(function (q) { PREG[q.id] = q; });
+  var PARTES = [
+    { id: 'b850', titulo: D.placas.b850.corto }, { id: 'b760', titulo: D.placas.b760.corto }, { id: 'reto', titulo: 'Retos finales' }
+  ];
+
+  // ---------- estado
+  var S = null;
+  function guardar() { try { localStorage.setItem(CLAVE, JSON.stringify(S)); } catch (e) {} }
+  function cargar() { try { var t = localStorage.getItem(CLAVE); return t ? JSON.parse(t) : null; } catch (e) { return null; } }
+  function nombreCodigo(n) { return normTxt(n.replace(/\s+/g, '_')).toUpperCase().slice(0, 18) || 'ANONIMO'; }
+
+  function nuevaPartida(nombre) {
+    var semilla = Math.floor(Math.random() * 4294967296);
+    var rnd = mulberry32(semilla), orden = [];
+    ['b850', 'b760'].forEach(function (pl) {
+      ['ficha', 'esquema'].forEach(function (cat) {
+        var banco = D.preguntas.filter(function (q) { return q.placa === pl && q.cat === cat; });
+        barajar(banco, rnd).slice(0, D.reparto[cat]).forEach(function (q) { orden.push(q.id); });
+      });
+    });
+    barajar(D.preguntas.filter(function (q) { return q.cat === 'reto'; }), rnd).slice(0, D.reparto.reto).forEach(function (q) { orden.push(q.id); });
+    var r = {};
+    orden.forEach(function (id) {
+      var q = PREG[id];
+      r[id] = { intentos: [], pista: false, cerrada: false, acierto: false, puntos: 0, op: q.o ? barajar(q.o, rnd) : null };
+    });
+    S = { v: 1, nombre: nombre, semilla: semilla, inicio: Date.now(), fin: null, orden: orden, r: r,
+          abiertas: { b850: false, b760: false }, parte: 'b850' };
+    guardar();
+  }
+
+  // ---------- cálculo
+  function totalPuntos() { return S.orden.reduce(function (s, id) { return s + S.r[id].puntos; }, 0); }
+  function cerradas() { return S.orden.filter(function (id) { return S.r[id].cerrada; }).length; }
+  function segundos() { return Math.floor(((S.fin || Date.now()) - S.inicio) / 1000); }
+  function mmss(s) { var m = Math.floor(s / 60), x = s % 60; return (m < 10 ? '0' : '') + m + ':' + (x < 10 ? '0' : '') + x; }
+  function codigo() {
+    var nom = nombreCodigo(S.nombre), pts = totalPuntos(), seg = segundos(), sem = S.semilla.toString(36).toUpperCase();
+    var chk = (cyrb53(D.sal + '|codigo|' + nom + '|' + pts + '|' + seg + '|' + sem) % 60466176).toString(36).toUpperCase();
+    while (chk.length < 5) chk = '0' + chk;
+    return nom + '-' + pts + '-' + seg + '-' + sem + '-' + chk;
+  }
+  function comprobarCodigo(c) {
+    var m = /^([A-Z0-9_]+)-(\d+)-(\d+)-([A-Z0-9]+)-([A-Z0-9]{5})$/.exec(c.trim().toUpperCase());
+    if (!m) return null;
+    var chk = (cyrb53(D.sal + '|codigo|' + m[1] + '|' + m[2] + '|' + m[3] + '|' + m[4]) % 60466176).toString(36).toUpperCase();
+    while (chk.length < 5) chk = '0' + chk;
+    return { nombre: m[1].replace(/_/g, ' '), puntos: +m[2], seg: +m[3], valido: chk === m[5] };
+  }
+
+  // ---------- barra
+  function barra() {
+    if (!S) { $('b-nombre').textContent = ''; $('b-puntos').textContent = '0'; $('b-tiempo').textContent = '00:00'; $('b-progreso').textContent = '0/0'; return; }
+    $('b-nombre').textContent = S.nombre;
+    $('b-puntos').textContent = totalPuntos();
+    $('b-tiempo').textContent = mmss(segundos());
+    $('b-progreso').textContent = cerradas() + '/' + S.orden.length;
+  }
+  setInterval(function () { if (S && !S.fin) $('b-tiempo').textContent = mmss(segundos()); }, 1000);
+
+  // ---------- pantallas
+  function mostrar() {
+    $('pantalla-inicio').classList.toggle('oculto', !!S);
+    $('pantalla-juego').classList.toggle('oculto', !S || !!S.fin);
+    $('informe').classList.toggle('oculto', !S || !S.fin);
+    barra();
+    if (S && !S.fin) pintarJuego();
+    if (S && S.fin) pintarInforme();
+  }
+
+  function retosAbiertos() { return S.abiertas.b850 && S.abiertas.b760; }
+  function pintarJuego() {
+    var pest = $('pestanas'); pest.innerHTML = '';
+    PARTES.forEach(function (p) {
+      var ids = S.orden.filter(function (id) { return PREG[id].placa === p.id; });
+      var hechas = ids.filter(function (id) { return S.r[id].cerrada; }).length;
+      var bloq = p.id === 'reto' ? !retosAbiertos() : !S.abiertas[p.id];
+      pest.appendChild(el('button', { role: 'tab', 'aria-selected': String(S.parte === p.id), onclick: function () { S.parte = p.id; guardar(); pintarJuego(); } },
+        [(bloq ? '🔒 ' : '') + p.titulo, el('span', { clase: 'cuenta', texto: hechas + '/' + ids.length })]));
+    });
+    var zona = $('zona'); zona.innerHTML = '';
+    if (S.parte === 'reto') {
+      if (!retosAbiertos()) { zona.appendChild(el('div', { clase: 'tarjeta' }, [el('h2', { texto: 'Retos finales' }), el('p', { texto: 'Se desbloquean cuando abras las dos placas. Comparan las dos fichas: tenlas a mano.' })])); return; }
+      zona.appendChild(el('div', { clase: 'tarjeta' }, [el('h2', { texto: 'Retos finales' }), el('p', { clase: 'suave', texto: 'Cada reto cruza los datos de las dos placas.' })]));
+    } else {
+      var pl = D.placas[S.parte];
+      var cab = el('div', { clase: 'tarjeta' }, [el('h2', { texto: pl.nombre })]);
+      if (!S.abiertas[S.parte]) {
+        cab.appendChild(el('p', {}, ['Paso 1. Encuentra el manual de usuario en PDF de ', el('strong', { texto: pl.nombre }), ' (en inglés o multilingüe). Pista: ' + pl.web + '. Comprueba que el modelo es exactamente ese: hay placas con nombres casi iguales.']));
+        cab.appendChild(el('p', {}, ['Paso 2. Para desbloquear la placa, escribe el ', el('strong', { texto: 'número de página' }), ' (el que está impreso en la página) donde empieza el apartado ', el('em', { texto: 'Overview of Components' }), '.']));
+        var inp = el('input', { type: 'text', inputmode: 'numeric', id: 'in-lock', 'aria-label': 'Número de página', autocomplete: 'off' });
+        var av = el('div', { clase: 'aviso mal oculto', role: 'alert' });
+        var bt = el('button', { texto: 'Desbloquear', onclick: function () {
+          var v = inp.value;
+          if (huella('lock-' + S.parte, normNum(v)) === pl.h || esProfe(v)) { S.abiertas[S.parte] = true; guardar(); pintarJuego(); }
+          else { av.textContent = 'Esa no es la página. ¿Seguro que tienes el manual de este modelo exacto?'; av.classList.remove('oculto'); }
+        } });
+        inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') bt.click(); });
+        cab.appendChild(el('div', { clase: 'fila' }, [el('label', {}, [el('span', { clase: 'et', texto: 'Página de «Overview of Components»' }), inp]), bt]));
+        cab.appendChild(av);
+        zona.appendChild(cab); return;
+      }
+      cab.appendChild(el('p', { clase: 'suave', texto: 'Placa desbloqueada. Responde con el manual: ficha (Specifications) y esquema (Overview of Components).' }));
+      zona.appendChild(cab);
+    }
+    var n = 0;
+    S.orden.forEach(function (id, i) { if (PREG[id].placa === S.parte) { n++; zona.appendChild(tarjetaPregunta(id, i + 1)); } });
+  }
+
+  function tarjetaPregunta(id, num) {
+    var q = PREG[id], r = S.r[id];
+    var t = el('div', { clase: 'pregunta' + (r.cerrada ? (r.acierto ? ' acertada' : ' fallada') : '') });
+    var etiq = { ficha: 'Ficha', esquema: 'Esquema', reto: 'Reto' }[q.cat];
+    t.appendChild(el('div', { clase: 'cab' }, [el('strong', { texto: 'Pregunta ' + num }), el('span', { clase: 'chip ' + q.cat, texto: etiq })]));
+    t.appendChild(el('p', { clase: 'enun', texto: q.p }));
+    var leer;
+    if (q.t === 'opc') {
+      var grupo = el('div', { clase: 'opciones', role: 'radiogroup', 'aria-label': q.p });
+      r.op.forEach(function (o, k) {
+        var radio = el('input', { type: 'radio', name: 'op-' + id, value: o, id: 'op-' + id + '-' + k });
+        if (r.cerrada) radio.disabled = true;
+        if (r.intentos.length && r.intentos[r.intentos.length - 1] === o) radio.checked = true;
+        grupo.appendChild(el('label', { for: 'op-' + id + '-' + k }, [radio, o]));
+      });
+      t.appendChild(grupo);
+      leer = function () { var c = grupo.querySelector('input:checked'); return c ? c.value : ''; };
+    } else {
+      var inp = el('input', { type: 'text', autocomplete: 'off', 'aria-label': 'Respuesta', inputmode: q.t === 'num' ? 'decimal' : 'text' });
+      if (r.cerrada) { inp.disabled = true; inp.value = r.intentos[r.intentos.length - 1] || ''; }
+      t.appendChild(inp);
+      leer = function () { return inp.value; };
+      inp.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !r.cerrada) btc.click(); });
+    }
+    var estado = el('span', { clase: 'estado' });
+    var acc = el('div', { clase: 'acciones' });
+    var btc = el('button', { texto: 'Comprobar', onclick: function () {
+      var v = leer();
+      if (!String(v).trim()) { estado.textContent = 'Escribe o elige una respuesta.'; return; }
+      var nv = q.t === 'num' ? normNum(v) : normTxt(v);
+      r.intentos.push(String(v).trim());
+      if (q.h.indexOf(huella(id, nv)) >= 0) {
+        r.cerrada = true; r.acierto = true;
+        r.puntos = Math.max(0, PUNTOS[r.intentos.length - 1] - (r.pista ? COSTE_PISTA : 0));
+      } else if (r.intentos.length >= maxIntentos(q)) { r.cerrada = true; r.puntos = 0; }
+      guardar(); barra(); pintarJuego();
+    } });
+    var btp = el('button', { clase: 'sec', texto: 'Pista (−3)', onclick: function () { r.pista = true; guardar(); pintarJuego(); } });
+    if (r.cerrada) { btc.disabled = true; btp.disabled = true; }
+    if (r.pista) btp.disabled = true;
+    acc.appendChild(btc); acc.appendChild(btp); acc.appendChild(estado);
+    if (r.cerrada) estado.textContent = r.acierto ? '✔ Correcta: +' + r.puntos + ' puntos' : '✘ Sin intentos: 0 puntos';
+    else if (r.intentos.length) { var qd = maxIntentos(q) - r.intentos.length; estado.textContent = '✘ No es correcta. Te ' + (qd === 1 ? 'queda 1 intento.' : 'quedan ' + qd + ' intentos.'); }
+    else estado.textContent = 'Intentos: ' + maxIntentos(q);
+    t.appendChild(acc);
+    if (r.pista) t.appendChild(el('div', { clase: 'pista', texto: '💡 ' + q.pista }));
+    return t;
+  }
+
+  function pintarInforme() {
+    $('inf-codigo').textContent = codigo();
+    var f = new Date(S.inicio), ff = new Date(S.fin);
+    function hora(d) { return d.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }); }
+    var acert = S.orden.filter(function (id) { return S.r[id].acierto; }).length;
+    $('inf-resumen').textContent = 'Alumno/a: ' + S.nombre + ' · Fecha: ' + f.toLocaleDateString('es-ES') + ' · De ' + hora(f) + ' a ' + hora(ff) +
+      ' (' + mmss(segundos()) + ') · Aciertos: ' + acert + ' de ' + S.orden.length + ' · Puntos: ' + totalPuntos() + ' de ' + (S.orden.length * PUNTOS[0]);
+    var tb = $('inf-filas'); tb.innerHTML = '';
+    S.orden.forEach(function (id, i) {
+      var q = PREG[id], r = S.r[id];
+      var parte = q.placa === 'reto' ? 'Reto' : D.placas[q.placa].corto + ' · ' + (q.cat === 'ficha' ? 'ficha' : 'esquema');
+      var resp = r.intentos.length ? r.intentos.join(' → ') : '(sin responder)';
+      var est = r.cerrada ? (r.acierto ? '✔ ' : '✘ ') : '— ';
+      tb.appendChild(el('tr', {}, [el('td', { texto: String(i + 1) }), el('td', { texto: parte }), el('td', { texto: q.p }), el('td', { texto: est + resp }),
+        el('td', { texto: String(r.intentos.length) }), el('td', { texto: r.pista ? 'Sí' : 'No' }), el('td', { texto: String(r.puntos) })]));
+    });
+  }
+
+  // ---------- eventos
+  $('bt-empezar').addEventListener('click', function () {
+    var n = $('in-nombre').value.trim(), c = $('in-salida').value, av = $('aviso-inicio');
+    if (n.length < 3) { av.textContent = 'Escribe tu nombre y primer apellido.'; av.classList.remove('oculto'); return; }
+    if (huella('salida', normTxt(c)) !== D.hSalida && !esProfe(c)) { av.textContent = 'La clave de salida no es correcta. Espera a que el profesor la diga.'; av.classList.remove('oculto'); return; }
+    nuevaPartida(n); mostrar(); window.scrollTo(0, 0);
+  });
+  $('in-salida').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('bt-empezar').click(); });
+  $('bt-terminar').addEventListener('click', function () { $('confirmar-terminar').classList.remove('oculto'); $('bt-terminar').classList.add('oculto'); });
+  $('bt-terminar-no').addEventListener('click', function () { $('confirmar-terminar').classList.add('oculto'); $('bt-terminar').classList.remove('oculto'); });
+  $('bt-terminar-si').addEventListener('click', function () { S.fin = Date.now(); guardar(); mostrar(); window.scrollTo(0, 0); });
+  $('bt-pdf').addEventListener('click', function () { window.print(); });
+
+  function abrirProfe() { $('panel-profe').classList.remove('oculto'); $('in-profe').focus(); $('panel-profe').scrollIntoView(); }
+  function cerrarProfe() { $('panel-profe').classList.add('oculto'); $('profe-zona').classList.add('oculto'); $('profe-login').classList.remove('oculto'); $('in-profe').value = ''; }
+  $('bt-abrir-profe').addEventListener('click', abrirProfe);
+  $('bt-profe-cerrar').addEventListener('click', cerrarProfe);
+  $('bt-profe-cerrar2').addEventListener('click', cerrarProfe);
+  $('bt-profe').addEventListener('click', function () {
+    if (esProfe($('in-profe').value)) { $('profe-login').classList.add('oculto'); $('profe-zona').classList.remove('oculto'); $('aviso-profe').classList.add('oculto'); }
+    else { $('aviso-profe').textContent = 'Clave incorrecta.'; $('aviso-profe').classList.remove('oculto'); }
+  });
+  $('in-profe').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('bt-profe').click(); });
+  $('bt-ranking').addEventListener('click', function () {
+    var filas = $('in-codigos').value.split(/\n+/).map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) {
+      var c = comprobarCodigo(l); return c ? Object.assign(c, { codigo: l }) : { codigo: l, valido: false, nombre: '¿?', puntos: -1, seg: 0 };
+    });
+    filas.sort(function (a, b) { return (b.valido - a.valido) || (b.puntos - a.puntos) || (a.seg - b.seg); });
+    var t = el('table', {}, [el('thead', {}, [el('tr', {}, ['Puesto', 'Nombre', 'Puntos', 'Tiempo', 'Código'].map(function (h) { return el('th', { texto: h }); }))])]);
+    var tb = el('tbody'); var puesto = 0;
+    filas.forEach(function (f) {
+      if (f.valido) puesto++;
+      tb.appendChild(el('tr', {}, [el('td', { texto: f.valido ? (puesto === 1 ? '🏆 1' : String(puesto)) : '✘' }), el('td', { texto: f.nombre }),
+        el('td', { texto: f.valido ? String(f.puntos) : '—' }), el('td', { texto: f.valido ? mmss(f.seg) : '—' }),
+        el('td', { texto: f.valido ? f.codigo : f.codigo + ' (código no válido)' })]));
+    });
+    t.appendChild(tb); $('ranking').innerHTML = ''; $('ranking').appendChild(t);
+  });
+  $('bt-reiniciar').addEventListener('click', function () {
+    try { localStorage.removeItem(CLAVE); } catch (e) {}
+    S = null; cerrarProfe(); mostrar();
+  });
+
+  S = cargar();
+  if (S && (!S.orden || !S.orden.every(function (id) { return PREG[id]; }))) S = null;
+  mostrar();
+  window.GYMKANA = { cyrb53: cyrb53, normTxt: normTxt, normNum: normNum, comprobarCodigo: comprobarCodigo };
+})();
+</script>
+</body>
+</html>
