@@ -1,0 +1,29 @@
+{
+  "ut01": {
+    "fecha": "2026-11-18",
+    "paginas": {
+      "ut01-prl.html": "3c5ad05c532128b1",
+      "ut01-teoria.html": "307e1205cb03e1e9"
+    }
+  },
+  "ut02": {
+    "fecha": "2026-11-18",
+    "paginas": {
+      "ut02-teoria.html": "0eceb04b690ee9d6"
+    }
+  },
+  "ut03": {
+    "fecha": "2026-11-18",
+    "paginas": {
+      "ut03-teoria-2.html": "5b04d27fb556f202",
+      "ut03-teoria.html": "16f18e6fa66069d6"
+    }
+  },
+  "ut04": {
+    "fecha": "2026-11-18",
+    "paginas": {
+      "ut04-teoria-2.html": "df01a445988c2bc3",
+      "ut04-teoria.html": "40ee815f880692fb"
+    }
+  }
+}

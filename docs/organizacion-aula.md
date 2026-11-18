@@ -207,14 +207,23 @@ destacados, mapas de boletines) y costaba encontrar las cosas.
   las páginas de teoría de cada tema (estilo de impresión, todo desplegado, las
   actividades interactivas sustituidas por un aviso) y las une en
   `web/descargas/teoria/utNN-teoria.pdf` con marcadores. Necesita `playwright` y
-  `pypdf` (o `CHROME=/ruta/a/chrome`). Hay que regenerarlo cuando cambia la teoría.
+  `pypdf` (o `CHROME=/ruta/a/chrome`). Hay que regenerarlo cuando cambia la teoría:
+  el pie de cada página lleva la fecha de la versión, y `actualizar_aula.py` avisa
+  («AVISO: la teoría del tema N ha cambiado…») comparando el contenido con las
+  huellas que guarda el generador en `web/descargas/teoria/huellas.json`
+  (`scripts/huella_teoria.py`). La barra del tema y los botones no cuentan.
 - **Estilos:** van en `assets/organizacion.css`, propio de 0221. No se han tocado
   `estilo.css`, `aula.css` ni `aula.js` (compartidos con 0223); el generador solo
   aplica la nueva organización cuando el módulo es 0221.
 
 - **En clase (rojo, 🏆):** quinta sección para los juegos y competiciones del aula
   (`web/juegos/`): gymkana de placas y concursos. Se enlazan con `../juegos/…`.
-  El ejercicio 5.2 sigue enlazando también a la gymkana.
+  El ejercicio 5.2 sigue enlazando también a la gymkana. `actualizar_aula.py` pone
+  en cada juego una franja «← Volver al tema N»: si se regenera la gymkana, basta
+  con volver a ejecutarlo. Los juegos guardan el progreso en el navegador, así que
+  salir y volver no lo pierde.
+- **Qué se evalúa:** en la portada del tema, los RA y criterios, el mapa de
+  criterios y el recorrido van juntos en un solo desplegable.
 - **Simuladores:** dentro de Ejercicios van en su propio bloque, «Simuladores e
   interactivos», separados de los boletines. Se marca con `"grupo": "interactivo"`.
 

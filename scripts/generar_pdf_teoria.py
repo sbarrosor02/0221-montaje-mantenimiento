@@ -17,6 +17,7 @@ Después ejecuta scripts/actualizar_aula.py para que aparezcan los enlaces de
 descarga (solo se enlazan los PDF que existen). Vuelve a generar el PDF cada vez
 que cambies la teoría de un tema.
 """
+import datetime
 import json
 import os
 import sys
@@ -25,6 +26,9 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 from pypdf import PdfReader, PdfWriter
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from huella_teoria import REGISTRO, huella, leer_registro  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parent.parent
 WEB = RAIZ / 'web'
@@ -64,7 +68,7 @@ document.querySelectorAll('.interactivo').forEach(caja => {
 """
 
 PIE = ('<div style="font-size:8px;width:100%;padding:0 12mm;color:#555;display:flex;justify-content:space-between">'
-       '<span>{titulo}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>')
+       '<span>{titulo} · versión del {fecha}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>')
 
 
 def generar(tema, navegador, tmp):
@@ -73,6 +77,7 @@ def generar(tema, navegador, tmp):
         return None
     ut = '%02d' % tema['ut']
     titulo = 'Tema %d · %s · 0221 Montaje y mantenimiento de equipo' % (tema['ut'], tema['titulo'])
+    hoy = datetime.date.today()
     escritor = PdfWriter()
     pg = navegador.new_page()
     for n, url in enumerate(paginas):
@@ -85,7 +90,7 @@ def generar(tema, navegador, tmp):
         pg.pdf(path=str(parte), format='A4', print_background=True,
                margin={'top': '14mm', 'bottom': '16mm', 'left': '14mm', 'right': '14mm'},
                display_header_footer=True, header_template='<span></span>',
-               footer_template=PIE.format(titulo=titulo.replace('&', '&amp;')))
+               footer_template=PIE.format(titulo=titulo.replace('&', '&amp;'), fecha=hoy.strftime('%d/%m/%Y')))
         inicio = len(escritor.pages)
         escritor.append(PdfReader(str(parte)))
         escritor.add_outline_item(h1, inicio)
@@ -95,6 +100,11 @@ def generar(tema, navegador, tmp):
     destino = SALIDA / ('ut%s-teoria.pdf' % ut)
     with open(destino, 'wb') as f:
         escritor.write(f)
+    # Huella de cada página: actualizar_aula.py avisa si la teoría cambia después.
+    registro = leer_registro(WEB)
+    registro['ut%s' % ut] = {'fecha': hoy.isoformat(), 'paginas': {
+        p: huella((WEB / 'temas' / p).read_text(encoding='utf-8')) for p in paginas}}
+    (WEB / REGISTRO).write_text(json.dumps(registro, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
     return destino, len(escritor.pages)
 
 

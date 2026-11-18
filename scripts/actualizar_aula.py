@@ -1,8 +1,11 @@
 from pathlib import Path
 import re
 import json
+import sys
 import html
 import unicodedata
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from huella_teoria import pdf_desactualizado  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 REPOS = [Path(__file__).resolve().parents[1].name]
@@ -285,6 +288,27 @@ for repo in REPOS:
         source = shell(source, code, 'temas/' + path.name, short_name, tema)
         path.write_text(source, encoding='utf-8')
         pages[path.name] = source
+    # Teoría en PDF: avisa si la teoría ha cambiado después de generar el PDF.
+    if code == '0221':
+        for numero, secc in sorted(secciones_por_tema.items()):
+            cambiadas = pdf_desactualizado(web, numero, paginas_de(secc.get('teoria', [])))
+            if cambiadas:
+                print('AVISO: la teoría del tema %d ha cambiado y su PDF está desactualizado (%s).\n'
+                      '       Regenera: python scripts/generar_pdf_teoria.py %d' % (numero, ', '.join(cambiadas), numero))
+    # Juegos de clase (web/juegos): enlace discreto para volver al tema.
+    if code == '0221':
+        for path in sorted((web / 'juegos').glob('ut*.html')):
+            numero = tema_de(path.name)
+            src = path.read_text(encoding='utf-8')
+            enlace = ('<a class="volver-tema" href="../temas/ut%02d.html#seccion-enclase">&larr; Volver al tema %d</a>'
+                      '<style>.volver-tema{display:block;font:600 .8rem/1.2 system-ui,sans-serif;'
+                      'color:#1d6b5f;background:#eef4f3;border-bottom:1px solid #cdd8d6;padding:.35rem .8rem;'
+                      'text-decoration:none}.volver-tema:hover,.volver-tema:focus{text-decoration:underline}'
+                      '@media print{.volver-tema{display:none}}</style>') % (numero, numero)
+            nuevo = re.sub(r'<a class="volver-tema".*?</style>', lambda m: enlace, src, count=1, flags=re.S) if 'class="volver-tema"' in src \
+                else src.replace('<body>', '<body>\n' + enlace, 1)
+            if nuevo != src:
+                path.write_text(nuevo, encoding='utf-8')
     cards = []
     downloads = {}
     orden_tipos = ['apuntes', 'ejercicios', 'practicas', 'examen', 'consulta', 'descargas']
