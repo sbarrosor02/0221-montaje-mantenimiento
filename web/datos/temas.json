@@ -2,29 +2,7 @@
   "modulo": "0221",
   "titulo": "Montaje y mantenimiento de equipo",
   "curso": "2026/2027",
-  "destacados": [
-    {
-      "ut": 2,
-      "etiqueta": "Repasa",
-      "titulo": "Test y ejercicios del tema 2 en la web",
-      "texto": "Circuitos con valores, trazas de programas y un test que se corrigen solos.",
-      "url": "temas/ut02-test.html"
-    },
-    {
-      "ut": 4,
-      "etiqueta": "Nuevo",
-      "titulo": "Empieza el tema 4: montamos un equipo",
-      "texto": "Discos, fuente de alimentación y el proyecto de montaje P9-P12.",
-      "url": "temas/ut04.html"
-    },
-    {
-      "ut": 4,
-      "etiqueta": "Practica",
-      "titulo": "El conector de 24 pines",
-      "texto": "Encuentra cada tensión y comprueba tus medidas.",
-      "url": "temas/ut04-teoria.html#apartado-4-4"
-    }
-  ],
+  "destacados": [],
   "temas": [
     {
       "ut": 0,
@@ -80,7 +58,89 @@
           "url": "temas/ut01-practicas-p2-informe.html",
           "nota": "apartados del informe, qué incluir en cada uno, ejemplos de cálculo, tabla y pie de foto, relación con la rúbrica y lista de comprobación"
         }
-      ]
+      ],
+      "secciones": {
+        "teoria": [
+          {
+            "etiqueta": "Teoría",
+            "titulo": "Elementos eléctricos y electrónicos",
+            "url": "ut01-teoria.html",
+            "texto": "Magnitudes, ley de Ohm, circuitos, componentes y medidas"
+          },
+          {
+            "etiqueta": "Seguridad",
+            "titulo": "Seguridad y prevención de riesgos (PRL)",
+            "url": "ut01-prl.html",
+            "texto": "Antes de trabajar en el taller"
+          }
+        ],
+        "ejercicios": [
+          {
+            "etiqueta": "Resueltos",
+            "titulo": "Resueltos",
+            "url": "ut01-ejercicios-resueltos.html",
+            "texto": "Empieza aquí · 3 ejemplos resueltos: serie, paralelo y mixto"
+          },
+          {
+            "etiqueta": "Boletín 1",
+            "titulo": "Serie, paralelo y mixto",
+            "url": "ut01-boletin-1.html",
+            "texto": "Básico · 10 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 2",
+            "titulo": "Circuitos mixtos",
+            "url": "ut01-boletin-2.html",
+            "texto": "Medio · 5 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 3",
+            "titulo": "Potencia y energía",
+            "url": "ut01-boletin-3.html",
+            "texto": "Medio · 3 resueltos y 12 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 4",
+            "titulo": "Mixtos avanzados",
+            "url": "ut01-boletin-4.html",
+            "texto": "Avanzado · 6 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 5",
+            "titulo": "Circuitos enrevesados",
+            "url": "ut01-boletin-5.html",
+            "texto": "Avanzado · 6 ejercicios dibujados para despistar"
+          },
+          {
+            "etiqueta": "Taller",
+            "titulo": "Taller de nudos",
+            "url": "ut01-ejercicios-nudos.html",
+            "texto": "Interactivo · Reduce circuitos paso a paso con corrección"
+          }
+        ],
+        "practicas": [
+          {
+            "etiqueta": "Prácticas",
+            "titulo": "Prácticas del tema 1",
+            "url": "ut01-practicas.html",
+            "texto": "Enunciados, entregas y rúbricas"
+          },
+          {
+            "etiqueta": "Informe",
+            "titulo": "Guía del informe de la práctica 2",
+            "url": "ut01-practicas-p2-informe.html",
+            "texto": "Cómo redactar el informe"
+          }
+        ],
+        "examen": [
+          {
+            "etiqueta": "Repaso",
+            "titulo": "Repaso para el examen",
+            "url": "ut01-ejercicios-repaso.html",
+            "texto": "Método paso a paso, tipos de ejercicio y simulacro de examen"
+          }
+        ]
+      }
     },
     {
       "ut": 2,
@@ -123,7 +183,77 @@
           "evaluable": true,
           "nota": "taller en parejas, RA1 a) y b), rúbrica de 10"
         }
-      ]
+      ],
+      "secciones": {
+        "teoria": [
+          {
+            "etiqueta": "Teoría",
+            "titulo": "Estructura funcional del ordenador y arquitectura de buses",
+            "url": "ut02-teoria.html",
+            "texto": "Representación, puertas lógicas, Von Neumann, unidades funcionales, buses y ciclo de instrucción"
+          }
+        ],
+        "ejercicios": [
+          {
+            "etiqueta": "Boletín 1",
+            "titulo": "Representación de la información",
+            "url": "ut02-boletin-1.html",
+            "texto": "Bits, binario, hexadecimal y unidades · 10 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 2",
+            "titulo": "Circuitos lógicos",
+            "url": "ut02-boletin-2.html",
+            "texto": "Expresión y tabla de verdad · 7 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 3",
+            "titulo": "Arquitectura y buses",
+            "url": "ut02-boletin-3.html",
+            "texto": "Bloques, Von Neumann y cálculos de buses · 9 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 4",
+            "titulo": "Ejecución de programas",
+            "url": "ut02-boletin-4.html",
+            "texto": "Simula la CPU instrucción a instrucción · 6 programas"
+          },
+          {
+            "etiqueta": "Simulador",
+            "titulo": "Simulador de CPU",
+            "url": "ut02-ejercicios-cpu.html",
+            "texto": "Programa la máquina instrucción a instrucción"
+          }
+        ],
+        "practicas": [
+          {
+            "etiqueta": "Práctica",
+            "titulo": "Práctica P4: del bloque a la pieza",
+            "url": "ut02-practicas.html",
+            "texto": "Enunciado y rúbrica"
+          }
+        ],
+        "examen": [
+          {
+            "etiqueta": "Test",
+            "titulo": "Test del tema 2",
+            "url": "ut02-test.html",
+            "texto": "Preguntas al azar, se corrige solo"
+          },
+          {
+            "etiqueta": "En la web",
+            "titulo": "Circuitos y programas autocorregibles",
+            "url": "ut02-ejercicios-web.html",
+            "texto": "Circuitos con valores y ejecución de programas, tipo examen"
+          },
+          {
+            "etiqueta": "Autoevaluación",
+            "titulo": "Autoevaluación de la teoría",
+            "url": "ut02-teoria.html#apartado-autoevaluacion",
+            "texto": "Preguntas rápidas al final de los apuntes"
+          }
+        ]
+      }
     },
     {
       "ut": 3,
@@ -166,7 +296,101 @@
           "evaluable": true,
           "nota": "P5 placa y manual (e, k), P6 procesador y pasta térmica (c, d), P7 UEFI (f), P8 adaptadores, monitor y chasis (g, i, j)"
         }
-      ]
+      ],
+      "secciones": {
+        "teoria": [
+          {
+            "etiqueta": "Teoría 1",
+            "titulo": "Placa base, procesador, refrigeración, memoria y expansión",
+            "url": "ut03-teoria.html",
+            "texto": "Apartados 3.1 a 3.7 · primera parte del examen"
+          },
+          {
+            "etiqueta": "Teoría 2",
+            "titulo": "BIOS/UEFI, gráfica, monitor, adaptadores, chasis y documentación",
+            "url": "ut03-teoria-2.html",
+            "texto": "Apartados 3.8 a 3.13 · segunda parte del examen"
+          }
+        ],
+        "ejercicios": [
+          {
+            "etiqueta": "Boletín 1",
+            "titulo": "Placa base",
+            "url": "ut03-boletin-1.html",
+            "texto": "Formatos, conectores, panel frontal y manual · CE e, g · 5 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 2",
+            "titulo": "Procesador y refrigeración",
+            "url": "ut03-boletin-2.html",
+            "texto": "Nombres, zócalos, consumo, disipadores y ventiladores · CE c, d · 8 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 3",
+            "titulo": "Memoria y expansión",
+            "url": "ut03-boletin-3.html",
+            "texto": "Latencia, canales, PCIe y M.2 · CE e, j · 7 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 4",
+            "titulo": "UEFI, gráfica, monitor y chasis",
+            "url": "ut03-boletin-4.html",
+            "texto": "Diagnóstico, alimentación, ancho de banda, cajas y accesorios · CE f, g, i, j, k · 10 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 5",
+            "titulo": "Placas base reales",
+            "url": "ut03-boletin-5.html",
+            "texto": "Identificar los componentes con el esquema y leer la ficha técnica del manual · CE c, e, f, k · 1 placa guiada y gymkana con 2 placas"
+          },
+          {
+            "etiqueta": "Boletín 6",
+            "titulo": "Procesadores reales",
+            "url": "ut03-boletin-6.html",
+            "texto": "Toda la información de un procesador a partir de su descripción comercial · CE c, d · 27 procesadores"
+          },
+          {
+            "etiqueta": "Simulador",
+            "titulo": "Simulador de UEFI",
+            "url": "ut03-ejercicios-uefi.html",
+            "texto": "Siete misiones: arranque desde USB, XMP, Windows 11, virtualización…"
+          },
+          {
+            "etiqueta": "Configurador",
+            "titulo": "¿Son compatibles estas piezas?",
+            "url": "ut03-ejercicios-configurador.html",
+            "texto": "Procesadores reales y cinco casos para diagnosticar"
+          }
+        ],
+        "practicas": [
+          {
+            "etiqueta": "Prácticas",
+            "titulo": "Prácticas P5 a P8",
+            "url": "ut03-practicas.html",
+            "texto": "Placa y manual, pasta térmica, UEFI real, adaptadores y chasis"
+          }
+        ],
+        "examen": [
+          {
+            "etiqueta": "Simulacro",
+            "titulo": "Simulacro de test · 1.ª parte (3.1 a 3.7)",
+            "url": "ut03-test-1.html",
+            "texto": "Preguntas al azar de la teoría 1, se corrige solo"
+          },
+          {
+            "etiqueta": "Autoevaluación",
+            "titulo": "Autoevaluación de la teoría 1",
+            "url": "ut03-teoria.html#apartado-autoevaluacion",
+            "texto": "3.1 a 3.7"
+          },
+          {
+            "etiqueta": "Autoevaluación",
+            "titulo": "Autoevaluación de la teoría 2",
+            "url": "ut03-teoria-2.html#apartado-autoevaluacion",
+            "texto": "3.8 a 3.13"
+          }
+        ]
+      }
     },
     {
       "ut": 4,
@@ -199,7 +423,71 @@
           "evaluable": true,
           "nota": "P9 recepción y preparación, P10 discos y fuente (medida de la fuente suelta), P11 ensamblaje con medida en el equipo, P12 UEFI, diagnóstico, SAI e informe de montaje"
         }
-      ]
+      ],
+      "secciones": {
+        "teoria": [
+          {
+            "etiqueta": "Teoría 1",
+            "titulo": "Almacenamiento, cableado y fuente de alimentación",
+            "url": "ut04-teoria.html",
+            "texto": "Discos, interfaces, fuente y SAI"
+          },
+          {
+            "etiqueta": "Teoría 2",
+            "titulo": "Ensamblaje del equipo",
+            "url": "ut04-teoria-2.html",
+            "texto": "Preparación, montaje, puesta en marcha e informe"
+          }
+        ],
+        "ejercicios": [
+          {
+            "etiqueta": "Boletín 1",
+            "titulo": "Almacenamiento e interfaces",
+            "url": "ut04-boletin-1.html",
+            "texto": "HDD, SSD, NVMe, SATA, USB y SMART · RA1 h · 6 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 2",
+            "titulo": "Fuente de alimentación y SAI",
+            "url": "ut04-boletin-2.html",
+            "texto": "Bloques, tensiones, tolerancias, potencia y SAI · RA3 f, g, h, i, j · 7 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 3",
+            "titulo": "Preparar y montar",
+            "url": "ut04-boletin-3.html",
+            "texto": "Herramientas, recepción, almacenaje, fijaciones y orden · RA2 a–g · RA8 · 6 ejercicios"
+          },
+          {
+            "etiqueta": "Boletín 4",
+            "titulo": "Arranque, diagnóstico e informe",
+            "url": "ut04-boletin-4.html",
+            "texto": "UEFI, utilidades y casos de avería · RA2 h, i, j · 5 ejercicios"
+          }
+        ],
+        "practicas": [
+          {
+            "etiqueta": "Prácticas",
+            "titulo": "Prácticas P9 a P12",
+            "url": "ut04-practicas.html",
+            "texto": "Recepción, discos y fuente, ensamblaje y puesta en marcha"
+          }
+        ],
+        "examen": [
+          {
+            "etiqueta": "Autoevaluación",
+            "titulo": "Autoevaluación de la teoría 1",
+            "url": "ut04-teoria.html#apartado-autoevaluacion",
+            "texto": "Almacenamiento y fuente"
+          },
+          {
+            "etiqueta": "Autoevaluación",
+            "titulo": "Autoevaluación de la teoría 2",
+            "url": "ut04-teoria-2.html#apartado-autoevaluacion",
+            "texto": "Ensamblaje"
+          }
+        ]
+      }
     }
   ],
   "_destacados_nota": "destacados: avisos de la portada («Ahora en clase»). 'ut' (opcional) antepone «Tema N ·» a la etiqueta. Editar o vaciar la lista y ejecutar scripts/actualizar_aula.py."

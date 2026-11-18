@@ -77,6 +77,14 @@ def migas(source, tema):
     nav = '<nav class="aula-migas" aria-label="Estás en">' + '<span aria-hidden="true">›</span>'.join(partes) + '</nav>'
     return source.replace('<main class="envoltura" id="contenido" tabindex="-1">', '<main class="envoltura" id="contenido" tabindex="-1">' + nav, 1)
 
+def barra_superior(code, prefix, current, short_name):
+    enlaces = [('Temas', 'index.html'), ('Buscar material', 'recursos.html')] if code == '0221' else [('Temas', 'index.html'), ('Apuntes', 'recursos.html?tipo=apuntes'), ('Ejercicios', 'recursos.html?tipo=ejercicios'), ('Prácticas', 'recursos.html?tipo=practicas'), ('Materiales', 'recursos.html')]
+    html_barra = '<header class="aula-barra"><a class="aula-marca" href="' + prefix + 'index.html">' + code + ' / ' + short_name + '</a><nav aria-label="Navegación del módulo">'
+    for label, target in enlaces:
+        active = ' aria-current="page"' if current == target else ''
+        html_barra += '<a href="' + prefix + target + '"' + active + '>' + label + '</a>'
+    return html_barra + '</nav></header>'
+
 def shell(source, code, current, short_name, tema=None):
     prefix = '../' if current.startswith('temas/') else ''
     source = identify(source)
@@ -90,14 +98,14 @@ def shell(source, code, current, short_name, tema=None):
                        '<a class="indice-material" href="../recursos.html?tema=%d">Todo el material del tema %d</a>' % (tema['ut'], tema['ut']))
     sidebar = '<aside class="aula-indice"><a class="indice-inicio" href="' + prefix + 'index.html">Inicio del módulo</a>' + bloque_tema + '<details open><summary>En esta página</summary><ul>' + toc + '</ul></details></aside>'
     if 'class="aula-layout"' in source:
+        if code == '0221' and 'assets/organizacion.css' not in source:
+            source = source.replace('</head>', '<link rel="stylesheet" href="' + prefix + 'assets/organizacion.css">\n</head>', 1)
         source = re.sub(r'<aside class="aula-indice">.*?</aside>', lambda match: sidebar, source, count=1, flags=re.S)
+        if code == '0221':
+            source = re.sub(r'<header class="aula-barra">.*?</header>', lambda match: barra_superior(code, prefix, current, short_name), source, count=1, flags=re.S)
         return migas(source, tema)
-    source = source.replace('</head>', '<link rel="stylesheet" href="' + prefix + 'assets/aula.css">\n<script defer src="' + prefix + 'assets/aula.js"></script>\n</head>')
-    top = '<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="' + prefix + 'index.html">' + code + ' / ' + short_name + '</a><nav aria-label="Navegación del módulo">'
-    for label, target in [('Temas', 'index.html'), ('Apuntes', 'recursos.html?tipo=apuntes'), ('Ejercicios', 'recursos.html?tipo=ejercicios'), ('Prácticas', 'recursos.html?tipo=practicas'), ('Materiales', 'recursos.html')]:
-        active = ' aria-current="page"' if current == target else ''
-        top += '<a href="' + prefix + target + '"' + active + '>' + label + '</a>'
-    top += '</nav></header>'
+    source = source.replace('</head>', '<link rel="stylesheet" href="' + prefix + 'assets/aula.css">\n<script defer src="' + prefix + 'assets/aula.js"></script>\n' + ('<link rel="stylesheet" href="' + prefix + 'assets/organizacion.css">\n' if code == '0221' else '') + '</head>')
+    top = '<a class="saltar" href="#contenido">Saltar al contenido</a>' + barra_superior(code, prefix, current, short_name)
     source = source.replace('<body>', '<body data-modulo="' + code + '">\n' + top)
     source = source.replace('<div class="envoltura">', '<div class="aula-layout">' + sidebar + '<main class="envoltura" id="contenido" tabindex="-1">', 1)
     last = source.rfind('\n</div>')
@@ -109,6 +117,132 @@ def shell(source, code, current, short_name, tema=None):
     source = re.sub(r'(<table\b.*?</table>)', r'<div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0">\1</div>', source, flags=re.S)
     return migas(source, tema)
 
+
+# ---------------------------------------------------------------- organización por secciones (0221)
+SECCIONES = [('teoria', 'Teoría', 'Los apuntes del tema.'),
+             ('ejercicios', 'Ejercicios', 'Para practicar. No cuentan para la nota salvo que el profesor diga que se entregan.'),
+             ('practicas', 'Prácticas', 'Evaluables. Lee el enunciado completo y la rúbrica antes de empezar.'),
+             ('examen', 'Preparar el examen', 'Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.')]
+
+def base_url(u):
+    return u.split('#')[0]
+
+def paginas_de(lista):
+    vistas = []
+    for it in lista:
+        b = base_url(it['url'])
+        if b not in vistas:
+            vistas.append(b)
+    return vistas
+
+def destino_seccion(ut, clave, secc):
+    """Adónde lleva cada sección en la barra del tema."""
+    if clave == 'ejercicios':
+        return 'ut%02d-ejercicios.html' % ut
+    if clave == 'examen':
+        return 'ut%02d-examen.html' % ut
+    pags = paginas_de(secc.get(clave, []))
+    return pags[0] if len(pags) == 1 else 'ut%02d.html#seccion-%s' % (ut, clave)
+
+def seccion_de_pagina(ut, nombre, secc):
+    if nombre == 'ut%02d-ejercicios.html' % ut:
+        return 'ejercicios'
+    if nombre == 'ut%02d-examen.html' % ut:
+        return 'examen'
+    for clave, _, _ in SECCIONES:
+        if nombre in paginas_de(secc.get(clave, [])):
+            return clave
+    return ''
+
+def pdf_teoria(web, ut):
+    ruta = 'descargas/teoria/ut%02d-teoria.pdf' % ut
+    return ruta if (web / ruta).is_file() else ''
+
+def tarjetas(lista, prefijo=''):
+    return '<ul class="lista-temas">' + ''.join(
+        '<li><a href="' + escape(prefijo + it['url']) + '"><span class="ut">' + escape(it['etiqueta']) + '</span>' + escape(it['titulo']) +
+        ('<br><span class="etq">' + escape(it['texto']) + '</span>' if it.get('texto') else '') + '</a></li>' for it in lista) + '</ul>'
+
+def rellenar(source, marca, contenido):
+    return re.sub(r'<!-- aula:' + marca + r' -->.*?<!-- /aula:' + marca + r' -->',
+                  lambda m: '<!-- aula:' + marca + ' -->\n' + contenido + '\n  <!-- /aula:' + marca + ' -->', source, count=1, flags=re.S)
+
+def organizar(source, nombre, ut, titulo, secc, web, ids_boletines):
+    actual = seccion_de_pagina(ut, nombre, secc)
+    portada = nombre == 'ut%02d.html' % ut
+    # barra del tema
+    nav = '<nav class="subnav" aria-label="Apartados del tema %d">\n    <a href="ut%02d.html" class="inicio-tema"%s>Portada del tema</a>' % (ut, ut, ' aria-current="page"' if portada else '')
+    for clave, etiqueta, _ in SECCIONES:
+        if not secc.get(clave):
+            continue
+        destino = destino_seccion(ut, clave, secc)
+        marca = ''
+        if clave == actual:
+            marca = ' aria-current="page"' if base_url(destino) == nombre else ' aria-current="true"'
+        nav += '\n    <a href="' + destino + '" class="sec-' + clave + '"' + marca + '>' + etiqueta + '</a>'
+    nav += '\n  </nav>'
+    source = re.sub(r'<nav class="subnav".*?</nav>', lambda m: nav, source, count=1, flags=re.S)
+    # portada del tema: las cuatro secciones
+    if portada:
+        html_s = '  <div class="aula-secciones">'
+        for clave, etiqueta, ayuda in SECCIONES:
+            lista = secc.get(clave)
+            if not lista:
+                continue
+            html_s += '\n  <section class="aula-seccion sec-' + clave + '" aria-labelledby="seccion-' + clave + '"><h2 id="seccion-' + clave + '">' + etiqueta + '</h2><p class="meta">' + ayuda + '</p>' + tarjetas(lista)
+            if clave == 'teoria' and pdf_teoria(web, ut):
+                html_s += '<p class="aula-descarga"><a href="../' + pdf_teoria(web, ut) + '" download>Descargar toda la teoría del tema en PDF</a> <span class="meta">para leerla sin conexión o imprimirla</span></p>'
+            if clave == 'ejercicios':
+                html_s += '<p class="aula-mas"><a href="ut%02d-ejercicios.html">Cómo trabajar los ejercicios del tema</a></p>' % ut
+            html_s += '</section>'
+        source = rellenar(source, 'secciones', html_s + '\n  </div>')
+    # índices de ejercicios y de examen
+    if nombre in ('ut%02d-ejercicios.html' % ut, 'ut%02d-examen.html' % ut):
+        clave = 'ejercicios' if 'ejercicios' in nombre else 'examen'
+        contenido = '  ' + tarjetas(secc.get(clave, []))
+        if clave == 'ejercicios' and ids_boletines:
+            contenido += ('\n  <script>/* Enlaces antiguos (ejercicios.html#ancla) a la página nueva de cada boletín */\n  (function () { var m = ' +
+                          json.dumps(ids_boletines, ensure_ascii=False, sort_keys=True) +
+                          '; var h = decodeURIComponent(location.hash.slice(1)); if (h && m[h]) location.replace(m[h] + "#" + h); })();</script>')
+        source = rellenar(source, 'indice', contenido)
+    # botón de la teoría en PDF
+    if actual == 'teoria' and pdf_teoria(web, ut) and nombre.startswith('ut%02d-teoria' % ut):
+        herr = '<div class="aula-herramientas"><a class="aula-pdf" href="../' + pdf_teoria(web, ut) + '" download>Descargar la teoría en PDF</a><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>'
+        source = re.sub(r'<div class="aula-herramientas">.*?</div>', lambda m: herr, source, count=1, flags=re.S)
+    # anterior / siguiente: recorrido lineal del tema
+    orden = [('ut%02d.html' % ut, 'Portada del tema')]
+    for clave, etiqueta, _ in SECCIONES:
+        lista = secc.get(clave, [])
+        if not lista:
+            continue
+        if clave in ('ejercicios', 'examen'):
+            orden.append(('ut%02d-%s.html' % (ut, clave), etiqueta))
+        for it in lista:
+            b = base_url(it['url'])
+            if b not in [o[0] for o in orden] and (web / 'temas' / b).is_file():
+                orden.append((b, it['etiqueta'] if it['etiqueta'].startswith(('Boletín', 'Teoría', 'P')) and len(it['etiqueta']) < 12 else it['titulo']))
+    nombres = [o[0] for o in orden]
+    if nombre in nombres:
+        i = nombres.index(nombre)
+        ant = '<a href="%s">&laquo; %s</a>' % (orden[i - 1][0], escape(orden[i - 1][1])) if i > 0 else '<span></span>'
+        sig = '<a href="%s">%s &raquo;</a>' % (orden[i + 1][0], escape(orden[i + 1][1])) if i + 1 < len(orden) else '<span></span>'
+        navt = '<nav class="nav-temas" aria-label="Página anterior y siguiente del tema">\n    ' + ant + '\n    ' + sig + '\n  </nav>'
+        if '<nav class="nav-temas"' in source:
+            source = re.sub(r'<nav class="nav-temas".*?</nav>', lambda m: navt, source, count=1, flags=re.S)
+        else:
+            source = source.replace('  <footer class="pie">', '  ' + navt + '\n\n  <footer class="pie">', 1)
+    return source
+
+def ids_de_boletines(web, ut):
+    mapa = {}
+    for f in sorted((web / 'temas').glob('ut%02d-boletin-*.html' % ut)) + sorted((web / 'temas').glob('ut%02d-ejercicios-resueltos.html' % ut)):
+        s = f.read_text(encoding='utf-8')
+        cuerpo = s[s.find('<nav class="subnav"'):]
+        for ident in re.findall(r'\bid="([^"]+)"', cuerpo):
+            if not ident.startswith(('contenido',)):
+                mapa.setdefault(ident, f.name)
+    return mapa
+
 def document(title, content):
     return '<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>' + escape(title) + '</title>\n<link rel="stylesheet" href="assets/estilo.css">\n</head>\n<body>\n<div class="envoltura">\n' + content + '\n<footer class="pie"><p>IES Valle del Jerte · CFGM Sistemas Microinformáticos y Redes · Curso 2026/2027</p></footer>\n</div>\n</body>\n</html>\n'
 
@@ -119,6 +253,7 @@ for repo in REPOS:
     short_name = 'Montaje y mantenimiento' if code == '0221' else 'Aplicaciones ofimáticas'
     pages = {}
     titulos = {topic['ut']: topic['titulo'] for topic in data['temas']}
+    secciones_por_tema = {topic['ut']: topic['secciones'] for topic in data['temas'] if topic.get('secciones')}
     for path in sorted((web / 'temas').glob('*.html')):
         source = path.read_text(encoding='utf-8')
         if code == '0223' and path.name.startswith('ut02') and 'class="subnav"' not in source:
@@ -129,15 +264,18 @@ for repo in REPOS:
             nav += '</nav>'
             source = re.sub(r'(<header class="cab">.*?</header>)', lambda match: match[1] + '\n' + nav, source, count=1, flags=re.S)
         numero = tema_de(path.name)
+        secc_tema = secciones_por_tema.get(numero)
+        if code == '0221' and secc_tema:
+            source = organizar(source, path.name, numero, titulos[numero], secc_tema, web, ids_de_boletines(web, numero))
         tema = {'ut': numero, 'titulo': titulos[numero], 'seccion': seccion_de(source, path.name)} if numero in titulos else None
         source = shell(source, code, 'temas/' + path.name, short_name, tema)
         path.write_text(source, encoding='utf-8')
         pages[path.name] = source
     cards = []
     downloads = {}
-    orden_tipos = ['apuntes', 'ejercicios', 'practicas', 'consulta', 'descargas']
+    orden_tipos = ['apuntes', 'ejercicios', 'practicas', 'examen', 'consulta', 'descargas']
     def card(category, title, url, description, terms='', shortcuts='', ut=None):
-        labels = {'apuntes': 'Apuntes', 'ejercicios': 'Ejercicios guiados / repaso', 'practicas': 'Prácticas evaluables', 'consulta': 'Consulta', 'descargas': 'Descarga'}
+        labels = {'apuntes': 'Apuntes', 'ejercicios': 'Ejercicios guiados / repaso', 'practicas': 'Prácticas evaluables', 'examen': 'Preparar el examen', 'consulta': 'Consulta', 'descargas': 'Descarga'}
         etiqueta_tema = ''
         if ut is not None:
             etiqueta_tema = '<span class="aula-tema">Tema ' + str(ut) + '</span><span class="aula-tema-titulo">' + escape(titulos.get(ut, '')) + '</span>'
@@ -150,13 +288,19 @@ for repo in REPOS:
         title = plain(re.search(r'<h1[^>]*>(.*?)</h1>', source, re.S)[1])
         section_list = headings(source)
         category = 'apuntes'
-        if 'ejercicios' in name:
+        nt = tema_de(name)
+        if code == '0221' and nt in secciones_por_tema:
+            if name in ('ut%02d-ejercicios.html' % nt, 'ut%02d-examen.html' % nt):
+                continue  # índices: se llega desde la portada del tema
+            clave = seccion_de_pagina(nt, name, secciones_por_tema[nt])
+            category = {'teoria': 'apuntes', 'ejercicios': 'ejercicios', 'practicas': 'practicas', 'examen': 'examen'}.get(clave, 'apuntes')
+        elif 'ejercicios' in name:
             category = 'ejercicios'
-        elif 'practicas' in name:
+        elif 'practicas' in name and not (code == '0221' and nt in secciones_por_tema):
             category = 'practicas'
-        elif 'mapa-' in name or name == 'ut00.html':
+        if 'mapa-' in name or name == 'ut00.html':
             category = 'consulta'
-        elif re.fullmatch(r'ut(0[1-9]|[1-9][0-9])\.html', name) if code == '0221' else name == 'ut02.html':
+        if re.fullmatch(r'ut(0[1-9]|[1-9][0-9])\.html', name) if code == '0221' else name == 'ut02.html':
             # Las portadas de tema se enlazan desde el inicio; no son material del catálogo.
             continue
         filtered = [(target, label) for target, label in section_list if not any(word in label.lower() for word in ['criterio', 'resultado de aprendizaje', 'pendiente', 'próximos', 'en esta página'])]
@@ -166,6 +310,8 @@ for repo in REPOS:
             description = 'Practica y comprueba lo aprendido. Actividades formativas; no cuentan para la nota.'
         if category == 'practicas':
             description = 'Consulta el enunciado, las condiciones de entrega y la rúbrica.'
+        if category == 'examen':
+            description = 'Tests y repasos para preparar el examen. Se corrigen solos.'
         search_terms = ' '.join(plain(sin_ce(text)) for text in re.findall(r'<h[23][^>]*>(.*?)</h[23]>', source, re.S))
         cards.append(card(category, title, 'temas/' + name, description, search_terms, shortcuts, tema_de(name)))
         if category == 'apuntes':
@@ -188,7 +334,7 @@ for repo in REPOS:
     for target, (label, origin) in downloads.items():
         cards.append(card('descargas', label, target, 'Archivo ' + Path(target).suffix[1:].upper() + ' · ' + Path(target).name, '', '<p><a href="temas/' + origin + '">Ver el enunciado que utiliza este archivo</a></p>', tema_de(origin)))
     cards = [html_card for _, _, html_card in sorted(cards, key=lambda c: (c[0], c[1]))]
-    filters = ''.join('<button type="button" data-filtro="' + value + '" aria-pressed="' + ('true' if value == 'todos' else 'false') + '">' + label + '</button>' for value, label in [('todos','Todos'), ('apuntes','Apuntes'), ('ejercicios','Ejercicios'), ('practicas','Prácticas'), ('consulta','Consulta'), ('descargas','Descargas')])
+    filters = ''.join('<button type="button" data-filtro="' + value + '" aria-pressed="' + ('true' if value == 'todos' else 'false') + '">' + label + '</button>' for value, label in [('todos','Todos'), ('apuntes','Apuntes'), ('ejercicios','Ejercicios'), ('practicas','Prácticas')] + ([('examen','Preparar el examen')] if code == '0221' else []) + [('consulta','Consulta'), ('descargas','Descargas')])
     temas_catalogo = sorted({tema_de(name) for name in pages if tema_de(name) is not None and tema_de(name) in titulos})
     filtros_tema = ''.join('<button type="button" data-filtro-tema="' + value + '" aria-pressed="' + ('true' if value == 'todos' else 'false') + '"' + (' title="' + escape(titulos[int(value)]) + '"' if value != 'todos' else '') + '>' + label + '</button>' for value, label in [('todos', 'Todos los temas')] + [(str(n), 'Tema ' + str(n)) for n in temas_catalogo])
     catalogue = '<header class="cab"><p class="modulo">' + code + ' · ' + short_name + '</p><h1>Encuentra tu material</h1><p class="meta">Apuntes, ejercicios, prácticas y archivos de trabajo de todos los temas, en un solo lugar.</p></header><div class="aula-busqueda" hidden><label for="buscar-material">Buscar por título o apartado</label><input id="buscar-material" type="search" placeholder="Por ejemplo: estilos, tabla, circuito…"><p class="aula-filtros-titulo">Tema</p><div class="aula-filtros" aria-label="Filtrar por tema">' + filtros_tema + '</div><p class="aula-filtros-titulo">Tipo de material</p><div class="aula-filtros" aria-label="Filtrar por tipo">' + filters + '<button type="button" data-limpiar>Limpiar búsqueda</button></div><p id="estado-busqueda" role="status" aria-live="polite"></p></div><noscript><p>Todos los materiales están disponibles en la lista. Activa JavaScript para usar los filtros.</p></noscript><ul class="aula-catalogo">' + '\n'.join(cards) + '</ul>'
@@ -220,5 +366,25 @@ for repo in REPOS:
         home += '<div class="tarjeta"><strong>¿No encuentras una opción de Word?</strong><p><a href="temas/mapa-cinta.html">Consulta el mapa de la cinta</a>: pestañas, grupos y atajos.</p></div>'
     else:
         home += '<div class="aviso"><strong>Antes de trabajar en el taller</strong><p>Revisa <a href="temas/ut01-prl.html">Seguridad y PRL</a> y sigue las instrucciones del profesor.</p></div>'
+    if code == '0221':
+        home = ('<header class="cab"><p class="modulo">IES Valle del Jerte · CFGM SMR · ' + code + '</p><h1>' + escape(data['titulo']) + '</h1><p class="meta">2.º curso · 6 h/semana · Curso 2026/2027</p></header>'
+                '<p>Elige un tema. En cada uno encontrarás la teoría, los ejercicios, las prácticas y lo necesario para preparar el examen.</p><ul class="aula-portada-temas">')
+        for topic in data['temas']:
+            if not (web / ('temas/ut%02d.html' % topic['ut'])).exists():
+                continue
+            n = topic['ut']
+            detalle = 'Presentación del módulo y evaluación inicial · no cuenta para la nota' if n == 0 else str(topic['horas']) + ' h · ' + topic['ra'] + ' · ' + str(topic.get('evaluacion', '')) + '.ª evaluación'
+            home += '<li class="tarjeta-tema"><a class="tema-principal" href="temas/ut%02d.html"><span class="tema-num">Tema %d</span><strong>%s</strong><span class="etq">%s</span></a>' % (n, n, escape(topic['titulo']), escape(detalle))
+            secc = topic.get('secciones')
+            if secc:
+                home += '<nav class="tema-accesos" aria-label="Secciones del tema %d">' % n
+                for clave, etiqueta, _ in SECCIONES:
+                    if secc.get(clave):
+                        home += '<a class="sec-' + clave + '" href="temas/' + destino_seccion(n, clave, secc) + '">' + etiqueta + '</a>'
+                if pdf_teoria(web, n):
+                    home += '<a class="sec-pdf" href="' + pdf_teoria(web, n) + '" download>Teoría en PDF</a>'
+                home += '</nav>'
+            home += '</li>'
+        home += '</ul><p class="aula-buscar-portada"><a href="recursos.html">¿Buscas algo concreto? Busca en todo el material</a></p>'
     (web / 'index.html').write_text(shell(document(short_name, home), code, 'index.html', short_name), encoding='utf-8')
     print(repo, len(pages), 'páginas de contenido; catálogo:', len(cards), 'materiales')

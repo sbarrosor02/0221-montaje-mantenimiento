@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boletín 2 · Circuitos mixtos · Tema 1 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<style>
+  .figura { background: var(--fondo); border: 1px solid var(--linea);
+    border-radius: var(--radio); padding: 1rem; margin: 1rem 0; text-align: center; }
+  .figura svg { max-width: 100%; height: auto; }
+  .figura .pie-fig { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 0.5rem; }
+  .circuito { max-width: 340px; }
+  svg .hilo, svg .comp { fill: none; stroke: var(--tinta); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  svg .nodo { fill: var(--tinta); }
+  svg .et { fill: var(--tinta); font: 600 13px system-ui, sans-serif; }
+  .ejercicio { margin: 1.6rem 0; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--linea); }
+  .ejercicio:last-child { border-bottom: none; }
+  .ejercicio h3 { margin: 0 0 0.3rem; }
+  .ejercicio h3 .num { color: var(--acento); margin-right: 0.35rem; }
+  .solucion { background: var(--acento-claro); border: 1px solid #bcd6ec; border-radius: var(--radio); padding: 0.4rem 1rem; margin: 0.6rem 0 0; }
+  .solucion summary { font-weight: 600; cursor: pointer; color: var(--acento); padding: 0.4rem 0; }
+  .solucion[open] summary { margin-bottom: 0.3rem; }
+  .esquema-ampliable { overflow-x: auto; }
+  .esquema-ampliable img { display: block; width: 100%; min-width: 620px; }
+  .formula { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: var(--fondo-suave); padding: 0.1rem 0.35rem; border-radius: 4px; white-space: nowrap; }
+  .ayuda-esquema { font-size: 0.9rem; color: var(--tinta-suave); }
+  @media print {
+    .ejercicio { break-inside: avoid; }
+    .esquema-ampliable { overflow: visible; }
+    .esquema-ampliable img { min-width: 0; }
+    .figura { break-inside: avoid; }
+  }
+  .mapa-boletines { margin: 1.4rem 0 2rem; }
+  .mapa-boletines .mapa-titulo { font-weight: 700; font-size: 1.1rem; margin: 0 0 .5rem; }
+  .mapa-boletines .mapa-destacado { background: white; border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: var(--radio); padding: .6rem .9rem; }
+  .mapa-boletines ul { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .6rem; }
+  .mapa-boletines li { margin: 0; }
+  .mapa-boletines li a { display: flex; flex-direction: column; gap: .15rem; height: 100%; background: white; border: 1px solid var(--linea); border-radius: var(--radio); padding: .7rem .9rem; text-decoration: none; color: var(--tinta); }
+  .mapa-boletines li a:hover { border-color: var(--acento); background: var(--acento-claro); }
+  .mapa-boletines li strong { color: var(--acento); line-height: 1.3; }
+  .mapa-boletines li span { font-size: .88rem; color: var(--tinta-suave); }
+  .mapa-boletines .nivel { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .volver-mapa { font-size: .9rem; margin: 1rem 0 0; }
+</style>
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut01.html"><span>Tema 1</span>Elementos básicos eléctricos y electrónicos</a><a class="indice-material" href="../recursos.html?tema=1">Todo el material del tema 1</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut01.html">Tema 1 · Elementos básicos eléctricos y electrónicos</a><span aria-hidden="true">›</span><a href="ut01-ejercicios.html">Ejercicios</a><span aria-hidden="true">›</span><span aria-current="page">Boletín 2</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 1</p>
+    <h1>Boletín 2 · Circuitos mixtos</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 1">
+    <a href="ut01.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut01.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut01-ejercicios.html" class="sec-ejercicios" aria-current="true">Ejercicios</a>
+    <a href="ut01.html#seccion-practicas" class="sec-practicas">Prácticas</a>
+    <a href="ut01-examen.html" class="sec-examen">Preparar el examen</a>
+  </nav>
+
+  <section>
+    <span id="apartado-pendientes-de-redibujar" aria-hidden="true"></span>
+    <h2 id="apartado-boletin-2-circuitos-mixtos">Boletín 2 · Circuitos mixtos</h2>
+    <p>Los cinco circuitos del boletín manuscrito, redibujados conservando
+    los valores y las conexiones. Calcula la resistencia equivalente antes
+    de aplicar la Ley de Ohm a la fuente.</p>
+    <p class="ayuda-esquema">En móvil puedes desplazar los esquemas
+    horizontalmente. Ábrelos ampliados para verlos a mayor tamaño o descarga
+    el SVG para imprimirlo sin pérdida de calidad.</p>
+
+    <div class="ejercicio" id="b2-1">
+      <h3><span class="num">1.</span> Determina el voltaje de la fuente.</h3>
+      <p>La corriente total suministrada por la fuente es de <strong>60 mA</strong>.
+      Ten en cuenta que dos resistencias están expresadas en kiloohmios.</p>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 1; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-1.svg" width="860" height="580" alt="1 kΩ y 3 kΩ en serie con dos ramas: 8,2 Ω más 160 Ω; y 16 Ω más 75 Ω más el paralelo de 82 Ω y 150 Ω. En el retorno está el paralelo de 51 Ω y 130 Ω. Corriente total: 60 mA.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-1.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-1.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-2">
+      <h3><span class="num">2.</span> Calcula la corriente suministrada por la fuente de 110 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 2; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-2.svg" width="760" height="410" alt="Un lazo con 1 Ω, el paralelo de 12,5 Ω y 50 Ω, otra resistencia de 1 Ω y el paralelo de dos resistencias de 20 Ω, alimentado por una fuente de 110 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-2.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-2.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-3">
+      <h3><span class="num">3.</span> Calcula la corriente suministrada por la fuente de 24 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 3; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-3.svg" width="850" height="520" alt="Dos ramas en paralelo: 4 Ω en serie con el paralelo de 16 Ω, 24 Ω y la serie 10 Ω más 20 Ω más 18 Ω; y el paralelo de 12 Ω y 4 Ω en serie con 3 Ω. Fuente de 24 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-3.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-3.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-4">
+      <h3><span class="num">4.</span> Calcula la intensidad suministrada por la fuente de 21 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 4; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-4.svg" width="850" height="420" alt="El paralelo de dos resistencias de 12 Ω está en serie con tres ramas en paralelo: 20 Ω más 4 Ω; 8 Ω; y 6 Ω. Fuente de 21 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-4.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-4.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+
+    <div class="ejercicio" id="b2-5">
+      <h3><span class="num">5.</span> Calcula la intensidad suministrada por la fuente de 35 V.</h3>
+      <figure class="figura">
+        <div class="esquema-ampliable" role="region" aria-label="Circuito mixto 5; desplazamiento horizontal" tabindex="0">
+          <img src="../assets/img/circuitos/boletin-2-5.svg" width="880" height="510" alt="4 Ω en serie con dos ramas: otra resistencia de 4 Ω; y 3 Ω en serie con el paralelo de 20 Ω más 16 Ω y la asociación del paralelo de 12 Ω y 4 Ω seguido de 6 Ω. Fuente de 35 V.">
+        </div>
+        <figcaption><a href="../assets/img/circuitos/boletin-2-5.svg">Abrir el esquema ampliado</a> · <a href="../assets/img/circuitos/boletin-2-5.svg" download>Descargar SVG</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut01-boletin-1.html">&laquo; Boletín 1</a>
+    <a href="ut01-boletin-3.html">Boletín 3 &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura). Circuitos redibujados como SVG
+    originales a partir de los boletines del curso 2023/24.</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

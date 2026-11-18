@@ -127,9 +127,10 @@ casa se puede repetir con las partes A y B y una tabla comparativa.
   publica). Regenerar: `python3 examenes/gymkana-placas/generar.py`.
 
 La placa del examen no se usa en la web (el repositorio es público). Para añadir una
-placa: nuevo `ej-5-N` con sus partes A y B antes del recuadro «Entrega», su imagen en
-`img/placas/`, su solución en `scripts/generar_ut03_solucionario.py` y el recuento en el
-mapa de boletines. Contrastar la ficha con la web del fabricante: cambia (en la 5.1, la
+placa: nuevo `ej-5-N` en `web/temas/ut03-boletin-5.html` con sus partes A y B antes del
+recuadro «Entrega», su imagen en `img/placas/`, su solución en
+`scripts/generar_ut03_solucionario.py` y el recuento en el `texto` del boletín 5 en
+`web/datos/temas.json` → `secciones` → `ejercicios`. Contrastar la ficha con la web del fabricante: cambia (en la 5.1, la
 memoria máxima pasó de 192 a 256 GB).
 
 | Ejercicio | Placa | Fuente |
@@ -189,3 +190,12 @@ Revisión del 06/11/2026 (teoría 3.3–3.4, resumen y decodificador de nombres)
   (10000), X3D2 y Ryzen AI (G y GE en AM5; el resto, BGA).
 - No se ha tocado el configurador: sus procesadores siguen siendo válidos y cambiarlos
   obliga a repetir la prueba de todas las combinaciones.
+
+## Simulacro de test · 1.ª parte (18/11/2026)
+
+El examen del tema 3 se divide en dos. Para la primera parte (teoría 1, apartados 3.1 a
+3.7) hay un simulacro autocorregible: `web/temas/ut03-test-1.html` con el banco en
+`web/assets/ut03-test-1.js` (65 preguntas: 3.1 ×6, 3.2 ×8, 3.3 ×14, 3.4 ×7, 3.5 ×11,
+3.6 ×10, 3.7 ×9; cada una con su CE). Saca 30 preguntas al azar con las opciones
+barajadas. Está en la sección «Preparar el examen». Para la segunda parte (3.8 a 3.13)
+se puede hacer `ut03-test-2` con el mismo motor.

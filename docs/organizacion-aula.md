@@ -181,3 +181,40 @@ módulo (`<usuario>` es el usuario del alumno):
 - El recuadro incluye una tabla «En tu carpeta → Nombre dentro del ZIP» y la lista de
   capturas que no pueden faltar en la memoria. Los boletines llevan además, antes del
   primer bloque, un apartado «Cómo se entrega cada bloque» con estas normas.
+
+## Revisión del 18/11/2026 · una página por tema y cuatro secciones
+
+Motivo: la portada y las páginas de tema acumulaban accesos («Ahora en clase»,
+destacados, mapas de boletines) y costaba encontrar las cosas.
+
+- **Portada:** solo las tarjetas de los temas, con accesos directos a sus secciones
+  y a la teoría en PDF. Se quita «Ahora en clase» (`destacados` queda vacío).
+- **Página del tema (`utNN.html`):** cuatro secciones con color e icono propios:
+  Teoría (azul), Ejercicios (verde), Prácticas (naranja) y Preparar el examen
+  (morado). El mapa de criterios y el recorrido quedan plegados en «Qué se evalúa
+  y en qué orden se trabaja».
+- **Un enlace por boletín:** cada boletín es su página (`utNN-boletin-N.html`).
+  `utNN-ejercicios.html` es ahora el índice de la sección y redirige los enlaces
+  antiguos (`utNN-ejercicios.html#ej-5-2` → `ut03-boletin-5.html#ej-5-2`), así
+  que los enlaces de Moodle siguen funcionando. La división se hizo una vez con
+  `scripts/migrar_organizacion.py` (se conserva como registro; no hay que volver a
+  ejecutarlo).
+- **Preparar el examen (`utNN-examen.html`):** tests, simulacros, autoevaluaciones
+  de la teoría y ejercicios tipo examen. Simulacro nuevo: `ut03-test-1.html`
+  (1.ª parte del tema 3, apartados 3.1 a 3.7, banco de 65 preguntas en
+  `assets/ut03-test-1.js`).
+- **Teoría en PDF:** `python scripts/generar_pdf_teoria.py [N]` imprime con Chrome
+  las páginas de teoría de cada tema (estilo de impresión, todo desplegado, las
+  actividades interactivas sustituidas por un aviso) y las une en
+  `web/descargas/teoria/utNN-teoria.pdf` con marcadores. Necesita `playwright` y
+  `pypdf` (o `CHROME=/ruta/a/chrome`). Hay que regenerarlo cuando cambia la teoría.
+- **Estilos:** van en `assets/organizacion.css`, propio de 0221. No se han tocado
+  `estilo.css`, `aula.css` ni `aula.js` (compartidos con 0223); el generador solo
+  aplica la nueva organización cuando el módulo es 0221.
+
+### Dónde va cada material nuevo
+
+Añádelo en `temas.json` → tema → `secciones` → `teoria`, `ejercicios`,
+`practicas` o `examen` (`etiqueta`, `titulo`, `url`, `texto`) y ejecuta
+`python scripts/actualizar_aula.py`: crea la tarjeta, la barra del tema, el índice
+de la sección, las migas y el «anterior / siguiente».

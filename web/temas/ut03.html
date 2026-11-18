@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="../assets/ut03.css">
 <link rel="stylesheet" href="../assets/aula.css">
 <script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
 </head>
 <body data-modulo="0221">
-<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html?tipo=apuntes">Apuntes</a><a href="../recursos.html?tipo=ejercicios">Ejercicios</a><a href="../recursos.html?tipo=practicas">Prácticas</a><a href="../recursos.html">Materiales</a></nav></header>
-<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-estudiar">Estudiar</a></li><li><a href="#apartado-practicar">Practicar</a></li><li><a href="#apartado-entregar">Entregar</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</span></nav>
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#seccion-teoria">Teoría</a></li><li><a href="#seccion-ejercicios">Ejercicios</a></li><li><a href="#seccion-practicas">Prácticas</a></li><li><a href="#seccion-examen">Preparar el examen</a></li><li><a href="#apartado-recorrido">Recorrido del tema</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</span></nav>
 
   <header class="cab">
     <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3)</p>
@@ -23,12 +24,10 @@
 
   <nav class="subnav" aria-label="Apartados del tema 3">
     <a href="ut03.html" class="inicio-tema" aria-current="page">Portada del tema</a>
-    <a href="ut03-teoria.html">Teoría 1: placa y procesador</a>
-    <a href="ut03-teoria-2.html">Teoría 2: BIOS, gráfica y chasis</a>
-    <a href="ut03-ejercicios-uefi.html">Simulador UEFI</a>
-    <a href="ut03-ejercicios-configurador.html">Configurador</a>
-    <a href="ut03-ejercicios.html">Ejercicios</a>
-    <a href="ut03-practicas.html">Prácticas</a>
+    <a href="ut03.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut03-ejercicios.html" class="sec-ejercicios">Ejercicios</a>
+    <a href="ut03-practicas.html" class="sec-practicas">Prácticas</a>
+    <a href="ut03-examen.html" class="sec-examen">Preparar el examen</a>
   </nav>
 
   <p>En el tema 2 viste el ordenador como bloques. Ahora toca <strong>la pieza
@@ -37,34 +36,16 @@
   UEFI y a manipular procesador, disipador y tarjetas en el taller. Es la base para
   montar un equipo completo en el tema 4.</p>
 
-  <h2 id="apartado-estudiar">Estudiar</h2>
-  <ul class="lista-temas">
-    <li><a href="ut03-teoria.html"><span class="ut">Teoría 1</span>Placa base, procesador, refrigeración, memoria y expansión
-      <br><span class="etq">CE c, d, e, j · placa interactiva, decodificador de procesadores, calculadoras de memoria y PCIe, autoevaluación</span></a></li>
-    <li><a href="ut03-teoria-2.html"><span class="ut">Teoría 2</span>BIOS/UEFI, gráfica y monitor, adaptadores, chasis y documentación
-      <br><span class="etq">CE f, g, i, j, k · calculadora de conectores de vídeo, autoevaluación</span></a></li>
-  </ul>
+  <!-- aula:secciones -->
+  <div class="aula-secciones">
+  <section class="aula-seccion sec-teoria" aria-labelledby="seccion-teoria"><h2 id="seccion-teoria">Teoría</h2><p class="meta">Los apuntes del tema.</p><ul class="lista-temas"><li><a href="ut03-teoria.html"><span class="ut">Teoría 1</span>Placa base, procesador, refrigeración, memoria y expansión<br><span class="etq">Apartados 3.1 a 3.7 · primera parte del examen</span></a></li><li><a href="ut03-teoria-2.html"><span class="ut">Teoría 2</span>BIOS/UEFI, gráfica, monitor, adaptadores, chasis y documentación<br><span class="etq">Apartados 3.8 a 3.13 · segunda parte del examen</span></a></li></ul><p class="aula-descarga"><a href="../descargas/teoria/ut03-teoria.pdf" download>Descargar toda la teoría del tema en PDF</a> <span class="meta">para leerla sin conexión o imprimirla</span></p></section>
+  <section class="aula-seccion sec-ejercicios" aria-labelledby="seccion-ejercicios"><h2 id="seccion-ejercicios">Ejercicios</h2><p class="meta">Para practicar. No cuentan para la nota salvo que el profesor diga que se entregan.</p><ul class="lista-temas"><li><a href="ut03-boletin-1.html"><span class="ut">Boletín 1</span>Placa base<br><span class="etq">Formatos, conectores, panel frontal y manual · CE e, g · 5 ejercicios</span></a></li><li><a href="ut03-boletin-2.html"><span class="ut">Boletín 2</span>Procesador y refrigeración<br><span class="etq">Nombres, zócalos, consumo, disipadores y ventiladores · CE c, d · 8 ejercicios</span></a></li><li><a href="ut03-boletin-3.html"><span class="ut">Boletín 3</span>Memoria y expansión<br><span class="etq">Latencia, canales, PCIe y M.2 · CE e, j · 7 ejercicios</span></a></li><li><a href="ut03-boletin-4.html"><span class="ut">Boletín 4</span>UEFI, gráfica, monitor y chasis<br><span class="etq">Diagnóstico, alimentación, ancho de banda, cajas y accesorios · CE f, g, i, j, k · 10 ejercicios</span></a></li><li><a href="ut03-boletin-5.html"><span class="ut">Boletín 5</span>Placas base reales<br><span class="etq">Identificar los componentes con el esquema y leer la ficha técnica del manual · CE c, e, f, k · 1 placa guiada y gymkana con 2 placas</span></a></li><li><a href="ut03-boletin-6.html"><span class="ut">Boletín 6</span>Procesadores reales<br><span class="etq">Toda la información de un procesador a partir de su descripción comercial · CE c, d · 27 procesadores</span></a></li><li><a href="ut03-ejercicios-uefi.html"><span class="ut">Simulador</span>Simulador de UEFI<br><span class="etq">Siete misiones: arranque desde USB, XMP, Windows 11, virtualización…</span></a></li><li><a href="ut03-ejercicios-configurador.html"><span class="ut">Configurador</span>¿Son compatibles estas piezas?<br><span class="etq">Procesadores reales y cinco casos para diagnosticar</span></a></li></ul><p class="aula-mas"><a href="ut03-ejercicios.html">Cómo trabajar los ejercicios del tema</a></p></section>
+  <section class="aula-seccion sec-practicas" aria-labelledby="seccion-practicas"><h2 id="seccion-practicas">Prácticas</h2><p class="meta">Evaluables. Lee el enunciado completo y la rúbrica antes de empezar.</p><ul class="lista-temas"><li><a href="ut03-practicas.html"><span class="ut">Prácticas</span>Prácticas P5 a P8<br><span class="etq">Placa y manual, pasta térmica, UEFI real, adaptadores y chasis</span></a></li></ul></section>
+  <section class="aula-seccion sec-examen" aria-labelledby="seccion-examen"><h2 id="seccion-examen">Preparar el examen</h2><p class="meta">Tests y repasos que se corrigen solos. Repítelos tantas veces como quieras.</p><ul class="lista-temas"><li><a href="ut03-test-1.html"><span class="ut">Simulacro</span>Simulacro de test · 1.ª parte (3.1 a 3.7)<br><span class="etq">Preguntas al azar de la teoría 1, se corrige solo</span></a></li><li><a href="ut03-teoria.html#apartado-autoevaluacion"><span class="ut">Autoevaluación</span>Autoevaluación de la teoría 1<br><span class="etq">3.1 a 3.7</span></a></li><li><a href="ut03-teoria-2.html#apartado-autoevaluacion"><span class="ut">Autoevaluación</span>Autoevaluación de la teoría 2<br><span class="etq">3.8 a 3.13</span></a></li></ul></section>
+  </div>
+  <!-- /aula:secciones -->
 
-  <h2 id="apartado-practicar">Practicar</h2>
-  <p class="meta">No cuenta para la nota. Sirve para coger soltura antes del taller.</p>
-  <ul class="lista-temas">
-    <li><a href="ut03-ejercicios-uefi.html"><span class="ut">Simulador</span>Simulador de UEFI
-      <br><span class="etq">Interactivo · CE f · siete misiones: arranque desde USB, XMP, Windows 11, virtualización, ventiladores…</span></a></li>
-    <li><a href="ut03-ejercicios-configurador.html"><span class="ut">Configurador</span>¿Son compatibles estas piezas?
-      <br><span class="etq">Interactivo · CE c, d, e, g, i · procesadores reales de Intel y AMD, cinco casos para diagnosticar</span></a></li>
-    <li><a href="ut03-ejercicios.html"><span class="ut">Ejercicios</span>Seis boletines
-      <br><span class="etq">Placa base · procesador y refrigeración · memoria y expansión · UEFI, gráfica, monitor y chasis · placas base reales · procesadores reales</span></a></li>
-  </ul>
-
-  <h2 id="apartado-entregar">Entregar</h2>
-  <p class="meta">Evaluable. Lee el enunciado completo y la rúbrica antes de empezar.</p>
-  <ul class="lista-temas">
-    <li><a href="ut03-practicas.html#p5"><span class="ut">P5</span>La placa base y su manual<br><span class="etq">CE e, k · en parejas · 2 sesiones</span></a></li>
-    <li><a href="ut03-practicas.html#p6"><span class="ut">P6</span>Procesador y refrigeración: cambio de pasta térmica<br><span class="etq">CE c, d · en parejas · 2 sesiones</span></a></li>
-    <li><a href="ut03-practicas.html#p7"><span class="ut">P7</span>La UEFI de un equipo real<br><span class="etq">CE f · individual · 2 sesiones</span></a></li>
-    <li><a href="ut03-practicas.html#p8"><span class="ut">P8</span>Adaptadores, monitor y chasis<br><span class="etq">CE g, i, j · en parejas · 2–3 sesiones</span></a></li>
-  </ul>
-
+  <details class="aula-plan"><summary>Qué se evalúa y en qué orden se trabaja</summary>
   <h2 id="apartado-mapa-de-criterios">Mapa de criterios</h2>
   <p>Dónde se trabaja cada criterio de evaluación del tema.</p>
   <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="mapa-ce">
@@ -80,7 +61,6 @@
       <tr><td><strong>k)</strong> Documentación, controladores y utilidades</td><td><a href="ut03-teoria-2.html#apartado-3-13">3.13</a></td><td>Boletines 1, 3, 4 y 5</td><td>P5</td></tr>
     </tbody>
   </table></div>
-
   <h2 id="apartado-recorrido">Recorrido del tema</h2>
   <p>Orden orientativo de las sesiones. El ritmo se ajustará a la marcha del
   grupo.</p>
@@ -98,6 +78,7 @@
     <li>Práctica P8: adaptadores, monitor y chasis (2–3 sesiones).</li>
     <li>Repaso y prueba del tema.</li>
   </ol>
+  </details>
 
   <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
     <h2 id="apartado-resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación</h2>
@@ -121,10 +102,9 @@
     evalúa en el tema 4.</em></p>
   </details>
 
-  <nav class="nav-temas">
-    <a href="ut02.html">&laquo; Tema 2</a>
-    <a href="../index.html">Índice del módulo</a>
-    <a href="ut04.html">Tema 4 &raquo;</a>
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <span></span>
+    <a href="ut03-teoria.html">Teoría 1 &raquo;</a>
   </nav>
 
   <footer class="pie">
