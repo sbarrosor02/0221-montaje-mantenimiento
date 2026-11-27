@@ -156,3 +156,38 @@ h2 .ce, h3 .ce { position: relative; top: -.1em; }
 .formula code, .lista-procesadores code { white-space: normal; overflow-wrap: anywhere; }
 .formula code { display: inline-block; padding: .35rem .6rem; font-size: 1.02em; }
 .lista-procesadores li { margin-bottom: .3rem; }
+
+/* ---------- Simulador de POST y averías (P9) ---------- */
+.simulador-post { border: 1px solid var(--linea, #ccd6d4); border-radius: 10px; padding: 1rem; margin: 1rem 0; background: #fbfcfc; }
+.sim-cab { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.sim-cab label { flex: 1 1 260px; min-width: 0; display: flex; align-items: center; gap: .4rem; }
+.sim-cab select { flex: 1; min-width: 0; width: 100%; font: inherit; padding: .3rem; }
+.sim-reloj { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; }
+.sim-ficha { margin: .7rem 0; padding: .6rem .8rem; background: #fff7e6; border-left: 4px solid #c77b14; border-radius: 4px; }
+.sim-ficha p { margin: .2rem 0; }
+.sim-panel { display: grid; grid-template-columns: 1fr; gap: .8rem; margin: .6rem 0; }
+@media (min-width: 700px) { .sim-panel { grid-template-columns: 3fr 2fr; } }
+.sim-monitor { background: #1d2327; border: 6px solid #3a4248; border-radius: 8px; min-height: 120px; padding: .5rem; color: #e8f0ee; position: relative; }
+.sim-pantalla { font-family: ui-monospace, Consolas, monospace; font-size: .95rem; display: flex; align-items: center; justify-content: center; min-height: 95px; text-align: center; }
+.sim-etq { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: #8a9a97; margin-bottom: .2rem; }
+.sim-monitor .sim-etq { color: #7c8a88; }
+.sim-leds { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .5rem; }
+.sim-leds span { font: 600 .75rem/1 ui-monospace, monospace; padding: .3rem .45rem; border-radius: 4px; background: #e4e9e8; color: #6b7775; border: 1px solid #c9d3d1; }
+.sim-leds span.on { background: #e02424; color: #fff; border-color: #a11; box-shadow: 0 0 8px #f55; }
+.sim-altavoz { min-height: 1.3em; margin-bottom: .5rem; }
+.sim-estado { font-size: .88rem; }
+.sim-aviso { color: #b42318; font-weight: 600; }
+.sim-botones { display: flex; flex-wrap: wrap; gap: .4rem; margin: .4rem 0 .8rem; }
+.sim-acciones { display: grid; gap: .5rem; }
+.sim-grupo { border: 1px solid #d8e0de; border-radius: 6px; padding: .3rem .6rem .6rem; background: #fff; }
+.sim-grupo summary { font-weight: 600; cursor: pointer; padding: .2rem 0; }
+.sim-grupo summary small { font-weight: 400; color: #6b7775; }
+.sim-acc { display: inline-block; margin: .25rem .3rem 0 0; font-size: .88rem; text-align: left; }
+.sim-acc:disabled { opacity: .45; cursor: not-allowed; }
+.sim-resultado { margin: .8rem 0; padding: .6rem .8rem; background: #eef6f4; border-radius: 6px; min-height: 2.5em; }
+.sim-pie { display: flex; flex-wrap: wrap; gap: .4rem; }
+.sim-registro { font-size: .86rem; max-height: 320px; overflow: auto; padding-left: 1.6rem; }
+.sim-registro li { margin: .25rem 0; }
+.sim-registro li.sim-mal { color: #b42318; }
+.sim-t { font-variant-numeric: tabular-nums; color: #6b7775; font-size: .8rem; }
+@media print { .simulador-post { display: none; } }

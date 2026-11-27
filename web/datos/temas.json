@@ -380,6 +380,12 @@
             "titulo": "Prácticas P5 a P8",
             "url": "ut03-practicas.html",
             "texto": "Placa y manual, pasta térmica, UEFI real, adaptadores y chasis"
+          },
+          {
+            "etiqueta": "Práctica",
+            "titulo": "P9 · Servicio técnico: dos empresas de informática",
+            "url": "ut03-practica-empresas.html",
+            "texto": "En grupo · 6 sesiones · simulador de POST y averías, clientes con presupuesto ajustado, informes, presupuestos y concurso · CE f, g, i, j, k"
           }
         ],
         "examen": [
