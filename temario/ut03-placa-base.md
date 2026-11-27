@@ -199,3 +199,12 @@ El examen del tema 3 se divide en dos. Para la primera parte (teoría 1, apartad
 3.6 ×10, 3.7 ×9; cada una con su CE). Saca 30 preguntas al azar con las opciones
 barajadas. Está en la sección «Preparar el examen». Para la segunda parte (3.8 a 3.13)
 se puede hacer `ut03-test-2` con el mismo motor.
+
+## Modelos actuales de tarjetas gráficas (27/11/2026)
+
+Teoría 2, apartado 3.9.2: cómo se lee el nombre (generación y gama) y tablas de NVIDIA
+GeForce RTX 50 (5050 a 5090), AMD Radeon RX 9000 (9050 a 9070 XT) e Intel Arc B (B570,
+B580), con núcleos, VRAM, bus, consumo y uso; equivalencias entre marcas y ejemplo de
+nombre comercial de un ensamblador. Situación a noviembre de 2026: NVIDIA no ha lanzado
+las RTX 50 Super y la Arc B770 no llegó a salir. Revisar las tablas cada curso.
+Autoevaluación: preguntas 11 y 12 nuevas.
