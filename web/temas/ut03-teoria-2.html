@@ -229,6 +229,112 @@
     análisis y pruebas de rendimiento. Antes se podían unir dos tarjetas
     (SLI, CrossFire), pero hoy esa técnica está abandonada en los equipos de
     consumo.</p>
+
+    <h3 id="apartado-3-9-2">3.9.2 Modelos actuales de tarjetas gráficas</h3>
+    <p>Cada fabricante de chips saca una <strong>generación</strong> nueva cada dos
+    años, más o menos, y dentro de ella varios modelos de <strong>gama</strong>
+    distinta. Estas son las generaciones que se venden en el curso 2026/2027:</p>
+    <ul>
+      <li><strong>NVIDIA GeForce RTX 50</strong> (arquitectura Blackwell, desde 2025).</li>
+      <li><strong>AMD Radeon RX 9000</strong> (arquitectura RDNA 4, desde 2025).</li>
+      <li><strong>Intel Arc serie B</strong> (arquitectura Battlemage, desde finales de 2024).</li>
+    </ul>
+
+    <h4>Cómo se lee el nombre</h4>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Fabricante</th><th>Ejemplo</th><th>Qué significa cada parte</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NVIDIA</strong></td><td class="mono">GeForce RTX 5070 Ti</td><td><strong>50</strong>: generación (la anterior era la 40). <strong>70</strong>: gama (50 básica, 60 media, 70 media-alta, 80 alta, 90 la más potente). <strong>Ti</strong> o <strong>Super</strong>: versión mejorada del mismo modelo.</td></tr>
+        <tr><td><strong>AMD</strong></td><td class="mono">Radeon RX 9070 XT</td><td><strong>9</strong>: generación (la anterior era la 7000). <strong>070</strong>: gama (050 básica, 060 media, 070 media-alta). <strong>XT</strong>: versión mejorada. <strong>GRE</strong>: versión recortada.</td></tr>
+        <tr><td><strong>Intel</strong></td><td class="mono">Arc B580</td><td><strong>B</strong>: generación (Battlemage; la anterior era la A, Alchemist). <strong>5</strong>: gama. <strong>80</strong>: modelo dentro de la gama.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Igual que en los procesadores, un número de gama más alto es una tarjeta más
+    potente, y entre dos generaciones manda la gama: una RTX 4080 es más rápida que
+    una RTX 5060, aunque sea de la generación anterior.</p>
+
+    <h4>NVIDIA GeForce RTX 50</h4>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Modelo</th><th>Gama</th><th>Núcleos CUDA</th><th>VRAM</th><th>Bus</th><th>Consumo</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RTX 5050</strong></td><td>Básica</td><td>2560</td><td>8 GB GDDR6</td><td>128 bits</td><td>130 W</td><td>Juegos a 1080p con calidad media</td></tr>
+        <tr><td><strong>RTX 5060</strong></td><td>Media</td><td>3840</td><td>8 GB GDDR7</td><td>128 bits</td><td>145 W</td><td>Juegos a 1080p</td></tr>
+        <tr><td><strong>RTX 5060 Ti</strong></td><td>Media</td><td>4608</td><td>8 o 16 GB GDDR7</td><td>128 bits</td><td>180 W</td><td>Juegos a 1080p y 1440p (mejor la de 16 GB)</td></tr>
+        <tr><td><strong>RTX 5070</strong></td><td>Media-alta</td><td>6144</td><td>12 GB GDDR7</td><td>192 bits</td><td>250 W</td><td>Juegos a 1440p</td></tr>
+        <tr><td><strong>RTX 5070 Ti</strong></td><td>Alta</td><td>8960</td><td>16 GB GDDR7</td><td>256 bits</td><td>300 W</td><td>Juegos a 1440p y 4K, edición de vídeo</td></tr>
+        <tr><td><strong>RTX 5080</strong></td><td>Alta</td><td>10 752</td><td>16 GB GDDR7</td><td>256 bits</td><td>360 W</td><td>Juegos a 4K, diseño 3D</td></tr>
+        <tr><td><strong>RTX 5090</strong></td><td>La más potente</td><td>21 760</td><td>32 GB GDDR7</td><td>512 bits</td><td>575 W</td><td>4K exigente, inteligencia artificial, trabajo profesional</td></tr>
+      </tbody>
+    </table></div>
+
+    <h4>AMD Radeon RX 9000</h4>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Modelo</th><th>Gama</th><th>Procesadores de flujo</th><th>VRAM</th><th>Bus</th><th>Consumo</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RX 9050</strong></td><td>Básica</td><td>—</td><td>8 GB GDDR6</td><td>128 bits</td><td>unos 90 W</td><td>Juegos a 1080p con calidad media</td></tr>
+        <tr><td><strong>RX 9060 XT</strong></td><td>Media</td><td>2048</td><td>8 o 16 GB GDDR6</td><td>128 bits</td><td>150-160 W</td><td>Juegos a 1080p y 1440p (mejor la de 16 GB)</td></tr>
+        <tr><td><strong>RX 9070</strong></td><td>Media-alta</td><td>3584</td><td>16 GB GDDR6</td><td>256 bits</td><td>220 W</td><td>Juegos a 1440p</td></tr>
+        <tr><td><strong>RX 9070 XT</strong></td><td>Alta</td><td>4096</td><td>16 GB GDDR6</td><td>256 bits</td><td>304 W</td><td>Juegos a 1440p y 4K</td></tr>
+      </tbody>
+    </table></div>
+    <p>En esta generación AMD no tiene un modelo de gama más alta: no compite con la
+    RTX 5080 ni con la RTX 5090.</p>
+
+    <h4>Intel Arc serie B</h4>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Modelo</th><th>Gama</th><th>Núcleos Xe</th><th>VRAM</th><th>Bus</th><th>Consumo</th><th>Para qué</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Arc B570</strong></td><td>Básica</td><td>18</td><td>10 GB GDDR6</td><td>160 bits</td><td>150 W</td><td>Juegos a 1080p</td></tr>
+        <tr><td><strong>Arc B580</strong></td><td>Media</td><td>20</td><td>12 GB GDDR6</td><td>192 bits</td><td>190 W</td><td>Juegos a 1080p y 1440p</td></tr>
+      </tbody>
+    </table></div>
+    <p>Intel solo vende estas dos. Hace tiempo que se habla de una Arc B770 más
+    potente, pero no ha llegado a salir.</p>
+
+    <h4>Equivalencias aproximadas entre marcas</h4>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+      <thead><tr><th>Gama</th><th>NVIDIA</th><th>AMD</th><th>Intel</th></tr></thead>
+      <tbody>
+        <tr><td>Básica (1080p)</td><td>RTX 5050</td><td>RX 9050</td><td>Arc B570</td></tr>
+        <tr><td>Media (1080p, algo de 1440p)</td><td>RTX 5060, RTX 5060 Ti</td><td>RX 9060 XT</td><td>Arc B580</td></tr>
+        <tr><td>Media-alta (1440p)</td><td>RTX 5070</td><td>RX 9070</td><td>—</td></tr>
+        <tr><td>Alta (1440p y 4K)</td><td>RTX 5070 Ti</td><td>RX 9070 XT</td><td>—</td></tr>
+        <tr><td>La más alta (4K, IA)</td><td>RTX 5080, RTX 5090</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="clave">
+      <strong>Para elegir bien</strong>
+      <ul>
+        <li><strong>No compares núcleos entre marcas.</strong> Un núcleo CUDA, un procesador
+        de flujo y un núcleo Xe no hacen el mismo trabajo. Entre marcas se comparan
+        pruebas de rendimiento (fps en juegos).</li>
+        <li><strong>Mira la VRAM.</strong> Con 8 GB, muchos juegos nuevos ya van justos. Si
+        el mismo modelo existe con 8 y con 16 GB, mejor la de 16 GB.</li>
+        <li><strong>Comprueba la fuente y la caja.</strong> Consumo, conectores de
+        alimentación y longitud de la tarjeta (apartado 3.9.1 y 3.12).</li>
+      </ul>
+    </div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo · ¿Qué dice el nombre de una tarjeta en la tienda?</strong>
+      <p class="mono">MSI GeForce RTX 5060 Ti VENTUS 2X OC 16G</p>
+      <ul>
+        <li><strong>MSI</strong>: el ensamblador, que fabrica la tarjeta.</li>
+        <li><strong>GeForce RTX 5060 Ti</strong>: el chip, de NVIDIA. Generación 50, gama media.</li>
+        <li><strong>VENTUS 2X</strong>: el modelo de disipador de MSI, con 2 ventiladores.</li>
+        <li><strong>OC</strong>: viene con la frecuencia un poco más alta de fábrica.</li>
+        <li><strong>16G</strong>: 16 GB de VRAM (este modelo también existe con 8 GB).</li>
+      </ul>
+    </div>
+
+    <div class="aviso">
+      <strong>El mercado cambia rápido</strong>
+      <p>Esta tabla es de noviembre de 2026. Hay escasez de memoria GDDR7 por la demanda
+      de la inteligencia artificial, y por eso han subido los precios y NVIDIA ha
+      retrasado nuevos modelos. Antes de recomendar una tarjeta, comprueba siempre qué
+      modelos hay a la venta y a qué precio.</p>
+    </div>
   </section>
 
   <section>
@@ -400,6 +506,9 @@
       Clear CMOS para volver a los valores de fábrica.</li>
       <li>Gráfica integrada o dedicada (VRAM, consumo, alimentación, tamaño,
       salidas). El monitor se conecta a la tarjeta.</li>
+      <li>Modelos actuales: NVIDIA RTX 50 (5050 a 5090), AMD RX 9000 (9050 a
+      9070 XT) e Intel Arc B (B570, B580). El nombre indica generación y gama; entre
+      marcas se compara con pruebas de rendimiento, no con núcleos.</li>
       <li>Monitor: tamaño, resolución, densidad, Hz, tiempo de respuesta, panel
       (IPS, VA, OLED…), HDR, sincronización. El conector tiene que dar el ancho de
       banda necesario.</li>
@@ -515,6 +624,26 @@
           <li><label><input type="radio" name="u10" value="d"> Quitar la pila</label></li>
         </ul><span class="marca"></span>
         <p class="explicacion" hidden>Si se interrumpe, el firmware queda incompleto y la placa puede no volver a arrancar. El archivo tiene que ser del modelo y la revisión exactos.</p>
+      </div>
+      <div class="pregunta" data-correcta="b">
+        <p class="enunciado"><span class="num">11.</span> En una GeForce RTX 5070 Ti, ¿qué indica el 70?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u11" value="a"> La generación</label></li>
+          <li><label><input type="radio" name="u11" value="b"> La gama, media-alta</label></li>
+          <li><label><input type="radio" name="u11" value="c"> La cantidad de VRAM</label></li>
+          <li><label><input type="radio" name="u11" value="d"> El consumo en vatios</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>El 50 es la generación y el 70, la gama (50 básica, 60 media, 70 media-alta, 80 alta, 90 la más potente). Ti indica una versión mejorada.</p>
+      </div>
+      <div class="pregunta" data-correcta="d">
+        <p class="enunciado"><span class="num">12.</span> Una Radeon RX 9070 XT tiene 4096 procesadores de flujo y una GeForce RTX 5070 Ti, 8960 núcleos CUDA. ¿Qué se puede decir?</p>
+        <ul class="opciones">
+          <li><label><input type="radio" name="u12" value="a"> La de NVIDIA es más del doble de rápida</label></li>
+          <li><label><input type="radio" name="u12" value="b"> La de AMD es más rápida porque sus núcleos son más grandes</label></li>
+          <li><label><input type="radio" name="u12" value="c"> Son iguales porque las dos tienen 16 GB</label></li>
+          <li><label><input type="radio" name="u12" value="d"> No se pueden comparar por los núcleos: hay que mirar pruebas de rendimiento</label></li>
+        </ul><span class="marca"></span>
+        <p class="explicacion" hidden>Los núcleos de cada marca no hacen el mismo trabajo. Las dos son de gama alta y rinden parecido en juegos: se comparan con pruebas (fps), no con el número de núcleos.</p>
       </div>
       <div class="acciones">
         <button type="button" data-corregir>Corregir</button>
