@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P9 · Servicio técnico: dos empresas de informática · Tema 3 · 0221 Montaje y mantenimiento</title>
+<link rel="stylesheet" href="../assets/estilo.css">
+<link rel="stylesheet" href="../assets/ut02.css">
+<link rel="stylesheet" href="../assets/ut03.css">
+<link rel="stylesheet" href="../assets/aula.css">
+<script defer src="../assets/aula.js"></script>
+<link rel="stylesheet" href="../assets/organizacion.css">
+</head>
+<body data-modulo="0221">
+<a class="saltar" href="#contenido">Saltar al contenido</a><header class="aula-barra"><a class="aula-marca" href="../index.html">0221 / Montaje y mantenimiento</a><nav aria-label="Navegación del módulo"><a href="../index.html">Temas</a><a href="../recursos.html">Buscar material</a></nav></header>
+<div class="aula-layout"><aside class="aula-indice"><a class="indice-inicio" href="../index.html">Inicio del módulo</a><a class="indice-tema" href="ut03.html"><span>Tema 3</span>Placa base, microprocesador, memoria, adaptadores y chasis</a><a class="indice-material" href="../recursos.html?tema=3">Todo el material del tema 3</a><details open><summary>En esta página</summary><ul><li><a href="#apartado-empresas">1. Las dos empresas</a></li><li><a href="#apartado-jornadas">2. Las jornadas</a></li><li><a href="#apartado-documentos">3. Los documentos de la empresa</a></li><li><a href="#apartado-encargos">4. Banco de encargos</a></li><li><a href="#apartado-concurso">5. El concurso (sesión 6)</a></li></ul></details></aside><main class="envoltura" id="contenido" tabindex="-1"><nav class="aula-migas" aria-label="Estás en"><a href="../index.html">Inicio</a><span aria-hidden="true">›</span><a href="ut03.html">Tema 3 · Placa base, microprocesador, memoria, adaptadores y chasis</a><span aria-hidden="true">›</span><a href="ut03.html#seccion-practicas">Prácticas</a><span aria-hidden="true">›</span><span aria-current="page">P9</span></nav>
+
+  <header class="cab">
+    <p class="modulo">0221 · Montaje y mantenimiento de equipo · Tema 3 (UT3) · Prácticas</p>
+    <h1>P9 · Servicio técnico: dos empresas de informática</h1>
+    <p class="meta">2.º SMR · Curso 2026/2027 · 1.ª evaluación · UT3 · RA1 (f, g, i, j, k)</p>
+  </header>
+<div class="aula-herramientas"><button type="button" data-imprimir hidden>Imprimir / guardar PDF</button></div>
+
+  <nav class="subnav" aria-label="Apartados del tema 3">
+    <a href="ut03.html" class="inicio-tema">Portada del tema</a>
+    <a href="ut03.html#seccion-teoria" class="sec-teoria">Teoría</a>
+    <a href="ut03-ejercicios.html" class="sec-ejercicios">Ejercicios</a>
+    <a href="ut03.html#seccion-practicas" class="sec-practicas" aria-current="true">Prácticas</a>
+    <a href="ut03-examen.html" class="sec-examen">Preparar el examen</a>
+    <a href="ut03.html#seccion-enclase" class="sec-enclase">En clase</a>
+  </nav>
+
+  <details class="ra-ce"><summary>Qué se evalúa · RA y criterios</summary>
+    <h2 id="que-criterios-acreditan">Qué criterios acreditan</h2>
+    <p><strong>RA1.</strong> Selecciona los componentes que integran un equipo
+    microinformático estándar, describiendo sus funciones y comparando prestaciones de
+    distintos fabricantes.</p>
+    <ul>
+      <li><strong>f)</strong> Se ha explicado para qué sirve la BIOS de un ordenador y las características comunes de las BIOS de los ordenadores actuales.</li>
+      <li><strong>g)</strong> Se han evaluado tipos de chasis para la placa base y el resto de componentes.</li>
+      <li><strong>i)</strong> Se ha analizado la función del adaptador gráfico y el monitor.</li>
+      <li><strong>j)</strong> Se han identificado y manipulado distintos adaptadores (gráficos, red, entre otros).</li>
+      <li><strong>k)</strong> Se han identificado los elementos que acompañan a un componente de integración (documentación, controladores, cables y utilidades, entre otros).</li>
+    </ul>
+    <p>Para configurar los equipos también usarás lo de la primera parte del tema
+    (procesador, placa, memoria, refrigeración).</p>
+  </details>
+
+  <p class="meta"><strong>Evaluable</strong> · caso práctico en grupo, con nota individual ·
+  6 sesiones · se entrega en el portafolio</p>
+
+  <p><strong>Qué vas a conseguir:</strong> trabajar como en una tienda de informática con
+  servicio técnico. Vais a diagnosticar averías, aconsejar a clientes, elegir componentes
+  compatibles y redactar los documentos que se hacen en una empresa real: órdenes de
+  trabajo, informes de avería, informes técnicos, presupuestos y hojas de entrega.</p>
+
+  <h2 id="apartado-empresas">1. Las dos empresas</h2>
+  <p>La clase se divide en dos empresas que compiten entre sí:</p>
+  <ul>
+    <li><strong>Empresa A</strong>: 3 personas.</li>
+    <li><strong>Empresa B</strong>: 2 personas.</li>
+  </ul>
+  <p>El profesor hace de <strong>centralita</strong>: os pasa los encargos de los clientes,
+  hace de cliente cuando hay que preguntar algo y, a veces, os llamará con un cambio de
+  última hora.</p>
+
+  <h3>Los roles</h3>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+    <thead><tr><th>Rol</th><th>Qué hace</th><th>Documentos que firma</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Técnico/a del servicio técnico</strong></td><td>Recibe los equipos con averías, los diagnostica siguiendo un orden lógico y los repara o propone la reparación.</td><td>Informe de avería</td></tr>
+      <tr><td><strong>Asesor/a técnico-comercial</strong></td><td>Habla con el cliente, traduce lo que necesita en requisitos, elige los componentes, comprueba que son compatibles y hace el presupuesto.</td><td>Informe técnico de configuración y presupuesto</td></tr>
+      <tr><td><strong>Responsable de calidad y documentación</strong></td><td>Revisa todos los documentos antes de entregarlos al cliente, lleva el registro de encargos y prepara la hoja de entrega: qué documentación, controladores, cables y garantías recibe el cliente.</td><td>Registro de encargos, hoja de entrega y visto bueno de calidad</td></tr>
+    </tbody>
+  </table></div>
+  <div class="clave">
+    <strong>Los roles cambian cada jornada</strong>
+    <p>Al final de la práctica <strong>todos</strong> tenéis que haber hecho todos los roles,
+    porque la nota es individual. Apuntad en el <strong>cuadrante de roles</strong> quién hace
+    qué cada jornada. En la empresa B, de dos personas, no hay responsable de calidad fijo:
+    cada uno revisa y firma el visto bueno de los documentos del otro, y la hoja de entrega
+    la hace quien no ha atendido al cliente.</p>
+  </div>
+  <p><strong>Lo mínimo que tiene que firmar cada persona</strong> al terminar la práctica:
+  2 informes de avería, 1 informe técnico de configuración con su presupuesto, 1 hoja de
+  entrega y el visto bueno de calidad de al menos 2 documentos de sus compañeros.</p>
+
+  <h2 id="apartado-jornadas">2. Las jornadas</h2>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+    <thead><tr><th>Sesión</th><th>Qué se hace</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Fundamos la empresa</strong></td><td>Nombre, logotipo sencillo, datos de la empresa (inventados: dirección, NIF, teléfono), tarifas y plantillas de todos los documentos. Cuadrante de roles.</td></tr>
+      <tr><td><strong>2, 3 y 4. Jornadas de trabajo</strong></td><td>Cada jornada la centralita os da encargos del banco del apartado 4. Empresa A: 2 averías y 1 cliente. Empresa B: 1 avería y 1 cliente. Al final de la jornada, todo lo terminado tiene que estar revisado por calidad y apuntado en el registro.</td></tr>
+      <tr><td><strong>5. Avería real en el taller</strong></td><td>El profesor os deja un equipo del taller con una o varias averías. Tenéis que encontrarlas, repararlas y hacer el informe. Aquí sí se toca el equipo: hay que cumplir las normas de seguridad.</td></tr>
+      <tr><td><strong>6. Concurso entre las dos empresas</strong></td><td>Las dos empresas compiten por el mismo cliente grande (encargo CL-09). Cada una presenta su propuesta en 5 minutos y el cliente elige.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="aviso">
+    <strong>Llamadas de última hora.</strong> En cualquier jornada la centralita puede
+    llamar: un cliente cambia de idea, baja su presupuesto, una pieza se agota o aparece
+    un síntoma nuevo. Tenéis que adaptar el trabajo y anotar el cambio en el registro.
+    Así pasa en las empresas de verdad.
+  </div>
+
+  <h2 id="apartado-documentos">3. Los documentos de la empresa</h2>
+  <p>Hacéis las plantillas en la sesión 1 (procesador de textos y hoja de cálculo) y las
+  usáis durante toda la práctica. Todas llevan el logotipo y los datos de la empresa, el
+  número de encargo, la fecha y la firma de quien lo hace y de quien lo revisa.</p>
+
+  <div class="ejercicio">
+    <h3><span class="num">D1.</span> Registro de encargos (hoja de cálculo)</h3>
+    <p>Una fila por encargo: número (AV-xx o CL-xx), fecha de entrada, cliente, quién lo
+    atiende, estado (<em>recibido, en diagnóstico, esperando cliente, terminado,
+    entregado</em>), tiempo dedicado y fecha de cierre. También se apuntan aquí las
+    llamadas de última hora.</p>
+  </div>
+
+  <div class="ejercicio">
+    <h3><span class="num">D2.</span> Informe de avería <span class="ce">CE f</span> <span class="ce">CE i</span> <span class="ce">CE j</span></h3>
+    <ol>
+      <li><strong>Datos del equipo</strong>: lo que sepáis (modelo, procesador, placa,
+      gráfica, sistema operativo).</li>
+      <li><strong>Síntoma</strong>, con las palabras del cliente.</li>
+      <li><strong>Pruebas realizadas, en orden</strong>, de la más sencilla a la más
+      complicada, y qué resultado dio cada una. Si es un encargo del banco, indica qué
+      pruebas harías y qué esperarías ver.</li>
+      <li><strong>Diagnóstico</strong>: cuál es la causa y por qué lo sabes.</li>
+      <li><strong>Solución</strong> aplicada o propuesta, con piezas y coste si hace falta
+      cambiar algo.</li>
+      <li><strong>Recomendaciones al cliente</strong> para que no vuelva a pasar.</li>
+      <li>Tiempo dedicado y firmas.</li>
+    </ol>
+  </div>
+
+  <div class="ejercicio">
+    <h3><span class="num">D3.</span> Informe técnico de configuración <span class="ce">CE g</span> <span class="ce">CE i</span> <span class="ce">CE j</span></h3>
+    <ol>
+      <li><strong>Necesidades del cliente</strong> traducidas a requisitos técnicos. Por
+      ejemplo: «jugar a 1440p a 144 Hz» → gráfica de gama media-alta, monitor 1440p de
+      144 Hz o más, DisplayPort.</li>
+      <li><strong>Tabla de componentes</strong>: componente, modelo exacto, por qué ese y no
+      otro.</li>
+      <li><strong>Comprobaciones de compatibilidad</strong>, una por una:
+        <ul>
+          <li>procesador, zócalo y chipset (y versión de UEFI necesaria);</li>
+          <li>tipo de memoria y lista de compatibilidad (QVL) de la placa;</li>
+          <li>ranuras M.2 que se usan y si comparten carriles;</li>
+          <li>potencia de la fuente: suma de consumos y margen, y conectores de la gráfica;</li>
+          <li>caja: formato de placa, longitud de la gráfica y altura del disipador o
+          radiador;</li>
+          <li>salidas de la gráfica, entradas del monitor y cable que hace falta.</li>
+        </ul></li>
+      <li><strong>Una alternativa</strong> más barata o más potente, y qué se gana o se
+      pierde con ella.</li>
+    </ol>
+  </div>
+
+  <div class="ejercicio">
+    <h3><span class="num">D4.</span> Presupuesto</h3>
+    <ul>
+      <li>Datos de la empresa y del cliente, número de presupuesto, fecha y
+      <strong>validez</strong> (por ejemplo, 15 días: los precios cambian).</li>
+      <li>Una línea por concepto: descripción, cantidad, precio unitario <strong>sin
+      IVA</strong> e importe.</li>
+      <li><strong>Mano de obra</strong> según vuestras tarifas: montaje, instalación del
+      sistema y controladores, configuración de la UEFI, pruebas.</li>
+      <li>Base imponible, <strong>IVA (21 %)</strong> y total.</li>
+      <li>Condiciones: plazo de entrega, forma de pago y garantías.</li>
+      <li>Precios <strong>reales</strong> de una tienda, con el enlace y la fecha en que
+      los mirasteis (en un anexo).</li>
+    </ul>
+    <div class="ejemplo">
+      <strong>Ojo con el IVA</strong>
+      <p>Las tiendas muestran el precio con IVA. Si una gráfica cuesta 423,50 € con IVA,
+      su precio sin IVA es 423,50 ÷ 1,21 = 350,00 €. En el presupuesto pones 350,00 € y
+      el IVA se suma al final, sobre la base imponible.</p>
+    </div>
+  </div>
+
+  <div class="ejercicio">
+    <h3><span class="num">D5.</span> Hoja de entrega al cliente <span class="ce">CE k</span></h3>
+    <ul>
+      <li>Qué se entrega: el equipo y, de cada componente, su caja, manual, cables y
+      accesorios sobrantes (tornillos M.2, cables SATA, adaptadores, antenas Wi-Fi…).</li>
+      <li>Controladores y utilidades instalados, con su versión, y de dónde se descargan.</li>
+      <li>Lo que se ha configurado: versión de la UEFI, perfil XMP o EXPO, orden de
+      arranque, TPM y Secure Boot, curvas de ventiladores…</li>
+      <li>Garantías: los productos nuevos tienen 3 años de garantía legal en España; la
+      reparación, la que indique vuestra tienda (como mínimo 3 meses). Indica qué hay que
+      guardar para reclamar (factura y caja).</li>
+      <li>Firma del cliente y de la empresa.</li>
+    </ul>
+  </div>
+
+  <h2 id="apartado-encargos">4. Banco de encargos</h2>
+  <p>La centralita os asigna los encargos de cada jornada. No hace falta hacerlos todos.
+  Si un dato no está, preguntad al cliente (al profesor) o haced una suposición razonable
+  y escribidla en el informe.</p>
+
+  <h3>Averías (AV)</h3>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+    <thead><tr><th>Nº</th><th>Lo que cuenta el cliente</th><th>Datos del equipo</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:nowrap"><strong>AV-01</strong></td><td>«Me he montado el ordenador yo mismo. Enciende, los ventiladores giran, pero la pantalla dice "sin señal".»</td><td>Core i5-14400F, placa B760, RTX 4060. Monitor conectado por HDMI.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-02</strong></td><td>«Toqué una opción de la BIOS para que la memoria fuera más rápida y ahora no arranca. Se queda encendida una luz que pone DRAM.»</td><td>Ryzen 5 7600, placa B650, 2 × 16 GB DDR5-6400 que no están en la QVL.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-03</strong></td><td>«Quiero poner Windows 11 y me dice que este PC no cumple los requisitos. El ordenador es bastante nuevo.»</td><td>Core i5-12400, placa H610. UEFI con CSM activado, TPM desactivado. Disco con particiones MBR.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-04</strong></td><td>«Cuando juego, a los diez minutos se apaga de golpe. Navegando por internet nunca pasa.»</td><td>Fuente genérica de 450 W sin certificación. Gráfica nueva de 250 W alimentada con un adaptador de dos conectores Molex.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-05</strong></td><td>«Me he comprado un monitor de 165 Hz y en el ratón noto que va igual que el viejo.»</td><td>Monitor 27" 1440p 165 Hz con HDMI 2.0 y DisplayPort 1.4. Conectado con el cable HDMI del monitor antiguo. En Windows aparece 60 Hz.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-06</strong></td><td>«Hace muchísimo ruido y el procesador llega a 95 °C jugando.»</td><td>Caja con 3 ventiladores delanteros y 1 trasero, todos sacando aire. Filtro frontal lleno de polvo. Disipador de serie.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-07</strong></td><td>«He puesto un SSD M.2 nuevo y no aparece por ningún sitio, ni en la BIOS.»</td><td>SSD M.2 <strong>SATA</strong> en una ranura M.2 que, según el manual, solo admite PCIe.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-08</strong></td><td>«He instalado una tarjeta Wi-Fi con Bluetooth. El Wi-Fi funciona a ratos y el Bluetooth no aparece.»</td><td>Tarjeta Wi-Fi 6E PCIe x1 sin controlador instalado (Windows usa uno genérico). El cable USB de la tarjeta no está conectado a la placa. Antenas sin poner.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-09</strong></td><td>«Al encender pita: un pitido largo y tres cortos, y no sale imagen.»</td><td>Equipo de sobremesa con tarjeta gráfica. Se movió de casa la semana pasada.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-10</strong></td><td>«Cada vez que desenchufo la regleta, el ordenador se pone en 2009 y tengo que volver a configurar la BIOS.»</td><td>Equipo de 2018. La configuración y la hora se pierden al quitar la corriente.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-11</strong></td><td>«He comprado una gráfica nueva por internet y no entra en la caja.»</td><td>Caja micro-ATX que admite gráficas de hasta 300 mm. La gráfica mide 336 mm y ocupa 3 ranuras.</td></tr>
+      <tr><td style="white-space:nowrap"><strong>AV-12</strong></td><td>«Estaba actualizando la BIOS, se fue la luz y ahora no enciende nada en pantalla.»</td><td>Placa ASUS de gama media con botón <em>BIOS FlashBack</em> en el panel trasero.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Clientes (CL)</h3>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+    <thead><tr><th>Nº</th><th>Cliente y lo que necesita</th><th>Presupuesto (IVA incluido)</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:nowrap"><strong>CL-01</strong></td><td><strong>Jugador.</strong> Quiere jugar a juegos actuales a 1440p y a más de 100 fps. Ya tiene teclado, ratón y auriculares; necesita torre y monitor.</td><td>1500 €</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-02</strong></td><td><strong>Gestoría.</strong> 3 equipos iguales para ofimática, programas de contabilidad y videollamadas. Silenciosos, con monitor de 24" y Windows 11 Pro. No juegan.</td><td>650 € por equipo</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-03</strong></td><td><strong>Creadora de contenido.</strong> Edita vídeo 4K para YouTube. Necesita mucha memoria, una gráfica buena para codificar vídeo y un monitor de colores fieles.</td><td>2000 €</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-04</strong></td><td><strong>Estudiante de arquitectura.</strong> Usa AutoCAD, SketchUp y algo de Blender. Tiene poco dinero, pero quiere poder mejorar el equipo dentro de un par de años.</td><td>850 €, solo la torre</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-05</strong></td><td><strong>Ordenador para el salón.</strong> Ver películas y series 4K HDR en la televisión y jugar a juegos sencillos. Tiene que ser pequeño y muy silencioso.</td><td>800 €</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-06</strong></td><td><strong>Ampliación.</strong> Quiere cambiar solo la gráfica para jugar a 1080p con calidad alta. Su equipo: Ryzen 5 3600, placa B450 (PCIe 3.0), 16 GB DDR4, fuente de 550 W 80 Plus Bronze con dos conectores PCIe de 8 pines, caja que admite gráficas de hasta 300 mm, GTX 1660.</td><td>400 €</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-07</strong></td><td><strong>Streamer.</strong> Juega y emite en directo a la vez. Usa dos monitores (uno de juego y otro para el chat) y una cámara web.</td><td>2200 €, con los dos monitores</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-08</strong></td><td><strong>Programador de inteligencia artificial.</strong> Quiere probar modelos de IA en su propio ordenador. Le han dicho que lo importante es la memoria de la gráfica.</td><td>2500 €, solo la torre</td></tr>
+      <tr><td style="white-space:nowrap"><strong>CL-09</strong></td><td><strong>Concurso · Academia de formación.</strong> Un aula con 8 puestos iguales para cursos de ofimática y diseño básico, con monitor, más un equipo para el profesor conectado a un proyector. Quieren garantía, que sea fácil de mantener y poco consumo. Las dos empresas presentan su propuesta.</td><td>7000 € en total</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="apartado-concurso">5. El concurso (sesión 6)</h2>
+  <p>Las dos empresas preparan una propuesta para la academia (CL-09): informe técnico,
+  presupuesto y hoja de entrega. Cada empresa la presenta en <strong>5 minutos</strong>,
+  y todos sus miembros tienen que hablar. Después la otra empresa y el profesor hacen de
+  clientes: preguntan y puntúan con esta tabla. Gana la propuesta con más puntos.</p>
+  <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="tabla-datos">
+    <thead><tr><th>Lo que valora el cliente</th><th>Puntos</th></tr></thead>
+    <tbody>
+      <tr><td>Cubre lo que pide la academia y no se pasa del presupuesto</td><td>0 a 3</td></tr>
+      <tr><td>Los componentes son compatibles y está bien justificado</td><td>0 a 3</td></tr>
+      <tr><td>Garantía, mantenimiento y consumo</td><td>0 a 2</td></tr>
+      <tr><td>Presentación clara y respuestas a las preguntas</td><td>0 a 2</td></tr>
+    </tbody>
+  </table></div>
+  <p>Una empresa no puntúa su propia propuesta. El premio para la empresa ganadora lo
+  anuncia el profesor.</p>
+
+  <div class="aviso">
+    <strong>Avería real (sesión 5).</strong> Repasa <a href="ut01-prl.html">Seguridad y
+    PRL</a> antes de empezar. Equipo apagado y <strong>desenchufado</strong> antes de abrirlo,
+    pulsera antiestática conectada al chasis, tornillos en una bandeja. Las tarjetas se
+    cogen por los bordes. Antes de volver a enchufar, lo revisa el profesor. Haz fotos de
+    lo que encuentres: van al informe.
+  </div>
+
+  <div class="ejercicio">
+    <h3><span class="num">Entrega</span></h3>
+    <ul>
+      <li><strong>Por empresa:</strong> una carpeta comprimida
+      <code>P9_nombre-empresa.zip</code> con las plantillas, el registro de encargos y el
+      cuadrante de roles.</li>
+      <li><strong>Por persona:</strong> un PDF <code>P9_apellido1_apellido2.pdf</code> con
+      los documentos que has firmado tú (informes, presupuestos, hojas de entrega y vistos
+      buenos de calidad), el informe de la avería real y una reflexión breve: qué rol te ha
+      costado más y qué harías distinto.</li>
+    </ul>
+    <h3>Cómo se evalúa (10 puntos, nota individual)</h3>
+    <p>Cada persona se evalúa con los documentos que ha firmado. La parte de concurso y
+    plantillas es común a toda la empresa.</p>
+    <div class="aula-tabla" role="region" aria-label="Tabla de datos; desplazamiento horizontal" tabindex="0"><table class="rubrica">
+      <thead><tr><th>Criterio</th><th>CE</th><th>Puntos</th><th>Para la nota máxima</th></tr></thead>
+      <tbody>
+        <tr><td>Informes de avería</td><td>f), i), j)</td><td>2,5</td><td>Pruebas en orden lógico, diagnóstico correcto y justificado, solución adecuada y recomendaciones útiles.</td></tr>
+        <tr><td>Informes técnicos de configuración</td><td>g), i), j)</td><td>2,5</td><td>Requisitos bien deducidos, todas las comprobaciones de compatibilidad hechas y correctas, elección justificada y alternativa razonada.</td></tr>
+        <tr><td>Presupuestos</td><td>—</td><td>1</td><td>Completos, precios reales con enlace y fecha, IVA y mano de obra bien calculados, dentro del presupuesto del cliente.</td></tr>
+        <tr><td>Hojas de entrega y documentación del componente</td><td>k)</td><td>1</td><td>Recoge toda la documentación, controladores, cables, configuraciones y garantías.</td></tr>
+        <tr><td>Avería real en el taller</td><td>f), j)</td><td>1,5</td><td>Encuentra y repara las averías siguiendo un procedimiento ordenado y seguro; informe con fotos.</td></tr>
+        <tr><td>Concurso: propuesta y presentación</td><td>g), i)</td><td>1</td><td>Propuesta completa y compatible; presentación clara en la que participa.</td></tr>
+        <tr><td>Calidad y trabajo en el rol</td><td>—</td><td>0,5</td><td>Revisiones de calidad útiles, registro al día, plazos cumplidos.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Como en todas las entregas, las faltas de ortografía restan según la programación
+    (hasta 1 punto).</p>
+  </div>
+
+  <nav class="nav-temas" aria-label="Página anterior y siguiente del tema">
+    <a href="ut03-practicas.html">&laquo; Prácticas</a>
+    <a href="ut03-examen.html">Preparar el examen &raquo;</a>
+  </nav>
+
+  <footer class="pie">
+    <p>0221 Montaje y mantenimiento de equipo · Material de consulta del alumnado.
+    Currículo: Decreto 272/2009 (Extremadura).</p>
+  </footer>
+
+</main></div>
+</body>
+</html>

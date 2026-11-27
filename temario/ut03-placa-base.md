@@ -208,3 +208,13 @@ B580), con núcleos, VRAM, bus, consumo y uso; equivalencias entre marcas y ejem
 nombre comercial de un ensamblador. Situación a noviembre de 2026: NVIDIA no ha lanzado
 las RTX 50 Super y la Arc B770 no llegó a salir. Revisar las tablas cada curso.
 Autoevaluación: preguntas 11 y 12 nuevas.
+
+## P9 · Servicio técnico: dos empresas de informática (27/11/2026)
+
+Caso práctico en grupo con nota individual para la segunda parte del tema (CE f, g, i, j,
+k): `web/temas/ut03-practica-empresas.html`, enlazada desde Prácticas. Empresa A (3) y
+empresa B (2) con roles rotativos (técnico/a, asesor/a, calidad), 6 sesiones: fundación,
+tres jornadas de encargos (banco de 12 averías y 9 clientes), avería real en el taller y
+concurso entre empresas (CL-09). Documentos: registro, informe de avería, informe técnico,
+presupuesto con IVA y hoja de entrega. Guía del profesor, diagnósticos, preparación de la
+avería real y llamadas de última hora en `temario/soluciones/ut03-p9-solucionario.md`.
